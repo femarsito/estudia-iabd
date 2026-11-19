@@ -1,0 +1,1836 @@
+{
+  "id": "saa-ud01",
+  "moduleId": "saa",
+  "number": 1,
+  "title": "Introducción a la IA y a los sistemas de aprendizaje automático",
+  "conceptMap": {
+    "src": "img/saa-ud01-mapa.png",
+    "credit": "Mapa conceptual de los apuntes de SAA UD1, Junta de Andalucía (CC BY-NC-SA)"
+  },
+  "lessons": [
+    {
+      "id": "saa-ud01-l01",
+      "kind": "read",
+      "title": "IA fuerte y débil",
+      "section": "1 y 1.1",
+      "cards": [
+        {
+          "title": "Dos tipos de IA",
+          "body": "Al principio se buscaba una máquina que siguiera la lógica sin fallar, pero programar todas las reglas resultó inabarcable. Los **sistemas expertos** marcaron la separación entre:\n- **IA fuerte o general**: parecida a la mente humana.\n- **IA débil o estrecha**: hace con gran precisión **una tarea concreta** dentro de un campo."
+        },
+        {
+          "title": "Dónde estamos",
+          "body": "Toda la evolución del **aprendizaje automático profundo** se ha dado en la **IA débil**. La **IA fuerte** todavía no se ha alcanzado. Para algunos expertos, la débil es el punto en el que estamos y la fuerte, **el siguiente paso evolutivo**."
+        },
+        {
+          "title": "Cómo distinguirlas",
+          "body": "No conviene separarlas comparándolas con la inteligencia humana. La clave de la IA actual es **el avance de la automatización**, y muchas IA débiles **superan con creces** a las personas en su ámbito.\n- Débil: tareas en **un único ámbito o contexto**.\n- Fuerte: tareas **muy diferentes** en entorno y resultados."
+        },
+        {
+          "title": "La IA débil, antes y ahora",
+          "body": "Ejemplos: un programa de ajedrez o un modelo de reconocimiento de imagen. Los **sistemas expertos** clásicos usaban reglas **if-else**: eran rígidos, difíciles de actualizar y dependían del equipo que los creaba, con riesgo de **sesgos**. Es impensable que una IA débil tenga **mente ni conciencia propia**."
+        },
+        {
+          "title": "Ventajas e inconvenientes",
+          "body": "Ventajas:\n- Relativamente **sencilla** de desarrollar.\n- **Fácil de controlar**, sin comportamientos muy inesperados.\n- Permite **arquitecturas modulares**.\nInconvenientes:\n- Es **«ciega»**: le falta contexto y puede malinterpretar entradas inusuales.\n- **Muy limitada** a aplicaciones concretas.\n- Trato menos cercano que el de una persona."
+        },
+        {
+          "title": "Ejemplos de IA débil",
+          "body": "- **Alexa, Siri, Google Assistant**: asistentes conversacionales.\n- **IBM Watson**: responde en lenguaje natural y analiza muchos datos.\n- **AlphaGo** (DeepMind): ganó al campeón mundial de Go.\n- **Coche autónomo**: varias IA débiles coordinadas por otra IA débil.\n- **Recomendadores**: entrenados con perfiles de gustos."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud01-l02",
+      "kind": "practice",
+      "title": "Practica: IA fuerte y débil",
+      "section": "1 y 1.1",
+      "questionIds": [
+        "saa-ud01-q001",
+        "saa-ud01-q002",
+        "saa-ud01-q003",
+        "saa-ud01-q004",
+        "saa-ud01-q005",
+        "saa-ud01-q006",
+        "saa-ud01-q007",
+        "saa-ud01-q008",
+        "saa-ud01-q009",
+        "saa-ud01-q010",
+        "saa-ud01-q011",
+        "saa-ud01-q012"
+      ]
+    },
+    {
+      "id": "saa-ud01-l03",
+      "kind": "read",
+      "title": "La IA fuerte o general",
+      "section": "1.2",
+      "cards": [
+        {
+          "title": "Qué sería una IA fuerte",
+          "body": "Viene más de la **ciencia ficción** que de una arquitectura real, y no está claro que sea posible con los algoritmos actuales. Sería una máquina capaz de **interaccionar con personas y con el mundo físico en cualquier contexto**. La meta es hacer tareas de **múltiples contextos** igual o mejor que una persona; imitarla no es el objetivo."
+        },
+        {
+          "title": "Argumentos en contra",
+          "body": "- **Searle**: el argumento de **la habitación china** («The Chinese Room Argument»).\n- El **primer teorema de incompletitud de Gödel**, usado para decir que una máquina nunca adquiriría inteligencia humana.\n- **Hubert Dreyfus**: el cerebro y la mente no son análogos al hardware y al software."
+        },
+        {
+          "title": "Por qué pesa más la IA débil",
+          "body": "- **Lógica**: sus algoritmos y funciones matemáticas se estudian con más claridad.\n- **Filosófica**: los humanos fabricamos los sistemas y les pasamos **la posibilidad del fallo**.\nSegún **Dortier**, la IA fuerte quería reconstruir el pensamiento humano y superarlo; la débil, más modesta, **simula comportamientos inteligentes**."
+        },
+        {
+          "title": "Gato, de DeepMind",
+          "body": "Se anunció a mediados de **2022**: juega a Atari, subtitula imágenes, chatea y apila bloques con un brazo robótico, hasta **604 tareas**. Pero las hace **peor** que los modelos especializados. Es **generalista** (muchas tareas a la vez), no **general** (adaptarse bien a tareas nuevas)."
+        },
+        {
+          "title": "Conciencia artificial",
+          "body": "El paso final sería un sistema que formara **representaciones sobre sí mismo**. Nada garantiza que una IA fuerte traiga conciencia, aunque se ve como lo más plausible. **Peter Voss** dice que necesitaría **autoconciencia conceptual**: saber qué acciones ha tomado, de cuáles es capaz y sus efectos."
+        },
+        {
+          "title": "El caso LaMDA",
+          "body": "El ingeniero de Google **Blake Lemoine** dijo que **LaMDA** pensaba y sentía. LaMDA es un modelo de lenguaje para diálogo basado en un **transformer**. Por fluida que sea, es **una fórmula que predice la siguiente palabra**: no tiene autoconciencia ni sensibilidad."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud01-l04",
+      "kind": "practice",
+      "title": "Practica: la IA fuerte",
+      "section": "1.2",
+      "questionIds": [
+        "saa-ud01-q013",
+        "saa-ud01-q014",
+        "saa-ud01-q015",
+        "saa-ud01-q016",
+        "saa-ud01-q017",
+        "saa-ud01-q018",
+        "saa-ud01-q019",
+        "saa-ud01-q020"
+      ]
+    },
+    {
+      "id": "saa-ud01-l05",
+      "kind": "read",
+      "title": "Modelos, variables y problemas",
+      "section": "2",
+      "cards": [
+        {
+          "title": "La realidad como caja negra",
+          "body": "Entran unas **variables de entrada X**, salen unas **variables de salida y**, y no sabemos qué pasa en medio. El aprendizaje automático busca un **modelo matemático** que, dados unos datos de entrada, prediga más o menos bien la salida. El modelo se **entrena** para adecuarse a los datos y al problema."
+        },
+        {
+          "title": "Parámetros e hiperparámetros",
+          "body": "- **Parámetros**: se ajustan al **entrenar** el modelo con los datos concretos.\n- **Hiperparámetros**: construyen una **familia de modelos** diferentes.\nEn un polinomio, los valores que acompañan a las x son los parámetros y el **grado** es el hiperparámetro."
+        },
+        {
+          "title": "El ejemplo del polinomio",
+          "body": "Con grado **1** la familia son las **rectas**, y entrenar es elegir la recta que mejor explica los datos. Con grado **2** son **parábolas**, y se elige la parábola que mejor los explica."
+        },
+        {
+          "title": "Tipos de variables",
+          "body": "- **Cuantitativas**: valores numéricos. **Continuas** (valores reales) o **discretas** (valores enteros finitos).\n- **Ordinales**: expresan **orden**.\n- **Cualitativas**: definen una **cualidad** (bueno, malo, colores, tipos)."
+        },
+        {
+          "title": "Tipos de problemas",
+          "body": "- **Clasificación**: la variable a predecir es **cualitativa**. Ej.: pisos caros o baratos.\n- **Regresión**: la variable a predecir es **continua**. Ej.: el precio de un piso.\n- **Análisis clúster**: averigua la etiqueta que no tenemos (**no supervisado**). Ej.: segmentar clientes."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud01-l06",
+      "kind": "practice",
+      "title": "Practica: modelos y problemas",
+      "section": "2",
+      "questionIds": [
+        "saa-ud01-q021",
+        "saa-ud01-q022",
+        "saa-ud01-q023",
+        "saa-ud01-q024",
+        "saa-ud01-q025",
+        "saa-ud01-q026",
+        "saa-ud01-q027",
+        "saa-ud01-q028",
+        "saa-ud01-q029"
+      ]
+    },
+    {
+      "id": "saa-ud01-l07",
+      "kind": "read",
+      "title": "Supervisado y no supervisado",
+      "section": "2.1 y 2.2",
+      "cards": [
+        {
+          "title": "Aprendizaje supervisado",
+          "body": "Resuelve problemas de **predicción**. Los datos vienen con sus **etiquetas** (salidas esperadas). Ej.: con coches y su precio se entrena un modelo que **infiere el precio** de un coche que no estaba en los datos. Sirve para **clasificación** y **regresión**."
+        },
+        {
+          "title": "Clasificación y regresión",
+          "body": "- **Clasificación**: predice un valor **discreto** y asigna cada instancia nueva a un tipo. Se evalúa con el **porcentaje de elementos bien clasificados**.\n- **Regresión**: predice un valor **continuo**, real (precio de una acción) o no finito (unidades vendidas). Se evalúa con métricas de error como el **MAE** (error absoluto medio)."
+        },
+        {
+          "title": "Algoritmos supervisados",
+          "body": "Los más usados:\n- **Naive Bayes**\n- **k vecinos más cercanos (kNN)**\n- **Árboles de decisión**\n- **Regresión logística y regresión lineal**"
+        },
+        {
+          "title": "Aprendizaje no supervisado",
+          "body": "**No hay etiquetas**: solo características de cada observación. El objetivo es **agrupar** los datos en grupos **homogéneos por dentro** y **heterogéneos entre sí**. Es útil en **estudios de mercado**, como la **segmentación de clientes**. El algoritmo agrupa, pero **el significado de cada grupo lo decides tú**."
+        },
+        {
+          "title": "El algoritmo k-means",
+          "body": "- **Inicialización**: elige al azar los **centroides** de los k grupos.\n- **Asignación**: calcula la distancia de cada objeto a los centroides y lo asigna a un grupo.\n- **Actualización**: calcula los nuevos centroides (**media**).\n- Si los centroides **no cambian**, para; si cambian, vuelve a la asignación."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud01-l08",
+      "kind": "practice",
+      "title": "Practica: supervisado y no supervisado",
+      "section": "2.1 y 2.2",
+      "questionIds": [
+        "saa-ud01-q030",
+        "saa-ud01-q031",
+        "saa-ud01-q032",
+        "saa-ud01-q033",
+        "saa-ud01-q034",
+        "saa-ud01-q035",
+        "saa-ud01-q036",
+        "saa-ud01-q037",
+        "saa-ud01-q038"
+      ]
+    },
+    {
+      "id": "saa-ud01-l09",
+      "kind": "read",
+      "title": "Python y Colab",
+      "section": "3 y 3.1",
+      "cards": [
+        {
+          "title": "Python y Colab",
+          "body": "**Python** es el lenguaje más usado en aprendizaje automático (machine learning). **Google Colab** permite ejecutar código Python de forma cómoda, **sin instalar nada** y con **la misma versión** para todos."
+        },
+        {
+          "title": "Rasgos de Python",
+          "body": "- Es **interpretado**.\n- No se marca el final de la instrucción ni se **declaran variables**.\n- El código debe estar **bien tabulado**.\n- Nombres de varias palabras con **guion bajo**: `nombre_completo`.\n- **`None`** es el objeto nulo.\n- Comillas **simples y dobles** valen igual.\n- Entrada de teclado con **`input(mensaje)`**."
+        },
+        {
+          "title": "Operadores",
+          "body": "- `/` división: `3 / 2` da **1.5**.\n- `//` división truncada: `3 // 2` da **1**.\n- `%` resto: `3 % 2` da **1**.\n- `**` potencia: `3 ** 2` da **9**.\n- Lógicos: **`and`, `or`, `not`**.\n- Comparación: `<`, `<=`, `>`, `>=`, `!=`, `==`.\n- Con asignación: `+=`, `-=`, `*=`, `//=`…"
+        },
+        {
+          "title": "Control y range",
+          "body": "Sentencias: **`if`/`elif`/`else`**, **`while`** y **`for`**. En `range([start,] stop [,step])` **el stop no se incluye**:\n- `range(3)` → 0, 1, 2\n- `range(5, 10)` → 5, 6, 7, 8, 9\n- `range(1, 10, 2)` → 1, 3, 5, 7, 9"
+        },
+        {
+          "title": "Cadenas",
+          "body": "- `\\n` es un salto de línea; con **`r'...'`** (raw) se imprime tal cual.\n- Con **triple comilla** el texto sale como se escribe.\n- `+` **concatena** y `*` **repite**: `3 * \"hola\"` da `holaholahola`.\n- `len()` da la longitud."
+        },
+        {
+          "title": "Índices y slices",
+          "body": "Se indexa con `[]` desde **0**; los negativos cuentan desde el final (`-1` es el último). En `s[inicio:fin]` **el fin no se incluye**. Con `s = \"hola mundo\"`:\n- `s[3]` → `a`\n- `s[-1]` → `o`\n- `s[2:7]` → `la mu`\n- `s[:4]` → `hola`"
+        }
+      ]
+    },
+    {
+      "id": "saa-ud01-l10",
+      "kind": "practice",
+      "title": "Practica: Python básico",
+      "section": "3 y 3.1",
+      "questionIds": [
+        "saa-ud01-q039",
+        "saa-ud01-q040",
+        "saa-ud01-q041",
+        "saa-ud01-q042",
+        "saa-ud01-q043",
+        "saa-ud01-q044",
+        "saa-ud01-q045",
+        "saa-ud01-q046",
+        "saa-ud01-q047"
+      ]
+    },
+    {
+      "id": "saa-ud01-l11",
+      "kind": "read",
+      "title": "Estructuras de datos en Python",
+      "section": "3.2",
+      "cards": [
+        {
+          "title": "Listas",
+          "body": "Van entre **corchetes**: `[1, 2, 'cadena', 4]`. Están **ordenadas**, se accede por **posición**, pueden contener objetos u otras listas, tienen **tamaño variable** y son **mutables**.\n- `lista[-1]` → el último\n- `lista[:-4]` → todos menos los 4 últimos\n- `lista[0:8:2]` → inicio:fin:paso"
+        },
+        {
+          "title": "Métodos de las listas",
+          "body": "- **`append(x)`** añade al final; **`extend(l)`** añade los elementos de otra lista.\n- **`pop(i)`** elimina por posición y devuelve el elemento (sin índice, el último).\n- **`remove(x)`** elimina un elemento por su valor.\n- También: **`insert(i, x)`**, **`index(x)`**, **`count(x)`**, **`sort()`**, **`reverse()`**, **`copy()`** y **`clear()`**."
+        },
+        {
+          "title": "Pilas y listas por comprensión",
+          "body": "Como **pila**: `append()` mete en el tope y `pop()` saca del tope.\nUna lista por comprensión resume un bucle: `[x**2 for x in range(10)]` da los cuadrados del 0 al 9. **`zip()`** recorre dos listas a la vez."
+        },
+        {
+          "title": "Tuplas",
+          "body": "Son **listas inmutables**: `t[0] = 56` da **TypeError**. Van entre **paréntesis**, son **más rápidas** que las listas, protegen de cambios accidentales y sirven de **clave de diccionario**. La de un solo elemento lleva coma: `5,`. Se desempaquetan así: `x, y, z = t`."
+        },
+        {
+          "title": "Conjuntos",
+          "body": "Colección **no ordenada** y **sin repetidos**: `{'a', 'b'}` o `set('abracadabra')`. Con `in` compruebas si un elemento está.\n- `a - b` diferencia\n- `a | b` unión\n- `a & b` intersección\n- `a ^ b` diferencia simétrica: en uno u otro, no en ambos"
+        },
+        {
+          "title": "Diccionarios",
+          "body": "Parejas **clave-valor**: `tel = {'jack': 4098}`. Las **claves no se repiten** y solo pueden ser de **tipos inmutables**.\n- `tel['guido'] = 4127` añade\n- `del tel['jack']` borra\n- `'jack' in tel` comprueba\n- `keys()`, `values()` e `items()` para recorrerlo"
+        }
+      ]
+    },
+    {
+      "id": "saa-ud01-l12",
+      "kind": "practice",
+      "title": "Practica: estructuras de datos",
+      "section": "3.2",
+      "questionIds": [
+        "saa-ud01-q048",
+        "saa-ud01-q049",
+        "saa-ud01-q050",
+        "saa-ud01-q051",
+        "saa-ud01-q052",
+        "saa-ud01-q053",
+        "saa-ud01-q054",
+        "saa-ud01-q055",
+        "saa-ud01-q056",
+        "saa-ud01-q057"
+      ]
+    },
+    {
+      "id": "saa-ud01-l13",
+      "kind": "read",
+      "title": "Funciones y clases",
+      "section": "3.3",
+      "cards": [
+        {
+          "title": "Funciones",
+          "body": "Se definen con **`def`** y devuelven con **`return`**. Admiten **valores por defecto**: en `def sumar_numeros(a, b=0, c=0)`, `b` y `c` son opcionales. Una función se puede **asignar a una variable** y llamarse con ese nombre: `f = fib` y luego `f(1000)`."
+        },
+        {
+          "title": "Clases frente a Java",
+          "body": "- Se permite **herencia múltiple**.\n- **No hay modificadores de acceso** (`public`, `private`…).\n- **No hay sobrecarga de métodos**: se usan **parámetros opcionales**."
+        },
+        {
+          "title": "Partes de una clase",
+          "body": "- **Atributo de clase**: en el cuerpo, como `productora = 'Netflix'`.\n- **Constructor**: `__init__(self, ...)`.\n- **Atributos de instancia**: con `self.`, como `self.titulo`.\n- **`__str__`**: la representación en cadena que muestra `print`."
+        },
+        {
+          "title": "Herencia",
+          "body": "`class Serie(Pelicula):` hereda de `Pelicula`. Con **`super()`** se llama al constructor o a los métodos de la clase padre. En el ejemplo, `Serie` redefine `aumentar_presupuesto` para multiplicar la cantidad por las **temporadas**."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud01-l14",
+      "kind": "practice",
+      "title": "Practica: funciones y clases",
+      "section": "3.3",
+      "questionIds": [
+        "saa-ud01-q058",
+        "saa-ud01-q059",
+        "saa-ud01-q060",
+        "saa-ud01-q061",
+        "saa-ud01-q062",
+        "saa-ud01-q063",
+        "saa-ud01-q064",
+        "saa-ud01-q065"
+      ]
+    },
+    {
+      "id": "saa-ud01-l15",
+      "kind": "pc",
+      "title": "En Colab: un clasificador de SPAM de juguete",
+      "section": "3",
+      "steps": [
+        {
+          "where": "Navegador",
+          "text": "Abre Google Colab (colab.research.google.com) y crea un cuaderno nuevo. Escribe cada bloque de código en una celda y ejecútala. Vas a practicar variables, diccionarios, funciones, bucles y condicionales con un ejemplo de correos SPAM (no deseados) y HAM (normales). Los datos son inventados."
+        },
+        {
+          "where": "Colab",
+          "text": "Guarda cuántos correos hay de cada clase y calcula la proporción de cada una con `/`.",
+          "code": "total_mensajes = 100\nspam = 40\nham = 60\n\np_spam = spam / total_mensajes\np_ham = ham / total_mensajes\nprint(\"P(SPAM) =\", p_spam)\nprint(\"P(HAM) =\", p_ham)",
+          "expected": "P(SPAM) = 0.4\nP(HAM) = 0.6"
+        },
+        {
+          "where": "Colab",
+          "text": "Guarda en dos diccionarios en cuántos correos de cada clase aparece cada palabra. La palabra es la clave y el número, el valor.",
+          "code": "palabras_spam = {'gratis': 18, 'premio': 15, 'oferta': 14, 'reunion': 1, 'proyecto': 2, 'urgente': 10}\npalabras_ham = {'gratis': 2, 'premio': 1, 'oferta': 4, 'reunion': 16, 'proyecto': 18, 'urgente': 5}\nprint(palabras_spam['gratis'], palabras_ham['gratis'])",
+          "expected": "18 2"
+        },
+        {
+          "where": "Colab",
+          "text": "Crea una función con `def` y `return` que divida las apariciones de una palabra entre el total de correos de su clase.",
+          "code": "def probabilidad_palabra(palabra, datos, total_clase):\n    return datos[palabra] / total_clase\n\nprint(probabilidad_palabra('gratis', palabras_spam, spam))\nprint(probabilidad_palabra('gratis', palabras_ham, ham))",
+          "expected": "0.45\n0.03333333333333333"
+        },
+        {
+          "where": "Colab",
+          "text": "Escribe el clasificador: parte de la proporción de cada clase, multiplícala con `*=` por la de cada palabra dentro de un `for` y decide con `if`, `elif` y `else` qué valor es mayor.",
+          "code": "def clasificar_mensaje(palabras):\n    valor_spam = p_spam\n    valor_ham = p_ham\n    for palabra in palabras:\n        valor_spam *= probabilidad_palabra(palabra, palabras_spam, spam)\n        valor_ham *= probabilidad_palabra(palabra, palabras_ham, ham)\n    if valor_spam > valor_ham:\n        return 'SPAM'\n    elif valor_ham > valor_spam:\n        return 'HAM'\n    else:\n        return 'EMPATE'\n\nprint(clasificar_mensaje(['oferta', 'gratis']))\nprint(clasificar_mensaje(['reunion', 'proyecto']))",
+          "expected": "SPAM\nHAM"
+        },
+        {
+          "where": "Colab",
+          "text": "Prueba con una palabra que no está en los datos. Con `in` compruebas si es una clave del diccionario.",
+          "code": "print('exclusivo' in palabras_spam)\nclasificar_mensaje(['oferta', 'exclusivo'])",
+          "expected": "False, y después un error KeyError: 'exclusivo'"
+        },
+        {
+          "where": "Colab",
+          "text": "Haz una versión que use `in` para saltarse las palabras desconocidas y avisar, en vez de fallar.",
+          "code": "def clasificar_mensaje_seguro(palabras):\n    valor_spam = p_spam\n    valor_ham = p_ham\n    for palabra in palabras:\n        if palabra in palabras_spam and palabra in palabras_ham:\n            valor_spam *= probabilidad_palabra(palabra, palabras_spam, spam)\n            valor_ham *= probabilidad_palabra(palabra, palabras_ham, ham)\n        else:\n            print('Aviso: no conozco la palabra', palabra)\n    if valor_spam > valor_ham:\n        return 'SPAM'\n    elif valor_ham > valor_spam:\n        return 'HAM'\n    else:\n        return 'EMPATE'\n\nprint(clasificar_mensaje_seguro(['oferta', 'exclusivo']))",
+          "expected": "Aviso: no conozco la palabra exclusivo\nSPAM"
+        }
+      ]
+    },
+    {
+      "id": "saa-ud01-l16",
+      "kind": "read",
+      "title": "Preprocesamiento de los datos",
+      "section": "4",
+      "cards": [
+        {
+          "title": "Por qué preprocesar",
+          "body": "Antes de resolver problemas de aprendizaje supervisado, los datos tienen que ser **manejables y sin errores**. Tres conceptos clave: **outliers**, **observaciones influyentes** y **escalamiento**. Para trabajar con muchos datos se usa la librería **pandas**, que maneja **dataframes**."
+        },
+        {
+          "title": "Outliers",
+          "body": "Valores **extremadamente grandes o pequeños**, normalmente por **errores** en los datos. Se detectan con el **método intercuartiles**: es outlier lo que queda fuera de [inferior, superior].\n- `inferior = q1 - k (q3 - q1)`\n- `superior = q3 + k (q3 - q1)`\nq1 y q3 son el **primer y el tercer cuartil**."
+        },
+        {
+          "title": "El valor de k",
+          "body": "k se ajusta a **1.5** o a **3**:\n- **k = 1.5**: outliers **débiles**.\n- **k = 3**: es **seguro** que son outliers."
+        },
+        {
+          "title": "Observaciones influyentes",
+          "body": "Son un **tipo especial de outlier** que **influye en el resultado** del estudio, así que conviene **eliminarlas**. Se detectan con el **método de Jackknife**:\n- Se hace el estudio **quitando un dato cada vez**.\n- Con el resto de datos se calcula la medida.\n- Según cómo cambia la medida, se ven los outliers."
+        },
+        {
+          "title": "Escalamiento",
+          "body": "El **orden de magnitud** de las variables influye en los procedimientos estadísticos. Escalar consigue que **todas tengan la misma importancia**. Los apuntes usan **`MinMaxScaler`** (de `sklearn.preprocessing`), que deja los datos **entre cero y uno**."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud01-l17",
+      "kind": "practice",
+      "title": "Practica: preprocesamiento",
+      "section": "4",
+      "questionIds": [
+        "saa-ud01-q066",
+        "saa-ud01-q067",
+        "saa-ud01-q068",
+        "saa-ud01-q069",
+        "saa-ud01-q070",
+        "saa-ud01-q071",
+        "saa-ud01-q072",
+        "saa-ud01-q073"
+      ]
+    },
+    {
+      "id": "saa-ud01-l18",
+      "kind": "read",
+      "title": "Dataframes con pandas",
+      "section": "4.1",
+      "cards": [
+        {
+          "title": "Leer los datos",
+          "body": "Se importa con **`import pandas as pd`** y se lee un CSV con **`pd.read_csv(ruta)`**. El resultado es un **dataframe**: una tabla de filas y columnas. El ejemplo de los apuntes es el del **Titanic**, con **891 filas y 12 columnas**."
+        },
+        {
+          "title": "Ver el dataframe",
+          "body": "- **`head(n)`**: las n primeras filas.\n- **`tail(n)`**: las n últimas.\n- **`dtypes`**: los tipos de datos.\n- **`info`**: información técnica.\n- **`shape`**: filas y columnas, como `(891, 12)`."
+        },
+        {
+          "title": "Seleccionar",
+          "body": "- Una columna: `titanic['Age']`.\n- Varias: `titanic[['Age', 'Sex']]` (doble corchete).\n- Filas que cumplen algo: `titanic[titanic['Age'] > 35]`.\n- Columna derivada: `t['nueva_columna'] = t['Age'] + 100`."
+        },
+        {
+          "title": "loc e iloc",
+          "body": "Seleccionan filas y columnas. **Antes de la coma van las filas; después, las columnas.**\n- **`loc`**: por **nombres** de columna, como `titanic.loc[titanic['Age'] > 35, 'Name']`.\n- **`iloc`**: por **posiciones**, como `titanic.iloc[0:, 3:6]`."
+        },
+        {
+          "title": "Estadísticos y grupos",
+          "body": "- **`mean()`** da la media y **`median()`**, la mediana.\n- **`describe()`** saca count, mean, std, min, 25 %, 50 %, 75 % y max.\n- **`groupby()`** agrupa: `titanic[['Sex', 'Age']].groupby('Sex').mean()` da la edad media por sexo.\n- Con **`count()`** cuentas los registros de cada grupo."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud01-l19",
+      "kind": "practice",
+      "title": "Practica: pandas",
+      "section": "4.1",
+      "questionIds": [
+        "saa-ud01-q074",
+        "saa-ud01-q075",
+        "saa-ud01-q076",
+        "saa-ud01-q077",
+        "saa-ud01-q078",
+        "saa-ud01-q079",
+        "saa-ud01-q080",
+        "saa-ud01-q081"
+      ]
+    },
+    {
+      "id": "saa-ud01-l20",
+      "kind": "pc",
+      "title": "En Colab: outliers, Jackknife y escalado",
+      "section": "4.2",
+      "steps": [
+        {
+          "where": "Colab",
+          "text": "En un cuaderno nuevo, genera 100 datos con media 100 y desviación típica 10, y mete dos valores que claramente son outliers.",
+          "code": "import numpy as np\n\ndatos = np.random.normal(100, 10, 100)\ndatos[20] = 200\ndatos[50] = 1",
+          "expected": "No sale nada: los datos quedan guardados en la variable datos."
+        },
+        {
+          "where": "Colab",
+          "text": "Aplica el método intercuartiles con k = 1.5 y muestra los datos que se salen del rango.",
+          "code": "q1 = np.quantile(datos, 0.25)\nq3 = np.quantile(datos, 0.75)\nk = 1.5\n\ninferior = q1 - k * (q3 - q1)\nsuperior = q3 + k * (q3 - q1)\n\nfor i in range(len(datos)):\n    if datos[i] < inferior or datos[i] > superior:\n        print(\"el dato\", i, \"con valor\", datos[i], \"es un outlier\")",
+          "expected": "Salen el dato 20 (valor 200.0) y el dato 50 (valor 1.0). Como los datos son aleatorios, a veces aparece además algún outlier débil."
+        },
+        {
+          "where": "Colab",
+          "text": "Prepara 100 precios de coche entre 20.000 y 30.000 euros y pon uno a un millón.",
+          "code": "datos = 20000 + np.random.rand(100) * 10000\ndatos[10] = 1000000\nprint(\"La media es:\", np.mean(datos))",
+          "expected": "Una media de unos 34.500 euros, inflada por el coche del millón."
+        },
+        {
+          "where": "Colab",
+          "text": "Aplica Jackknife: calcula la media quitando un dato cada vez y compara la media sin el dato 10 con otra cualquiera.",
+          "code": "medias = np.zeros(len(datos))\nfor i in range(len(datos)):\n    datos_sin_i = np.delete(datos, i)\n    medias[i] = np.mean(datos_sin_i)\n\nprint(medias[10], medias[0])",
+          "expected": "Sin el dato 10, la media baja a unos 25.000 euros; sin cualquier otro, se queda en unos 34.500."
+        },
+        {
+          "where": "Colab",
+          "text": "Busca outliers entre esas 100 medias con el método intercuartiles.",
+          "code": "q1 = np.quantile(medias, 0.25)\nq3 = np.quantile(medias, 0.75)\nk = 1.5\ninferior = q1 - k * (q3 - q1)\nsuperior = q3 + k * (q3 - q1)\n\nfor i in range(len(medias)):\n    if medias[i] < inferior or medias[i] > superior:\n        print(\"la media\", i, \"es un outlier: el dato\", i, \"es influyente\")",
+          "expected": "la media 10 es un outlier: el dato 10 es influyente"
+        },
+        {
+          "where": "Colab",
+          "text": "Escala unos datos con MinMaxScaler: `fit` lo ajusta a los datos y `transform` los escala.",
+          "code": "from sklearn.preprocessing import MinMaxScaler\n\ndatos = [[-1, 2], [-0.5, 6], [0, 10], [1, 18]]\nscaler = MinMaxScaler()\nscaler.fit(datos)\nprint(scaler.transform(datos))",
+          "expected": "Cada columna queda entre 0 y 1: [0, 0], [0.25, 0.25], [0.5, 0.5] y [1, 1]."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud01-l21",
+      "kind": "practice",
+      "title": "Practica: el ejemplo de preprocesamiento",
+      "section": "4.2",
+      "questionIds": [
+        "saa-ud01-q082",
+        "saa-ud01-q083",
+        "saa-ud01-q084",
+        "saa-ud01-q085",
+        "saa-ud01-q086",
+        "saa-ud01-q087",
+        "saa-ud01-q088",
+        "saa-ud01-q089"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "type": "choice",
+      "prompt": "¿Qué tipo de sistemas marcaron la separación entre la IA fuerte y la IA débil?",
+      "options": [
+        "Los algoritmos de recomendación",
+        "Los sistemas expertos",
+        "Las redes neuronales profundas",
+        "Los asistentes conversacionales"
+      ],
+      "answer": 1,
+      "explanation": "Los sistemas expertos dejaron clara la diferencia entre una IA parecida a la mente humana y otra centrada en una tarea concreta. El aprendizaje profundo, en cambio, se ha desarrollado entero dentro de la IA débil.",
+      "source": "SAA UD1, apartado 1",
+      "difficulty": 1,
+      "id": "saa-ud01-q001"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué criterio recomiendan los apuntes para distinguir la IA débil de la fuerte?",
+      "options": [
+        "Si supera o no a los humanos en su tarea",
+        "Si se ha programado con reglas o con datos",
+        "Si trabaja en un único ámbito o en tareas muy diferentes",
+        "Si imita o no el comportamiento de una persona"
+      ],
+      "answer": 2,
+      "explanation": "Los apuntes piden no basar la diferencia en la comparación con la inteligencia humana. Lo que separa a una de otra es si trabaja en un solo ámbito o en tareas muy distintas.",
+      "source": "SAA UD1, apartado 1",
+      "difficulty": 2,
+      "id": "saa-ud01-q002"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Toda la evolución del aprendizaje automático profundo se ha desarrollado dentro de la IA débil.",
+      "answer": true,
+      "explanation": "Los apuntes lo dicen así: todo el avance del aprendizaje profundo se ha dado en la IA débil. La fuerte sigue siendo una meta.",
+      "source": "SAA UD1, apartado 1",
+      "difficulty": 1,
+      "id": "saa-ud01-q003"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Según los apuntes, la clave de la IA actual es emular el comportamiento humano.",
+      "answer": false,
+      "explanation": "La clave es la evolución y el avance de la automatización. Emular a las personas solo se acerca a la realidad en robots humanoides o videojuegos, y ni siquiera del todo.",
+      "source": "SAA UD1, apartado 1",
+      "difficulty": 2,
+      "id": "saa-ud01-q004"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Por qué costaba tanto actualizar los sistemas expertos clásicos?",
+      "options": [
+        "Aprendían solos y cambiaban sin control",
+        "Se programaban con reglas if-else muy rígidas",
+        "Necesitaban enormes conjuntos de datos etiquetados",
+        "Se basaban en redes neuronales muy profundas"
+      ],
+      "answer": 1,
+      "explanation": "Los sistemas expertos se programaban a base de reglas if-else, lo que los hacía rígidos y difíciles de hacer evolucionar. Además dependían mucho del equipo que los construía.",
+      "source": "SAA UD1, apartado 1.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q005"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Cuál de estos es un inconveniente de la IA débil?",
+      "options": [
+        "No admite arquitecturas modulares de ningún tipo",
+        "Es muy costosa de conseguir y de desarrollar",
+        "Puede malinterpretar entradas inusuales por falta de contexto",
+        "Es difícil de controlar y se comporta de forma inesperada"
+      ],
+      "answer": 2,
+      "explanation": "Es un sistema «ciego»: no tiene todo el contexto y puede malinterpretar entradas inusuales. Las otras opciones son lo contrario de sus ventajas.",
+      "source": "SAA UD1, apartado 1.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q006"
+    },
+    {
+      "type": "choice",
+      "prompt": "Un coche lleva un sistema que reconoce señales, otro que frena y otro que los coordina a todos. Según los apuntes, ¿qué es?",
+      "options": [
+        "Una IA fuerte, porque hace tareas muy distintas",
+        "Una IA fuerte que coordina varias IA débiles",
+        "Un sistema experto clásico de reglas if-else",
+        "Varias IA débiles controladas por otra IA débil"
+      ],
+      "answer": 3,
+      "explanation": "Aunque parezca una IA fuerte por hacer tareas distintas, cada parte es una IA débil con su tarea. El módulo que las coordina también es una IA débil especializada en ese control.",
+      "source": "SAA UD1, apartado 1.1",
+      "difficulty": 3,
+      "id": "saa-ud01-q007"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Según los apuntes, un sistema de IA débil puede llegar a tener un estado mental o una conciencia propia.",
+      "answer": false,
+      "explanation": "Una IA débil está pensada para un ámbito concreto de problemas. Por eso los apuntes dicen que es impensable que llegue a ser una mente o a tener conciencia propia.",
+      "source": "SAA UD1, apartado 1.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q008"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada sistema con lo que hace.",
+      "pairs": [
+        [
+          "AlphaGo",
+          "Ganó al campeón mundial de Go"
+        ],
+        [
+          "IBM Watson",
+          "Da información bajo demanda en lenguaje natural"
+        ],
+        [
+          "Siri o Alexa",
+          "Asistente conversacional del móvil o del hogar"
+        ],
+        [
+          "AlphaStar",
+          "Juega al videojuego Starcraft"
+        ]
+      ],
+      "explanation": "AlphaGo y AlphaStar son de DeepMind, Watson es el sistema cognitivo de IBM y Siri o Alexa son asistentes conversacionales. Todos son ejemplos de IA débil.",
+      "source": "SAA UD1, apartado 1.1",
+      "difficulty": 1,
+      "id": "saa-ud01-q009"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena cómo cuentan los apuntes la evolución de la IA.",
+      "steps": [
+        "Se busca una máquina que siga la lógica del pensamiento sin fallar",
+        "Se ve que programar todas las reglas es inabarcable",
+        "Los sistemas expertos separan la IA fuerte de la débil",
+        "El aprendizaje profundo avanza dentro de la IA débil"
+      ],
+      "explanation": "Primero se buscó una máquina lógica perfecta, pero programar todas las reglas resultó inabarcable. Los sistemas expertos marcaron la separación entre los dos tipos de IA y el aprendizaje profundo ha avanzado dentro de la débil.",
+      "source": "SAA UD1, apartado 1",
+      "difficulty": 2,
+      "id": "saa-ud01-q010"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Por qué los algoritmos de recomendación son IA débil aunque recomendar parezca algo muy humano?",
+      "options": [
+        "Recomiendan a partir de vivencias propias del sistema",
+        "Combinan tareas muy distintas en cualquier contexto",
+        "Siguen reglas if-else escritas por críticos expertos",
+        "Se entrenan con datos que simplifican perfiles de gustos"
+      ],
+      "answer": 3,
+      "explanation": "Detrás de una recomendación parece haber vivencias, pero el sistema se entrena con datos que simplifican los perfiles de gustos de las personas. Por eso es IA débil.",
+      "source": "SAA UD1, apartado 1.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q011"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué versión de AlphaGo es una generalización que también juega al shogi y al ajedrez?",
+      "options": [
+        "AlphaZero",
+        "AlphaStar",
+        "Deep Blue",
+        "Gato"
+      ],
+      "answer": 0,
+      "explanation": "AlphaZero generaliza AlphaGo y juega también al shogi y al ajedrez. AlphaStar es la versión que juega a Starcraft, y Deep Blue es el sistema de IBM que ganó a Kasparov.",
+      "source": "SAA UD1, apartado 1.1",
+      "difficulty": 1,
+      "id": "saa-ud01-q012"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Cuántas tareas diferentes puede hacer Gato, según los apuntes?",
+      "options": [
+        "6.400",
+        "604",
+        "406",
+        "64"
+      ],
+      "answer": 1,
+      "explanation": "Gato puede hacer hasta 604 tareas distintas, como jugar a Atari, subtitular imágenes, chatear o apilar bloques con un brazo robótico.",
+      "source": "SAA UD1, apartado 1.2",
+      "difficulty": 1,
+      "id": "saa-ud01-q013"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Por qué Gato no se considera una IA general?",
+      "options": [
+        "Se programó con reglas if-else, como un sistema experto",
+        "Solo controla un brazo robótico, sin usar lenguaje",
+        "No se adapta bien a tareas nuevas distintas de las entrenadas",
+        "Solo hace una única tarea con mucha precisión"
+      ],
+      "answer": 2,
+      "explanation": "Gato es generalista porque hace muchas cosas a la vez. Una IA general sería capaz de adaptarse con eficacia a tareas nuevas, distintas de las de su entrenamiento.",
+      "source": "SAA UD1, apartado 1.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q014"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Gato hace cada una de sus tareas mejor que los modelos que solo saben hacer una cosa.",
+      "answer": false,
+      "explanation": "Es justo su punto débil: hace muchas tareas, pero ninguna tan bien como los modelos que solo saben hacer una.",
+      "source": "SAA UD1, apartado 1.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q015"
+    },
+    {
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿qué hace realmente LaMDA cuando conversa?",
+      "options": [
+        "Ajusta parámetros para predecir la siguiente palabra",
+        "Comprende el tema y se forma una opinión propia",
+        "Busca la respuesta en reglas escritas por expertos",
+        "Se representa a sí misma y evalúa sus acciones"
+      ],
+      "answer": 0,
+      "explanation": "Por fluida que sea la conversación, LaMDA es una fórmula enorme que ajusta parámetros para predecir mejor la siguiente palabra. No sabe de qué habla ni tiene autoconciencia.",
+      "source": "SAA UD1, apartado 1.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q016"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada autor con su idea.",
+      "pairs": [
+        [
+          "John Searle",
+          "El argumento de la habitación china"
+        ],
+        [
+          "Hubert Dreyfus",
+          "La mente no es análoga al hardware y al software"
+        ],
+        [
+          "Peter Voss",
+          "Una IA fuerte necesitaría autoconciencia conceptual"
+        ],
+        [
+          "Jean François Dortier",
+          "La IA débil simula comportamientos inteligentes"
+        ]
+      ],
+      "explanation": "Searle y Dreyfus argumentan contra la IA fuerte y Dortier explica el paso hacia la IA débil, más modesta. Voss, que trabaja en IA fuerte, defiende que necesitaría autoconciencia conceptual.",
+      "source": "SAA UD1, apartado 1.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q017"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Según los apuntes, nada garantiza que una IA fuerte haga surgir una conciencia artificial.",
+      "answer": true,
+      "explanation": "Nada lo garantiza, aunque se ve como lo más plausible, porque en los seres vivos la conciencia y la inteligencia general están muy entrelazadas.",
+      "source": "SAA UD1, apartado 1.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q018"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Cuál es una de las razones que dan los apuntes para dar más peso a la IA débil?",
+      "options": [
+        "Ya ha demostrado tener conciencia y sensibilidad propias",
+        "No puede fallar porque sigue la lógica a la perfección",
+        "Imita el comportamiento humano mejor que ninguna otra",
+        "Sus algoritmos y funciones se estudian con más claridad"
+      ],
+      "answer": 3,
+      "explanation": "Desde la vertiente lógica, sus algoritmos y funciones se estudian con más claridad. La otra razón es que los humanos le transmitimos nuestra fragilidad: la posibilidad del fallo.",
+      "source": "SAA UD1, apartado 1.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q019"
+    },
+    {
+      "type": "choice",
+      "prompt": "Una empresa presenta un sistema que traduce, juega a videojuegos y mueve un brazo robótico, pero no se adapta a tareas nuevas. Según los apuntes, ¿qué es?",
+      "options": [
+        "Un modelo generalista, como Gato",
+        "Una IA fuerte o general",
+        "Un sistema con conciencia artificial",
+        "Un sistema experto clásico"
+      ],
+      "answer": 0,
+      "explanation": "Hacer muchas tareas distintas no basta para ser una IA general: tendría que adaptarse a tareas nuevas. Por eso se parece a Gato, un modelo generalista.",
+      "source": "SAA UD1, apartado 1.2",
+      "difficulty": 3,
+      "id": "saa-ud01-q020"
+    },
+    {
+      "type": "choice",
+      "prompt": "Vas a ajustar una parábola a unos datos. ¿Qué papel tiene el grado, el 2?",
+      "options": [
+        "Es una variable de entrada",
+        "Es un hiperparámetro",
+        "Es un parámetro",
+        "Es la variable de salida"
+      ],
+      "answer": 1,
+      "explanation": "El grado decide la familia de modelos: rectas con grado 1, parábolas con grado 2. Los parámetros son los valores que acompañan a las x y se ajustan al entrenar.",
+      "source": "SAA UD1, apartado 2",
+      "difficulty": 2,
+      "id": "saa-ud01-q021"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué se ajusta a los datos concretos durante el entrenamiento de un modelo?",
+      "options": [
+        "Las variables de salida",
+        "Las etiquetas de los datos",
+        "Los parámetros",
+        "Los hiperparámetros"
+      ],
+      "answer": 2,
+      "explanation": "Al entrenar, los parámetros se ajustan al problema y a los datos. Los hiperparámetros, en cambio, definen la familia de modelos entre la que se elige.",
+      "source": "SAA UD1, apartado 2",
+      "difficulty": 2,
+      "id": "saa-ud01-q022"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada tipo de variable con su definición.",
+      "pairs": [
+        [
+          "Cuantitativa continua",
+          "Toma valores reales"
+        ],
+        [
+          "Cuantitativa discreta",
+          "Toma valores enteros finitos"
+        ],
+        [
+          "Ordinal",
+          "Expresa un orden"
+        ],
+        [
+          "Cualitativa",
+          "Define una cualidad, como un color"
+        ]
+      ],
+      "explanation": "Las cuantitativas son numéricas: continuas si toman valores reales y discretas si toman enteros finitos. Las ordinales expresan orden y las cualitativas, una cualidad.",
+      "source": "SAA UD1, apartado 2",
+      "difficulty": 1,
+      "id": "saa-ud01-q023"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada tipo de problema con un ejemplo.",
+      "pairs": [
+        [
+          "Clasificación",
+          "Decidir si un piso es caro o barato"
+        ],
+        [
+          "Regresión",
+          "Predecir el precio de un piso"
+        ],
+        [
+          "Análisis clúster",
+          "Segmentar clientes que no tienen etiqueta"
+        ]
+      ],
+      "explanation": "La clasificación predice una variable cualitativa y la regresión, una continua. El análisis clúster no tiene etiqueta: la averigua agrupando los datos.",
+      "source": "SAA UD1, apartado 2",
+      "difficulty": 2,
+      "id": "saa-ud01-q024"
+    },
+    {
+      "type": "choice",
+      "prompt": "Quieres predecir la altura exacta de una persona en metros. ¿Qué tipo de problema es?",
+      "options": [
+        "Aprendizaje no supervisado",
+        "Regresión",
+        "Clasificación",
+        "Análisis clúster"
+      ],
+      "answer": 1,
+      "explanation": "La altura en metros es una variable continua, así que es regresión. Sería clasificación si tuvieras que elegir entre categorías, como alto o bajo.",
+      "source": "SAA UD1, apartado 2",
+      "difficulty": 3,
+      "id": "saa-ud01-q025"
+    },
+    {
+      "type": "choice",
+      "prompt": "Una variable guarda el número de hijos de cada persona. ¿De qué tipo es?",
+      "options": [
+        "Ordinal",
+        "Cualitativa",
+        "Cuantitativa discreta",
+        "Cuantitativa continua"
+      ],
+      "answer": 2,
+      "explanation": "Es un valor numérico entero y finito, así que es cuantitativa discreta. Sería continua si pudiera tomar cualquier valor real, como un precio.",
+      "source": "SAA UD1, apartado 2",
+      "difficulty": 3,
+      "id": "saa-ud01-q026"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "En un problema de clasificación, la variable a predecir es cualitativa.",
+      "answer": true,
+      "explanation": "En clasificación se predice una cualidad, como caro o barato. Si la variable fuera continua, como el precio, sería regresión.",
+      "source": "SAA UD1, apartado 2",
+      "difficulty": 1,
+      "id": "saa-ud01-q027"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Si el hiperparámetro de un polinomio es 1, entrenar el modelo consiste en elegir qué recta explica mejor los datos.",
+      "answer": true,
+      "explanation": "Con grado 1 la familia de modelos son las rectas. Al entrenar, los parámetros se ajustan para quedarse con la recta que mejor explica los datos.",
+      "source": "SAA UD1, apartado 2",
+      "difficulty": 2,
+      "id": "saa-ud01-q028"
+    },
+    {
+      "type": "choice",
+      "prompt": "Si ves la realidad como una caja negra, ¿qué busca el aprendizaje automático?",
+      "options": [
+        "Las variables de entrada a partir de las de salida",
+        "Un modelo que prediga la salida a partir de la entrada",
+        "Saber con exactitud qué ocurre dentro de la realidad",
+        "Una lista de reglas if-else que describa la realidad"
+      ],
+      "answer": 1,
+      "explanation": "La realidad se trata como una caja negra con entradas X y salidas y. El objetivo es un modelo matemático que, con unos datos de entrada, prediga la salida de forma más o menos correcta.",
+      "source": "SAA UD1, apartado 2",
+      "difficulty": 2,
+      "id": "saa-ud01-q029"
+    },
+    {
+      "type": "choice",
+      "prompt": "Quieres predecir cuántas unidades de un producto venderá una tienda. ¿Qué tipo de problema es?",
+      "options": [
+        "Análisis clúster",
+        "Aprendizaje no supervisado",
+        "Regresión",
+        "Clasificación"
+      ],
+      "answer": 2,
+      "explanation": "Las unidades vendidas son un valor no finito, y los apuntes las ponen como ejemplo de regresión. Que sean números enteros no lo convierte en clasificación.",
+      "source": "SAA UD1, apartado 2.1",
+      "difficulty": 3,
+      "id": "saa-ud01-q030"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Cómo se evalúa un modelo de clasificación, según los apuntes?",
+      "options": [
+        "Con el error absoluto medio (MAE)",
+        "Con la distancia media a los centroides",
+        "Con el rango entre el primer y el tercer cuartil",
+        "Con el porcentaje de elementos bien clasificados"
+      ],
+      "answer": 3,
+      "explanation": "Como los datos tienen etiqueta, se predice la clase de cada uno y se comprueba si acierta. El MAE es la métrica de error que citan los apuntes para la regresión.",
+      "source": "SAA UD1, apartado 2.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q031"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Cuál de estos algoritmos aparece en los apuntes como algoritmo de aprendizaje supervisado?",
+      "options": [
+        "Árboles de decisión",
+        "Agrupamiento k-means",
+        "Método de Jackknife",
+        "Escalado MinMaxScaler"
+      ],
+      "answer": 0,
+      "explanation": "Los árboles de decisión están en la lista de algoritmos supervisados, junto a Naive Bayes, kNN y las regresiones logística y lineal. k-means es no supervisado, y Jackknife y MinMaxScaler son de preprocesamiento.",
+      "source": "SAA UD1, apartado 2.1",
+      "difficulty": 1,
+      "id": "saa-ud01-q032"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "En el aprendizaje no supervisado, el algoritmo decide por sí solo qué significa cada grupo, por ejemplo «clientes buenos».",
+      "answer": false,
+      "explanation": "El algoritmo solo devuelve los datos agrupados. Decidir qué significa cada grupo, como clientes buenos o malos, es tarea tuya al mirar los datos.",
+      "source": "SAA UD1, apartado 2.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q033"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena los pasos del algoritmo k-means.",
+      "steps": [
+        "Elegir al azar los centroides de los k grupos",
+        "Asignar cada objeto al grupo según su distancia a los centroides",
+        "Calcular los nuevos centroides como la media",
+        "Parar si los centroides no cambian; si cambian, volver a asignar"
+      ],
+      "explanation": "k-means empieza con centroides al azar, asigna cada objeto a un grupo y recalcula los centroides con la media. Repite hasta que los centroides no cambian.",
+      "source": "SAA UD1, apartado 2.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q034"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena cómo se usa el aprendizaje supervisado para predecir el precio de un coche.",
+      "steps": [
+        "Reunir datos de coches con sus características y su precio",
+        "Construir el modelo con esos datos etiquetados",
+        "Inferir el precio de un coche que no estaba en los datos"
+      ],
+      "explanation": "Primero hacen falta datos con su etiqueta, el precio. Con ellos se construye el modelo, que después infiere el precio de coches nuevos.",
+      "source": "SAA UD1, apartado 2.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q035"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué grupos busca el aprendizaje no supervisado?",
+      "options": [
+        "Homogéneos por dentro y heterogéneos entre sí",
+        "Heterogéneos por dentro y homogéneos entre sí",
+        "Del mismo tamaño y con la misma etiqueta",
+        "Ordenados según el valor de su etiqueta"
+      ],
+      "answer": 0,
+      "explanation": "Se buscan grupos con datos lo más parecidos posible dentro de cada uno y lo más distintos posible de los otros grupos.",
+      "source": "SAA UD1, apartado 2.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q036"
+    },
+    {
+      "type": "choice",
+      "prompt": "Tienes la edad, el gasto y las visitas de tus clientes, sin ninguna etiqueta, y quieres dividirlos en grupos. ¿Qué algoritmo de los apuntes usarías?",
+      "options": [
+        "Regresión lineal",
+        "k-means",
+        "kNN",
+        "Naive Bayes"
+      ],
+      "answer": 1,
+      "explanation": "Sin etiquetas es aprendizaje no supervisado, y el algoritmo de agrupamiento de los apuntes es k-means. kNN, Naive Bayes y la regresión lineal son supervisados.",
+      "source": "SAA UD1, apartado 2.2",
+      "difficulty": 3,
+      "id": "saa-ud01-q037"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Con el aprendizaje supervisado se pueden resolver problemas de clasificación y de regresión.",
+      "answer": true,
+      "explanation": "Son los dos tipos de problema del aprendizaje supervisado. El análisis clúster es del no supervisado.",
+      "source": "SAA UD1, apartado 2.1",
+      "difficulty": 1,
+      "id": "saa-ud01-q038"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué ventaja de Google Colab destacan los apuntes?",
+      "options": [
+        "Compilar Python para que vaya más rápido que Java",
+        "Programar en Python sin tener que tabular el código",
+        "Entrenar modelos sin necesidad de tener datos",
+        "Ejecutar Python sin instalar nada y con la misma versión"
+      ],
+      "answer": 3,
+      "explanation": "Colab deja ejecutar Python de forma cómoda sin instalar nada, y así todos usan la misma versión. La tabulación sigue siendo obligatoria en Python.",
+      "source": "SAA UD1, apartado 3",
+      "difficulty": 1,
+      "id": "saa-ud01-q039"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué imprime este código?",
+      "code": "x = 7\nprint(x // 2, x % 2, x ** 2)",
+      "options": [
+        "3 1 49",
+        "3.5 1 49",
+        "3 1 14",
+        "3.5 0 14"
+      ],
+      "answer": 0,
+      "explanation": "`//` es la división truncada (7 // 2 = 3), `%` el resto (1) y `**` la potencia (49). La trampa es confundir `**` con multiplicar por 2.",
+      "source": "SAA UD1, apartado 3.1",
+      "difficulty": 3,
+      "id": "saa-ud01-q040"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué números imprime este código?",
+      "code": "for i in range(2, 9, 3):\n    print(i)",
+      "options": [
+        "2, 5, 8 y 11",
+        "2, 5 y 8",
+        "2 y 5",
+        "3, 6 y 9"
+      ],
+      "answer": 1,
+      "explanation": "range(2, 9, 3) empieza en 2 y suma 3 cada vez: 2, 5 y 8. El 11 se pasa del stop, que además nunca se incluye.",
+      "source": "SAA UD1, apartado 3.1",
+      "difficulty": 3,
+      "id": "saa-ud01-q041"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué imprime este código?",
+      "code": "s = \"python\"\nprint(s[1:4], s[-2])",
+      "options": [
+        "ytho n",
+        "yth n",
+        "yth o",
+        "pyth o"
+      ],
+      "answer": 2,
+      "explanation": "s[1:4] coge las posiciones 1, 2 y 3, porque el fin no se incluye: yth. s[-2] es el penúltimo carácter, la o.",
+      "source": "SAA UD1, apartado 3.1",
+      "difficulty": 3,
+      "id": "saa-ud01-q042"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "En Python hay que declarar las variables antes de usarlas.",
+      "answer": false,
+      "explanation": "En Python no se declaran variables: basta con asignarles un valor, como en `a = 3`.",
+      "source": "SAA UD1, apartado 3.1",
+      "difficulty": 1,
+      "id": "saa-ud01-q043"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Con el prefijo `r` delante de una cadena, `\\n` se imprime tal cual y no como salto de línea.",
+      "answer": true,
+      "explanation": "Con la r delante la cadena es raw: `print(r'C:\\docs\\nombre')` muestra la ruta entera. Sin la r, el `\\n` de `\\nombre` saltaría de línea.",
+      "source": "SAA UD1, apartado 3.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q044"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada operador con lo que hace.",
+      "pairs": [
+        [
+          "//",
+          "División truncada"
+        ],
+        [
+          "%",
+          "Resto de la división"
+        ],
+        [
+          "**",
+          "Potencia"
+        ],
+        [
+          "!=",
+          "Distinto de"
+        ]
+      ],
+      "explanation": "`//` trunca la división, `%` da el resto, `**` eleva a una potencia y `!=` compara si dos valores son distintos.",
+      "source": "SAA UD1, apartado 3.1",
+      "difficulty": 1,
+      "id": "saa-ud01-q045"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué representa `None` en Python?",
+      "options": [
+        "Una cadena de texto vacía",
+        "Una variable que no se ha declarado",
+        "El objeto nulo",
+        "El resultado falso de una comparación"
+      ],
+      "answer": 2,
+      "explanation": "Los apuntes lo definen así: None representa el objeto nulo. En los ejemplos de clases se usa como valor por defecto de un parámetro opcional.",
+      "source": "SAA UD1, apartado 3.1",
+      "difficulty": 1,
+      "id": "saa-ud01-q046"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué muestra `print(3 * \"ab\")`?",
+      "options": [
+        "ab3",
+        "3ab",
+        "Un error, porque no se puede multiplicar texto",
+        "ababab"
+      ],
+      "answer": 3,
+      "explanation": "Multiplicar una cadena por un número la repite: 3 * \"ab\" da ababab. Para unir cadenas se usa +.",
+      "source": "SAA UD1, apartado 3.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q047"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué imprime este código?",
+      "code": "lista = [10, 20, 30, 40]\nx = lista.pop(1)\nlista.append(x)\nprint(lista)",
+      "options": [
+        "[10, 30, 40, 20]",
+        "[10, 20, 30, 40, 20]",
+        "[20, 30, 40, 10]",
+        "[10, 30, 40, 1]"
+      ],
+      "answer": 0,
+      "explanation": "pop(1) quita y devuelve el 20, que estaba en la posición 1. Después append lo añade al final de la lista.",
+      "source": "SAA UD1, apartado 3.2",
+      "difficulty": 3,
+      "id": "saa-ud01-q048"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué conjunto imprime este código? (El orden de los elementos puede variar).",
+      "code": "a = set('perro')\nb = set('pera')\nprint(a ^ b)",
+      "options": [
+        "{'p', 'e', 'r', 'o', 'a'}",
+        "{'o', 'a'}",
+        "{'p', 'e', 'r'}",
+        "{'o'}"
+      ],
+      "answer": 1,
+      "explanation": "La diferencia simétrica deja las letras que están en uno de los dos conjuntos pero no en ambos: la o de perro y la a de pera. Las comunes (p, e, r) serían la intersección.",
+      "source": "SAA UD1, apartado 3.2",
+      "difficulty": 3,
+      "id": "saa-ud01-q049"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Cuál de estos valores puede usarse como clave de un diccionario?",
+      "options": [
+        "[(1, 2)]",
+        "[[1, 2]]",
+        "(1, 2)",
+        "[1, 2]"
+      ],
+      "answer": 2,
+      "explanation": "Las claves tienen que ser de tipos inmutables, y la tupla lo es. Las listas son mutables aunque lleven tuplas dentro.",
+      "source": "SAA UD1, apartado 3.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q050"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué diferencia hay entre `pop()` y `remove()` en una lista?",
+      "options": [
+        "pop elimina por valor; remove elimina por posición y devuelve el elemento",
+        "pop vacía la lista entera; remove quita solo el último elemento",
+        "No hay diferencia: los dos eliminan siempre el último elemento",
+        "pop elimina por posición y devuelve el elemento; remove elimina por valor"
+      ],
+      "answer": 3,
+      "explanation": "pop recibe una posición, elimina ese elemento y lo devuelve; sin índice, quita el último. remove busca el valor y lo elimina.",
+      "source": "SAA UD1, apartado 3.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q051"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué característica tiene un conjunto en Python?",
+      "options": [
+        "No tiene elementos repetidos",
+        "Sus elementos están ordenados por posición",
+        "Se accede a cada elemento con un índice",
+        "Guarda parejas de clave y valor"
+      ],
+      "answer": 0,
+      "explanation": "Un conjunto es una colección no ordenada y sin repetidos: al crearlo, los duplicados desaparecen. Las parejas clave-valor son de los diccionarios.",
+      "source": "SAA UD1, apartado 3.2",
+      "difficulty": 1,
+      "id": "saa-ud01-q052"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Cómo creas una tupla con un único elemento, el 5?",
+      "options": [
+        "t = {5}",
+        "t = 5,",
+        "t = 5",
+        "t = [5]"
+      ],
+      "answer": 1,
+      "explanation": "La coma es lo que crea la tupla: los apuntes la escriben `tupla3 = 5,` y Python la muestra como (5,). Sin la coma, `t = 5` es solo un número; con corchetes tendrías una lista y con llaves, un conjunto.",
+      "source": "SAA UD1, apartado 3.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q053"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Las tuplas son más rápidas que las listas.",
+      "answer": true,
+      "explanation": "Los apuntes lo citan como ventaja de las tuplas, junto a que protegen los datos de cambios accidentales y sirven como clave de diccionario.",
+      "source": "SAA UD1, apartado 3.2",
+      "difficulty": 1,
+      "id": "saa-ud01-q054"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "En un diccionario, dos elementos pueden tener la misma clave.",
+      "answer": false,
+      "explanation": "Las claves no se pueden repetir. Lo que sí puede repetirse es el valor, como el 4127 de guido e irv en el ejemplo de los apuntes.",
+      "source": "SAA UD1, apartado 3.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q055"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada estructura con su rasgo principal.",
+      "pairs": [
+        [
+          "Lista",
+          "Ordenada, mutable y de tamaño variable"
+        ],
+        [
+          "Tupla",
+          "Lista inmutable entre paréntesis"
+        ],
+        [
+          "Conjunto",
+          "No ordenado y sin repetidos"
+        ],
+        [
+          "Diccionario",
+          "Parejas de clave y valor"
+        ]
+      ],
+      "explanation": "Las listas usan corchetes y cambian; las tuplas usan paréntesis y no cambian. Los conjuntos no tienen orden ni repetidos y los diccionarios guardan parejas clave-valor.",
+      "source": "SAA UD1, apartado 3.2",
+      "difficulty": 1,
+      "id": "saa-ud01-q056"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada método de las listas con lo que hace.",
+      "pairs": [
+        [
+          "append(x)",
+          "Añade un elemento al final"
+        ],
+        [
+          "extend(l)",
+          "Añade los elementos de otra lista"
+        ],
+        [
+          "insert(i, x)",
+          "Mete un elemento en una posición"
+        ],
+        [
+          "count(x)",
+          "Cuenta las veces que aparece"
+        ]
+      ],
+      "explanation": "append mete un elemento y extend todos los de otra lista. insert lo coloca en una posición concreta y count dice cuántas veces aparece.",
+      "source": "SAA UD1, apartado 3.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q057"
+    },
+    {
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿en qué se diferencian las clases de Python de las de Java?",
+      "options": [
+        "Python permite sobrecargar métodos",
+        "Python obliga a declarar el tipo de los atributos",
+        "Python permite herencia múltiple",
+        "Python tiene modificadores public y private"
+      ],
+      "answer": 2,
+      "explanation": "Python admite herencia múltiple. En cambio, no tiene modificadores de acceso ni sobrecarga de métodos.",
+      "source": "SAA UD1, apartado 3.3",
+      "difficulty": 2,
+      "id": "saa-ud01-q058"
+    },
+    {
+      "type": "choice",
+      "prompt": "Como en Python no hay sobrecarga de métodos, ¿qué se usa en su lugar?",
+      "options": [
+        "Modificadores de acceso",
+        "Herencia múltiple",
+        "Atributos de clase",
+        "Parámetros opcionales"
+      ],
+      "answer": 3,
+      "explanation": "Se dan parámetros con valor por defecto, como `cantidad=None` en `anadir_temporada`, y el método actúa según llegue o no ese valor.",
+      "source": "SAA UD1, apartado 3.3",
+      "difficulty": 1,
+      "id": "saa-ud01-q059"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué imprime este código?",
+      "code": "def sumar_numeros(a, b=0, c=0):\n    return a + b + c\n\nprint(sumar_numeros(4, 5))",
+      "options": [
+        "9",
+        "4",
+        "45",
+        "Un error, porque falta el argumento c"
+      ],
+      "answer": 0,
+      "explanation": "a vale 4, b vale 5 y c se queda con su valor por defecto, 0. La suma es 9.",
+      "source": "SAA UD1, apartado 3.3",
+      "difficulty": 3,
+      "id": "saa-ud01-q060"
+    },
+    {
+      "type": "choice",
+      "prompt": "Con las clases `Pelicula` y `Serie` de los apuntes, ¿qué imprime este código?",
+      "code": "serie = Serie('Juego de tronos', 'un director bueno', 1000, 4)\nserie.aumentar_presupuesto(50)\nprint(serie.presupuesto)",
+      "options": [
+        "4200",
+        "1200",
+        "1050",
+        "1000"
+      ],
+      "answer": 1,
+      "explanation": "Serie redefine aumentar_presupuesto y multiplica la cantidad por las temporadas: 50 × 4 = 200. El presupuesto pasa de 1000 a 1200.",
+      "source": "SAA UD1, apartado 3.3",
+      "difficulty": 3,
+      "id": "saa-ud01-q061"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Para qué sirve el método `__str__` en una clase?",
+      "options": [
+        "Llama a los métodos de la clase padre",
+        "Declara un atributo compartido por la clase",
+        "Define la representación en cadena que muestra print",
+        "Inicializa los atributos de instancia del objeto"
+      ],
+      "answer": 2,
+      "explanation": "__str__ devuelve la representación en cadena del objeto, que es lo que sale con print. Los atributos de instancia se crean en el constructor, __init__.",
+      "source": "SAA UD1, apartado 3.3",
+      "difficulty": 2,
+      "id": "saa-ud01-q062"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "En Python, una función se puede asignar a una variable y llamarse con ese nuevo nombre.",
+      "answer": true,
+      "explanation": "Los apuntes lo hacen con `f = fib` y luego `f(1000)`, igual que los punteros a funciones en C.",
+      "source": "SAA UD1, apartado 3.3",
+      "difficulty": 1,
+      "id": "saa-ud01-q063"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "En el ejemplo de los apuntes, `productora = 'Netflix'` es un atributo de instancia.",
+      "answer": false,
+      "explanation": "Se declara en el cuerpo de la clase, así que es un atributo de clase. Los de instancia se crean con self dentro del constructor.",
+      "source": "SAA UD1, apartado 3.3",
+      "difficulty": 2,
+      "id": "saa-ud01-q064"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena lo que pasa al ejecutar `Serie('Juego de tronos', 'un director bueno', 10000000, 8)`.",
+      "steps": [
+        "Se llama al constructor __init__ de Serie",
+        "super().__init__ guarda título, director y presupuesto",
+        "Se guarda el atributo self.temporadas"
+      ],
+      "explanation": "Al crear la serie se ejecuta su __init__, que primero llama con super() al constructor de Pelicula. Después guarda su atributo propio, las temporadas.",
+      "source": "SAA UD1, apartado 3.3",
+      "difficulty": 3,
+      "id": "saa-ud01-q065"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué método usan los apuntes para detectar outliers?",
+      "options": [
+        "El algoritmo k-means",
+        "El escalado con MinMaxScaler",
+        "El método intercuartiles",
+        "El método de Jackknife"
+      ],
+      "answer": 2,
+      "explanation": "El método intercuartiles usa los cuartiles q1 y q3 para fijar un rango. Jackknife sirve para las observaciones influyentes.",
+      "source": "SAA UD1, apartado 4",
+      "difficulty": 1,
+      "id": "saa-ud01-q066"
+    },
+    {
+      "type": "choice",
+      "prompt": "Con q1 = 10, q3 = 20 y k = 1.5, ¿a partir de qué valor un dato es outlier por arriba?",
+      "options": [
+        "Por encima de 30",
+        "Por encima de 50",
+        "Por encima de 25",
+        "Por encima de 35"
+      ],
+      "answer": 3,
+      "explanation": "superior = q3 + k (q3 − q1) = 20 + 1.5 × 10 = 35. Con k = 3 saldría 50.",
+      "source": "SAA UD1, apartado 4",
+      "difficulty": 3,
+      "id": "saa-ud01-q067"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué indica usar k = 3 en el método intercuartiles?",
+      "options": [
+        "Que lo que quede fuera es seguro que es outlier",
+        "Que se buscan solo los outliers débiles",
+        "Que la muestra se divide en tres cuartiles",
+        "Que se quitan tres datos en cada vuelta"
+      ],
+      "answer": 0,
+      "explanation": "Con k = 3, lo que se sale del rango es seguro que es outlier. Con k = 1.5 se marcan los outliers débiles.",
+      "source": "SAA UD1, apartado 4",
+      "difficulty": 2,
+      "id": "saa-ud01-q068"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Una observación influyente es un tipo especial de outlier que influye en el resultado del estudio.",
+      "answer": true,
+      "explanation": "Así las definen los apuntes. Por eso, cuando se detectan, conviene eliminarlas de los datos.",
+      "source": "SAA UD1, apartado 4",
+      "difficulty": 1,
+      "id": "saa-ud01-q069"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Escalar los datos sirve para que las variables con mayor orden de magnitud pesen más en el estudio.",
+      "answer": false,
+      "explanation": "Es al revés: el orden de magnitud influye en los procedimientos estadísticos, y escalar sirve para que todas las variables tengan la misma importancia.",
+      "source": "SAA UD1, apartado 4",
+      "difficulty": 2,
+      "id": "saa-ud01-q070"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena los pasos del método de Jackknife.",
+      "steps": [
+        "Quitar un dato de la muestra cada vez",
+        "Calcular la medida con los datos que quedan",
+        "Ver cómo cambia la medida para detectar los outliers"
+      ],
+      "explanation": "Jackknife repite el estudio quitando un dato cada vez, calcula la medida con el resto y mira cómo cambia para encontrar los datos que más influyen.",
+      "source": "SAA UD1, apartado 4",
+      "difficulty": 2,
+      "id": "saa-ud01-q071"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué conviene hacer con una observación influyente que has detectado?",
+      "options": [
+        "Eliminarla de los datos",
+        "Mantenerla, porque los outliers no influyen",
+        "Escalarla para que pese como el resto",
+        "Marcarla como outlier débil y seguir"
+      ],
+      "answer": 0,
+      "explanation": "Una observación influyente altera el resultado, así que conviene quitarla. Un outlier que no es influyente, en cambio, no hace falta eliminarlo.",
+      "source": "SAA UD1, apartado 4",
+      "difficulty": 2,
+      "id": "saa-ud01-q072"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Para qué sirve la librería pandas, según los apuntes?",
+      "options": [
+        "Para agrupar clientes con k-means",
+        "Para trabajar con muchos datos en dataframes",
+        "Para escalar los datos entre cero y uno",
+        "Para ejecutar Python sin instalar nada"
+      ],
+      "answer": 1,
+      "explanation": "pandas es la librería de Python para trabajar con gran cantidad de datos, y lo hace con dataframes. El escalado lo hace MinMaxScaler y Colab es el que evita instalar nada.",
+      "source": "SAA UD1, apartado 4",
+      "difficulty": 1,
+      "id": "saa-ud01-q073"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué devuelve el atributo `shape` de un dataframe?",
+      "options": [
+        "Las cinco primeras filas",
+        "La media de cada columna",
+        "El número de filas y de columnas",
+        "Los tipos de datos de cada columna"
+      ],
+      "answer": 2,
+      "explanation": "shape devuelve una pareja con filas y columnas, como (891, 12) en el Titanic. Los tipos de datos los da dtypes.",
+      "source": "SAA UD1, apartado 4.1",
+      "difficulty": 1,
+      "id": "saa-ud01-q074"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué diferencia hay entre `loc` e `iloc`?",
+      "options": [
+        "loc usa posiciones e iloc usa nombres de columna",
+        "loc selecciona filas e iloc selecciona columnas",
+        "loc lee un CSV e iloc lo guarda en disco",
+        "loc usa nombres de columna e iloc usa posiciones"
+      ],
+      "answer": 3,
+      "explanation": "loc selecciona por nombres e iloc por posiciones. En los dos, antes de la coma van las filas y después, las columnas.",
+      "source": "SAA UD1, apartado 4.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q075"
+    },
+    {
+      "type": "choice",
+      "prompt": "En el dataframe del Titanic, ¿qué selecciona esta línea?",
+      "code": "t = titanic.iloc[0:, 3:6]",
+      "options": [
+        "Todas las filas y las columnas en las posiciones 3, 4 y 5",
+        "Las filas de la 3 a la 6 y todas las columnas",
+        "Todas las filas y las columnas de la 3 a la 6, ambas incluidas",
+        "Las columnas que se llaman 3, 4, 5 y 6"
+      ],
+      "answer": 0,
+      "explanation": "0: coge todas las filas y 3:6 las columnas en las posiciones 3, 4 y 5, porque el final no se incluye. En el Titanic son Name, Sex y Age.",
+      "source": "SAA UD1, apartado 4.1",
+      "difficulty": 3,
+      "id": "saa-ud01-q076"
+    },
+    {
+      "type": "choice",
+      "prompt": "Quieres las columnas Age y Sex del dataframe `titanic`. ¿Qué escribes?",
+      "options": [
+        "titanic(['Age', 'Sex'])",
+        "titanic[['Age', 'Sex']]",
+        "titanic['Age', 'Sex']",
+        "titanic.iloc['Age', 'Sex']"
+      ],
+      "answer": 1,
+      "explanation": "Para varias columnas se pasa una lista dentro de los corchetes, de ahí el doble corchete. Con un solo corchete y un nombre sacas una sola columna.",
+      "source": "SAA UD1, apartado 4.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q077"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada función de pandas con lo que muestra.",
+      "pairs": [
+        [
+          "head(n)",
+          "Las n primeras filas"
+        ],
+        [
+          "tail(n)",
+          "Las n últimas filas"
+        ],
+        [
+          "dtypes",
+          "Los tipos de datos de las columnas"
+        ],
+        [
+          "describe()",
+          "Estadísticos predefinidos, como media y cuartiles"
+        ]
+      ],
+      "explanation": "head y tail muestran filas del principio y del final, dtypes los tipos de cada columna y describe un resumen estadístico.",
+      "source": "SAA UD1, apartado 4.1",
+      "difficulty": 1,
+      "id": "saa-ud01-q078"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "En `loc` e `iloc`, lo que va antes de la coma indica las columnas.",
+      "answer": false,
+      "explanation": "Es al revés: antes de la coma van las filas y después, las columnas.",
+      "source": "SAA UD1, apartado 4.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q079"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "`titanic[titanic['Age'] > 35]` selecciona las filas de los pasajeros mayores de 35 años.",
+      "answer": true,
+      "explanation": "La condición `titanic['Age'] > 35` dentro de los corchetes deja solo las filas que la cumplen.",
+      "source": "SAA UD1, apartado 4.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q080"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué hace `titanic.groupby('Pclass')['Pclass'].count()`?",
+      "options": [
+        "Devuelve cuántas clases distintas hay",
+        "Cuenta los registros de cada clase",
+        "Calcula la clase media de los pasajeros",
+        "Ordena los pasajeros según su clase"
+      ],
+      "answer": 1,
+      "explanation": "groupby('Pclass') forma un grupo por clase y count() cuenta los registros de cada uno. En el Titanic salen 216, 184 y 491.",
+      "source": "SAA UD1, apartado 4.1",
+      "difficulty": 2,
+      "id": "saa-ud01-q081"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué calcula este código?",
+      "code": "q1 = np.quantile(datos, 0.25)\nq3 = np.quantile(datos, 0.75)\nk = 1.5\ninferior = q1 - k * (q3 - q1)\nsuperior = q3 + k * (q3 - q1)",
+      "options": [
+        "Los datos escalados entre cero y uno",
+        "Los centroides de dos grupos de datos",
+        "Los límites del rango fuera del cual un dato es outlier",
+        "La media de los datos quitando un dato cada vez"
+      ],
+      "answer": 2,
+      "explanation": "Calcula q1 y q3 y, con k = 1.5, los límites del método intercuartiles. Lo que quede fuera de [inferior, superior] será un outlier débil.",
+      "source": "SAA UD1, apartado 4.2",
+      "difficulty": 3,
+      "id": "saa-ud01-q082"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué valores imprime este código?",
+      "code": "from sklearn.preprocessing import MinMaxScaler\n\ndatos = [[0], [5], [10]]\nscaler = MinMaxScaler()\nscaler.fit(datos)\nprint(scaler.transform(datos))",
+      "options": [
+        "0, 5 y 10",
+        "-1, 0 y 1",
+        "0, 0.25 y 1",
+        "0, 0.5 y 1"
+      ],
+      "answer": 3,
+      "explanation": "MinMaxScaler deja cada columna entre cero y uno: el mínimo pasa a 0 y el máximo a 1. En el ejemplo de los apuntes, el 0, a medio camino entre -1 y 1, queda en 0.5; aquí el 5 está a medio camino entre 0 y 10, así que también queda en 0.5.",
+      "source": "SAA UD1, apartado 4.2",
+      "difficulty": 3,
+      "id": "saa-ud01-q083"
+    },
+    {
+      "type": "choice",
+      "prompt": "En el ejemplo de Jackknife de los apuntes, un coche vale un millón. ¿Qué pasa con la media al quitar ese dato?",
+      "options": [
+        "Baja mucho respecto a las demás medias",
+        "Sube mucho respecto a las demás medias",
+        "Queda igual que las demás medias",
+        "No se puede calcular sin ese dato"
+      ],
+      "answer": 0,
+      "explanation": "Ese dato infla la media, así que al quitarlo baja de forma clara. En los apuntes, las demás medias rondan los 34.500 euros y la que se calcula sin ese coche se queda en 24.656.",
+      "source": "SAA UD1, apartado 4.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q084"
+    },
+    {
+      "type": "choice",
+      "prompt": "En el ejemplo de los apuntes, ¿sobre qué se aplica el método de cuartiles para encontrar la observación influyente?",
+      "options": [
+        "Sobre los centroides de los grupos",
+        "Sobre las medias calculadas quitando un dato cada vez",
+        "Sobre los precios originales de los coches",
+        "Sobre los datos ya escalados con MinMaxScaler"
+      ],
+      "answer": 1,
+      "explanation": "Se calculan 100 medias, cada una sin un dato, y se buscan outliers entre ellas. La media que se sale indica la observación influyente.",
+      "source": "SAA UD1, apartado 4.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q085"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "En el código de los apuntes, `np.delete(datos, i)` da los datos sin el elemento de la posición i.",
+      "answer": true,
+      "explanation": "Por eso el resultado se guarda en `datos_sin_i` y con él se calcula la media de esa vuelta.",
+      "source": "SAA UD1, apartado 4.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q086"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena los pasos del código que detecta outliers con el método intercuartiles.",
+      "steps": [
+        "Calcular q1 y q3 con np.quantile",
+        "Calcular los límites inferior y superior",
+        "Recorrer los datos y marcar los que quedan fuera"
+      ],
+      "explanation": "Primero se obtienen los cuartiles, con ellos se calculan los límites y al final se recorren los datos para marcar los que se salen.",
+      "source": "SAA UD1, apartado 4.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q087"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena los pasos para escalar datos con MinMaxScaler.",
+      "steps": [
+        "Importar MinMaxScaler de sklearn.preprocessing",
+        "Crear el objeto con MinMaxScaler()",
+        "Ajustarlo a los datos con fit",
+        "Obtener los datos escalados con transform"
+      ],
+      "explanation": "Se importa la clase, se crea el escalador, fit lo ajusta a los datos y transform devuelve los datos escalados.",
+      "source": "SAA UD1, apartado 4.2",
+      "difficulty": 2,
+      "id": "saa-ud01-q088"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena el ejemplo de los apuntes que detecta una observación influyente.",
+      "steps": [
+        "Generar los precios y poner uno a un millón",
+        "Calcular la media quitando un dato cada vez",
+        "Aplicar el método intercuartiles a esas medias",
+        "La media que se sale señala la observación influyente"
+      ],
+      "explanation": "Se meten los datos con un valor extremo, se calcula la media quitando un dato cada vez y se buscan outliers entre esas medias. La que se sale apunta a la observación influyente.",
+      "source": "SAA UD1, apartado 4.2",
+      "difficulty": 3,
+      "id": "saa-ud01-q089"
+    }
+  ]
+}

@@ -6,8 +6,17 @@
       "name": "Sistemas de Aprendizaje Automático",
       "color": "#2563eb",
       "units": [
-        { "id": "saa-ud01", "number": 1, "title": "Introducción a la IA y a los sistemas de aprendizaje automático" },
-        { "id": "saa-ud02", "number": 2, "title": "Algoritmos y herramientas para el aprendizaje supervisado" }
+        {
+          "id": "saa-ud01",
+          "number": 1,
+          "title": "Introducción a la IA y a los sistemas de aprendizaje automático",
+          "file": "saa/ud01.json"
+        },
+        {
+          "id": "saa-ud02",
+          "number": 2,
+          "title": "Algoritmos y herramientas para el aprendizaje supervisado"
+        }
       ]
     },
     {
@@ -16,8 +25,16 @@
       "name": "Sistemas de Big Data",
       "color": "#0d9488",
       "units": [
-        { "id": "sbd-ud01", "number": 1, "title": "Introducción a Big Data" },
-        { "id": "sbd-ud02", "number": 2, "title": "Almacenamiento de datos y MongoDB" }
+        {
+          "id": "sbd-ud01",
+          "number": 1,
+          "title": "Introducción a Big Data"
+        },
+        {
+          "id": "sbd-ud02",
+          "number": 2,
+          "title": "Almacenamiento de datos y MongoDB"
+        }
       ]
     },
     {
@@ -26,8 +43,16 @@
       "name": "Modelos de Inteligencia Artificial",
       "color": "#9333ea",
       "units": [
-        { "id": "mia-ud01", "number": 1, "title": "Caracterización de sistemas de Inteligencia Artificial" },
-        { "id": "mia-ud02", "number": 2, "title": "Utilización de los modelos de Inteligencia Artificial" }
+        {
+          "id": "mia-ud01",
+          "number": 1,
+          "title": "Caracterización de sistemas de Inteligencia Artificial"
+        },
+        {
+          "id": "mia-ud02",
+          "number": 2,
+          "title": "Utilización de los modelos de Inteligencia Artificial"
+        }
       ]
     },
     {
@@ -36,8 +61,16 @@
       "name": "Programación de Inteligencia Artificial",
       "color": "#ea580c",
       "units": [
-        { "id": "pia-ud01", "number": 1, "title": "Introducción a la programación de Inteligencia Artificial" },
-        { "id": "pia-ud02", "number": 2, "title": "Lenguajes de programación de IA. Lenguaje R" }
+        {
+          "id": "pia-ud01",
+          "number": 1,
+          "title": "Introducción a la programación de Inteligencia Artificial"
+        },
+        {
+          "id": "pia-ud02",
+          "number": 2,
+          "title": "Lenguajes de programación de IA. Lenguaje R"
+        }
       ]
     },
     {
@@ -46,8 +79,16 @@
       "name": "Big Data Aplicado",
       "color": "#db2777",
       "units": [
-        { "id": "bda-ud01", "number": 1, "title": "Introducción a Apache Hadoop" },
-        { "id": "bda-ud02", "number": 2, "title": "Almacenamiento y procesamiento en Hadoop" }
+        {
+          "id": "bda-ud01",
+          "number": 1,
+          "title": "Introducción a Apache Hadoop"
+        },
+        {
+          "id": "bda-ud02",
+          "number": 2,
+          "title": "Almacenamiento y procesamiento en Hadoop"
+        }
       ]
     }
   ]

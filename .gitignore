@@ -46,3 +46,5 @@ Thumbs.db
 # PDFs y apuntes originales: nunca al repo
 *.pdf
 .superpowers/
+.impeccable/mocks/
+.impeccable/review/
