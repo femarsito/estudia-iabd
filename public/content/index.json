@@ -15,7 +15,8 @@
         {
           "id": "saa-ud02",
           "number": 2,
-          "title": "Algoritmos y herramientas para el aprendizaje supervisado"
+          "title": "Algoritmos y herramientas para el aprendizaje supervisado",
+          "file": "saa/ud02.json"
         }
       ]
     },

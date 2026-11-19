@@ -1,0 +1,1582 @@
+{
+  "id": "saa-ud02",
+  "moduleId": "saa",
+  "number": 2,
+  "title": "Algoritmos y herramientas para el aprendizaje supervisado",
+  "lessons": [
+    {
+      "id": "saa-ud02-l01",
+      "kind": "read",
+      "title": "Proceso del aprendizaje supervisado",
+      "section": "1. Proceso del aprendizaje supervisado",
+      "cards": [
+        {
+          "title": "Datos etiquetados",
+          "body": "El aprendizaje supervisado resuelve **problemas de predicción**. Necesita **datos etiquetados**: además de las entradas, conoces la **salida esperada** de cada ejemplo."
+        },
+        {
+          "title": "Clasificación",
+          "body": "Predice un **valor discreto**: una categoría o clase de un conjunto finito. Ejemplo: cliente rentable o no rentable. Se evalúa con el **porcentaje de elementos clasificados correctamente**."
+        },
+        {
+          "title": "Regresión",
+          "body": "Predice un **valor continuo**: el precio de una casa, las unidades vendidas o el valor de un coche según marca, año y kilómetros. Se evalúa con **métricas de error**, como el **error absoluto medio (MAE)**."
+        },
+        {
+          "title": "Los cinco pasos",
+          "body": "- **Preproceso** de los datos.\n- **Separación** en entrenamiento y test.\n- **Entrenamiento** del algoritmo: así se obtiene el modelo.\n- **Predicción** con los datos de test.\n- **Evaluación** de resultados."
+        },
+        {
+          "title": "Cuántos datos para test",
+          "body": "Normalmente se reserva **entre un 10 y un 40 %** de los datos para test. El modelo **solo se entrena con los de entrenamiento**; después predice sobre los de test y comparas lo que sale con lo que debería haber salido."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud02-l02",
+      "kind": "practice",
+      "title": "Proceso del aprendizaje supervisado",
+      "section": "1. Proceso del aprendizaje supervisado",
+      "questionIds": [
+        "saa-ud02-q001",
+        "saa-ud02-q002",
+        "saa-ud02-q003",
+        "saa-ud02-q005",
+        "saa-ud02-q006",
+        "saa-ud02-q007",
+        "saa-ud02-q008",
+        "saa-ud02-q009",
+        "saa-ud02-q010"
+      ]
+    },
+    {
+      "id": "saa-ud02-l03",
+      "kind": "read",
+      "title": "Clasificación bayesiana",
+      "section": "2. Clasificación bayesiana",
+      "cards": [
+        {
+          "title": "Naive Bayes",
+          "body": "Grupo de algoritmos de **clasificación** basados en el **teorema de Bayes**. Son **rápidos**, **sencillos** y adecuados para datos con **muchas características**, es decir, de muy alta dimensión."
+        },
+        {
+          "title": "Teorema de Bayes",
+          "body": "`P(Ai|B) = P(B|Ai) · P(Ai) / P(B)`\n- `P(Ai)`: probabilidades **a priori**.\n- `P(B|Ai)`: probabilidad de B en la hipótesis Ai.\n- `P(Ai|B)`: probabilidades **a posteriori**."
+        },
+        {
+          "title": "La clase ganadora",
+          "body": "Para un registro con características a1…an se calcula la probabilidad de cada clase y gana la **mayor**. Como `P(a1…an)` es **constante**, basta con buscar el **máximo de P(características | clase) · P(clase)**."
+        },
+        {
+          "title": "El productorio",
+          "body": "`P(a1…an | clase)` es el **producto** de las `P(ai | clase)` de cada característica. Si las variables de entrada son **continuas** en lugar de discretas, las probabilidades se calculan con la **distribución normal**."
+        },
+        {
+          "title": "Ejemplo: las encuestas",
+          "body": "1000 clientes: 600 buenos, 300 regulares y 100 malos, con tres preguntas de verdadero o falso. **P(Bueno) = 600/1000 = 0,6**. Para cada clase se calcula también P(respuesta | clase): P(A = v | Bueno) = 450/600 = 0,75."
+        },
+        {
+          "title": "Ejemplo: el resultado",
+          "body": "Para un cliente que responde todo verdadero:\n- Bueno: 0,75 · 0,66 · 0,83 · 0,6 = **0,2465**\n- Regular: 0,17 · 0,5 · 0,83 · 0,3 = 0,0212\n- Malo: 0,5 · 0,75 · 0,25 · 0,1 = 0,0094\nGana **Bueno**, la de mayor valor."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud02-l04",
+      "kind": "practice",
+      "title": "Clasificación bayesiana",
+      "section": "2. Clasificación bayesiana",
+      "questionIds": [
+        "saa-ud02-q011",
+        "saa-ud02-q012",
+        "saa-ud02-q013",
+        "saa-ud02-q014",
+        "saa-ud02-q016",
+        "saa-ud02-q017",
+        "saa-ud02-q018",
+        "saa-ud02-q019",
+        "saa-ud02-q020",
+        "saa-ud02-q021"
+      ]
+    },
+    {
+      "id": "saa-ud02-l05",
+      "kind": "read",
+      "title": "Naive Bayes con Scikit-learn",
+      "section": "2.2. Naive Bayes con Scikit-learn",
+      "cards": [
+        {
+          "title": "Entrada y salida",
+          "body": "En el ejemplo de iris (cargado con seaborn) separas **características** y **etiqueta**:\n- `x_datos = datos.drop('species', axis=1)`\n- `y_datos = datos['species']`\nLuego `train_test_split(x_datos, y_datos, random_state=1)` devuelve **x_train, x_test, y_train, y_test**."
+        },
+        {
+          "title": "Los cuatro pasos comunes",
+          "body": "- **Instanciar**: `modelo = GaussianNB()`\n- **Entrenar** con train: `modelo.fit(x_train, y_train)`\n- **Predecir** con test: `modelo.predict(x_test)`\n- **Evaluar**: `accuracy_score(y_test, y_predict)`\nEn el ejemplo sale **0,97**."
+        },
+        {
+          "title": "Matriz de confusión",
+          "body": "`ConfusionMatrixDisplay.from_predictions(y_test, y_predict)` enfrenta la **etiqueta real** con la **predicción**. Con las 3 especies de iris sale una matriz **3 × 3**: en la diagonal están los aciertos y el único fallo es una **versicolor clasificada como virginica**."
+        },
+        {
+          "title": "LabelEncoder",
+          "body": "`preprocessing.LabelEncoder` cambia cada etiqueta de texto por un **número**: setosa 0, versicolor 1 y virginica 2.\n- `le.fit_transform(...)` hace la conversión.\n- `le.inverse_transform(...)` recupera las **cadenas originales**."
+        },
+        {
+          "title": "Correlación y variantes",
+          "body": "`sns.heatmap(datos.corr(), square=True, annot=True)` dibuja la **correlación** entre características como mapa de calor. Scikit-learn trae varios Naive Bayes en `sklearn.naive_bayes`: **GaussianNB**, MultinomialNB, ComplementNB, BernoulliNB y CategoricalNB."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud02-l06",
+      "kind": "practice",
+      "title": "Naive Bayes con Scikit-learn",
+      "section": "2.2. Naive Bayes con Scikit-learn",
+      "questionIds": [
+        "saa-ud02-q022",
+        "saa-ud02-q023",
+        "saa-ud02-q024",
+        "saa-ud02-q025",
+        "saa-ud02-q026",
+        "saa-ud02-q027",
+        "saa-ud02-q028",
+        "saa-ud02-q029",
+        "saa-ud02-q030",
+        "saa-ud02-q031",
+        "saa-ud02-q032",
+        "saa-ud02-q033"
+      ]
+    },
+    {
+      "id": "saa-ud02-l07",
+      "kind": "read",
+      "title": "Vecinos más cercanos (kNN)",
+      "section": "3. Vecinos más cercanos",
+      "cards": [
+        {
+          "title": "La idea",
+          "body": "kNN se basa en la **distancia entre observaciones**: una observación nueva será de una clase parecida a las que tenga **más cerca**. Sirve para **clasificación y regresión**:\n- Clasificación: la **clase mayoritaria** de los vecinos.\n- Regresión: la **media** de sus valores."
+        },
+        {
+          "title": "Pasos",
+          "body": "- Fijar **k**, el número de vecinos.\n- Calcular la distancia del nuevo elemento a **todas las muestras de entrenamiento**.\n- Ordenar por distancia y quedarte con los **k más cercanos**.\n- Decidir: **mayoría** (clasificación) o **media** (regresión)."
+        },
+        {
+          "title": "Distancias",
+          "body": "- **Euclídea**: para números **reales**.\n- **Manhattan**: para números **enteros**. Suma los **valores absolutos** de las diferencias: `|x1 − x2| + |y1 − y2|`."
+        },
+        {
+          "title": "Parámetros",
+          "body": "- **k**: número de vecinos.\n- **radius**: radio del espacio.\n- **weights**: ponderación de la contribución de los vecinos.\n- **distance**: métrica de la distancia."
+        },
+        {
+          "title": "Ejemplo: los móviles",
+          "body": "Datos (batería, cámara → clase): (8, 6) Bueno, (8, 5) Bueno, (4, 4) Malo y (2, 4) Malo. Nuevo móvil (5, 7), **k = 3**, distancia Manhattan. Distancias: 4, 5, 4 y 6. Los tres más cercanos son Bueno, Malo y Bueno: gana **Bueno 2 a 1**."
+        },
+        {
+          "title": "kNN en Scikit-learn",
+          "body": "`KNeighborsClassifier(15, weights='uniform')`, de `sklearn.neighbors`; el primer argumento es **k**. Para clasificar también está `RadiusNeighborsClassifier` (vecinos dentro de un **rango fijo**) y para regresión, `KNeighborsRegressor` y `RadiusNeighborsRegressor`."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud02-l08",
+      "kind": "practice",
+      "title": "Vecinos más cercanos (kNN)",
+      "section": "3. Vecinos más cercanos",
+      "questionIds": [
+        "saa-ud02-q034",
+        "saa-ud02-q035",
+        "saa-ud02-q036",
+        "saa-ud02-q037",
+        "saa-ud02-q038",
+        "saa-ud02-q039",
+        "saa-ud02-q040",
+        "saa-ud02-q041",
+        "saa-ud02-q042",
+        "saa-ud02-q043",
+        "saa-ud02-q044"
+      ]
+    },
+    {
+      "id": "saa-ud02-l09",
+      "kind": "pc",
+      "title": "kNN con iris en Colab",
+      "section": "3.2. kNN con Scikit-learn",
+      "steps": [
+        {
+          "where": "Colab",
+          "text": "Abre un cuaderno nuevo y carga el conjunto iris que trae seaborn.",
+          "code": "import seaborn as sns\ndatos = sns.load_dataset('iris')\ndatos",
+          "expected": "Una tabla de 150 filas × 5 columnas: las cuatro medidas del sépalo y del pétalo y la especie (species)."
+        },
+        {
+          "where": "Colab",
+          "text": "Separa las características de la etiqueta.",
+          "code": "x_datos = datos.drop('species', axis=1)\ny_datos = datos['species']"
+        },
+        {
+          "where": "Colab",
+          "text": "Divide los datos en entrenamiento y test.",
+          "code": "from sklearn.model_selection import train_test_split\nx_train, x_test, y_train, y_test = train_test_split(x_datos, y_datos, random_state=1)"
+        },
+        {
+          "where": "Colab",
+          "text": "Instancia kNN con k = 15 y pesos uniformes, entrénalo, predice con test y evalúa.",
+          "code": "k = 15\nw = 'uniform'\nfrom sklearn.neighbors import KNeighborsClassifier\nmodelo = KNeighborsClassifier(k, weights=w)\nmodelo.fit(x_train, y_train)\ny_predict = modelo.predict(x_test)\nfrom sklearn.metrics import accuracy_score\naccuracy_score(y_test, y_predict)",
+          "expected": "En los apuntes sale 0.9736842105263158."
+        },
+        {
+          "where": "Colab",
+          "text": "Dibuja la matriz de confusión para ver dónde acierta y dónde falla.",
+          "code": "from sklearn.metrics import ConfusionMatrixDisplay\nConfusionMatrixDisplay.from_predictions(y_test, y_predict)",
+          "expected": "Una matriz 3 × 3 con un solo fallo: una versicolor predicha como virginica."
+        },
+        {
+          "where": "Colab",
+          "text": "Cambia el valor de k (por ejemplo, 3 o 5), vuelve a ejecutar la celda del modelo y anota la exactitud de cada prueba."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud02-l10",
+      "kind": "practice",
+      "title": "kNN con Scikit-learn",
+      "section": "3.2. kNN con Scikit-learn",
+      "questionIds": [
+        "saa-ud02-q045",
+        "saa-ud02-q046",
+        "saa-ud02-q047",
+        "saa-ud02-q048",
+        "saa-ud02-q049",
+        "saa-ud02-q050",
+        "saa-ud02-q051",
+        "saa-ud02-q052"
+      ]
+    },
+    {
+      "id": "saa-ud02-l11",
+      "kind": "read",
+      "title": "Árboles de decisión",
+      "section": "4. Modelos basados en árboles",
+      "cards": [
+        {
+          "title": "Qué son",
+          "body": "Construyen el modelo con **reglas y estructuras jerárquicas** en forma de árbol. Se traducen fácilmente a reglas **si-entonces**, así que son modelos **muy interpretables**."
+        },
+        {
+          "title": "Ventajas e inconvenientes",
+          "body": "A favor: **no son costosos de construir**, son **rápidos de ejecutar** y **reducen el preprocesamiento**.\nEn contra: los árboles **muy profundos tienden a sobreaprender** y, si el problema es muy complejo, ya no son tan eficientes."
+        },
+        {
+          "title": "Ejemplo: ¿jugamos al fútbol?",
+          "body": "- Raíz: **Tiempo**.\n- Soleado → Humedad: alta **No**, normal **Sí**.\n- Nublado → **Sí**.\n- Lluvioso → Viento: fuerte **No**, débil **Sí**."
+        },
+        {
+          "title": "Cómo se construye",
+          "body": "- Calcular la **calidad del nodo** con la **entropía de Shannon** o el **índice de Gini**.\n- Si no tiene calidad suficiente, se divide con un **atributo separador**; si la tiene, pasa a las reglas.\n- Se ejecuta la regla y los datos se dividen en subconjuntos.\n- Se repite hasta la **condición de parada**."
+        },
+        {
+          "title": "Criterios de parada",
+          "body": "- **Maximum Branch**: máximo de ramas por nodo.\n- **Leaf Size**: mínimo de observaciones por nodo final.\n- **Split Size**: mínimo de observaciones para dividir un nodo.\n- **max_depth**: profundidad del árbol."
+        },
+        {
+          "title": "Árboles en Scikit-learn",
+          "body": "`DecisionTreeClassifier(criterion='gini', max_depth=2)`, de `sklearn.tree`. Con iris acierta **0,97**. El árbol se dibuja con `tree.export_graphviz` y pydot. Para regresión está **DecisionTreeRegressor**."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud02-l12",
+      "kind": "practice",
+      "title": "Árboles de decisión",
+      "section": "4. Modelos basados en árboles",
+      "questionIds": [
+        "saa-ud02-q053",
+        "saa-ud02-q054",
+        "saa-ud02-q055",
+        "saa-ud02-q056",
+        "saa-ud02-q057",
+        "saa-ud02-q058",
+        "saa-ud02-q059",
+        "saa-ud02-q060",
+        "saa-ud02-q061",
+        "saa-ud02-q062"
+      ]
+    },
+    {
+      "id": "saa-ud02-l13",
+      "kind": "pc",
+      "title": "Árbol de decisión con iris en Colab",
+      "section": "4.1. Ejemplo en Scikit-learn",
+      "steps": [
+        {
+          "where": "Colab",
+          "text": "Carga iris, separa características y etiqueta y divide en entrenamiento y test. Si vienes del cuaderno de kNN, reutiliza esas celdas.",
+          "code": "import seaborn as sns\ndatos = sns.load_dataset('iris')\nx_datos = datos.drop('species', axis=1)\ny_datos = datos['species']\nfrom sklearn.model_selection import train_test_split\nx_train, x_test, y_train, y_test = train_test_split(x_datos, y_datos, random_state=1)"
+        },
+        {
+          "where": "Colab",
+          "text": "Crea el árbol con el índice de Gini y profundidad 2, entrénalo y evalúalo.",
+          "code": "criterio = 'gini'\nprofundidad = 2\nfrom sklearn.tree import DecisionTreeClassifier\nmodelo = DecisionTreeClassifier(criterion=criterio, max_depth=profundidad)\nmodelo.fit(x_train, y_train)\ny_predict = modelo.predict(x_test)\nfrom sklearn.metrics import accuracy_score\naccuracy_score(y_test, y_predict)",
+          "expected": "En los apuntes sale 0.9736842105263158."
+        },
+        {
+          "where": "Colab",
+          "text": "Dibuja el árbol que ha aprendido el modelo.",
+          "code": "import pydot\nfrom IPython.display import Image\nfrom sklearn import tree\nfrom io import StringIO\ndot_data = StringIO()\ntree.export_graphviz(modelo, out_file=dot_data, class_names=modelo.classes_, feature_names=x_train.columns, rounded=True, filled=True)\ngraph = pydot.graph_from_dot_data(dot_data.getvalue())\nImage(graph[0].create_png())",
+          "expected": "Un árbol de dos niveles. En los apuntes, la raíz pregunta petal_width <= 0.8 y por la rama True deja todas las setosa."
+        },
+        {
+          "where": "Colab",
+          "text": "Dibuja la matriz de confusión.",
+          "code": "from sklearn.metrics import ConfusionMatrixDisplay\nConfusionMatrixDisplay.from_predictions(y_test, y_predict)",
+          "expected": "Un solo fallo: una versicolor predicha como virginica."
+        },
+        {
+          "where": "Colab",
+          "text": "Cambia profundidad (por ejemplo, a 1 o a 5), vuelve a entrenar y compara la exactitud y el dibujo del árbol."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud02-l14",
+      "kind": "practice",
+      "title": "Árboles con Scikit-learn",
+      "section": "4.1. Ejemplo en Scikit-learn",
+      "questionIds": [
+        "saa-ud02-q063",
+        "saa-ud02-q064",
+        "saa-ud02-q065",
+        "saa-ud02-q066",
+        "saa-ud02-q067",
+        "saa-ud02-q068",
+        "saa-ud02-q069"
+      ]
+    },
+    {
+      "id": "saa-ud02-l15",
+      "kind": "read",
+      "title": "Otros modelos",
+      "section": "5. Otros modelos",
+      "cards": [
+        {
+          "title": "Regresión logística",
+          "body": "Pese al nombre, en los apuntes se usa para **clasificación**: `LogisticRegression(random_state=0, max_iter=1000)`, de `sklearn.linear_model`, clasifica las flores de iris con los mismos pasos (fit, predict, accuracy_score) y acierta 0,97."
+        },
+        {
+          "title": "Regresión lineal",
+          "body": "`LinearRegression`, también en `sklearn.linear_model`. En el ejemplo, `y = X · [1, 2] + 3` y, tras `fit`:\n- `reg.coef_` → **[1, 2]**\n- `reg.intercept_` → **3**\n- `reg.predict([[3, 5]])` → **16**"
+        },
+        {
+          "title": "SVM: la idea",
+          "body": "Las **Máquinas de Vector Soporte** son aprendizaje supervisado. Representan cada caso como un **punto en un espacio n-dimensional**, donde **n es el número de atributos**, y separan las clases con un **hiperplano** que deja los dos espacios lo más amplios posible."
+        },
+        {
+          "title": "Margen y vectores soporte",
+          "body": "Con dos atributos se busca la recta que separa los grupos **equidistante de los puntos más cercanos**. Esa distancia total es el **margen** y los puntos que la definen son los **vectores soporte**. Un dato nuevo se clasifica según el **lado de la recta** en el que cae."
+        },
+        {
+          "title": "Por qué se usan tanto",
+          "body": "Sirven para **clasificación y regresión** y suelen rendir muy bien: son de las técnicas **más precisas**. Casos de éxito: reconocimiento óptico de caracteres, detección de caras para enfocar, **filtros de spam** y reconocimiento de imágenes de satélite."
+        }
+      ]
+    },
+    {
+      "id": "saa-ud02-l16",
+      "kind": "practice",
+      "title": "Otros modelos",
+      "section": "5. Otros modelos",
+      "questionIds": [
+        "saa-ud02-q070",
+        "saa-ud02-q071",
+        "saa-ud02-q072",
+        "saa-ud02-q073",
+        "saa-ud02-q074",
+        "saa-ud02-q075",
+        "saa-ud02-q076",
+        "saa-ud02-q077",
+        "saa-ud02-q078",
+        "saa-ud02-q079",
+        "saa-ud02-q080",
+        "saa-ud02-q081"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "saa-ud02-q001",
+      "type": "choice",
+      "prompt": "¿Qué necesitas para resolver un problema con aprendizaje supervisado?",
+      "options": [
+        "Solo datos de entrada, sin ninguna salida",
+        "Un modelo ya entrenado por otra persona",
+        "Datos etiquetados, con entradas y salidas esperadas",
+        "Datos agrupados antes en clústeres"
+      ],
+      "answer": 2,
+      "explanation": "El supervisado aprende de ejemplos en los que ya conoces la salida esperada. Sin etiquetas no tendrías con qué comparar las predicciones.",
+      "source": "SAA UD2, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q002",
+      "type": "choice",
+      "prompt": "Quieres predecir cuántas unidades de un producto se venderán el mes que viene. ¿Qué tipo de problema es?",
+      "options": [
+        "Regresión, porque el resultado es un valor continuo",
+        "Clasificación, porque el resultado es un valor continuo",
+        "Clasificación, porque el resultado es una categoría",
+        "Regresión, porque el resultado es una categoría"
+      ],
+      "answer": 0,
+      "explanation": "El número de unidades vendidas es uno de los ejemplos de regresión de los apuntes: no eliges entre clases, predices una cantidad.",
+      "source": "SAA UD2, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q003",
+      "type": "choice",
+      "prompt": "Un hospital quiere un modelo que diga si un paciente tiene enfermedad de corazón o no. ¿Qué tipo de problema es?",
+      "options": [
+        "Regresión, porque el resultado es un valor continuo",
+        "Regresión, porque hay muchos datos sanitarios",
+        "No supervisado, porque no hay etiquetas",
+        "Clasificación, porque el resultado es una clase"
+      ],
+      "answer": 3,
+      "explanation": "La salida solo puede ser «sí» o «no», un conjunto finito de valores. Eso es clasificación aunque las entradas sean números.",
+      "source": "SAA UD2, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q005",
+      "type": "truefalse",
+      "prompt": "Un modelo de regresión se evalúa con el porcentaje de elementos clasificados correctamente.",
+      "answer": false,
+      "explanation": "Ese porcentaje es para clasificación. En regresión el resultado es continuo y se miden errores, por ejemplo con el MAE.",
+      "source": "SAA UD2, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q006",
+      "type": "choice",
+      "prompt": "¿Qué parte de los datos se suele reservar para test?",
+      "options": [
+        "Entre un 60 y un 90 %",
+        "Entre un 10 y un 40 %",
+        "Siempre exactamente el 50 %",
+        "Ninguna, se usan todos para entrenar"
+      ],
+      "answer": 1,
+      "explanation": "Lo normal es dejar entre un 10 y un 40 % para test. Entre un 60 y un 90 % es lo que queda para entrenamiento.",
+      "source": "SAA UD2, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q007",
+      "type": "order",
+      "prompt": "Ordena los pasos del proceso de aprendizaje supervisado.",
+      "steps": [
+        "Preproceso de los datos",
+        "Separación en entrenamiento y test",
+        "Entrenamiento del algoritmo",
+        "Predicción con los datos de test",
+        "Evaluación de resultados"
+      ],
+      "explanation": "Primero limpias los datos y los separas. Con el entrenamiento obtienes el modelo, lo pruebas con test y al final comparas sus resultados con los reales.",
+      "source": "SAA UD2, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q008",
+      "type": "truefalse",
+      "prompt": "Las predicciones que se evalúan se hacen sobre los datos de test, que el modelo no ha usado para entrenar.",
+      "answer": true,
+      "explanation": "El modelo se entrena solo con los datos de entrenamiento y se prueba con los de test separados al principio. Así ves cómo se porta con datos que no ha visto.",
+      "source": "SAA UD2, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q009",
+      "type": "choice",
+      "prompt": "¿Qué se obtiene al entrenar el algoritmo con los datos de entrenamiento?",
+      "options": [
+        "Los datos de test",
+        "Los datos ya preprocesados",
+        "La métrica de evaluación",
+        "Un modelo de predicción"
+      ],
+      "answer": 3,
+      "explanation": "Entrenar el algoritmo produce el modelo, que luego se usa para predecir sobre test. Los datos de test salen de la separación, no del entrenamiento.",
+      "source": "SAA UD2, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q010",
+      "type": "match",
+      "prompt": "Relaciona cada concepto con su descripción.",
+      "pairs": [
+        [
+          "Clasificación",
+          "Predice un valor discreto, una clase"
+        ],
+        [
+          "Regresión",
+          "Predice un valor continuo"
+        ],
+        [
+          "MAE",
+          "Métrica de error para regresión"
+        ],
+        [
+          "Datos de test",
+          "Sirven para comprobar el modelo"
+        ]
+      ],
+      "explanation": "Clasificación y regresión se distinguen por el tipo de salida. El MAE mide el error en regresión y los datos de test se guardan para probar el modelo.",
+      "source": "SAA UD2, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q011",
+      "type": "choice",
+      "prompt": "¿En qué se basan los modelos Naive Bayes?",
+      "options": [
+        "En el teorema de Bayes",
+        "En la distancia entre observaciones",
+        "En reglas si-entonces en forma de árbol",
+        "En un hiperplano que separa las clases"
+      ],
+      "answer": 0,
+      "explanation": "Naive Bayes calcula probabilidades con el teorema de Bayes. La distancia es la base de kNN, las reglas si-entonces la de los árboles y el hiperplano la de las SVM.",
+      "source": "SAA UD2, apartado 2",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q012",
+      "type": "truefalse",
+      "prompt": "Naive Bayes es un grupo de algoritmos pensados para predecir valores continuos, como el precio de una casa.",
+      "answer": false,
+      "explanation": "Los apuntes lo presentan como algoritmos de clasificación: asignan la clase más probable. Predecir un precio sería un problema de regresión.",
+      "source": "SAA UD2, apartado 2",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q013",
+      "type": "truefalse",
+      "prompt": "Los modelos Naive Bayes son adecuados para conjuntos de datos con muchas características.",
+      "answer": true,
+      "explanation": "Además de rápidos y sencillos, los apuntes los recomiendan para datos de muy alta dimensión, es decir, con muchas características.",
+      "source": "SAA UD2, apartado 2",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q014",
+      "type": "match",
+      "prompt": "Relaciona cada término del teorema de Bayes con su nombre.",
+      "pairs": [
+        [
+          "P(Ai)",
+          "Probabilidad a priori"
+        ],
+        [
+          "P(Ai | B)",
+          "Probabilidad a posteriori"
+        ],
+        [
+          "P(B | Ai)",
+          "Probabilidad de B en la hipótesis Ai"
+        ]
+      ],
+      "explanation": "Son los nombres que dan los apuntes: P(Ai) son las probabilidades a priori y P(Ai | B), las a posteriori. P(B | Ai) es la probabilidad de B en la hipótesis Ai, la condicionada que se conoce de partida.",
+      "source": "SAA UD2, apartado 2",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q016",
+      "type": "choice",
+      "prompt": "¿Qué valor calcula Naive Bayes para cada clase y luego compara para elegir la mayor?",
+      "options": [
+        "P(características) · P(clase)",
+        "P(clase) / P(características | clase)",
+        "P(características | clase) / P(clase)",
+        "P(características | clase) · P(clase)"
+      ],
+      "answer": 3,
+      "explanation": "Es el numerador del teorema de Bayes aplicado a cada clase. Gana la clase con el producto más alto.",
+      "source": "SAA UD2, apartado 2",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q017",
+      "type": "choice",
+      "prompt": "¿Cómo se calcula P(a1, …, an | clase) en Naive Bayes?",
+      "options": [
+        "Sumando las P(ai | clase) de cada característica",
+        "Haciendo la media de las P(ai | clase)",
+        "Multiplicando las P(ai | clase) de cada característica",
+        "Tomando la mayor de las P(ai | clase)"
+      ],
+      "answer": 2,
+      "explanation": "Los apuntes lo escriben como un productorio de P(ai | clase). En el ejemplo de las encuestas se multiplican las tres respuestas.",
+      "source": "SAA UD2, apartado 2",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q018",
+      "type": "choice",
+      "prompt": "Si las variables de entrada son continuas, ¿qué se usa en Naive Bayes para calcular las probabilidades?",
+      "options": [
+        "La distancia euclídea",
+        "La distribución normal",
+        "El índice de Gini",
+        "La distancia Manhattan"
+      ],
+      "answer": 1,
+      "explanation": "Con datos continuos se modelan las probabilidades con la distribución normal. Las distancias son cosa de kNN y el índice de Gini, de los árboles.",
+      "source": "SAA UD2, apartado 2",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q019",
+      "type": "choice",
+      "prompt": "En las encuestas del ejemplo hay 600 clientes buenos y 450 de ellos respondieron A = verdadero. ¿Cuánto vale P(A = v | Bueno)?",
+      "options": [
+        "0,75",
+        "0,45",
+        "0,55",
+        "0,6"
+      ],
+      "answer": 0,
+      "explanation": "Se divide entre los clientes de esa clase: 450/600 = 0,75. 0,45 saldría al dividir entre los 1000 clientes y 0,55 es P(A = v) sin tener en cuenta la clase.",
+      "source": "SAA UD2, apartado 2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q020",
+      "type": "choice",
+      "prompt": "Para un cliente nuevo has calculado P(características | clase) · P(clase) en cada clase. ¿Qué clase le asigna Naive Bayes?",
+      "code": "Bueno:   0,75 · 0,66 · 0,83 · 0,6\nRegular: 0,17 · 0,5  · 0,83 · 0,3\nMalo:    0,5  · 0,75 · 0,25 · 0,1",
+      "options": [
+        "Regular",
+        "Malo",
+        "Bueno",
+        "Ninguna, falta dividir entre P(características)"
+      ],
+      "answer": 2,
+      "explanation": "Salen 0,2465 para Bueno, 0,0212 para Regular y 0,0094 para Malo, así que gana Bueno. No hace falta dividir entre P(características) porque es igual para las tres.",
+      "source": "SAA UD2, apartado 2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q021",
+      "type": "order",
+      "prompt": "Ordena cómo se clasifica una instancia nueva con Naive Bayes, como en el ejemplo de las encuestas.",
+      "steps": [
+        "Calcular la probabilidad de cada clase, P(clase)",
+        "Calcular P(respuesta | clase) para cada respuesta y clase",
+        "Multiplicar esas probabilidades por P(clase)",
+        "Asignar la clase con el valor más alto"
+      ],
+      "explanation": "En el ejemplo primero salen P(Bueno), P(Regular) y P(Malo), luego las condicionadas de cada respuesta, después los productos y por último se elige el mayor.",
+      "source": "SAA UD2, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q022",
+      "type": "choice",
+      "prompt": "¿Qué contiene `x_datos` después de ejecutar esta línea con el conjunto iris?",
+      "code": "x_datos = datos.drop('species', axis=1)",
+      "options": [
+        "Las medidas de cada flor, sin la columna de la especie",
+        "Solo la columna de la especie de cada flor",
+        "Las filas de test del conjunto iris",
+        "Los datos con la especie convertida en número"
+      ],
+      "answer": 0,
+      "explanation": "`drop('species', axis=1)` quita la columna species. Te quedas con las características de entrada; la etiqueta va aparte, en `y_datos`.",
+      "source": "SAA UD2, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q023",
+      "type": "choice",
+      "prompt": "Completa la línea: `___ = train_test_split(x_datos, y_datos, random_state=1)`",
+      "options": [
+        "x_train, y_train, x_test, y_test",
+        "x_test, x_train, y_test, y_train",
+        "y_train, y_test, x_train, x_test",
+        "x_train, x_test, y_train, y_test"
+      ],
+      "answer": 3,
+      "explanation": "Devuelve primero las dos partes de las características (train y test) y después las dos de la etiqueta. Si cambias el orden, entrenarás con variables equivocadas.",
+      "source": "SAA UD2, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q024",
+      "type": "choice",
+      "prompt": "¿Qué le falta a este código para seguir el proceso de los apuntes?",
+      "code": "from sklearn.naive_bayes import GaussianNB\nfrom sklearn.metrics import accuracy_score\nmodelo = GaussianNB()\ny_predict = modelo.predict(x_test)\naccuracy_score(y_test, y_predict)",
+      "options": [
+        "Entrenar antes de predecir con `modelo.fit(x_test, y_test)`",
+        "Entrenar antes de predecir con `modelo.fit(x_train, y_train)`",
+        "Llamar a `train_test_split` después de predecir",
+        "Pasar `y_test` a `predict` en lugar de `x_test`"
+      ],
+      "answer": 1,
+      "explanation": "Un modelo recién instanciado no ha aprendido nada: hay que llamar a `fit` con los datos de entrenamiento antes de `predict`. Entrenar con test sería mezclar los datos que reservas para evaluar.",
+      "source": "SAA UD2, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q025",
+      "type": "choice",
+      "prompt": "¿Qué error de planteamiento tiene este código?",
+      "code": "modelo = GaussianNB()\nmodelo.fit(x_test, y_test)\ny_predict = modelo.predict(x_test)\naccuracy_score(y_test, y_predict)",
+      "options": [
+        "Debería evaluar con `accuracy_score(y_predict, x_test)`",
+        "Entrena con los datos de test, que son para evaluar",
+        "GaussianNB no admite datos separados en test",
+        "Falta convertir la especie con LabelEncoder"
+      ],
+      "answer": 1,
+      "explanation": "El modelo se entrena y se evalúa con los mismos datos, así que la nota no dice nada de datos nuevos. Debe entrenarse con `x_train, y_train`.",
+      "source": "SAA UD2, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q026",
+      "type": "choice",
+      "prompt": "`accuracy_score(y_test, y_predict)` devuelve `0.9736842105263158`. ¿Qué significa?",
+      "options": [
+        "Que falla en torno al 97 % de las flores de test",
+        "Que acierta el 97 % de las flores de entrenamiento",
+        "Que el error absoluto medio es de 0,97",
+        "Que acierta en torno al 97 % de las flores de test"
+      ],
+      "answer": 3,
+      "explanation": "Compara las etiquetas reales de test con las predichas y da la proporción de aciertos, entre 0 y 1. El MAE es una métrica de regresión.",
+      "source": "SAA UD2, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q027",
+      "type": "order",
+      "prompt": "Ya tienes los datos separados en entrenamiento y test. Ordena los pasos comunes para usar un modelo de Scikit-learn.",
+      "steps": [
+        "Instanciar el modelo",
+        "Entrenar con fit sobre los datos de entrenamiento",
+        "Predecir con predict sobre los datos de test",
+        "Evaluar con accuracy_score"
+      ],
+      "explanation": "Son los mismos pasos para Naive Bayes, kNN, árboles y regresión logística. Solo cambia la clase que instancias.",
+      "source": "SAA UD2, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q028",
+      "type": "choice",
+      "prompt": "Esta es la matriz de confusión del ejemplo de iris (filas: especie real; columnas: predicción). ¿Qué error comete el modelo?",
+      "code": "             setosa  versicolor  virginica\nsetosa           13           0          0\nversicolor        0          15          1\nvirginica         0           0          9",
+      "options": [
+        "Clasifica una versicolor como virginica",
+        "Clasifica una virginica como versicolor",
+        "Clasifica una setosa como virginica",
+        "Clasifica 15 versicolor como virginica"
+      ],
+      "answer": 0,
+      "explanation": "El 1 está en la fila de la versicolor real y en la columna de la virginica predicha. Si lees la matriz al revés, caes en la trampa de la virginica predicha como versicolor.",
+      "source": "SAA UD2, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q029",
+      "type": "truefalse",
+      "prompt": "En una matriz de confusión como la del ejemplo de iris, las casillas fuera de la diagonal principal recogen las flores mal clasificadas.",
+      "answer": true,
+      "explanation": "En la diagonal coinciden especie real y predicha, así que son aciertos. Fuera de ella no coinciden: son los fallos.",
+      "source": "SAA UD2, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q030",
+      "type": "choice",
+      "prompt": "El conjunto iris tiene tres especies. ¿Cuántas casillas tiene su matriz de confusión?",
+      "options": [
+        "3",
+        "6",
+        "9",
+        "38"
+      ],
+      "answer": 2,
+      "explanation": "Hay una fila y una columna por clase: 3 × 3 = 9 casillas. 38 es el número de flores de test, la suma de todas las casillas.",
+      "source": "SAA UD2, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q031",
+      "type": "order",
+      "prompt": "Ordena lo que se hace en el ejemplo de LabelEncoder con iris.",
+      "steps": [
+        "Crear el codificador con preprocessing.LabelEncoder()",
+        "Convertir species en números con fit_transform",
+        "Ver la correlación con sns.heatmap(datos.corr())",
+        "Recuperar los nombres con inverse_transform"
+      ],
+      "explanation": "Primero se crea el codificador y se pasan las especies a 0, 1 y 2. Con todo numérico se dibuja el mapa de calor y al final se vuelve a los nombres.",
+      "source": "SAA UD2, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q032",
+      "type": "match",
+      "prompt": "Relaciona cada función de Scikit-learn con lo que hace.",
+      "pairs": [
+        [
+          "train_test_split",
+          "Separa los datos en entrenamiento y test"
+        ],
+        [
+          "fit",
+          "Entrena el modelo"
+        ],
+        [
+          "predict",
+          "Hace las predicciones"
+        ],
+        [
+          "accuracy_score",
+          "Calcula la proporción de aciertos"
+        ],
+        [
+          "inverse_transform",
+          "Recupera las etiquetas de texto"
+        ]
+      ],
+      "explanation": "Son las piezas del flujo de los apuntes: separar, entrenar, predecir y evaluar. `inverse_transform` deshace lo que hizo LabelEncoder.",
+      "source": "SAA UD2, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q033",
+      "type": "truefalse",
+      "prompt": "GaussianNB es el único clasificador Naive Bayes que trae Scikit-learn.",
+      "answer": false,
+      "explanation": "Hay varios: GaussianNB, MultinomialNB, ComplementNB, BernoulliNB y CategoricalNB. En el ejemplo de iris se usa GaussianNB.",
+      "source": "SAA UD2, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q034",
+      "type": "choice",
+      "prompt": "¿En qué se basa el algoritmo kNN?",
+      "options": [
+        "En el teorema de Bayes",
+        "En la calidad de cada nodo",
+        "En el margen entre dos clases",
+        "En la distancia entre observaciones"
+      ],
+      "answer": 3,
+      "explanation": "Una observación nueva se parece a las que tiene más cerca. La calidad del nodo es de los árboles y el margen, de las SVM.",
+      "source": "SAA UD2, apartado 3",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q035",
+      "type": "choice",
+      "prompt": "En un problema de clasificación, ¿qué devuelve kNN para el elemento nuevo?",
+      "options": [
+        "La media de las clases de sus k vecinos",
+        "La clase de su vecino más lejano",
+        "La clase mayoritaria entre sus k vecinos",
+        "La clase más frecuente en todo el entrenamiento"
+      ],
+      "answer": 2,
+      "explanation": "En clasificación votan los k vecinos más cercanos y gana la mayoría. La media es lo que se usa en regresión.",
+      "source": "SAA UD2, apartado 3",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q036",
+      "type": "choice",
+      "prompt": "Usas kNN con k = 3 para predecir el precio de un piso. Sus tres vecinos más cercanos valen 100, 200 y 300 mil euros. ¿Qué predice?",
+      "options": [
+        "300 mil euros, el mayor",
+        "200 mil euros, la media",
+        "100 mil euros, el menor",
+        "600 mil euros, la suma"
+      ],
+      "answer": 1,
+      "explanation": "En regresión kNN devuelve la media de los valores de los vecinos: (100 + 200 + 300) / 3 = 200.",
+      "source": "SAA UD2, apartado 3",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q037",
+      "type": "truefalse",
+      "prompt": "kNN solo sirve para problemas de clasificación.",
+      "answer": false,
+      "explanation": "Sirve para clasificación (mayoría de vecinos) y para regresión (media de vecinos).",
+      "source": "SAA UD2, apartado 3",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q038",
+      "type": "order",
+      "prompt": "Ordena los pasos del algoritmo kNN.",
+      "steps": [
+        "Fijar el número de vecinos k",
+        "Calcular la distancia a todas las muestras de entrenamiento",
+        "Ordenar por distancia y quedarse con los k más cercanos",
+        "Decidir por mayoría o por media según el problema"
+      ],
+      "explanation": "Sin k no sabes cuántos vecinos mirar, y no puedes elegir los más cercanos sin haber calculado y ordenado las distancias.",
+      "source": "SAA UD2, apartado 3",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q039",
+      "type": "match",
+      "prompt": "Relaciona cada parámetro de kNN con su significado.",
+      "pairs": [
+        [
+          "k",
+          "Número de vecinos a considerar"
+        ],
+        [
+          "radius",
+          "Radio del espacio"
+        ],
+        [
+          "weights",
+          "Ponderación de la contribución de los vecinos"
+        ],
+        [
+          "distance",
+          "Métrica de la distancia"
+        ]
+      ],
+      "explanation": "Son los cuatro parámetros que dan los apuntes. En el ejemplo de iris se usan k = 15 y weights = 'uniform'.",
+      "source": "SAA UD2, apartado 3",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q040",
+      "type": "truefalse",
+      "prompt": "Según los apuntes, la distancia euclídea es la indicada para números enteros y la Manhattan para números reales.",
+      "answer": false,
+      "explanation": "Es al revés: la euclídea para números reales y la Manhattan para enteros.",
+      "source": "SAA UD2, apartado 3",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q041",
+      "type": "choice",
+      "prompt": "Con la distancia Manhattan, ¿qué distancia hay entre el móvil (8, 5) y el móvil nuevo (5, 7)?",
+      "options": [
+        "5",
+        "3,6",
+        "13",
+        "1"
+      ],
+      "answer": 0,
+      "explanation": "Manhattan suma los valores absolutos de las diferencias: |8 − 5| + |5 − 7| = 3 + 2 = 5. 3,6 sería la distancia euclídea, la raíz de 13.",
+      "source": "SAA UD2, apartado 3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q042",
+      "type": "choice",
+      "prompt": "Con los datos del ejemplo de los móviles, clasificas un móvil nuevo (6, 5) con k = 3 y distancia Manhattan. ¿Qué sale?",
+      "code": "x1  x2  clase\n 8   6  Bueno\n 8   5  Bueno\n 4   4  Malo\n 2   4  Malo",
+      "options": [
+        "Malo, por dos votos a uno",
+        "Empate entre Bueno y Malo",
+        "Bueno, por dos votos a uno",
+        "Bueno, por tres votos a cero"
+      ],
+      "answer": 2,
+      "explanation": "Las distancias son 3, 2, 3 y 5. Los tres más cercanos son dos Bueno (2 y 3) y un Malo (3), así que gana Bueno 2 a 1.",
+      "source": "SAA UD2, apartado 3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q043",
+      "type": "truefalse",
+      "prompt": "En kNN, el elemento nuevo se compara solo con los k primeros registros del conjunto de entrenamiento.",
+      "answer": false,
+      "explanation": "Se calcula la distancia a todas las muestras de entrenamiento. Después se ordenan y se eligen las k más cercanas, no las k primeras.",
+      "source": "SAA UD2, apartado 3",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q044",
+      "type": "choice",
+      "prompt": "En el ejemplo de los móviles, con k = 3 y el móvil nuevo en (5, 7), ¿por qué no cuenta el móvil (2, 4)?",
+      "options": [
+        "Porque su distancia, 6, es la mayor y quedaría el cuarto",
+        "Porque es de la clase Malo y pierde la votación",
+        "Porque su distancia, 6, es mayor que el valor de k",
+        "Porque tiene la batería más baja de todos los móviles"
+      ],
+      "answer": 0,
+      "explanation": "Las distancias son 4, 5, 4 y 6. Con k = 3 solo entran los tres más cercanos y el de distancia 6 queda cuarto. No se compara la distancia con k.",
+      "source": "SAA UD2, apartado 3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q045",
+      "type": "choice",
+      "prompt": "¿De qué módulo importas `KNeighborsClassifier`?",
+      "options": [
+        "sklearn.naive_bayes",
+        "sklearn.tree",
+        "sklearn.metrics",
+        "sklearn.neighbors"
+      ],
+      "answer": 3,
+      "explanation": "Los modelos de vecinos están en `sklearn.neighbors`. En `sklearn.metrics` está `accuracy_score`, no el modelo.",
+      "source": "SAA UD2, apartado 3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q046",
+      "type": "choice",
+      "prompt": "En este código, ¿qué representa el 15?",
+      "code": "k = 15\nw = 'uniform'\nmodelo = KNeighborsClassifier(k, weights=w)",
+      "options": [
+        "El porcentaje de datos que se reserva para test",
+        "El número de vecinos que se tienen en cuenta",
+        "La profundidad máxima que puede tener el modelo",
+        "El radio del espacio en el que se buscan vecinos"
+      ],
+      "answer": 1,
+      "explanation": "El primer argumento de KNeighborsClassifier es k, el número de vecinos más cercanos. El radio es el parámetro de RadiusNeighborsClassifier.",
+      "source": "SAA UD2, apartado 3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q047",
+      "type": "match",
+      "prompt": "Relaciona cada clase de Scikit-learn con su uso.",
+      "pairs": [
+        [
+          "KNeighborsClassifier",
+          "Clasificación con los k vecinos más cercanos"
+        ],
+        [
+          "RadiusNeighborsClassifier",
+          "Clasificación con los vecinos dentro de un rango fijo"
+        ],
+        [
+          "KNeighborsRegressor",
+          "Regresión con los k vecinos más cercanos"
+        ]
+      ],
+      "explanation": "Classifier es para clasificar y Regressor para regresión. «K» cuenta un número fijo de vecinos y «Radius» toma los que caen dentro de un radio.",
+      "source": "SAA UD2, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q048",
+      "type": "choice",
+      "prompt": "Quieres predecir con kNN el valor de un coche a partir de sus características. ¿Qué clase de Scikit-learn eliges?",
+      "options": [
+        "KNeighborsClassifier",
+        "KNeighborsRegressor",
+        "RadiusNeighborsClassifier",
+        "GaussianNB"
+      ],
+      "answer": 1,
+      "explanation": "El valor de un coche es continuo, así que es regresión. Las clases Classifier y GaussianNB son de clasificación.",
+      "source": "SAA UD2, apartado 3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q049",
+      "type": "choice",
+      "prompt": "En el ejemplo de iris hay 150 flores, pero `y_predict` solo tiene 38 etiquetas. ¿Por qué?",
+      "code": "x_train, x_test, y_train, y_test = train_test_split(x_datos, y_datos, random_state=1)\nmodelo.fit(x_train, y_train)\ny_predict = modelo.predict(x_test)",
+      "options": [
+        "Porque `predict` solo recibe las flores de `x_test`",
+        "Porque kNN descarta las flores que no tienen 15 vecinos",
+        "Porque `predict` solo devuelve las flores que acierta",
+        "Porque las otras flores no tienen etiqueta en `y_datos`"
+      ],
+      "answer": 0,
+      "explanation": "`predict` da una etiqueta por cada flor que le pasas, y aquí solo recibe `x_test`, la parte que `train_test_split` reservó para test. Las demás flores se usaron para entrenar.",
+      "source": "SAA UD2, apartado 3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q050",
+      "type": "truefalse",
+      "prompt": "En el ejemplo de iris, kNN con k = 15 consigue la misma exactitud que Naive Bayes.",
+      "answer": true,
+      "explanation": "Los dos dan 0,97 (0.9736842105263158) y fallan en la misma flor, una versicolor que predicen como virginica.",
+      "source": "SAA UD2, apartados 2.2 y 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q051",
+      "type": "order",
+      "prompt": "Ordena las celdas del cuaderno de kNN con iris.",
+      "steps": [
+        "Cargar iris con sns.load_dataset",
+        "Separar x_datos e y_datos",
+        "Dividir con train_test_split",
+        "Instanciar KNeighborsClassifier y entrenarlo con fit",
+        "Predecir con predict y calcular accuracy_score",
+        "Dibujar la matriz de confusión"
+      ],
+      "explanation": "Sin datos no hay nada que separar, y sin separar no hay train ni test. La matriz de confusión necesita las predicciones, así que va al final.",
+      "source": "SAA UD2, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q052",
+      "type": "choice",
+      "prompt": "¿Qué hace `ConfusionMatrixDisplay.from_predictions(y_test, y_predict)`?",
+      "options": [
+        "Muestra una matriz que enfrenta etiquetas reales y predichas",
+        "Calcula solo el porcentaje total de aciertos del modelo",
+        "Muestra la correlación entre las características",
+        "Dibuja el árbol de decisión que ha aprendido el modelo"
+      ],
+      "answer": 0,
+      "explanation": "Sirve para ver dónde acierta el modelo y dónde no. La correlación se ve con `sns.heatmap` y el árbol, con `export_graphviz`.",
+      "source": "SAA UD2, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q053",
+      "type": "choice",
+      "prompt": "¿Por qué se dice que los árboles de decisión son muy interpretables?",
+      "options": [
+        "Porque calculan la probabilidad de cada clase",
+        "Porque miden la distancia entre observaciones",
+        "Porque se traducen fácilmente a reglas si-entonces",
+        "Porque siempre tienen un solo nivel de profundidad"
+      ],
+      "answer": 2,
+      "explanation": "Cada camino de la raíz a una hoja se puede leer como una regla «si pasa esto, entonces aquello». Las probabilidades son de Naive Bayes y las distancias, de kNN.",
+      "source": "SAA UD2, apartado 4",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q054",
+      "type": "choice",
+      "prompt": "¿Cuál de estos es un inconveniente de los árboles de decisión según los apuntes?",
+      "options": [
+        "Son costosos de construir",
+        "Son lentos de ejecutar",
+        "Exigen mucho preprocesamiento",
+        "Los árboles muy profundos tienden a sobreaprender"
+      ],
+      "answer": 3,
+      "explanation": "Las otras tres opciones son lo contrario de sus ventajas: son baratos de construir, rápidos y reducen el preprocesamiento.",
+      "source": "SAA UD2, apartado 4",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q055",
+      "type": "truefalse",
+      "prompt": "Los árboles de decisión reducen el preprocesamiento de los datos.",
+      "answer": true,
+      "explanation": "Es una de sus ventajas, junto a que son baratos de construir y rápidos de ejecutar.",
+      "source": "SAA UD2, apartado 4",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q056",
+      "type": "choice",
+      "prompt": "¿Qué se usa para calcular la calidad de un nodo en un árbol de decisión?",
+      "options": [
+        "La distancia euclídea o la Manhattan",
+        "El error absoluto medio",
+        "La entropía de Shannon o el índice de Gini",
+        "La distribución normal"
+      ],
+      "answer": 2,
+      "explanation": "La calidad indica lo fácil que es inferir la respuesta en ese nodo y se mide con la entropía de Shannon o con el índice de Gini.",
+      "source": "SAA UD2, apartado 4",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q057",
+      "type": "match",
+      "prompt": "Relaciona cada criterio de parada con lo que limita.",
+      "pairs": [
+        [
+          "Maximum Branch",
+          "Número máximo de ramas por nodo"
+        ],
+        [
+          "Leaf Size",
+          "Mínimo de observaciones por nodo final"
+        ],
+        [
+          "Split Size",
+          "Mínimo de observaciones para dividir un nodo"
+        ],
+        [
+          "max_depth",
+          "Profundidad del árbol"
+        ]
+      ],
+      "explanation": "Leaf es la hoja o nodo final y split, la división de un nodo. max_depth es el que se usa en Scikit-learn en el ejemplo de iris.",
+      "source": "SAA UD2, apartado 4",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q058",
+      "type": "order",
+      "prompt": "Ordena los pasos para construir un árbol de decisión.",
+      "steps": [
+        "Calcular la calidad del nodo",
+        "Si no tiene calidad suficiente, dividirlo con un atributo separador",
+        "Ejecutar la regla y dividir los datos en subconjuntos",
+        "Repetir hasta la condición de parada"
+      ],
+      "explanation": "Primero se mide la calidad para saber si hace falta dividir. Tras dividir se repite el proceso en cada subconjunto hasta que se cumple el criterio de parada.",
+      "source": "SAA UD2, apartado 4",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q059",
+      "type": "truefalse",
+      "prompt": "Si un nodo ya tiene calidad suficiente, se vuelve a dividir con otro atributo separador.",
+      "answer": false,
+      "explanation": "Si tiene calidad suficiente se añade a las reglas. Solo se divide con un atributo separador cuando no la tiene.",
+      "source": "SAA UD2, apartado 4",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q060",
+      "type": "choice",
+      "prompt": "Con el árbol del ejemplo del fútbol, ¿se juega un día nublado, con humedad alta y viento fuerte?",
+      "code": "Tiempo\n├─ Soleado → Humedad\n│   ├─ Alta → No\n│   └─ Normal → Sí\n├─ Nublado → Sí\n└─ Lluvioso → Viento\n    ├─ Fuerte → No\n    └─ Débil → Sí",
+      "options": [
+        "No, porque la humedad es alta",
+        "Sí, porque con tiempo nublado siempre sale Sí",
+        "No, porque el viento es fuerte",
+        "Depende de la temperatura de ese día"
+      ],
+      "answer": 1,
+      "explanation": "La rama Nublado llega directamente a una hoja Sí. La humedad solo se mira si hace sol y el viento, si llueve.",
+      "source": "SAA UD2, apartado 4",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q061",
+      "type": "choice",
+      "prompt": "Con el mismo árbol del fútbol, ¿qué responde para un día lluvioso, con humedad normal y viento fuerte?",
+      "code": "Tiempo\n├─ Soleado → Humedad\n│   ├─ Alta → No\n│   └─ Normal → Sí\n├─ Nublado → Sí\n└─ Lluvioso → Viento\n    ├─ Fuerte → No\n    └─ Débil → Sí",
+      "options": [
+        "No, porque con lluvia decide el viento y es fuerte",
+        "Sí, porque con lluvia decide la humedad y es normal",
+        "Sí, porque con lluvia el árbol siempre dice Sí",
+        "No, porque con lluvia el árbol siempre dice No"
+      ],
+      "answer": 0,
+      "explanation": "Por la rama Lluvioso el árbol pregunta por el viento, no por la humedad. Con viento fuerte llega a la hoja No.",
+      "source": "SAA UD2, apartado 4",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q062",
+      "type": "truefalse",
+      "prompt": "Los árboles de decisión son igual de eficientes por complejo que sea el problema.",
+      "answer": false,
+      "explanation": "Los apuntes avisan de que, si el problema es muy complejo, ya no son tan eficientes.",
+      "source": "SAA UD2, apartado 4",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q063",
+      "type": "choice",
+      "prompt": "¿Qué limita `max_depth=2` en este modelo?",
+      "code": "modelo = DecisionTreeClassifier(criterion='gini', max_depth=2)",
+      "options": [
+        "El número de vecinos, a dos",
+        "El número de clases, a dos",
+        "La profundidad del árbol, a dos niveles",
+        "Las observaciones por nodo final, a dos"
+      ],
+      "answer": 2,
+      "explanation": "max_depth es el criterio de parada de profundidad. El mínimo de observaciones por nodo final sería Leaf Size.",
+      "source": "SAA UD2, apartado 4.1",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q064",
+      "type": "choice",
+      "prompt": "¿Para qué sirve `criterion='gini'` en `DecisionTreeClassifier`?",
+      "options": [
+        "Para medir la calidad de cada nodo con el índice de Gini",
+        "Para elegir cómo se mide la distancia entre observaciones",
+        "Para fijar la profundidad máxima que puede tener el árbol",
+        "Para calcular las probabilidades a priori de cada clase"
+      ],
+      "answer": 0,
+      "explanation": "El criterio indica cómo se mide la calidad del nodo: índice de Gini o entropía. La profundidad se fija con `max_depth`.",
+      "source": "SAA UD2, apartado 4.1",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q065",
+      "type": "choice",
+      "prompt": "Este es el árbol que sale en el ejemplo de iris. ¿Qué especie predice para una flor con `petal_width` = 1,2?",
+      "code": "petal_width <= 0.8\n├─ True  → setosa\n└─ False → petal_width <= 1.65\n    ├─ True  → versicolor\n    └─ False → virginica",
+      "options": [
+        "setosa",
+        "virginica",
+        "Hace falta saber también la longitud del pétalo",
+        "versicolor"
+      ],
+      "answer": 3,
+      "explanation": "1,2 no es menor o igual que 0,8, así que va por False. Después sí es menor o igual que 1,65, y llega a versicolor.",
+      "source": "SAA UD2, apartado 4.1",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q066",
+      "type": "choice",
+      "prompt": "¿Qué función usan los apuntes para exportar el árbol y dibujarlo con pydot?",
+      "options": [
+        "ConfusionMatrixDisplay.from_predictions",
+        "tree.export_graphviz",
+        "sns.heatmap",
+        "LabelEncoder.fit_transform"
+      ],
+      "answer": 1,
+      "explanation": "`export_graphviz` genera la descripción del árbol que luego pydot convierte en imagen. Las otras dibujan la matriz de confusión o la correlación, o codifican etiquetas.",
+      "source": "SAA UD2, apartado 4.1",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q067",
+      "type": "choice",
+      "prompt": "Necesitas un árbol de decisión para predecir un valor continuo. ¿Qué clase usas?",
+      "options": [
+        "DecisionTreeClassifier",
+        "DecisionTreeRegressor",
+        "KNeighborsClassifier",
+        "LogisticRegression"
+      ],
+      "answer": 1,
+      "explanation": "Un valor continuo es regresión y el árbol para regresión es DecisionTreeRegressor. LogisticRegression, pese al nombre, se usa en los apuntes para clasificar.",
+      "source": "SAA UD2, apartado 4.1",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q068",
+      "type": "truefalse",
+      "prompt": "Subir mucho `max_depth` puede hacer que el árbol sobreaprenda.",
+      "answer": true,
+      "explanation": "max_depth es la profundidad del árbol, y los árboles muy profundos tienden a sobreaprender.",
+      "source": "SAA UD2, apartados 4 y 4.1",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q069",
+      "type": "truefalse",
+      "prompt": "En el árbol del ejemplo de iris, la primera pregunta (`petal_width <= 0.8`) deja a un lado todas las setosa.",
+      "answer": true,
+      "explanation": "La rama True de la raíz solo tiene setosa (gini = 0) y en la otra rama no queda ninguna. La segunda pregunta separa versicolor de virginica.",
+      "source": "SAA UD2, apartado 4.1",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q070",
+      "type": "choice",
+      "prompt": "¿Para qué se usa `LogisticRegression` en el ejemplo de los apuntes?",
+      "options": [
+        "Para predecir el precio de una casa",
+        "Para agrupar flores que no tienen etiqueta",
+        "Para predecir la longitud del pétalo",
+        "Para clasificar las flores de iris por especie"
+      ],
+      "answer": 3,
+      "explanation": "Pese a llamarse regresión, en los apuntes resuelve un problema de clasificación: decir qué especie es cada flor.",
+      "source": "SAA UD2, apartado 5",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q071",
+      "type": "choice",
+      "prompt": "¿Qué devuelve `reg.intercept_` después de este código?",
+      "code": "X = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])\ny = np.dot(X, np.array([1, 2])) + 3\nreg = LinearRegression().fit(X, y)",
+      "options": [
+        "Aproximadamente 3",
+        "array([1., 2.])",
+        "array([16.])",
+        "1.0"
+      ],
+      "answer": 0,
+      "explanation": "y se ha generado sumando 3 al producto, así que el término independiente es 3. [1, 2] son los coeficientes (`coef_`) y 1.0 es lo que da `score`.",
+      "source": "SAA UD2, apartado 5",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q072",
+      "type": "choice",
+      "prompt": "Con este modelo, ¿qué devuelve `reg.predict(np.array([[3, 5]]))`?",
+      "code": "X = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])\ny = np.dot(X, np.array([1, 2])) + 3\nreg = LinearRegression().fit(X, y)",
+      "options": [
+        "13",
+        "11",
+        "16",
+        "8"
+      ],
+      "answer": 2,
+      "explanation": "1 · 3 + 2 · 5 + 3 = 16. Si olvidas el 3 del término independiente sale 13.",
+      "source": "SAA UD2, apartado 5",
+      "difficulty": 3
+    },
+    {
+      "id": "saa-ud02-q073",
+      "type": "truefalse",
+      "prompt": "En el ejemplo de regresión lineal, `reg.coef_` devuelve [1, 2], los mismos coeficientes con los que se generó y.",
+      "answer": true,
+      "explanation": "y se construyó como X · [1, 2] + 3 y el modelo recupera esos coeficientes. El 3 aparece en `intercept_`.",
+      "source": "SAA UD2, apartado 5",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q074",
+      "type": "choice",
+      "prompt": "En una SVM con dos atributos, ¿qué es el margen?",
+      "options": [
+        "El número de atributos que tiene cada uno de los puntos",
+        "La distancia entre los dos puntos más alejados de cada clase",
+        "El porcentaje de puntos que quedan mal clasificados",
+        "La distancia total entre la recta y los puntos más cercanos"
+      ],
+      "answer": 3,
+      "explanation": "La recta se coloca equidistante de los puntos más cercanos de cada grupo, y esa distancia total es el margen.",
+      "source": "SAA UD2, apartado 5",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q075",
+      "type": "choice",
+      "prompt": "¿Qué son los vectores soporte en una SVM?",
+      "options": [
+        "Todos los puntos de la clase mayoritaria",
+        "Los k vecinos más cercanos al punto nuevo",
+        "Los puntos que definen la distancia del margen",
+        "Los nodos finales del modelo"
+      ],
+      "answer": 2,
+      "explanation": "Son los puntos más cercanos a la recta separadora, los que marcan el margen. Los k vecinos son de kNN y los nodos finales, de los árboles.",
+      "source": "SAA UD2, apartado 5",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q076",
+      "type": "choice",
+      "prompt": "Una SVM representa cada caso como un punto en un espacio de n dimensiones. ¿Qué es n?",
+      "options": [
+        "El número de clases del problema",
+        "El número de atributos de cada caso",
+        "El número de casos de entrenamiento",
+        "El número de vectores soporte"
+      ],
+      "answer": 1,
+      "explanation": "Cada atributo es una coordenada del punto. Con dos atributos el espacio es un plano y el separador, una recta.",
+      "source": "SAA UD2, apartado 5",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q077",
+      "type": "truefalse",
+      "prompt": "Una SVM clasifica un dato nuevo según el lado de la recta separadora en el que cae.",
+      "answer": true,
+      "explanation": "La recta oscura es el clasificador: el dato nuevo toma la clase de los puntos de su lado.",
+      "source": "SAA UD2, apartado 5",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q078",
+      "type": "truefalse",
+      "prompt": "Según los apuntes, las SVM rinden poco y por eso cada vez se usan menos.",
+      "answer": false,
+      "explanation": "Es al revés: su uso ha crecido porque sirven para clasificación y regresión y son de las técnicas más precisas.",
+      "source": "SAA UD2, apartado 5",
+      "difficulty": 1
+    },
+    {
+      "id": "saa-ud02-q079",
+      "type": "match",
+      "prompt": "Relaciona cada algoritmo con la idea en la que se basa.",
+      "pairs": [
+        [
+          "Naive Bayes",
+          "Teorema de Bayes"
+        ],
+        [
+          "kNN",
+          "Distancia entre observaciones"
+        ],
+        [
+          "Árbol de decisión",
+          "Reglas si-entonces jerárquicas"
+        ],
+        [
+          "SVM",
+          "Hiperplano que separa las clases"
+        ]
+      ],
+      "explanation": "Es el resumen de la unidad: probabilidad, distancia, reglas y separación geométrica.",
+      "source": "SAA UD2, apartados 2, 3, 4 y 5",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q080",
+      "type": "match",
+      "prompt": "Relaciona cada clase o función con el módulo de Scikit-learn del que se importa.",
+      "pairs": [
+        [
+          "train_test_split",
+          "sklearn.model_selection"
+        ],
+        [
+          "accuracy_score",
+          "sklearn.metrics"
+        ],
+        [
+          "GaussianNB",
+          "sklearn.naive_bayes"
+        ],
+        [
+          "DecisionTreeClassifier",
+          "sklearn.tree"
+        ],
+        [
+          "LogisticRegression",
+          "sklearn.linear_model"
+        ]
+      ],
+      "explanation": "Son los imports de los ejemplos de iris. LinearRegression sale del mismo módulo que LogisticRegression.",
+      "source": "SAA UD2, apartados 2.2, 4.1 y 5",
+      "difficulty": 2
+    },
+    {
+      "id": "saa-ud02-q081",
+      "type": "order",
+      "prompt": "Ordena los pasos del ejemplo de regresión lineal.",
+      "steps": [
+        "Crear la matriz X con np.array",
+        "Calcular y a partir de X",
+        "Entrenar con LinearRegression().fit(X, y)",
+        "Predecir un punto nuevo con reg.predict"
+      ],
+      "explanation": "Sin X no puedes calcular y, y sin entrenar no puedes predecir. Es el mismo esquema de fit y predict que en el resto de modelos.",
+      "source": "SAA UD2, apartado 5",
+      "difficulty": 1
+    }
+  ]
+}
