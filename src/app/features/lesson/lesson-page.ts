@@ -31,8 +31,8 @@ import { lessonLink } from '../../shared/lesson-meta';
     .where { font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
     .where::before { content: counter(step) '. '; }
     pre { margin: 0; padding: var(--s3) var(--s4); background: #121418; color: #eef0f5; border-radius: var(--radius); overflow-x: auto; font-size: 14px; line-height: 1.5; }
-    .code { position: relative; }
-    .copy { position: absolute; top: 6px; right: 6px; min-height: 36px; padding: 0 var(--s3); font-size: 14px; background: #2a2e37; color: #fff; border: 0; border-radius: 6px; display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+    .code { display: grid; gap: var(--s1); min-width: 0; }
+    .copy { justify-self: end; min-height: 44px; padding: 0 var(--s3); font-size: 14px; background: #2a2e37; color: #fff; border: 0; border-radius: 6px; display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
     .expected { font-size: 15px; color: var(--ink-soft); }
     .expected strong { color: var(--ink); }
   `,
@@ -79,10 +79,10 @@ import { lessonLink } from '../../shared/lesson-meta';
                 <div class="rich" [innerHTML]="s.text | richText"></div>
                 @if (s.code) {
                   <div class="code">
-                    <pre><code>{{ s.code }}</code></pre>
                     <button class="copy" type="button" (click)="copy(s.code, $index)">
                       <app-icon name="copy" /> {{ copied() === $index ? 'Copiado' : 'Copiar' }}
                     </button>
+                    <pre><code>{{ s.code }}</code></pre>
                   </div>
                 }
                 @if (s.expected) { <p class="expected"><strong>Debería salir:</strong> {{ s.expected }}</p> }

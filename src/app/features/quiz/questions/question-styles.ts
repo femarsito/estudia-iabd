@@ -1,6 +1,7 @@
 /** Estilos comunes a los tres tipos de pregunta: opciones como fichas que se marcan con un agujero perforado. */
 export const QUESTION_STYLES = `
-  :host { display: grid; gap: var(--s4); }
+  :host { display: grid; gap: var(--s4); min-width: 0; }
+  :host > * { min-width: 0; }
   .prompt { font-size: clamp(21px, 5.2vw, 26px); font-weight: 700; font-stretch: 92%; line-height: 1.25; }
   .prompt .blank { display: inline-block; min-width: 3.5em; border-bottom: 3px solid var(--board); }
   pre { margin: 0; padding: var(--s3) var(--s4); background: #121418; color: #eef0f5; border-radius: var(--radius); overflow-x: auto; font-size: 14px; line-height: 1.5; }

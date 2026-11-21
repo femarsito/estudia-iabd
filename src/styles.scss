@@ -144,6 +144,17 @@ pre {
   font-size: 0.9em;
 }
 
+// Una línea de código larga desplaza su propio bloque, nunca ensancha la hoja.
+pre {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.leaf > *,
+.leaf li {
+  min-width: 0;
+}
+
 // La hoja: todo lo que se estudia va encima del separador.
 .leaf {
   position: relative;
