@@ -9,12 +9,22 @@ const inline = (s: string) =>
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/`([^`]+)`/g, '<code>$1</code>');
 
+/** Agrupa las líneas seguidas con «- » en una lista y el resto en párrafos. */
 function block(text: string): string {
-  const lines = text.split('\n');
-  if (lines.every((l) => l.startsWith('- '))) {
-    return `<ul>${lines.map((l) => `<li>${inline(l.slice(2))}</li>`).join('')}</ul>`;
+  const groups: { list: boolean; lines: string[] }[] = [];
+  for (const line of text.split('\n')) {
+    const list = line.startsWith('- ');
+    const last = groups.at(-1);
+    if (last?.list === list) last.lines.push(line);
+    else groups.push({ list, lines: [line] });
   }
-  return `<p>${lines.map(inline).join('<br>')}</p>`;
+  return groups
+    .map((g) =>
+      g.list
+        ? `<ul>${g.lines.map((l) => `<li>${inline(l.slice(2))}</li>`).join('')}</ul>`
+        : `<p>${g.lines.map(inline).join('<br>')}</p>`,
+    )
+    .join('');
 }
 
 /** Formato mínimo del contenido: **negrita**, `código`, listas con «- » y párrafos separados por línea en blanco. */

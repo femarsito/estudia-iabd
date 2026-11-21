@@ -19,6 +19,11 @@ describe('RichTextPipe', () => {
     expect(html).toContain('<ul>');
   });
 
+  it('una lista justo debajo de una frase también es lista', () => {
+    const html = pipe.transform('Hay dos tipos:\n- fuerte\n- débil');
+    expect(html).toBe('<p>Hay dos tipos:</p><ul><li>fuerte</li><li>débil</li></ul>');
+  });
+
   it('separa párrafos', () => {
     expect(pipe.transform('uno\n\ndos').match(/<p>/g)?.length).toBe(2);
   });

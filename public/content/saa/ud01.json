@@ -43,7 +43,7 @@
     {
       "id": "saa-ud01-l02",
       "kind": "practice",
-      "title": "Practica: IA fuerte y débil",
+      "title": "IA fuerte y débil",
       "section": "1 y 1.1",
       "questionIds": [
         "saa-ud01-q001",
@@ -95,7 +95,7 @@
     {
       "id": "saa-ud01-l04",
       "kind": "practice",
-      "title": "Practica: la IA fuerte",
+      "title": "La IA fuerte",
       "section": "1.2",
       "questionIds": [
         "saa-ud01-q013",
@@ -139,7 +139,7 @@
     {
       "id": "saa-ud01-l06",
       "kind": "practice",
-      "title": "Practica: modelos y problemas",
+      "title": "Modelos y problemas",
       "section": "2",
       "questionIds": [
         "saa-ud01-q021",
@@ -184,7 +184,7 @@
     {
       "id": "saa-ud01-l08",
       "kind": "practice",
-      "title": "Practica: supervisado y no supervisado",
+      "title": "Supervisado y no supervisado",
       "section": "2.1 y 2.2",
       "questionIds": [
         "saa-ud01-q030",
@@ -233,7 +233,7 @@
     {
       "id": "saa-ud01-l10",
       "kind": "practice",
-      "title": "Practica: Python básico",
+      "title": "Python básico",
       "section": "3 y 3.1",
       "questionIds": [
         "saa-ud01-q039",
@@ -282,7 +282,7 @@
     {
       "id": "saa-ud01-l12",
       "kind": "practice",
-      "title": "Practica: estructuras de datos",
+      "title": "Estructuras de datos",
       "section": "3.2",
       "questionIds": [
         "saa-ud01-q048",
@@ -324,7 +324,7 @@
     {
       "id": "saa-ud01-l14",
       "kind": "practice",
-      "title": "Practica: funciones y clases",
+      "title": "Funciones y clases",
       "section": "3.3",
       "questionIds": [
         "saa-ud01-q058",
@@ -416,7 +416,7 @@
     {
       "id": "saa-ud01-l17",
       "kind": "practice",
-      "title": "Practica: preprocesamiento",
+      "title": "Preprocesamiento",
       "section": "4",
       "questionIds": [
         "saa-ud01-q066",
@@ -460,7 +460,7 @@
     {
       "id": "saa-ud01-l19",
       "kind": "practice",
-      "title": "Practica: pandas",
+      "title": "Pandas",
       "section": "4.1",
       "questionIds": [
         "saa-ud01-q074",
@@ -520,7 +520,7 @@
     {
       "id": "saa-ud01-l21",
       "kind": "practice",
-      "title": "Practica: el ejemplo de preprocesamiento",
+      "title": "El ejemplo de preprocesamiento",
       "section": "4.2",
       "questionIds": [
         "saa-ud01-q082",
