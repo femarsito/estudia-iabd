@@ -26,7 +26,7 @@ import { Answer, startTimer } from './answer';
     <p class="prompt">{{ question().prompt }}</p>
     <ol class="opts">
       @for (s of order(); track s; let i = $index, first = $first, last = $last) {
-        <li [attr.data-step]="s" [class.ok]="checked() && s === question().steps[i]" [class.ko]="checked() && s !== question().steps[i]">
+        <li [attr.data-step]="s" [class.ok]="checked() && reveal() && s === question().steps[i]" [class.ko]="checked() && reveal() && s !== question().steps[i]">
           <span class="n">{{ i + 1 }}</span>
           <span>{{ s }}</span>
           <button type="button" class="move" data-action="up" [disabled]="first || checked()" (click)="move(i, -1)" [attr.aria-label]="'Subir: ' + s"><app-icon name="up" /></button>
@@ -41,6 +41,8 @@ import { Answer, startTimer } from './answer';
 })
 export class OrderQuestion {
   readonly question = input.required<OrderQ>();
+  /** En exámenes y simulacros no se enseña si has acertado hasta el final. */
+  readonly reveal = input(true);
   readonly answered = output<Answer>();
 
   protected readonly order = signal<string[]>([]);

@@ -25,7 +25,7 @@ import { Answer, startTimer } from './answer';
         @for (l of left(); track l; let i = $index) {
           <li>
             <button type="button" class="opt" data-side="left" [attr.data-value]="l" [disabled]="checked()"
-                    [attr.aria-pressed]="active() === l" [class.ok]="checked() && isRight(l)" [class.ko]="checked() && !isRight(l)"
+                    [attr.aria-pressed]="active() === l" [class.ok]="checked() && reveal() && isRight(l)" [class.ko]="checked() && reveal() && !isRight(l)"
                     (click)="pickLeft(l)">
               <span>{{ l }}</span>
               @if (pairs()[l] !== undefined) { <span class="tag">{{ i + 1 }}</span> }
@@ -52,6 +52,8 @@ import { Answer, startTimer } from './answer';
 })
 export class MatchQuestion {
   readonly question = input.required<MatchQ>();
+  /** En exámenes y simulacros no se enseña si has acertado hasta el final. */
+  readonly reveal = input(true);
   readonly answered = output<Answer>();
 
   protected readonly left = computed(() => this.question().pairs.map(([l]) => l));

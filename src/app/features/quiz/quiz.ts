@@ -60,8 +60,8 @@ const TITLES: Record<QuizMode, string> = { practice: 'Practica', exam: 'Examen d
       @for (q of [current()!]; track q.id) {
       <section class="leaf hinge" [attr.aria-label]="'Pregunta ' + (i() + 1)">
         @switch (q.type) {
-          @case ('match') { <app-match-question [question]="asMatch(q)" (answered)="onAnswer($event)" /> }
-          @case ('order') { <app-order-question [question]="asOrder(q)" (answered)="onAnswer($event)" /> }
+          @case ('match') { <app-match-question [question]="asMatch(q)" [reveal]="reveal()" (answered)="onAnswer($event)" /> }
+          @case ('order') { <app-order-question [question]="asOrder(q)" [reveal]="reveal()" (answered)="onAnswer($event)" /> }
           @default { <app-choice-question [question]="asChoice(q)" [reveal]="reveal()" (answered)="onAnswer($event)" /> }
         }
 

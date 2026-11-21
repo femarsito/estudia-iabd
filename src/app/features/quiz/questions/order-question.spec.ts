@@ -49,6 +49,17 @@ describe('OrderQuestion', () => {
     expect(emitted).toEqual([true]);
   });
 
+  it('en un examen no marca si has acertado', () => {
+    const fixture = TestBed.createComponent(OrderQuestion);
+    fixture.componentRef.setInput('question', q);
+    fixture.componentRef.setInput('reveal', false);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+    el.querySelector<HTMLButtonElement>('[data-action="check"]')!.click();
+    fixture.detectChanges();
+    expect(el.querySelectorAll('li.ok, li.ko').length).toBe(0);
+  });
+
   it('un orden distinto emite fallo', () => {
     const { sortWithButtons, check, emitted } = setup();
     sortWithButtons(['tres', 'dos', 'uno']);
