@@ -1,6 +1,6 @@
 {
-  "name": "estudia-iabd",
-  "short_name": "estudia-iabd",
+  "name": "Estudia IABD",
+  "short_name": "Estudia IABD",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
@@ -53,5 +53,9 @@
       "type": "image/png",
       "purpose": "maskable any"
     }
-  ]
+  ],
+  "description": "Estudia el curso de IA y Big Data a ratos, también sin conexión.",
+  "lang": "es",
+  "theme_color": "#2f5bea",
+  "background_color": "#121418"
 }
