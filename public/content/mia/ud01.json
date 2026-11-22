@@ -1,0 +1,1784 @@
+{
+  "id": "mia-ud01",
+  "moduleId": "mia",
+  "number": 1,
+  "title": "Caracterización de sistemas de Inteligencia Artificial",
+  "conceptMap": {
+    "src": "img/mia-ud01-mapa.png",
+    "credit": "Mapa conceptual de los apuntes de MIA UD1, Junta de Andalucía (CC BY-NC-SA)"
+  },
+  "lessons": [
+    {
+      "id": "mia-ud01-l01",
+      "kind": "read",
+      "title": "Qué es la IA y sus cuatro enfoques",
+      "section": "1 y 1.1. Fundamentos y características principales",
+      "cards": [
+        {
+          "title": "Fundamentos",
+          "body": "La IA se basa en que las máquinas hagan **tareas que normalmente requieren inteligencia humana**. Sus fundamentos son los **algoritmos y modelos**, el **aprendizaje automático** (supervisado, no supervisado y por refuerzo), las **redes neuronales**, el **PLN**, la **visión por computadora** y la **robótica**."
+        },
+        {
+          "title": "Definición",
+          "body": "La IA es la ciencia que construye sistemas que:\n- **piensan como humanos**;\n- **actúan como humanos**;\n- **piensan racionalmente**;\n- **actúan racionalmente**."
+        },
+        {
+          "title": "Pensar como humanos",
+          "body": "Primero hay que saber cómo pensamos: de forma **introspectiva** (analizando tus propios pensamientos), con **experimentación psicológica** (observando a una persona en acción) o **fotografiando el cerebro**. Si las entradas y salidas del programa coinciden con las humanas, algunos de sus mecanismos podrían estar en nosotros. Sus límites dieron origen a la **ciencia cognitiva**."
+        },
+        {
+          "title": "Actuar como humanos",
+          "body": "Se comprobaba con el **test de Turing** o «juego de la imitación»: una persona pregunta por escrito, a través de dos pantallas, a un humano y a una máquina. Si **no distingue** quién es quién, la máquina pasa. Hoy superarlo **ya no es un objetivo** de la industria: preferimos saber si hablamos con una máquina."
+        },
+        {
+          "title": "Las seis disciplinas",
+          "body": "Para pasar el test, una máquina necesitaría **procesamiento del lenguaje natural**, **representación del conocimiento**, **razonamiento automático**, **aprendizaje automático**, **visión por computador y reconocimiento del habla** y **robótica**. Son las disciplinas principales de una IA, aunque a los investigadores les interesa más estudiar los principios de la inteligencia."
+        },
+        {
+          "title": "Pensar y actuar racionalmente",
+          "body": "**Pensar racionalmente** parte de los **silogismos de Aristóteles**, base de la lógica; el problema es que exige un conocimiento certero del mundo. **Actuar racionalmente** es elegir **la acción más adecuada** con la información disponible para un objetivo, y se replica con **agentes autónomos**. La racionalidad absoluta es **impracticable** por falta de tiempo."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud01-l02",
+      "kind": "practice",
+      "title": "Qué es la IA y sus cuatro enfoques",
+      "section": "1 y 1.1. Fundamentos y características principales",
+      "questionIds": [
+        "mia-ud01-q001",
+        "mia-ud01-q002",
+        "mia-ud01-q003",
+        "mia-ud01-q004",
+        "mia-ud01-q005",
+        "mia-ud01-q006",
+        "mia-ud01-q007",
+        "mia-ud01-q008",
+        "mia-ud01-q009",
+        "mia-ud01-q010",
+        "mia-ud01-q011",
+        "mia-ud01-q012"
+      ]
+    },
+    {
+      "id": "mia-ud01-l03",
+      "kind": "read",
+      "title": "IA débil, general y fuerte",
+      "section": "1.2. Tipos de inteligencia",
+      "cards": [
+        {
+          "title": "El objetivo final",
+          "body": "El propósito final de la IA es dar a una máquina una **inteligencia general equivalente a la humana**, un reto al nivel de descifrar el origen de la vida o del universo. Según su uso y posibilidades, la IA se clasifica en **débil** y **fuerte**."
+        },
+        {
+          "title": "IA débil",
+          "body": "También llamada **IA estrecha**. Hace **tareas específicas y limitadas** muy bien (reconocer voces, jugar al ajedrez, recomendar productos), pero **sin comprensión ni conciencia** y sin razonar más allá de su programación. **Todos los desarrollos prácticos hasta hoy** son IA débil, como los asistentes de voz Siri, Alexa o Google."
+        },
+        {
+          "title": "IA generativa",
+          "body": "Crea **contenido nuevo a partir de datos existentes**: texto, imágenes o música. Se apoya en redes neuronales generativas, **GANs** y **transformadores**. Ejemplo: **GPT-4 de OpenAI**. Aunque imita la creatividad humana, es **IA débil**: funciona con patrones y correlaciones estadísticas, sin comprender el significado."
+        },
+        {
+          "title": "IA general",
+          "body": "La **IA general** (que no generativa) sería una máquina capaz de **entender, aprender y aplicar conocimientos** de forma generalizada, como una persona, y de resolver problemas variados y no previstos. **Hoy no existe**. La computación cuántica, el procesamiento de datos y los algoritmos podrían hacerla posible en el futuro."
+        },
+        {
+          "title": "IA fuerte",
+          "body": "A la general le añade los **estados mentales** y la **conciencia de sí misma**: podría tener experiencia subjetiva o sentir emociones. Toda IA fuerte es general, pero **no toda IA general es fuerte**. Conseguirla supondría llegar a la **singularidad**."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud01-l04",
+      "kind": "practice",
+      "title": "IA débil, general y fuerte",
+      "section": "1.2. Tipos de inteligencia",
+      "questionIds": [
+        "mia-ud01-q013",
+        "mia-ud01-q014",
+        "mia-ud01-q015",
+        "mia-ud01-q016",
+        "mia-ud01-q017",
+        "mia-ud01-q018",
+        "mia-ud01-q019",
+        "mia-ud01-q020",
+        "mia-ud01-q021"
+      ]
+    },
+    {
+      "id": "mia-ud01-l05",
+      "kind": "read",
+      "title": "Agricultura, banca, ciberseguridad, salud y logística",
+      "section": "2 a 2.5. Campos de aplicación de la IA (I)",
+      "cards": [
+        {
+          "title": "Agricultura",
+          "body": "Se pasa de una agricultura intensiva en fitosanitarios, agua y fertilizantes a una **intensiva en conocimiento**. Tres categorías:\n- **Robots**: siembra, cosecha, malezas y pulverización.\n- **Monitoreo de cultivos y suelos**: datos de **drones** y algoritmos de aprendizaje.\n- **Análisis predictivo**: efecto del ambiente en el rendimiento."
+        },
+        {
+          "title": "Banca",
+          "body": "Uno de sus mayores problemas es el **fraude**. Con los datos de las transacciones, la IA identifica **en tiempo real** patrones de gasto que se salen de lo normal en una persona. Así ahorra dinero a las entidades y protege a los clientes de robos."
+        },
+        {
+          "title": "Ciberseguridad",
+          "body": "- **Anticipación y detección de amenazas**: patrones anómalos y malware desconocido.\n- **Automatización de respuestas**: aislar sistemas, bloquear IP maliciosas o desplegar parches.\n- **Prevención del fraude**: transacciones en tiempo real y datos históricos.\n- **Simulación y entrenamiento**: entornos que simulan ataques para probar las defensas."
+        },
+        {
+          "title": "Salud",
+          "body": "- **Diagnóstico más preciso**: diabetes, Alzheimer o cáncer, a menudo antes de los síntomas.\n- **Tratamientos personalizados** y dosis según historial y genética.\n- **Cirugía**: robots precisos y planificación con simulaciones y modelos 3D.\n- **Descubrimiento de medicamentos**, **ensayos clínicos** y **consultas virtuales** con chatbots."
+        },
+        {
+          "title": "Transporte y logística",
+          "body": "En lo más simple, la IA respalda tareas administrativas **detectando anomalías y excepciones** antes de que crezcan. A operadores **3PL** (logística tercerizada) y transportistas les analiza la cadena de suministro. Es la base de la **optimización de rutas inteligente (IRO)**: coordina recursos y viajes, a menudo en tiempo real."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud01-l06",
+      "kind": "practice",
+      "title": "Agricultura, banca, ciberseguridad, salud y logística",
+      "section": "2 a 2.5. Campos de aplicación de la IA (I)",
+      "questionIds": [
+        "mia-ud01-q022",
+        "mia-ud01-q023",
+        "mia-ud01-q024",
+        "mia-ud01-q025",
+        "mia-ud01-q026",
+        "mia-ud01-q027",
+        "mia-ud01-q028",
+        "mia-ud01-q029",
+        "mia-ud01-q030",
+        "mia-ud01-q031"
+      ]
+    },
+    {
+      "id": "mia-ud01-l07",
+      "kind": "read",
+      "title": "Telecomunicaciones, juegos, arte, vigilancia y robótica",
+      "section": "2.6 a 2.10. Campos de aplicación de la IA (II)",
+      "cards": [
+        {
+          "title": "Telecomunicaciones",
+          "body": "Las redes son caras, así que **optimizarlas** permite más conexiones. La IA sirve para **supervisar** la red y **optimizar el enrutamiento** según variables como el tráfico de ciertas personas, zonas o redes locales. Los datos de red también ayudan a la **planificación urbana**."
+        },
+        {
+          "title": "Juegos",
+          "body": "El objetivo **no es un rival imbatible**, sino **maximizar la participación y el disfrute**: la IA **más agradable**, no la mejor. Un juego más inteligente hace que los personajes jueguen de forma **más humana**. **City Conquest** usa un algoritmo genético. Los personajes también **aprenden** del jugador y cambian su comportamiento."
+        },
+        {
+          "title": "Arte",
+          "body": "El ordenador puede verse como una **entidad creativa** en sí misma. De ahí nace la **creatividad computacional**: desarrollar **software** con un comportamiento que se consideraría **creativo** en humanos (teorías matemáticas, poesía, pintura, música). El software actúa como **colaborador** creativo, no como mera herramienta."
+        },
+        {
+          "title": "Seguridad y vigilancia",
+          "body": "Parte de la **detección de movimiento**: cámaras con IA que analizan imágenes en tiempo real. A partir de ahí mejoran:\n- **anomalías y comportamientos sospechosos**, con alertas automáticas;\n- **reconocimiento facial** contra bases de datos;\n- **vídeo forense**: buscar eventos en grabaciones a partir de descripciones;\n- **monitoreo de redes**."
+        },
+        {
+          "title": "Robótica",
+          "body": "Un robot combina **sensores** (perciben el entorno), **actuadores** (mueven y manipulan: motores, brazos, ruedas) y **sistemas de procesamiento y toma de decisiones**. Se programan para **tareas específicas** y actúan de forma autónoma o remota. Con aprendizaje automático se convierten en **sistemas autónomos** que aprenden de la experiencia."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud01-l08",
+      "kind": "practice",
+      "title": "Telecomunicaciones, juegos, arte, vigilancia y robótica",
+      "section": "2.6 a 2.10. Campos de aplicación de la IA (II)",
+      "questionIds": [
+        "mia-ud01-q032",
+        "mia-ud01-q033",
+        "mia-ud01-q034",
+        "mia-ud01-q035",
+        "mia-ud01-q036",
+        "mia-ud01-q037",
+        "mia-ud01-q038",
+        "mia-ud01-q039",
+        "mia-ud01-q040",
+        "mia-ud01-q041"
+      ]
+    },
+    {
+      "id": "mia-ud01-l09",
+      "kind": "read",
+      "title": "Algoritmos de búsqueda",
+      "section": "3 y 3.1. Técnicas de la IA y algoritmos de búsqueda",
+      "cards": [
+        {
+          "title": "IA antigua y moderna",
+          "body": "**No existe un algoritmo maestro** para cualquier problema. En la **IA antigua** las personas codifican las reglas a mano, como un árbol de decisiones hecho por alguien. La **IA moderna** **aprende de los datos**, crea sus propias reglas y encuentra patrones que una persona no vería. La búsqueda se considera IA antigua."
+        },
+        {
+          "title": "Para qué sirve buscar",
+          "body": "Resuelve problemas que piden **varias acciones** para llegar a un objetivo: salir de un laberinto o elegir la mejor jugada. Evalúa estados futuros buscando el **camino óptimo**. El espacio de búsqueda se representa con **grafos** (matrices de adyacencia o listas de aristas) y, sobre todo, con **árboles**."
+        },
+        {
+          "title": "Búsqueda no informada",
+          "body": "También llamada **ciega**. **No usa información del problema**: sigue una estrategia fija para recorrer el árbol, así que vale para cualquier caso. Es **exhaustiva**: en el peor caso recorre todos los nodos, por lo que solo es útil en **problemas pequeños**. Hay dos estrategias: **anchura** y **profundidad**."
+        },
+        {
+          "title": "Anchura y profundidad",
+          "body": "- **Anchura (BFS)**: visita todos los nodos de profundidad i antes que los de i+1 (hermanos antes que hijos). Usa una **cola FIFO**. Es **completa y óptima**.\n- **Profundidad (DFS)**: hijos antes que hermanos. Usa una **pila LIFO**. **Ni óptima ni completa**; la **profundidad limitada** fija un nivel máximo."
+        },
+        {
+          "title": "Búsqueda informada",
+          "body": "Usa contexto del problema mediante una **heurística**: una función que da una **estimación o «pista»** para ir antes por las rutas más prometedoras. Se pierde generalidad y se gana **eficiencia temporal**. El **algoritmo voraz** (greedy best first) minimiza el **coste inmediato** y guarda los nodos en una **cola con prioridad**."
+        },
+        {
+          "title": "Algoritmo A*",
+          "body": "Busca el camino de **menor coste total** con **f(n) = g(n) + h(n)**: **g(n)** es el coste real desde el inicio y **h(n)**, la estimación hasta el destino. Explora antes el nodo de **menor f** (su mérito). Si h(n) **nunca sobreestima** la distancia real, es **admisible** y la solución óptima está garantizada."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud01-l10",
+      "kind": "practice",
+      "title": "Algoritmos de búsqueda",
+      "section": "3 y 3.1. Técnicas de la IA y algoritmos de búsqueda",
+      "questionIds": [
+        "mia-ud01-q042",
+        "mia-ud01-q043",
+        "mia-ud01-q044",
+        "mia-ud01-q045",
+        "mia-ud01-q046",
+        "mia-ud01-q047",
+        "mia-ud01-q048",
+        "mia-ud01-q049",
+        "mia-ud01-q050",
+        "mia-ud01-q051",
+        "mia-ud01-q052",
+        "mia-ud01-q053"
+      ]
+    },
+    {
+      "id": "mia-ud01-l11",
+      "kind": "read",
+      "title": "Algoritmos evolutivos",
+      "section": "3.2. Algoritmos evolutivos",
+      "cards": [
+        {
+          "title": "La idea",
+          "body": "Se inspiran en la **teoría de la evolución de Darwin**: una población se reproduce y, con la **mezcla de genes y la mutación**, salen descendientes que rinden más. En informática sirven para buscar **soluciones óptimas** a problemas prácticos: se generan soluciones diversas que convergen en las mejores **a lo largo de muchas generaciones**."
+        },
+        {
+          "title": "Algoritmos genéticos",
+          "body": "Son un tipo de algoritmo evolutivo para evaluar **grandes espacios de búsqueda**. **No garantizan la mejor solución**, pero sí una de las mejores. La **función de aptitud (fitness)** puntúa cada solución, de forma parecida a las heurísticas de la búsqueda."
+        },
+        {
+          "title": "Flujo de trabajo",
+          "body": "- **Codificar** el espacio de soluciones (por ejemplo, en binario).\n- Establecer los **parámetros**.\n- Crear la **población** de individuos.\n- Medir su **aptitud**.\n- **Seleccionar** progenitores según su aptitud.\n- **Reproducir**: **cruce** y **mutación**.\n- Poblar la **siguiente generación**."
+        },
+        {
+          "title": "Inteligencia de enjambre",
+          "body": "Otro tipo de algoritmo evolutivo (swarm): grupos de individuos **aparentemente tontos** muestran un **comportamiento inteligente**. Dos ejemplos populares: la **optimización por colonias de hormigas** y la **optimización por enjambres de partículas**."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud01-l12",
+      "kind": "practice",
+      "title": "Algoritmos evolutivos",
+      "section": "3.2. Algoritmos evolutivos",
+      "questionIds": [
+        "mia-ud01-q054",
+        "mia-ud01-q055",
+        "mia-ud01-q056",
+        "mia-ud01-q057",
+        "mia-ud01-q058",
+        "mia-ud01-q059"
+      ]
+    },
+    {
+      "id": "mia-ud01-l13",
+      "kind": "read",
+      "title": "Aprendizaje automático",
+      "section": "3.3. Aprendizaje automático",
+      "cards": [
+        {
+          "title": "Qué es",
+          "body": "Rama de la IA que permite a las máquinas **aprender sin ser programadas explícitamente**: identifican **patrones en los datos** y hacen **predicciones**. Está detrás de las recomendaciones de Netflix o Spotify, las respuestas inteligentes de Gmail o el reconocimiento de voz de Siri y Alexa."
+        },
+        {
+          "title": "Supervisado",
+          "body": "Se entrena con **ejemplos etiquetados**: entradas con su resultado correcto. El algoritmo **compara su salida con la correcta**, encuentra errores y **ajusta el modelo**. Usa clasificación, regresión, predicción y aumento de gradiente. Ejemplo: anticipar **transacciones fraudulentas** con tarjeta o qué cliente de una aseguradora reclamará."
+        },
+        {
+          "title": "No supervisado",
+          "body": "Trabaja con datos **sin etiquetas**: no se da la respuesta correcta y el algoritmo debe **descubrir la estructura** de los datos. Ejemplo: **segmentar clientes** parecidos para marketing. Técnicas: mapas de organización automática, vecino más cercano, **k-means** y descomposición en valores singulares."
+        },
+        {
+          "title": "Por refuerzo",
+          "body": "Se inspira en la **psicología del comportamiento**: se **recompensa** la acción positiva y se **penaliza** la negativa. Es útil con **entornos dinámicos**. Ejemplo: un robot que debe abrir puertas es penalizado si no lo consigue y recompensado si lo logra; tras muchos intentos aprende la secuencia."
+        },
+        {
+          "title": "Los pasos",
+          "body": "- **Recolección** y comprensión de los datos.\n- **Preparación**: formato correcto y pasar valores cualitativos a cuantitativos.\n- **Entrenamiento**: por ejemplo, **regresión lineal** (y = c + mx) con **mínimos cuadrados**.\n- **Prueba** con otros datos: **80 % para entrenar y 20 % para probar**.\n- **Mejora**: volver a pasos anteriores."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud01-l14",
+      "kind": "practice",
+      "title": "Aprendizaje automático",
+      "section": "3.3. Aprendizaje automático",
+      "questionIds": [
+        "mia-ud01-q060",
+        "mia-ud01-q061",
+        "mia-ud01-q062",
+        "mia-ud01-q063",
+        "mia-ud01-q064",
+        "mia-ud01-q065",
+        "mia-ud01-q066",
+        "mia-ud01-q067",
+        "mia-ud01-q068",
+        "mia-ud01-q069",
+        "mia-ud01-q070",
+        "mia-ud01-q071"
+      ]
+    },
+    {
+      "id": "mia-ud01-l15",
+      "kind": "read",
+      "title": "Redes neuronales",
+      "section": "3.4. Redes neuronales",
+      "cards": [
+        {
+          "title": "Qué son",
+          "body": "Las **redes neuronales artificiales (ANN)** se usan para reconocer imágenes, procesar lenguaje natural o resolver juegos. Se entrenan con datos, como otros algoritmos de aprendizaje automático, pero se adaptan mejor a **datos no estructurados**, donde cuesta ver cómo se relacionan las características."
+        },
+        {
+          "title": "El perceptrón",
+          "body": "Es el elemento base y representa una **neurona**: recibe **entradas** (como las dendritas), las modifica según ciertos criterios (como la **sinapsis**) y da un **resultado** (como los axones). Resuelve problemas **lineales**, pero no los **no lineales**: para eso se combinan **muchos perceptrones**."
+        },
+        {
+          "title": "Aprendizaje profundo",
+          "body": "El **deep learning** deriva del aprendizaje automático y usa ANNs en distintas arquitecturas, con **muchas capas**. Busca pasar de una IA limitada (débil) a una **general (fuerte)**. Se aplica a problemas que piden generalizar, como la **visión por computador** y el **reconocimiento del habla**."
+        },
+        {
+          "title": "Trabajo por capas",
+          "body": "Cada capa resuelve un problema especializado y juntas cumplen un objetivo mayor. Por ejemplo, identificar un objeto en una imagen se divide en comprender el **color**, reconocer **formas** e identificar las **relaciones entre objetos**. El deep learning se basa en aprendizaje supervisado, no supervisado y por refuerzo."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud01-l16",
+      "kind": "practice",
+      "title": "Redes neuronales",
+      "section": "3.4. Redes neuronales",
+      "questionIds": [
+        "mia-ud01-q072",
+        "mia-ud01-q073",
+        "mia-ud01-q074",
+        "mia-ud01-q075",
+        "mia-ud01-q076",
+        "mia-ud01-q077"
+      ]
+    },
+    {
+      "id": "mia-ud01-l17",
+      "kind": "read",
+      "title": "Nuevas formas de interacción",
+      "section": "4. Nuevas formas de interacción",
+      "cards": [
+        {
+          "title": "Gestionar un proyecto de IA",
+          "body": "Es como cualquier otro proyecto: definir **métricas y procesos** para supervisar la dirección y el éxito. Hay que saber responder qué puede hacer la IA en tu negocio, con qué proyecto empezar, cómo medir su éxito, cómo gestionarlo y qué recursos escasos hay y cómo asignarlos."
+        },
+        {
+          "title": "Sentir, analizar, reaccionar",
+          "body": "La IA ayuda en un proceso **iterativo** de tres pasos: **sentir** (obtener datos), **analizar** (estudiarlos técnicamente) y **reaccionar** (hacer acciones concretas del dominio). Este último paso permite descubrir nuevas acciones gracias a la IA."
+        },
+        {
+          "title": "Nuevas acciones",
+          "body": "- **Apoyo a la toma de decisiones**: ayuda a directivos y empleados a decidir.\n- **Producto mayor**: la IA es solo una parte, como en un robot de limpieza o un termostato inteligente.\n- **Automatización de procesos empresariales**.\n- **IA como producto**: vender la herramienta, por ejemplo un reconocedor de señales de tráfico."
+        },
+        {
+          "title": "Taxonomía de Schmarzo",
+          "body": "Guía la conversación entre el experto en IA y el de negocio:\n- **conocer resultados más rápido** (descartar una pieza defectuosa nada más fabricarla);\n- **predecir eventos futuros** (el precio del oro);\n- usar **datos estructurados**;\n- usar **datos no estructurados** (texto, imagen, vídeo y audio)."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud01-l18",
+      "kind": "practice",
+      "title": "Nuevas formas de interacción",
+      "section": "4. Nuevas formas de interacción",
+      "questionIds": [
+        "mia-ud01-q078",
+        "mia-ud01-q079",
+        "mia-ud01-q080",
+        "mia-ud01-q081",
+        "mia-ud01-q082",
+        "mia-ud01-q083",
+        "mia-ud01-q084"
+      ]
+    },
+    {
+      "id": "mia-ud01-l19",
+      "kind": "read",
+      "title": "Principios legales y éticos",
+      "section": "5. Principios legales y éticos sobre sistemas de IA",
+      "cards": [
+        {
+          "title": "Para qué sirven",
+          "body": "La ética y los principios legales buscan que la IA **promueva el bienestar social**, **respete y proteja los derechos humanos** y **minimice los riesgos** de su uso. Van desde la responsabilidad y la transparencia hasta la privacidad y la no discriminación."
+        },
+        {
+          "title": "Responsabilidad algorítmica",
+          "body": "Los **desarrolladores** deben hacerse responsables de las decisiones y acciones de sus sistemas: controlar los riesgos y minimizarlos ante un posible **mal uso, abuso o diseño defectuoso** o mal intencionado."
+        },
+        {
+          "title": "Transparencia",
+          "body": "Fomenta la confianza y permite **supervisar y evaluar** las decisiones de la IA. Los procesos y algoritmos deben ser **accesibles y comprensibles**: hay que poder **explicar cómo se toman las decisiones**, y la información sobre el diseño debe estar a disposición de **auditores y reguladores**."
+        },
+        {
+          "title": "Privacidad",
+          "body": "Los sistemas deben **proteger la información personal y sensible** con medidas de seguridad robustas y cumplir la normativa: el **Reglamento General de Protección de Datos** y, en España, la **Ley Orgánica de Protección de Datos y garantía de los derechos digitales**."
+        },
+        {
+          "title": "Justicia y no discriminación",
+          "body": "Los sistemas que deciden sobre condenas, probabilidad de reincidencia o la concesión de un **préstamo o hipoteca** deben basarse en **datos justos** y ser transparentes. Además, deben pasar **auditorías rigurosas** para detectar y corregir **sesgos** y no excluir a grupos vulnerables."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud01-l20",
+      "kind": "practice",
+      "title": "Principios legales y éticos",
+      "section": "5. Principios legales y éticos sobre sistemas de IA",
+      "questionIds": [
+        "mia-ud01-q085",
+        "mia-ud01-q086",
+        "mia-ud01-q087",
+        "mia-ud01-q088",
+        "mia-ud01-q089",
+        "mia-ud01-q090"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "mia-ud01-q001",
+      "type": "choice",
+      "prompt": "Según la definición de los apuntes, la IA construye sistemas que piensan y actúan de dos maneras. ¿Cuáles?",
+      "options": [
+        "Como humanos y racionalmente",
+        "Como humanos y como máquinas",
+        "Racionalmente y estadísticamente",
+        "Como agentes y como expertos"
+      ],
+      "answer": 0,
+      "explanation": "Los cuatro enfoques salen de combinar pensar y actuar con dos referencias: como humanos y racionalmente. De ahí sale pensar como humanos, actuar como humanos, pensar racionalmente y actuar racionalmente.",
+      "source": "MIA UD1, apartado 1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q002",
+      "type": "match",
+      "prompt": "Relaciona cada enfoque de la IA con lo que los apuntes asocian a él.",
+      "pairs": [
+        [
+          "Pensar como humanos",
+          "Ciencia cognitiva"
+        ],
+        [
+          "Actuar como humanos",
+          "Test de Turing"
+        ],
+        [
+          "Pensar racionalmente",
+          "Silogismos de Aristóteles"
+        ],
+        [
+          "Actuar racionalmente",
+          "Agentes autónomos"
+        ]
+      ],
+      "explanation": "Los límites de modelar la mente dieron lugar a la ciencia cognitiva, y el test de Turing comprueba si una máquina actúa como un humano. La lógica arranca con los silogismos de Aristóteles, y el comportamiento racional se replica con agentes autónomos.",
+      "source": "MIA UD1, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q003",
+      "type": "choice",
+      "prompt": "Observar a una persona en acción para saber cómo piensa es la forma de estudio llamada ___.",
+      "options": [
+        "introspectiva",
+        "experimentación psicológica",
+        "fotografía del cerebro",
+        "ciencia cognitiva"
+      ],
+      "answer": 1,
+      "explanation": "La experimentación psicológica observa a una persona en acción. La introspectiva analiza tus propios pensamientos y la fotografía del cerebro observa el cerebro en acción; la ciencia cognitiva es el campo que surgió después.",
+      "source": "MIA UD1, apartado 1.1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q004",
+      "type": "order",
+      "prompt": "Ordena los pasos del enfoque de pensar como humanos.",
+      "steps": [
+        "Averiguar cómo funciona el pensamiento humano",
+        "Expresar esa información y sus reglas como un programa",
+        "Comparar las entradas y salidas del programa con las de una persona"
+      ],
+      "explanation": "Primero hay que saber cómo pensamos, luego se traduce a un programa y por último se comprueba si su comportamiento coincide con el humano. Si coincide, algunos de sus mecanismos podrían estar también en nosotros.",
+      "source": "MIA UD1, apartado 1.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q005",
+      "type": "truefalse",
+      "prompt": "Si un programa hace bien una tarea, eso demuestra que es un buen modelo de cognición humana.",
+      "answer": false,
+      "explanation": "Los apuntes lo dicen al hablar de la ciencia cognitiva: que un programa haga bien una tarea no significa que sea un buen modelo de cómo pensamos.",
+      "source": "MIA UD1, apartado 1.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q006",
+      "type": "choice",
+      "prompt": "¿Cuándo se considera que una máquina ha superado el test de Turing?",
+      "options": [
+        "Cuando responde bien a todas las preguntas que se le hacen",
+        "Cuando resuelve los cálculos más rápido que la persona",
+        "Cuando la persona reconoce que está hablando con ella",
+        "Cuando quien pregunta no distingue si responde un humano o ella"
+      ],
+      "answer": 3,
+      "explanation": "La prueba no mide si acierta, sino si se confunde con un humano. Si quien pregunta no sabe decir qué respuestas vienen de la máquina, la ha superado.",
+      "source": "MIA UD1, apartado 1.1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q007",
+      "type": "order",
+      "prompt": "Ordena cómo se desarrolla el test de Turing.",
+      "steps": [
+        "Se pone a una persona ante dos pantallas, una con un humano y otra con una máquina",
+        "La persona plantea preguntas por escrito",
+        "El humano y la máquina responden por escrito",
+        "La persona intenta identificar cuál de los dos es la máquina"
+      ],
+      "explanation": "La comunicación es siempre por escrito a través de dos pantallas. Al final, si la persona no logra identificar a la máquina, esta pasa la prueba.",
+      "source": "MIA UD1, apartado 1.1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q008",
+      "type": "match",
+      "prompt": "Relaciona cada disciplina que necesitaría una máquina para pasar el test de Turing con su función.",
+      "pairs": [
+        [
+          "Procesamiento del lenguaje natural",
+          "Comunicarse en el idioma del humano"
+        ],
+        [
+          "Representación del conocimiento",
+          "Almacenar lo que sabe o escucha"
+        ],
+        [
+          "Razonamiento automático",
+          "Responder y extraer nuevas conclusiones"
+        ],
+        [
+          "Aprendizaje automático",
+          "Adaptarse y extrapolar patrones"
+        ],
+        [
+          "Robótica",
+          "Manipular objetos y mantenerse activo"
+        ]
+      ],
+      "explanation": "Son cinco de las seis disciplinas principales de una IA; falta la visión por computador y el reconocimiento del habla, que sirven para percibir el mundo. Ojo con no confundir representar el conocimiento (guardarlo) con razonar (sacar conclusiones).",
+      "source": "MIA UD1, apartado 1.1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q009",
+      "type": "choice",
+      "prompt": "Durante el test de Turing preguntan a la máquina cuánto es 45634 por 23987. Según lo que había previsto Turing, ¿qué haría?",
+      "options": [
+        "Esperar un buen rato antes de contestar e incluso fallar a veces",
+        "Contestar al instante para demostrar su capacidad de cálculo",
+        "Negarse a responder cualquier pregunta de cálculo",
+        "Pedir que le repitan la pregunta de forma oral"
+      ],
+      "answer": 0,
+      "explanation": "Turing pensaba que la máquina tendría que ocultar sus capacidades para imitar las limitaciones humanas. Contestar al instante la delataría como máquina.",
+      "source": "MIA UD1, apartado 1.1.2",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q010",
+      "type": "truefalse",
+      "prompt": "Hoy superar el test de Turing sigue siendo el gran objetivo de quienes trabajan en la industria de la IA.",
+      "answer": false,
+      "explanation": "Ya no lo es. Queremos asistentes útiles y, además, preferimos saber si hablamos con una persona o con una máquina, así que ser engañados resulta contraproducente.",
+      "source": "MIA UD1, apartado 1.1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q011",
+      "type": "choice",
+      "prompt": "¿Qué problema tiene usar la lógica para resolver cualquier problema, según el enfoque de pensar racionalmente?",
+      "options": [
+        "Solo funciona con problemas descritos en lenguaje natural",
+        "Necesita imitar las emociones humanas para poder razonar",
+        "Exige un conocimiento certero del mundo, imposible en la práctica",
+        "Obliga a entrenar el programa con grandes cantidades de datos"
+      ],
+      "answer": 2,
+      "explanation": "Con la notación lógica se podría resolver cualquier problema bien descrito, pero hace falta conocer el mundo con certeza y no conocemos todas sus reglas. Por eso no todo el comportamiento inteligente es fácil de modelar con lógica.",
+      "source": "MIA UD1, apartado 1.1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q012",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿por qué la racionalidad absoluta resulta impracticable para un agente?",
+      "options": [
+        "Porque no puede interactuar con su entorno durante mucho tiempo",
+        "Porque no tiene tiempo de completar todos los cálculos necesarios",
+        "Porque la lógica de Aristóteles no admite ninguna incertidumbre",
+        "Porque no tiene un objetivo asignado que guíe sus acciones"
+      ],
+      "answer": 1,
+      "explanation": "El límite es temporal: el agente no llega a hacer todos los cálculos que necesitaría para decidir con información completa. Los agentes sí interactúan con el entorno y sí tienen un objetivo, del que depende qué acciones son correctas.",
+      "source": "MIA UD1, apartado 1.1.4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q013",
+      "type": "choice",
+      "prompt": "¿Qué otro nombre recibe la IA débil?",
+      "options": [
+        "IA general",
+        "IA generativa",
+        "IA antigua",
+        "IA estrecha"
+      ],
+      "answer": 3,
+      "explanation": "La IA débil también se llama estrecha porque se limita a tareas concretas. La generativa es un ejemplo de IA débil, pero no es un sinónimo, y la IA antigua es otra clasificación distinta.",
+      "source": "MIA UD1, apartado 1.2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q014",
+      "type": "truefalse",
+      "prompt": "La IA generativa, como GPT-4, se considera IA fuerte porque crea contenido que parece hecho por personas.",
+      "answer": false,
+      "explanation": "Es IA débil. Imita la creatividad humana, pero funciona con patrones aprendidos y correlaciones estadísticas, sin comprensión ni conciencia real.",
+      "source": "MIA UD1, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q015",
+      "type": "choice",
+      "prompt": "¿Qué técnicas hacen posible la IA generativa, según los apuntes?",
+      "options": [
+        "Redes neuronales generativas, GANs y transformadores",
+        "Búsquedas en anchura y en profundidad",
+        "Algoritmos genéticos y colonias de hormigas",
+        "Árboles de decisión creados a mano por expertos"
+      ],
+      "answer": 0,
+      "explanation": "La generación de texto, imágenes o música se apoya en redes neuronales generativas y modelos de aprendizaje profundo como las GANs y los transformadores. Las otras opciones son técnicas de búsqueda, evolutivas o de IA antigua.",
+      "source": "MIA UD1, apartado 1.2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q016",
+      "type": "choice",
+      "prompt": "Un sistema recomienda películas con mucho acierto, pero no sabe jugar al ajedrez ni entiende lo que recomienda. ¿Qué tipo de IA es?",
+      "options": [
+        "IA general",
+        "IA fuerte",
+        "IA débil",
+        "Superinteligencia artificial"
+      ],
+      "answer": 2,
+      "explanation": "Hace muy bien una tarea concreta, pero no comprende ni puede pasar a otras tareas: es lo que define a la IA débil. La general resolvería problemas variados y no previstos.",
+      "source": "MIA UD1, apartado 1.2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q017",
+      "type": "truefalse",
+      "prompt": "Siri puede jugar una partida de ajedrez contigo porque los asistentes de voz resuelven cualquier tarea cotidiana.",
+      "answer": false,
+      "explanation": "Siri no está programada para eso. Se podría adaptar, pero el ejemplo de los apuntes sirve para ver que la IA débil solo resuelve problemas concretos y delimitados.",
+      "source": "MIA UD1, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q018",
+      "type": "choice",
+      "prompt": "¿Qué diferencia a la IA fuerte de la IA general, según los apuntes?",
+      "options": [
+        "La capacidad de generar texto, imágenes y música",
+        "Los estados mentales y la conciencia de sí misma",
+        "El uso de redes neuronales con muchas capas",
+        "La capacidad de resolver tareas muy concretas"
+      ],
+      "answer": 1,
+      "explanation": "A la IA general le falta el elemento que tiene la fuerte: estados mentales y conciencia de sí misma. Generar contenido es propio de la IA generativa, que es débil.",
+      "source": "MIA UD1, apartado 1.2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q019",
+      "type": "truefalse",
+      "prompt": "Toda IA fuerte es también general, pero no toda IA general es fuerte.",
+      "answer": true,
+      "explanation": "La IA fuerte incluye las capacidades de la general y además tiene conciencia de sí misma. Una IA general sin esa conciencia no llegaría a ser fuerte.",
+      "source": "MIA UD1, apartado 1.2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q020",
+      "type": "choice",
+      "prompt": "Si lográramos una IA fuerte, ¿qué punto de la historia habríamos alcanzado según los apuntes?",
+      "options": [
+        "El test de Turing",
+        "La IA estrecha",
+        "La creatividad computacional",
+        "La singularidad"
+      ],
+      "answer": 3,
+      "explanation": "Sería un punto de inflexión en el que los problemas técnicos, sociales o económicos dejarían de ser un reto, con cambios impredecibles. Los apuntes lo llaman singularidad.",
+      "source": "MIA UD1, apartado 1.2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q021",
+      "type": "choice",
+      "prompt": "¿Qué capacidad define a la IA general?",
+      "options": [
+        "Entender, aprender y aplicar conocimientos de forma generalizada",
+        "Crear contenido nuevo a partir de datos ya existentes",
+        "Hacer tareas concretas con algoritmos predefinidos",
+        "Seguir una estrategia fija para recorrer un árbol"
+      ],
+      "answer": 0,
+      "explanation": "La IA general podría hacer cualquier tarea cognitiva de una persona y adaptarse a situaciones nuevas. Crear contenido es lo propio de la IA generativa y las tareas concretas, de la débil.",
+      "source": "MIA UD1, apartado 1.2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q022",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿hacia qué tipo de agricultura se está evolucionando con la IA?",
+      "options": [
+        "Intensiva en fitosanitarios",
+        "Intensiva en conocimiento",
+        "Intensiva en agua y fertilizantes",
+        "Intensiva en mano de obra"
+      ],
+      "answer": 1,
+      "explanation": "Se pasa de gastar mucho en fitosanitarios, agua y fertilizantes a usar muchos datos convertidos en información valiosa. Eso es una agricultura intensiva en conocimiento.",
+      "source": "MIA UD1, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q023",
+      "type": "choice",
+      "prompt": "Un agricultor procesa con algoritmos de aprendizaje los datos que capturan sus drones para vigilar la salud del suelo. ¿En qué categoría de IA agrícola entra?",
+      "options": [
+        "Robots autónomos",
+        "Análisis predictivo",
+        "Simulación y entrenamiento",
+        "Monitoreo de cultivos y suelos"
+      ],
+      "answer": 3,
+      "explanation": "Procesar datos de drones para conocer la salud de cultivos y suelos es monitoreo. Los robots hacen labores físicas y el análisis predictivo prevé el efecto del ambiente en el rendimiento.",
+      "source": "MIA UD1, apartado 2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q024",
+      "type": "choice",
+      "prompt": "Un cliente que siempre compra en su ciudad hace de golpe varios pagos grandes en otro país. ¿Qué uso de la IA en banca entra en juego?",
+      "options": [
+        "Detectar en tiempo real patrones de gasto fuera de lo normal",
+        "Optimizar el enrutamiento de la red de la sucursal",
+        "Recomendar al cliente nuevos productos de inversión",
+        "Planificar las rutas de reparto de las tarjetas"
+      ],
+      "answer": 0,
+      "explanation": "Con los datos de las transacciones, la IA detecta en tiempo real gastos que no encajan con el comportamiento habitual de esa persona. Así se combate el fraude.",
+      "source": "MIA UD1, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q025",
+      "type": "match",
+      "prompt": "Relaciona cada ventaja de la IA en ciberseguridad con su ejemplo.",
+      "pairs": [
+        [
+          "Anticipación y detección de amenazas",
+          "Identificar malware desconocido en archivos"
+        ],
+        [
+          "Automatización de respuestas",
+          "Aislar sistemas y bloquear IP maliciosas"
+        ],
+        [
+          "Prevención del fraude",
+          "Analizar transacciones financieras en tiempo real"
+        ],
+        [
+          "Simulación y entrenamiento",
+          "Probar las defensas con ataques simulados"
+        ]
+      ],
+      "explanation": "Detectar es encontrar la amenaza, incluso malware nuevo; automatizar es reaccionar sin esperar a una persona. La prevención del fraude vigila transacciones y la simulación prepara al sistema con ataques de prueba.",
+      "source": "MIA UD1, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q026",
+      "type": "choice",
+      "prompt": "En ciberseguridad, ¿qué se consigue al automatizar con IA las respuestas a incidentes?",
+      "options": [
+        "Prescindir por completo de los profesionales de seguridad",
+        "Impedir que los atacantes usen IA en sus ataques",
+        "Reducir el tiempo de respuesta y liberar de tareas repetitivas",
+        "Sustituir los parches de seguridad por predicciones"
+      ],
+      "answer": 2,
+      "explanation": "La respuesta llega antes y el daño se reduce, y los profesionales pueden centrarse en estrategias más complejas. No se prescinde de ellos: se les quitan las tareas repetitivas.",
+      "source": "MIA UD1, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q027",
+      "type": "truefalse",
+      "prompt": "En salud, la IA puede detectar enfermedades como el Alzheimer o el cáncer a menudo antes de que los síntomas sean evidentes.",
+      "answer": true,
+      "explanation": "Procesa grandes volúmenes de datos de pacientes y reconoce patrones de enfermedad. Detectarla antes aumenta la tasa de supervivencia.",
+      "source": "MIA UD1, apartado 2.4",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q028",
+      "type": "choice",
+      "prompt": "Un hospital usa IA para ajustar la dosis de un fármaco según el historial, la respuesta a tratamientos anteriores y la genética del paciente. ¿Qué avance es?",
+      "options": [
+        "Mejora en la precisión del diagnóstico",
+        "Optimización de tratamientos personalizados",
+        "Descubrimiento de nuevos medicamentos",
+        "Selección de participantes para ensayos"
+      ],
+      "answer": 1,
+      "explanation": "Ajustar dosis y tratamientos a cada paciente es personalizar el tratamiento. El diagnóstico detecta la enfermedad y el descubrimiento de medicamentos busca fármacos nuevos.",
+      "source": "MIA UD1, apartado 2.4",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q029",
+      "type": "choice",
+      "prompt": "En logística, ¿qué significa IRO?",
+      "options": [
+        "Integración de robots operativos",
+        "Inventario regulado por ordenador",
+        "Interfaz de reparto optimizado",
+        "Optimización de rutas inteligente"
+      ],
+      "answer": 3,
+      "explanation": "La IA es la base de la optimización de rutas inteligente, que ayuda a coordinar recursos y viajes de forma más rentable y, a menudo, en tiempo real.",
+      "source": "MIA UD1, apartado 2.5",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q030",
+      "type": "choice",
+      "prompt": "¿Qué son los operadores 3PL que citan los apuntes de logística?",
+      "options": [
+        "Servicios de logística tercerizada",
+        "Robots de reparto autónomos",
+        "Redes privadas de telecomunicaciones",
+        "Sistemas de pago en tres pasos"
+      ],
+      "answer": 0,
+      "explanation": "3PL son los servicios de logística tercerizada. A ellos, a expedidores y a transportistas, la IA les da información basada en el análisis de la cadena de suministro.",
+      "source": "MIA UD1, apartado 2.5",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q031",
+      "type": "truefalse",
+      "prompt": "En su forma más simple, la IA en logística respalda las tareas administrativas detectando anomalías y excepciones.",
+      "answer": true,
+      "explanation": "Detectar anomalías hace que los problemas salgan a la luz antes de que crezcan. Las aplicaciones más complejas analizan toda la cadena de suministro.",
+      "source": "MIA UD1, apartado 2.5",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q032",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿para qué se usa la IA en telecomunicaciones?",
+      "options": [
+        "Instalar los cables, las torres y los satélites",
+        "Abaratar el precio de los dispositivos móviles",
+        "Supervisar la red y optimizar el enrutamiento",
+        "Sustituir las redes privadas por Internet"
+      ],
+      "answer": 2,
+      "explanation": "Como la infraestructura es cara, optimizar la red permite más conexiones. La IA supervisa la red y ajusta el enrutamiento según variables como el tráfico de ciertas zonas.",
+      "source": "MIA UD1, apartado 2.6",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q033",
+      "type": "truefalse",
+      "prompt": "El objetivo de la IA en los videojuegos es crear una entidad imbatible contra la que luchen los jugadores.",
+      "answer": false,
+      "explanation": "El objetivo es maximizar la participación y el disfrute de los jugadores durante mucho tiempo. Se busca la IA más agradable, no la mejor posible.",
+      "source": "MIA UD1, apartado 2.7",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q034",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿qué significa hacer un videojuego más inteligente?",
+      "options": [
+        "Que los personajes ganen siempre al jugador en cada partida",
+        "Que los personajes reaccionen y jueguen de la forma más humana posible",
+        "Que el juego calcule de antemano todas las jugadas posibles",
+        "Que el jugador no pueda controlar su experiencia de juego"
+      ],
+      "answer": 1,
+      "explanation": "Un juego más inteligente tiene personajes con reacciones inteligentes que juegan como lo haría una persona. Por eso se añaden variables que imitan el comportamiento humano.",
+      "source": "MIA UD1, apartado 2.7",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q035",
+      "type": "choice",
+      "prompt": "¿Qué técnica usa el juego City Conquest, citado en los apuntes?",
+      "options": [
+        "Una búsqueda en profundidad",
+        "Una red generativa adversarial",
+        "Un modelo de regresión lineal",
+        "Un algoritmo genético"
+      ],
+      "answer": 3,
+      "explanation": "Los apuntes lo ponen como ejemplo de juego que usa un algoritmo genético, junto a otros algoritmos de búsqueda de caminos, para ser más inteligente.",
+      "source": "MIA UD1, apartado 2.7",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q036",
+      "type": "choice",
+      "prompt": "¿Cómo se llama el subcampo de la IA que desarrolla software con un comportamiento que se consideraría creativo en humanos?",
+      "options": [
+        "Creatividad computacional",
+        "Visión por computador",
+        "Ciencia cognitiva",
+        "Inteligencia de enjambre"
+      ],
+      "answer": 0,
+      "explanation": "Surge al ver el ordenador como una entidad creativa en sí misma. Ese software puede inventar teorías matemáticas, escribir poesía, pintar o componer música.",
+      "source": "MIA UD1, apartado 2.8",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q037",
+      "type": "match",
+      "prompt": "Relaciona cada función de la IA en seguridad y vigilancia con lo que hace.",
+      "pairs": [
+        [
+          "Detección de anomalías",
+          "Avisar de comportamientos sospechosos"
+        ],
+        [
+          "Reconocimiento facial",
+          "Verificar identidades con bases de datos"
+        ],
+        [
+          "Análisis de vídeo forense",
+          "Buscar eventos en grabaciones por descripción"
+        ],
+        [
+          "Monitoreo de redes",
+          "Detectar patrones de un posible ciberataque"
+        ]
+      ],
+      "explanation": "Las anomalías se detectan en vídeo en tiempo real y el reconocimiento facial compara caras con listas de personas. El análisis forense revisa grabaciones tras un incidente, y el monitoreo de redes vigila el tráfico.",
+      "source": "MIA UD1, apartado 2.9",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q038",
+      "type": "order",
+      "prompt": "Ordena cómo actúa un sistema de vigilancia con IA ante algo sospechoso.",
+      "steps": [
+        "Analiza el flujo de vídeo en tiempo real",
+        "Detecta un movimiento o patrón que no encaja con lo normal",
+        "Genera una alerta automática",
+        "Los operadores de seguridad responden a la amenaza"
+      ],
+      "explanation": "Todo parte de analizar el vídeo y detectar movimiento. Cuando algo no encaja con lo normal en esa zona, el sistema avisa a los operadores para que respondan rápido.",
+      "source": "MIA UD1, apartado 2.9",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q039",
+      "type": "choice",
+      "prompt": "¿Qué elementos de un robot le permiten percibir su entorno?",
+      "options": [
+        "Los actuadores",
+        "Los sensores",
+        "Los sistemas de procesamiento",
+        "Los brazos articulados"
+      ],
+      "answer": 1,
+      "explanation": "Los sensores son los elementos electrónicos que perciben el entorno. Los actuadores, como los brazos articulados, mueven y manipulan, y el procesamiento toma las decisiones.",
+      "source": "MIA UD1, apartado 2.10",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q040",
+      "type": "choice",
+      "prompt": "Un brazo robótico de una fábrica tiene motores que le permiten girar y coger piezas. ¿Qué son esos motores dentro del robot?",
+      "options": [
+        "Sensores",
+        "Sistemas de procesamiento",
+        "Algoritmos de aprendizaje",
+        "Actuadores"
+      ],
+      "answer": 3,
+      "explanation": "Los actuadores permiten el movimiento y la manipulación de elementos; los apuntes ponen como ejemplo motores, brazos y ruedas. Los sensores solo perciben.",
+      "source": "MIA UD1, apartado 2.10",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q041",
+      "type": "truefalse",
+      "prompt": "Al combinar robots con IA, el aprendizaje automático les permite aprender de la experiencia y mejorar con el tiempo.",
+      "answer": true,
+      "explanation": "Esa combinación crea sistemas autónomos que se adaptan a situaciones distintas. Es clave para tareas complejas y entornos dinámicos.",
+      "source": "MIA UD1, apartado 2.10",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q042",
+      "type": "choice",
+      "prompt": "¿Qué diferencia a la IA moderna de la IA antigua?",
+      "options": [
+        "La moderna aprende de los datos y crea sus propias reglas",
+        "La moderna usa árboles de decisión hechos a mano",
+        "La antigua aprende de los datos sin ayuda humana",
+        "La antigua solo se usa en robots y videojuegos"
+      ],
+      "answer": 0,
+      "explanation": "En la IA antigua las personas codifican las reglas a mano, como un árbol de decisiones hecho por alguien. La moderna aprende de los datos y encuentra patrones que una persona no vería.",
+      "source": "MIA UD1, apartado 3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q043",
+      "type": "truefalse",
+      "prompt": "Los algoritmos de búsqueda se consideran a menudo IA antigua.",
+      "answer": true,
+      "explanation": "Lo dicen los apuntes, que añaden que hay que entenderlos para aprender técnicas más complejas.",
+      "source": "MIA UD1, apartado 3",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q044",
+      "type": "choice",
+      "prompt": "¿Qué estructura de datos se usa principalmente para representar el espacio de búsqueda?",
+      "options": [
+        "Pilas",
+        "Tablas relacionales",
+        "Árboles",
+        "Colas con prioridad"
+      ],
+      "answer": 2,
+      "explanation": "Se usan grafos y, sobre todo, árboles. Las pilas y las colas sirven para guardar los nodos abiertos mientras se recorre, no para representar el espacio.",
+      "source": "MIA UD1, apartado 3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q045",
+      "type": "choice",
+      "prompt": "Con estructuras de programación habituales, ¿qué se usa para guardar los nodos abiertos en una búsqueda en anchura (BFS)?",
+      "options": [
+        "Una pila con acceso LIFO",
+        "Una cola con acceso FIFO",
+        "Una cola con prioridad",
+        "Una matriz de adyacencia"
+      ],
+      "answer": 1,
+      "explanation": "En BFS el primero que entra es el primero que sale, así se visitan los hermanos antes que los hijos. La pila LIFO es la de la búsqueda en profundidad y la cola con prioridad, la del algoritmo voraz.",
+      "source": "MIA UD1, apartado 3.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q046",
+      "type": "truefalse",
+      "prompt": "La búsqueda en profundidad (DFS) es completa, aunque no sea óptima.",
+      "answer": false,
+      "explanation": "DFS no es ni óptima ni completa. En un espacio infinito puede bajar sin fin por una rama y no encontrar nunca la solución. La que es completa y óptima es la búsqueda en anchura.",
+      "source": "MIA UD1, apartado 3.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q047",
+      "type": "choice",
+      "prompt": "Un robot busca un objeto y puede moverse a izquierda o derecha sin límite. El objeto está a un paso, en la dirección contraria a la que elige primero. ¿Qué le puede pasar con búsqueda en profundidad?",
+      "options": [
+        "Que lo encuentre al primer paso porque revisa antes los hermanos",
+        "Que lo encuentre siempre, aunque por un camino más largo",
+        "Que se pare porque la búsqueda ciega no se puede aplicar",
+        "Que avance sin fin en una dirección y no lo encuentre"
+      ],
+      "answer": 3,
+      "explanation": "Es el ejemplo de los apuntes de por qué DFS no es completa. Para evitarlo se usa la variante de profundidad limitada, que fija un nivel máximo.",
+      "source": "MIA UD1, apartado 3.1.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q048",
+      "type": "match",
+      "prompt": "Relaciona cada estrategia de búsqueda con su característica.",
+      "pairs": [
+        [
+          "Búsqueda en anchura",
+          "Cola FIFO, completa y óptima"
+        ],
+        [
+          "Búsqueda en profundidad",
+          "Pila LIFO, ni completa ni óptima"
+        ],
+        [
+          "Profundidad limitada",
+          "Fija un nivel máximo de profundidad"
+        ],
+        [
+          "Algoritmo voraz",
+          "Minimiza el coste inmediato del siguiente paso"
+        ]
+      ],
+      "explanation": "Las tres primeras son búsquedas no informadas: anchura y profundidad, y la variante limitada que evita bajar sin fin. El voraz ya es búsqueda informada, con una heurística muy simple.",
+      "source": "MIA UD1, apartados 3.1.1 y 3.1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q049",
+      "type": "choice",
+      "prompt": "En búsqueda informada, ¿qué es una heurística?",
+      "options": [
+        "Una función que da una estimación para guiar la búsqueda",
+        "Una estructura que guarda los nodos ya explorados",
+        "Una estrategia fija para recorrer cualquier árbol",
+        "Un conjunto de ejemplos etiquetados para entrenar"
+      ],
+      "answer": 0,
+      "explanation": "La heurística aporta una «pista» sobre lo cerca que está una solución, para ir antes por las rutas más efectivas. La estrategia fija es lo propio de la búsqueda no informada.",
+      "source": "MIA UD1, apartado 3.1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q050",
+      "type": "choice",
+      "prompt": "En la función de evaluación del algoritmo A*, ¿qué representa h(n)?",
+      "code": "f(n) = g(n) + h(n)",
+      "options": [
+        "El coste real desde el punto de inicio hasta el nodo actual",
+        "El coste total del camino desde el inicio hasta el destino",
+        "Una estimación del coste desde el nodo actual hasta el destino",
+        "El número de nodos sucesores que tiene el nodo actual"
+      ],
+      "answer": 2,
+      "explanation": "h(n) es la heurística: lo que se estima que falta. g(n) es el coste real ya recorrido y f(n) es la suma de los dos.",
+      "source": "MIA UD1, apartado 3.1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q051",
+      "type": "choice",
+      "prompt": "En A*, el nodo X tiene g(n) = 4 y h(n) = 3, y el nodo Y tiene g(n) = 2 y h(n) = 6. ¿Cuál se explora antes?",
+      "options": [
+        "Y, porque su f(n) vale 8",
+        "X, porque su f(n) vale 7",
+        "Y, porque su g(n) es menor",
+        "Los dos a la vez, porque empatan"
+      ],
+      "answer": 1,
+      "explanation": "A* suma g y h y explora antes el nodo con menor valor: X tiene 4 + 3 = 7 e Y tiene 2 + 6 = 8. Mirar solo g(n) es ignorar lo que falta por recorrer.",
+      "source": "MIA UD1, apartado 3.1.2",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q052",
+      "type": "truefalse",
+      "prompt": "Si la heurística de A* nunca sobreestima la distancia real hasta el destino, es admisible y la solución óptima está garantizada.",
+      "answer": true,
+      "explanation": "Esa es la definición de heurística admisible que dan los apuntes. Si no es admisible, no se puede garantizar el camino más corto.",
+      "source": "MIA UD1, apartado 3.1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q053",
+      "type": "order",
+      "prompt": "Ordena cómo trabaja el algoritmo A*.",
+      "steps": [
+        "Calcula el mérito del nodo origen",
+        "Explora sus sucesores y calcula su valor",
+        "Selecciona el nodo con menor valor",
+        "Repite hasta que el nodo a analizar sea el destino"
+      ],
+      "explanation": "A* parte del origen, valora a sus vecinos y sigue siempre por el de menor mérito. Guarda una lista ordenada de nodos explorados y termina al llegar al destino.",
+      "source": "MIA UD1, apartado 3.1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q054",
+      "type": "order",
+      "prompt": "Ordena estos pasos de un algoritmo genético.",
+      "steps": [
+        "Crear la población de posibles soluciones",
+        "Medir la aptitud de cada individuo",
+        "Seleccionar progenitores según su aptitud",
+        "Reproducir con cruce y mutación",
+        "Poblar la siguiente generación"
+      ],
+      "explanation": "Antes de estos pasos se codifican las soluciones y se fijan los parámetros. Después se crea la población, se puntúa, se eligen los mejores, se reproducen y se decide quién pasa a la siguiente generación.",
+      "source": "MIA UD1, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q055",
+      "type": "truefalse",
+      "prompt": "Los algoritmos genéticos garantizan encontrar la mejor de todas las soluciones posibles.",
+      "answer": false,
+      "explanation": "No lo garantizan, aunque sí suelen encontrar una de las mejores. Por eso se usan para grandes espacios de búsqueda.",
+      "source": "MIA UD1, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q056",
+      "type": "choice",
+      "prompt": "En un algoritmo genético, ¿qué hace la función de aptitud (fitness)?",
+      "options": [
+        "Combina la información genética de dos individuos",
+        "Introduce pequeños cambios en la descendencia",
+        "Codifica las soluciones en formato binario",
+        "Puntúa cada solución para saber su calidad"
+      ],
+      "answer": 3,
+      "explanation": "La aptitud mide lo buena que es una solución, de forma parecida a las heurísticas de búsqueda. Combinar información es el cruce y los pequeños cambios son la mutación.",
+      "source": "MIA UD1, apartado 3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q057",
+      "type": "match",
+      "prompt": "Relaciona cada concepto de los algoritmos genéticos con su significado.",
+      "pairs": [
+        [
+          "Cruce",
+          "Combinar la información genética de los progenitores"
+        ],
+        [
+          "Mutación",
+          "Aplicar ligeros cambios a la descendencia"
+        ],
+        [
+          "Aptitud",
+          "Medir la calidad de una solución"
+        ],
+        [
+          "Codificación",
+          "Representar las soluciones, por ejemplo en binario"
+        ]
+      ],
+      "explanation": "Cruce y mutación son las dos operaciones de la reproducción. La aptitud decide quién se reproduce y la codificación es el primer paso, que define cómo se representan las soluciones.",
+      "source": "MIA UD1, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q058",
+      "type": "choice",
+      "prompt": "¿Cuál de estos es un algoritmo de inteligencia de enjambre?",
+      "options": [
+        "Optimización por colonias de hormigas",
+        "Búsqueda en anchura",
+        "Algoritmo A*",
+        "Agrupamiento k-means"
+      ],
+      "answer": 0,
+      "explanation": "Las colonias de hormigas y los enjambres de partículas son los dos ejemplos de los apuntes. La anchura y A* son algoritmos de búsqueda, y k-means es aprendizaje no supervisado.",
+      "source": "MIA UD1, apartado 3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q059",
+      "type": "choice",
+      "prompt": "Una empresa tiene millones de combinaciones posibles de horarios y le basta con una muy buena, aunque no sea la mejor. ¿Qué técnica encaja con lo que cuentan los apuntes?",
+      "options": [
+        "Una búsqueda en anchura",
+        "Un algoritmo genético",
+        "Una búsqueda en profundidad",
+        "Un perceptrón simple"
+      ],
+      "answer": 1,
+      "explanation": "Los genéticos evalúan grandes espacios de búsqueda y dan una de las mejores soluciones. Las búsquedas ciegas son exhaustivas y su coste se dispara en problemas grandes.",
+      "source": "MIA UD1, apartado 3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q060",
+      "type": "choice",
+      "prompt": "¿Qué permite el aprendizaje automático a las máquinas?",
+      "options": [
+        "Seguir las reglas que una persona codifica a mano",
+        "Recorrer árboles de búsqueda con una estrategia fija",
+        "Tener estados mentales y conciencia de sí mismas",
+        "Aprender sin ser programadas explícitamente para ello"
+      ],
+      "answer": 3,
+      "explanation": "El aprendizaje automático identifica patrones en los datos y hace predicciones sin que nadie programe cada regla. Las reglas a mano son propias de la IA antigua.",
+      "source": "MIA UD1, apartado 3.3",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q061",
+      "type": "match",
+      "prompt": "Relaciona cada tipo de aprendizaje automático con su forma de aprender.",
+      "pairs": [
+        [
+          "Supervisado",
+          "Datos etiquetados con el resultado correcto"
+        ],
+        [
+          "No supervisado",
+          "Datos sin etiquetas para descubrir su estructura"
+        ],
+        [
+          "Por refuerzo",
+          "Recompensas y penalizaciones por cada acción"
+        ]
+      ],
+      "explanation": "En el supervisado se conoce la respuesta correcta y en el no supervisado no. El refuerzo aprende de las consecuencias de sus acciones, como en la psicología del comportamiento.",
+      "source": "MIA UD1, apartados 3.3.1 a 3.3.3",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q062",
+      "type": "order",
+      "prompt": "Ordena cómo aprende un algoritmo de aprendizaje supervisado.",
+      "steps": [
+        "Recibe entradas junto con sus resultados correctos",
+        "Obtiene su propio resultado",
+        "Lo compara con el correcto para encontrar errores",
+        "Modifica el modelo en consecuencia"
+      ],
+      "explanation": "El algoritmo aprende comparando lo que sale con lo que debería salir. Con los errores ajusta el modelo, que luego sirve para predecir datos sin etiquetar.",
+      "source": "MIA UD1, apartado 3.3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q063",
+      "type": "choice",
+      "prompt": "Quieres agrupar a los clientes de una tienda según hábitos parecidos, pero nadie sabe de antemano qué grupos hay. ¿Qué tipo de aprendizaje usarías?",
+      "options": [
+        "No supervisado",
+        "Supervisado",
+        "Por refuerzo",
+        "Búsqueda informada"
+      ],
+      "answer": 0,
+      "explanation": "No hay etiquetas que digan a qué grupo pertenece cada cliente, así que el algoritmo tiene que descubrir la estructura. Segmentar clientes es justo el ejemplo de los apuntes.",
+      "source": "MIA UD1, apartado 3.3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q064",
+      "type": "choice",
+      "prompt": "Una aseguradora tiene años de reclamaciones, cada una marcada como fraudulenta o no, y quiere predecir si las nuevas lo son. ¿Qué tipo de aprendizaje encaja?",
+      "options": [
+        "No supervisado",
+        "Por refuerzo",
+        "Supervisado",
+        "Evolutivo"
+      ],
+      "answer": 2,
+      "explanation": "Hay datos históricos etiquetados con el resultado correcto y se quiere predecir casos futuros: eso es aprendizaje supervisado. El no supervisado trabaja sin etiquetas.",
+      "source": "MIA UD1, apartado 3.3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q065",
+      "type": "choice",
+      "prompt": "¿Cuál de estas es una técnica de aprendizaje no supervisado citada en los apuntes?",
+      "options": [
+        "Aumento de gradiente",
+        "Agrupamiento k-means",
+        "Regresión lineal",
+        "Algoritmo A*"
+      ],
+      "answer": 1,
+      "explanation": "k-means aparece junto a los mapas de organización automática, el vecino más cercano y la descomposición en valores singulares. El aumento de gradiente y la regresión son de aprendizaje supervisado.",
+      "source": "MIA UD1, apartado 3.3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q066",
+      "type": "truefalse",
+      "prompt": "En el ejemplo de aprendizaje por refuerzo de los apuntes, el robot que debe abrir puertas recibe una recompensa cuando lo consigue y una penalización cuando no.",
+      "answer": true,
+      "explanation": "Así, tras muchos intentos, el robot aprende la secuencia de acciones necesaria para abrir una puerta.",
+      "source": "MIA UD1, apartado 3.3.3",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q067",
+      "type": "order",
+      "prompt": "Ordena los pasos del aprendizaje automático.",
+      "steps": [
+        "Recolección y comprensión de los datos",
+        "Preparación de los datos",
+        "Entrenamiento del modelo",
+        "Prueba del modelo",
+        "Mejora de la precisión del modelo"
+      ],
+      "explanation": "Primero se reúnen y se preparan los datos, luego se entrena y se prueba. Si la precisión no basta, el último paso puede llevar de vuelta a cualquiera de los anteriores.",
+      "source": "MIA UD1, apartado 3.3.3",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q068",
+      "type": "choice",
+      "prompt": "Tienes 1000 ejemplos para crear un modelo. Con el reparto habitual que indican los apuntes, ¿cuántos reservas para probarlo?",
+      "options": [
+        "800",
+        "100",
+        "500",
+        "200"
+      ],
+      "answer": 3,
+      "explanation": "Se suele reservar un 20 % para las pruebas y un 80 % para entrenar. El 20 % de 1000 son 200; 800 serían los de entrenamiento.",
+      "source": "MIA UD1, apartado 3.3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q069",
+      "type": "truefalse",
+      "prompt": "Para ahorrar datos, se puede probar el modelo con los mismos ejemplos que se usaron para entrenarlo.",
+      "answer": false,
+      "explanation": "Los apuntes lo dejan claro: no se puede probar con los datos de entrenamiento. Por eso se separa una parte, normalmente un 20 %, solo para las pruebas.",
+      "source": "MIA UD1, apartado 3.3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q070",
+      "type": "choice",
+      "prompt": "En la ecuación de la recta que usa la regresión lineal, ¿qué es m?",
+      "code": "y = c + mx",
+      "options": [
+        "La pendiente de la recta",
+        "El punto donde la recta corta el eje Y",
+        "La variable dependiente",
+        "La variable independiente"
+      ],
+      "answer": 0,
+      "explanation": "m es la pendiente y c, el valor donde la recta corta el eje Y. Entrenar el modelo es inferir esos dos valores, por ejemplo con mínimos cuadrados.",
+      "source": "MIA UD1, apartado 3.3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q071",
+      "type": "choice",
+      "prompt": "Al probar tu modelo no llegas a la precisión que buscabas. ¿Cuál de estas es una recomendación de los apuntes?",
+      "options": [
+        "Probar con los datos de entrenamiento",
+        "Dar por buena la precisión obtenida",
+        "Recopilar más datos",
+        "Saltarse la preparación de los datos"
+      ],
+      "answer": 2,
+      "explanation": "Se recomienda recopilar más datos, prepararlos con otras técnicas, elegir otras características o cambiar de algoritmo. Probar con los datos de entrenamiento está prohibido.",
+      "source": "MIA UD1, apartado 3.3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q072",
+      "type": "match",
+      "prompt": "Relaciona cada parte del perceptrón con su equivalente en la neurona.",
+      "pairs": [
+        [
+          "Entradas",
+          "Dendritas"
+        ],
+        [
+          "Criterios que modifican las entradas",
+          "Sinapsis"
+        ],
+        [
+          "Resultado",
+          "Axones"
+        ]
+      ],
+      "explanation": "El perceptrón recibe entradas como las dendritas, las modifica como la sinapsis y produce un resultado como los axones. Es el elemento base de una red neuronal.",
+      "source": "MIA UD1, apartado 3.4",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q073",
+      "type": "truefalse",
+      "prompt": "Un único perceptrón puede resolver problemas no lineales si se entrena lo suficiente.",
+      "answer": false,
+      "explanation": "Un perceptrón solo resuelve problemas lineales: si los datos no se separan con una línea recta, falla. Para lo no lineal hacen falta muchos perceptrones juntos.",
+      "source": "MIA UD1, apartado 3.4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q074",
+      "type": "choice",
+      "prompt": "Tus datos no se pueden separar con una línea recta. ¿Cómo lo resuelven las redes neuronales?",
+      "options": [
+        "Usando un único perceptrón con más entradas",
+        "Combinando muchos perceptrones que trabajan juntos",
+        "Pasando a una búsqueda en profundidad",
+        "Etiquetando a mano todos los datos"
+      ],
+      "answer": 1,
+      "explanation": "Un perceptrón solo no puede con problemas no lineales. Las ANN emplean muchos perceptrones juntos para resolver problemas no lineales de varias dimensiones.",
+      "source": "MIA UD1, apartado 3.4",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q075",
+      "type": "choice",
+      "prompt": "¿Con qué tipo de datos se adaptan mejor las redes neuronales que otros algoritmos de aprendizaje automático?",
+      "options": [
+        "Datos ya tabulados",
+        "Datos sin etiquetas de ningún tipo",
+        "Datos con muy pocas características",
+        "Datos no estructurados"
+      ],
+      "answer": 3,
+      "explanation": "Las ANN se entrenan con datos como cualquier algoritmo de aprendizaje, pero destacan con datos no estructurados, donde es difícil ver cómo se relacionan las características.",
+      "source": "MIA UD1, apartado 3.4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q076",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿a qué problemas se aplica el aprendizaje profundo?",
+      "options": [
+        "A los que requieren generalizar, como la visión por computador",
+        "A los pequeños, que admiten una búsqueda exhaustiva",
+        "A los que se resuelven con reglas escritas a mano",
+        "A los lineales, que resuelve un único perceptrón"
+      ],
+      "answer": 0,
+      "explanation": "El deep learning se aplica a problemas que piden más generalización, como la visión por computador y el reconocimiento del habla. Para ello usa muchas capas de ANN.",
+      "source": "MIA UD1, apartado 3.4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q077",
+      "type": "truefalse",
+      "prompt": "El aprendizaje profundo reparte un problema complejo entre varias capas, cada una especializada en una parte.",
+      "answer": true,
+      "explanation": "Cada capa resuelve un problema especializado y juntas cumplen el objetivo. Por ejemplo, reconocer un objeto se divide en color, formas y relaciones entre objetos.",
+      "source": "MIA UD1, apartado 3.4",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q078",
+      "type": "order",
+      "prompt": "Ordena el proceso iterativo en el que la IA ayuda a un negocio.",
+      "steps": [
+        "Sentir: obtener los datos",
+        "Analizar: estudiar los datos técnicamente",
+        "Reaccionar: hacer acciones concretas del dominio"
+      ],
+      "explanation": "Primero se recogen datos, luego se analizan con IA y, conocidas las opciones, se decide la siguiente acción. El último paso permite descubrir acciones nuevas.",
+      "source": "MIA UD1, apartado 4",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q079",
+      "type": "match",
+      "prompt": "Relaciona cada nueva acción que permite la IA en un negocio con su ejemplo.",
+      "pairs": [
+        [
+          "Apoyo a la toma de decisiones",
+          "Ayudar a la dirección a decidir"
+        ],
+        [
+          "Producto mayor",
+          "Termostato inteligente"
+        ],
+        [
+          "Automatización de procesos empresariales",
+          "Hacer sola algunos pasos del proceso"
+        ],
+        [
+          "IA como producto",
+          "Vender un reconocedor de señales de tráfico"
+        ]
+      ],
+      "explanation": "En el producto mayor la IA es solo una parte del aparato. En la IA como producto, en cambio, lo que se vende es la propia herramienta de IA.",
+      "source": "MIA UD1, apartado 4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q080",
+      "type": "choice",
+      "prompt": "Una fábrica de coches detecta con IA que una pieza es defectuosa nada más fabricarla y la descarta. ¿Qué categoría de la taxonomía de Schmarzo es?",
+      "options": [
+        "Predecir algún evento futuro",
+        "Conocer los resultados más rápidamente",
+        "Utilizar datos estructurados",
+        "Utilizar datos no estructurados"
+      ],
+      "answer": 1,
+      "explanation": "Es el ejemplo de los apuntes: saberlo al momento es mejor que enterarse cuando la pieza ya está montada y el coche, en manos del cliente. Predecir eventos sería, por ejemplo, estimar el precio del oro.",
+      "source": "MIA UD1, apartado 4",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q081",
+      "type": "choice",
+      "prompt": "Una empresa usa IA para estimar el precio del oro dentro de varios años según las tendencias actuales. ¿Qué categoría de la taxonomía de Schmarzo es?",
+      "options": [
+        "Conocer los resultados más rápidamente",
+        "Utilizar datos no estructurados",
+        "Utilizar datos estructurados",
+        "Predecir algún evento futuro"
+      ],
+      "answer": 3,
+      "explanation": "Estimar a largo plazo a partir de tendencias es predecir un evento futuro. Conocer resultados más rápido se refiere a saber antes algo que ya ha pasado.",
+      "source": "MIA UD1, apartado 4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q082",
+      "type": "truefalse",
+      "prompt": "En un producto mayor totalmente autónomo, la IA guía el sistema y toma sus decisiones sin que intervenga una persona.",
+      "answer": true,
+      "explanation": "Los apuntes lo dicen al hablar del producto mayor, con ejemplos como los robots de limpieza o los termostatos inteligentes.",
+      "source": "MIA UD1, apartado 4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q083",
+      "type": "choice",
+      "prompt": "¿Para qué se presenta en los apuntes la taxonomía de Bill Schmarzo?",
+      "options": [
+        "Guiar la conversación entre el experto en IA y el de negocio",
+        "Clasificar la IA en débil, general y fuerte",
+        "Ordenar los pasos del aprendizaje automático",
+        "Medir la aptitud de las soluciones de un algoritmo"
+      ],
+      "answer": 0,
+      "explanation": "Sirve para saber qué posibilidades ofrece una IA concreta y facilitar el diálogo entre quien sabe de IA y quien conoce el negocio.",
+      "source": "MIA UD1, apartado 4",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q084",
+      "type": "truefalse",
+      "prompt": "Según los apuntes, gestionar un proyecto de IA exige saber cosas muy distintas a las de cualquier otro proyecto.",
+      "answer": false,
+      "explanation": "Es lo mismo que en cualquier proyecto: definir métricas y procesos para supervisar la dirección y el éxito, y relacionar la IA con los conceptos del negocio.",
+      "source": "MIA UD1, apartado 4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q085",
+      "type": "match",
+      "prompt": "Relaciona cada principio ético y legal de la IA con lo que exige.",
+      "pairs": [
+        [
+          "Responsabilidad algorítmica",
+          "Los desarrolladores responden de las decisiones del sistema"
+        ],
+        [
+          "Transparencia",
+          "Poder explicar cómo se toman las decisiones"
+        ],
+        [
+          "Privacidad",
+          "Proteger la información personal y sensible"
+        ],
+        [
+          "Justicia y no discriminación",
+          "Corregir sesgos que excluyan a grupos vulnerables"
+        ]
+      ],
+      "explanation": "Cada principio mira un riesgo distinto: quién responde, si se entiende cómo decide, qué pasa con los datos personales y si el resultado es justo.",
+      "source": "MIA UD1, apartado 5",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q086",
+      "type": "choice",
+      "prompt": "Un banco usa IA para conceder hipotecas y descubre que rechaza más a un grupo de personas sin motivo justificado. ¿Qué principio se incumple sobre todo?",
+      "options": [
+        "Privacidad",
+        "Responsabilidad algorítmica",
+        "Justicia y no discriminación",
+        "Transparencia"
+      ],
+      "answer": 2,
+      "explanation": "Los apuntes ponen como ejemplo de este principio la concesión de préstamos e hipotecas: deben basarse en datos justos y auditarse para corregir sesgos que discriminen.",
+      "source": "MIA UD1, apartado 5",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud01-q087",
+      "type": "truefalse",
+      "prompt": "Según los apuntes, la privacidad obliga a cumplir normas como el Reglamento General de Protección de Datos.",
+      "answer": true,
+      "explanation": "Los sistemas deben proteger los datos personales con medidas robustas y cumplir la normativa, como el Reglamento General de Protección de Datos y, en España, la Ley Orgánica de Protección de Datos.",
+      "source": "MIA UD1, apartado 5",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q088",
+      "type": "choice",
+      "prompt": "¿Qué exige el principio de transparencia?",
+      "options": [
+        "Que los datos personales estén protegidos con medidas robustas",
+        "Que se pueda explicar cómo funcionan los algoritmos y cómo deciden",
+        "Que los desarrolladores respondan de los daños que cause el sistema",
+        "Que los resultados no excluyan a los grupos vulnerables"
+      ],
+      "answer": 1,
+      "explanation": "La transparencia pide procesos accesibles y comprensibles para usuarios, auditores y reguladores. Proteger datos es privacidad, responder de los daños es responsabilidad y no excluir es justicia.",
+      "source": "MIA UD1, apartado 5",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud01-q089",
+      "type": "truefalse",
+      "prompt": "La responsabilidad algorítmica recae en los usuarios finales del sistema de IA, no en sus desarrolladores.",
+      "answer": false,
+      "explanation": "Se enfoca en los desarrolladores: son ellos quienes deben controlar los riesgos y minimizarlos ante un mal uso, un abuso o un diseño defectuoso.",
+      "source": "MIA UD1, apartado 5",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud01-q090",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿qué buscan los principios éticos y legales de la IA?",
+      "options": [
+        "Que supere el test de Turing sin que se note que es una máquina",
+        "Que funcione sin supervisión humana en todos los sectores",
+        "Que sus algoritmos sean secretos para proteger a las empresas",
+        "Que promueva el bienestar social y respete los derechos humanos"
+      ],
+      "answer": 3,
+      "explanation": "Buscan que la IA se desarrolle promoviendo el bienestar social, respetando y protegiendo los derechos humanos y minimizando los riesgos de su uso. Mantener los algoritmos en secreto iría contra la transparencia.",
+      "source": "MIA UD1, apartado 5",
+      "difficulty": 1
+    }
+  ]
+}
