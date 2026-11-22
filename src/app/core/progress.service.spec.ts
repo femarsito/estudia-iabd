@@ -31,6 +31,45 @@ describe('ProgressService', () => {
     expect(svc.loadError()).not.toBeNull();
   });
 
+  it('tras copiar el dato roto no lo vuelve a copiar en el siguiente arranque', () => {
+    localStorage.setItem(STORAGE_KEY, '{roto');
+    create();
+    TestBed.resetTestingModule();
+    create();
+    expect(Object.keys(localStorage).filter((k) => k.includes(':roto:')).length).toBe(1);
+  });
+
+  it('si no pudo copiar el dato roto, no lo sobrescribe al guardar', () => {
+    localStorage.setItem(STORAGE_KEY, '{roto');
+    const spy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new DOMException('lleno', 'QuotaExceededError');
+    });
+    const svc = create();
+    spy.mockRestore();
+    svc.recordAnswer('a', true, 1000);
+    expect(localStorage.getItem(STORAGE_KEY)).toBe('{roto');
+  });
+
+  it('si el navegador bloquea el almacenamiento, arranca igualmente y avisa', () => {
+    vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+      throw new DOMException('bloqueado', 'SecurityError');
+    });
+    const svc = create();
+    expect(svc.progress().answers).toEqual([]);
+    expect(svc.loadError()).not.toBeNull();
+  });
+
+  it('un guardado correcto quita el aviso de falta de espacio', () => {
+    const svc = create();
+    const spy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new DOMException('lleno', 'QuotaExceededError');
+    });
+    svc.recordAnswer('a', true, 1000);
+    spy.mockRestore();
+    svc.recordAnswer('b', true, 1000);
+    expect(svc.loadError()).toBeNull();
+  });
+
   it('recordAnswer guarda en localStorage', () => {
     create().recordAnswer('saa-ud01-q001', true, 4000);
     expect(localStorage.getItem(STORAGE_KEY)).toContain('saa-ud01-q001');

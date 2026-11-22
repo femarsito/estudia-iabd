@@ -155,36 +155,40 @@ pre {
   min-width: 0;
 }
 
-// La hoja: todo lo que se estudia va encima del separador.
+// La hoja: todo lo que se estudia va encima del separador. A la izquierda, la franja de encuadernación con sus agujeros.
 .leaf {
   position: relative;
-  background: var(--leaf);
+  background:
+    linear-gradient(to right, transparent 38px, var(--rule) 38px, var(--rule) 39px, transparent 39px),
+    var(--leaf);
   color: var(--ink);
   border-radius: var(--radius);
   box-shadow: var(--shadow-leaf);
-  padding: var(--s5) var(--s5) var(--s5) calc(var(--s5) + 10px);
+  padding: var(--s5) var(--s5) var(--s5) 56px;
   transform-origin: left center;
 }
 
-// Agujeros de anilla en el canto: se ve el separador a través.
+// Paso fijo de carpeta: los agujeros no se alinean con ninguna línea de texto.
 .leaf::before,
 .leaf::after {
   content: '';
   position: absolute;
-  left: 7px;
-  width: 12px;
-  height: 12px;
+  left: 11px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: var(--board);
-  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.35);
+  box-shadow:
+    inset 0 1px 3px rgb(0 0 0 / 0.45),
+    0 0 0 3px color-mix(in srgb, var(--ink) 9%, transparent);
 }
 
 .leaf::before {
-  top: 28px;
+  top: 44px;
 }
 
 .leaf::after {
-  bottom: 28px;
+  top: 124px;
 }
 
 .btn {
@@ -265,6 +269,15 @@ pre {
     background: color-mix(in srgb, var(--ink) 8%, transparent);
     padding: 0.05em 0.3em;
     border-radius: 4px;
+  }
+}
+
+@keyframes hinge-swap {
+  0% {
+    transform: perspective(900px) rotateY(-14deg);
+  }
+  100% {
+    transform: none;
   }
 }
 

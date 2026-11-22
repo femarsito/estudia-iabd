@@ -20,6 +20,7 @@ const TITLES: Record<QuizMode, string> = { practice: 'Practica', exam: 'Examen d
   imports: [RouterLink, Icon, RichTextPipe, ChoiceQuestion, MatchQuestion, OrderQuestion],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
+    :host { display: block; max-width: 760px; }
     .top { display: flex; align-items: center; gap: var(--s3); color: var(--on-board); margin-bottom: var(--s4); }
     .top a { color: inherit; display: inline-flex; padding: var(--s2); margin-left: calc(-1 * var(--s2)); }
     .bar { flex: 1; height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--on-board) 28%, transparent); overflow: hidden; }

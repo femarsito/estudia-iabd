@@ -9,6 +9,7 @@ import { RichTextPipe } from '../../shared/rich-text';
   imports: [RouterLink, Icon, RichTextPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
+    :host { display: block; max-width: 760px; }
     .leaf { display: grid; gap: var(--s5); }
     .score { display: flex; align-items: baseline; gap: var(--s3); flex-wrap: wrap; }
     .score strong { font-size: clamp(56px, 16vw, 88px); font-weight: 800; font-stretch: 75%; line-height: 0.9; }
@@ -58,8 +59,11 @@ import { RichTextPipe } from '../../shared/rich-text';
             }
           </ul>
           <p class="meta">Volverán en tu repaso de mañana.</p>
-        } @else {
+        } @else if (unanswered() === 0) {
           <p>Todo bien. Estas preguntas no volverán hasta dentro de unos días.</p>
+        }
+        @if (unanswered() > 0) {
+          <p class="meta">Se acabó el tiempo con {{ unanswered() }} preguntas sin contestar.</p>
         }
 
         <div class="actions">
@@ -80,6 +84,10 @@ export class Result {
     const r = this.result();
     if (!r || (r.mode !== 'exam' && r.mode !== 'sim')) return null;
     return Math.round((this.correct() / r.total) * 100) / 10;
+  });
+  protected readonly unanswered = computed(() => {
+    const r = this.result();
+    return r ? r.total - r.answers.length : 0;
   });
   protected readonly wrong = computed(() =>
     (this.result()?.answers ?? [])

@@ -9,6 +9,7 @@ const APP_VERSION = '0.1.0';
   selector: 'app-settings',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
+    :host { display: block; max-width: 760px; }
     h1 { color: var(--on-board); font-size: 40px; margin-bottom: var(--s5); }
     .leaf { display: grid; gap: var(--s6); }
     h2 { font-size: 22px; margin-bottom: var(--s3); }
@@ -74,7 +75,7 @@ export class Settings {
   protected readonly settings = () => this.store.progress.progress().settings;
   protected readonly goals: SettingsModel['goalMinutes'][] = [5, 10, 15];
   protected readonly themes: { value: SettingsModel['theme']; label: string }[] = [
-    { value: 'system', label: 'Como el sistema' },
+    { value: 'system', label: 'Sistema' },
     { value: 'light', label: 'Claro' },
     { value: 'dark', label: 'Oscuro' },
   ];
@@ -91,7 +92,8 @@ export class Settings {
     a.href = url;
     a.download = `estudia-iabd-progreso-${localDay(Date.now())}.json`;
     a.click();
-    URL.revokeObjectURL(url);
+    // Safari cancela la descarga si se revoca la URL en el mismo instante.
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
     this.message.set({ text: 'Copia descargada.', ko: false });
   }
 
@@ -101,7 +103,14 @@ export class Settings {
     input.value = '';
     if (!file) return;
     const before = this.store.progress.progress().answers.length;
-    const result = this.store.progress.importText(await file.text());
+    let text: string;
+    try {
+      text = await file.text();
+    } catch {
+      this.message.set({ text: 'No se ha podido leer el archivo. No se ha cambiado nada.', ko: true });
+      return;
+    }
+    const result = this.store.progress.importText(text);
     const added = this.store.progress.progress().answers.length - before;
     this.message.set(
       result === 'ok'

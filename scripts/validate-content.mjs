@@ -40,9 +40,11 @@ function questionErrors(q) {
       break;
     case 'match':
       if (!(q.pairs?.length >= 3 && q.pairs.length <= 5)) at('de 3 a 5 parejas');
+      for (const side of [0, 1]) if (duplicateIds((q.pairs ?? []).map((p) => p[side])).length) at('textos repetidos en las parejas');
       break;
     case 'order':
       if (!(q.steps?.length >= 3 && q.steps.length <= 6)) at('de 3 a 6 pasos');
+      if (duplicateIds(q.steps ?? []).length) at('pasos repetidos');
       break;
     default:
       at(`tipo desconocido '${q.type}'`);

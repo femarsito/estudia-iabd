@@ -57,6 +57,20 @@ test('detecta una explicación vacía', () => {
   assert.ok(validateUnit(u, ref, opts).errors.some((e) => e.includes('explanation')));
 });
 
+test('detecta pasos repetidos en una pregunta de ordenar', () => {
+  const u = validUnit();
+  u.questions[0] = { ...u.questions[0], type: 'order', steps: ['a', 'a', 'b'] };
+  delete u.questions[0].options;
+  assert.ok(validateUnit(u, ref, opts).errors.some((e) => e.includes('repetid')));
+});
+
+test('detecta textos repetidos en una pregunta de relacionar', () => {
+  const u = validUnit();
+  u.questions[0] = { ...u.questions[0], type: 'match', pairs: [['a', 'x'], ['b', 'x'], ['c', 'y']] };
+  delete u.questions[0].options;
+  assert.ok(validateUnit(u, ref, opts).errors.some((e) => e.includes('repetid')));
+});
+
 test('detecta un mapa conceptual que no existe', () => {
   const u = { ...validUnit(), conceptMap: { src: 'img/no.png', credit: 'Junta' } };
   const errors = validateUnit(u, ref, { exists: () => false }).errors;

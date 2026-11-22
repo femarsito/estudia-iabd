@@ -12,6 +12,7 @@ import { lessonLink } from '../../shared/lesson-meta';
   imports: [RouterLink, Icon, RichTextPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
+    :host { display: block; max-width: 760px; }
     .top { display: flex; align-items: center; gap: var(--s3); color: var(--on-board); margin-bottom: var(--s4); }
     .top a { color: inherit; display: inline-flex; padding: var(--s2); margin-left: calc(-1 * var(--s2)); }
     .progress { flex: 1; display: grid; grid-auto-flow: column; gap: 4px; }
@@ -28,8 +29,9 @@ import { lessonLink } from '../../shared/lesson-meta';
     .pc-note { display: flex; gap: var(--s3); align-items: center; padding: var(--s3) var(--s4); border-radius: var(--radius); background: color-mix(in srgb, var(--board) 14%, transparent); font-weight: 700; }
     ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: step; display: grid; gap: var(--s5); }
     ol.steps li { counter-increment: step; display: grid; gap: var(--s2); }
-    .where { font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
-    .where::before { content: counter(step) '. '; }
+    .step-head { display: flex; gap: var(--s3); align-items: baseline; }
+    .num { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--board); color: var(--on-board); font-weight: 800; font-size: 15px; }
+    .tool { color: var(--ink-soft); font-size: 15px; }
     pre { margin: 0; padding: var(--s3) var(--s4); background: #121418; color: #eef0f5; border-radius: var(--radius); overflow-x: auto; font-size: 14px; line-height: 1.5; }
     .code { display: grid; gap: var(--s1); min-width: 0; }
     .copy { justify-self: end; min-height: 44px; padding: 0 var(--s3); font-size: 14px; background: #2a2e37; color: #fff; border: 0; border-radius: 6px; display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
@@ -75,8 +77,13 @@ import { lessonLink } from '../../shared/lesson-meta';
           <ol class="steps">
             @for (s of l.steps; track $index) {
               <li>
-                <span class="where">{{ s.where }}</span>
-                <div class="rich" [innerHTML]="s.text | richText"></div>
+                <div class="step-head">
+                  <span class="num" aria-hidden="true">{{ $index + 1 }}</span>
+                  <div>
+                    @if ($first || s.where !== l.steps![$index - 1].where) { <span class="tool">En {{ s.where }}</span> }
+                    <div class="rich" [innerHTML]="s.text | richText"></div>
+                  </div>
+                </div>
                 @if (s.code) {
                   <div class="code">
                     <button class="copy" type="button" (click)="copy(s.code, $index)">
@@ -117,6 +124,10 @@ export class LessonPage {
   });
 
   constructor() {
+    effect(() => {
+      const l = this.lesson();
+      if (l?.kind === 'practice') this.router.navigate(lessonLink(l), { replaceUrl: true });
+    });
     effect(() => {
       const unit = this.store.unitOfLesson(this.lessonId());
       if (unit) this.store.board.set(unit.moduleId);

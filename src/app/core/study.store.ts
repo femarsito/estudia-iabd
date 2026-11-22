@@ -1,4 +1,4 @@
-import { Injectable, computed, inject, signal } from '@angular/core';
+import { DestroyRef, Injectable, computed, inject, signal } from '@angular/core';
 import { ContentService } from './content.service';
 import { ProgressService } from './progress.service';
 import { ContentIndex, Lesson, ModuleId, ModuleInfo, Question, Unit } from './models';
@@ -27,18 +27,30 @@ export class StudyStore {
   /** Módulo cuyo separador se ve de fondo. */
   readonly board = signal<ModuleId>('saa');
   readonly lastResult = signal<QuizResult | null>(null);
+  /** Fecha local de hoy; avanza sola aunque la app se quede abierta de un día para otro. */
+  readonly today = signal(localDay(Date.now()));
 
   readonly questionIds = computed(() => new Set([...this.units().values()].flatMap((u) => u.questions.map((q) => q.id))));
   readonly states = computed(() => computeStates(this.progress.progress().answers, this.questionIds()));
   readonly xp = computed(() => xp(this.progress.progress()));
   readonly goal = computed(() => this.progress.progress().settings.goalMinutes);
-  readonly streak = computed(() => streak(this.progress.progress().answers, this.goal(), localDay(Date.now())));
-  readonly todayMinutes = computed(() => Math.floor(minutesByDay(this.progress.progress().answers).get(localDay(Date.now())) ?? 0));
-  readonly reviewIds = computed(() => reviewQueue(this.states(), localDay(Date.now())));
+  readonly streak = computed(() => streak(this.progress.progress().answers, this.goal(), this.today()));
+  readonly todayMinutes = computed(() => Math.floor(minutesByDay(this.progress.progress().answers).get(this.today()) ?? 0));
+  readonly reviewIds = computed(() => reviewQueue(this.states(), this.today()));
   readonly next = computed(() => {
     const index = this.index();
     return index ? nextLesson(index, this.units(), this.progress.progress().lessonsDone) : null;
   });
+
+  constructor() {
+    const tick = () => this.today.set(localDay(Date.now()));
+    const timer = setInterval(tick, 60_000);
+    document.addEventListener('visibilitychange', tick);
+    inject(DestroyRef).onDestroy(() => {
+      clearInterval(timer);
+      document.removeEventListener('visibilitychange', tick);
+    });
+  }
 
   async load(): Promise<void> {
     const index = await this.content.index();

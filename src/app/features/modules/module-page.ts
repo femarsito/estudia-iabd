@@ -10,6 +10,7 @@ import { Icon } from '../../shared/icon';
   imports: [RouterLink, Icon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
+    :host { display: block; max-width: 760px; }
     .head { color: var(--on-board); margin-bottom: var(--s5); }
     .head h1 { font-size: clamp(34px, 8vw, 48px); }
     .head p { color: var(--on-board-soft); margin-top: var(--s2); }
@@ -52,12 +53,14 @@ import { Icon } from '../../shared/icon';
       @if (hasContent()) {
         <a class="btn btn--block sim" [routerLink]="['/quiz', 'sim', m.id]"><app-icon name="exam" /> Simulacro del módulo</a>
       }
+    } @else if (store.index()) {
+      <section class="leaf"><p>No se encuentra este módulo.</p><a class="btn" routerLink="/modulos">Ver los módulos</a></section>
     }
   `,
 })
 export class ModulePage {
   readonly moduleId = input.required<string>();
-  private readonly store = inject(StudyStore);
+  protected readonly store = inject(StudyStore);
   private readonly title = inject(Title);
 
   protected readonly module = computed(() => this.store.module(this.moduleId()));

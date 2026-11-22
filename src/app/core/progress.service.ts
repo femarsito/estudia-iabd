@@ -7,11 +7,14 @@ export const STORAGE_KEY = 'estudia-iabd:progress';
 
 const BROKEN_DATA_MSG =
   'Tu progreso guardado estaba dañado y se ha empezado de cero. Hay una copia del dato roto por si se puede recuperar.';
+const BLOCKED_MSG = 'Este navegador no deja guardar datos: tu progreso se perderá al cerrar la app.';
 const NO_SPACE_MSG = 'No queda espacio para guardar el progreso en este dispositivo. Exporta una copia desde Ajustes.';
 
 @Injectable({ providedIn: 'root' })
 export class ProgressService {
   readonly loadError = signal<string | null>(null);
+  /** Si no se pudo guardar copia del dato roto, no se escribe encima para no perderlo. */
+  private readOnly = false;
   readonly progress = signal<Progress>(this.load());
 
   recordAnswer(q: string, ok: boolean, ms: number): void {
@@ -49,8 +52,10 @@ export class ProgressService {
   private update(fn: (p: Progress) => Progress): void {
     const next = fn(this.progress());
     this.progress.set(next);
+    if (this.readOnly) return;
     try {
       localStorage.setItem(STORAGE_KEY, serializeProgress(next));
+      this.loadError.set(null);
     } catch {
       // Sin espacio o almacenamiento bloqueado: se sigue en memoria y se avisa.
       this.loadError.set(NO_SPACE_MSG);
@@ -58,15 +63,24 @@ export class ProgressService {
   }
 
   private load(): Progress {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    let raw: string | null;
+    try {
+      raw = localStorage.getItem(STORAGE_KEY);
+    } catch {
+      this.readOnly = true;
+      this.loadError.set(BLOCKED_MSG);
+      return emptyProgress();
+    }
     if (raw === null) return emptyProgress();
     const parsed = parseProgress(raw);
     if (parsed) return parsed;
     try {
       localStorage.setItem(`${STORAGE_KEY}:roto:${new Date().toISOString()}`, raw);
+      localStorage.setItem(STORAGE_KEY, serializeProgress(emptyProgress()));
       this.loadError.set(BROKEN_DATA_MSG);
     } catch {
-      // Sin espacio ni para la copia: el dato roto sigue en su clave hasta el próximo guardado.
+      // Sin espacio ni para la copia: se trabaja en memoria y el dato roto se queda donde está.
+      this.readOnly = true;
       this.loadError.set(NO_SPACE_MSG);
     }
     return emptyProgress();

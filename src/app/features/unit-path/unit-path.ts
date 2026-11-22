@@ -11,6 +11,7 @@ import { LESSON_ICON, LESSON_VERB, lessonLink } from '../../shared/lesson-meta';
   imports: [RouterLink, Icon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
+    :host { display: block; max-width: 760px; }
     .head { color: var(--on-board); margin-bottom: var(--s5); }
     .head a { color: var(--on-board-soft); display: inline-flex; align-items: center; gap: 6px; font-size: 15px; text-decoration: none; margin-bottom: var(--s3); }
     .head h1 { font-size: clamp(30px, 7.5vw, 44px); }

@@ -10,11 +10,16 @@ import { LESSON_ICON, LESSON_VERB, lessonLink } from '../../shared/lesson-meta';
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
     header { display: flex; justify-content: space-between; align-items: center; color: var(--on-board); margin-bottom: var(--s5); }
-    .brand { font-weight: 800; font-stretch: 80%; font-size: 24px; letter-spacing: -0.01em; }
+    .brand { font-weight: 800; font-stretch: 115%; font-size: 22px; letter-spacing: -0.01em; }
     .stats { display: flex; gap: var(--s4); font-weight: 800; font-size: 19px; }
     .stats span { display: inline-flex; align-items: center; gap: 6px; }
+    /* Carpeta abierta: en pantallas anchas, la lección a la izquierda y lo que viene a la derecha. */
+    .spread { display: grid; gap: var(--s4); align-items: start; }
+    @media (min-width: 1100px) { .spread { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); } }
+    .side { display: grid; gap: var(--s4); }
     .leaf { display: grid; gap: var(--s4); }
-    h1 { font-size: clamp(34px, 9vw, 52px); }
+    h1 { font-size: clamp(34px, 9vw, 56px); }
+    h2 { font-size: 22px; }
     .where { color: var(--ink-soft); font-size: 16px; display: flex; align-items: center; gap: var(--s2); }
     .goal { display: grid; gap: var(--s2); }
     .goal-bar { display: grid; grid-auto-flow: column; gap: 4px; }
@@ -22,17 +27,20 @@ import { LESSON_ICON, LESSON_VERB, lessonLink } from '../../shared/lesson-meta';
     .goal-bar i.on { background: var(--board); }
     .goal p { font-size: 15px; color: var(--ink-soft); }
     .review {
-      margin-top: var(--s4); display: flex; justify-content: space-between; align-items: center; gap: var(--s4);
+      display: flex; justify-content: space-between; align-items: center; gap: var(--s4); min-height: 64px;
       padding: var(--s4) var(--s5); border-radius: var(--radius); background: var(--leaf-solid); color: var(--ink);
       text-decoration: none; box-shadow: var(--shadow-leaf);
     }
     .review strong { font-size: 20px; font-stretch: 85%; }
+    .review small { display: block; color: var(--ink-soft); font-size: 14px; font-weight: 500; }
     .review .count { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; font-size: 22px; }
-    .alert { margin-bottom: var(--s4); padding: var(--s3) var(--s4); border-radius: var(--radius); background: var(--ko-wash); color: var(--ink); }
+    .review.empty .count { color: var(--ok); }
     .done h1 { font-size: 36px; }
-    .after { list-style: none; margin: 0; padding: var(--s3) 0 0; border-top: 1px solid var(--rule); display: grid; gap: var(--s2); }
-    .after li { display: flex; gap: var(--s3); align-items: center; color: var(--ink-soft); font-size: 16px; }
-    .after li app-icon { --icon-size: 18px; }
+    .after { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+    .after li { display: grid; grid-template-columns: 22px 1fr; gap: var(--s3); align-items: start; }
+    .after li strong { display: block; font-stretch: 90%; font-size: 17px; line-height: 1.25; }
+    .after li small { color: var(--ink-soft); font-size: 14px; }
+    .after app-icon { --icon-size: 20px; color: var(--ink-soft); margin-top: 2px; }
   `,
   template: `
     <header>
@@ -43,42 +51,56 @@ import { LESSON_ICON, LESSON_VERB, lessonLink } from '../../shared/lesson-meta';
       </span>
     </header>
 
-    @if (store.progress.loadError(); as error) {
-      <p class="alert" role="alert">{{ error }}</p>
-    }
-
-    @if (!store.index()) {
-      <section class="leaf"><p>Cargando tus apuntes…</p></section>
-    } @else if (next(); as n) {
-      <section class="leaf hinge" aria-labelledby="next-title">
-        <h1 id="next-title">{{ n.lesson.title }}</h1>
-        <p class="where"><app-icon [name]="icon[n.lesson.kind]" /> {{ verb[n.lesson.kind] }} · {{ n.moduleCode }} · Unidad {{ n.unitNumber }}</p>
-        <div class="goal">
-          <div class="goal-bar" aria-hidden="true">
-            @for (seg of goalSegments(); track $index) { <i [class.on]="seg"></i> }
+    <div class="spread">
+      @if (!store.index()) {
+        <section class="leaf"><p>Cargando tus apuntes…</p></section>
+      } @else if (!store.index()!.modules.length) {
+        <section class="leaf"><h1>Sin contenido</h1><p class="where">No se ha podido cargar el temario. Abre la app una vez con conexión.</p></section>
+      } @else if (next(); as n) {
+        <section class="leaf hinge" aria-labelledby="next-title">
+          <h1 id="next-title">{{ n.lesson.title }}</h1>
+          <p class="where"><app-icon [name]="icon[n.lesson.kind]" /> {{ verb[n.lesson.kind] }} · {{ n.moduleCode }} · Unidad {{ n.unitNumber }}</p>
+          <div class="goal">
+            <div class="goal-bar" aria-hidden="true">
+              @for (seg of goalSegments(); track $index) { <i [class.on]="seg"></i> }
+            </div>
+            <p>Hoy llevas {{ store.todayMinutes() }} de {{ store.goal() }} minutos</p>
           </div>
-          <p>Hoy llevas {{ store.todayMinutes() }} de {{ store.goal() }} minutos</p>
-        </div>
-        <a class="btn btn--block" [routerLink]="n.link">Seguir <app-icon name="arrow" /></a>
-        @if (n.after.length) {
-          <ul class="after" aria-label="Después">
-            @for (l of n.after; track l.id) { <li><app-icon [name]="icon[l.kind]" /><span class="sr-only">{{ verb[l.kind] }}: </span>{{ l.title }}</li> }
-          </ul>
-        }
-      </section>
-    } @else {
-      <section class="leaf done">
-        <h1>Lo tienes todo al día</h1>
-        <p class="where">Has terminado todas las lecciones disponibles. Repasa o haz un simulacro desde Módulos.</p>
-      </section>
-    }
+          <a class="btn btn--block" [routerLink]="n.link">Seguir <app-icon name="arrow" /></a>
+        </section>
+      } @else {
+        <section class="leaf done">
+          <h1>Lo tienes todo al día</h1>
+          <p class="where">Has terminado todas las lecciones disponibles. Repasa o haz un simulacro desde Módulos.</p>
+        </section>
+      }
 
-    @if (store.reviewIds().length) {
-      <a class="review" routerLink="/quiz/review/hoy">
-        <strong>Repaso de hoy</strong>
-        <span class="count"><app-icon name="repeat" /> {{ store.reviewIds().length }}</span>
-      </a>
-    }
+      <div class="side">
+        @if (store.reviewIds().length) {
+          <a class="review" routerLink="/quiz/review/hoy">
+            <span><strong>Repaso de hoy</strong><small>Lo que fallaste y toca ver otra vez</small></span>
+            <span class="count"><app-icon name="repeat" /> {{ store.reviewIds().length }}</span>
+          </a>
+        } @else {
+          <div class="review empty">
+            <span><strong>Repaso de hoy</strong><small>Nada que repasar hoy. Lo que falles volverá aquí.</small></span>
+            <span class="count"><app-icon name="check" /></span>
+          </div>
+        }
+        @if (next(); as n) {
+          @if (n.after.length) {
+            <section class="leaf" aria-labelledby="after-title">
+              <h2 id="after-title">Después en esta unidad</h2>
+              <ul class="after">
+                @for (l of n.after; track l.id) {
+                  <li><app-icon [name]="icon[l.kind]" /><span><strong>{{ l.title }}</strong><small>{{ verb[l.kind] }}</small></span></li>
+                }
+              </ul>
+            </section>
+          }
+        }
+      </div>
+    </div>
   `,
 })
 export class Home {
