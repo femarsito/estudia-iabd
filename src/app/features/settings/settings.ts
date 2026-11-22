@@ -17,7 +17,7 @@ const APP_VERSION = '0.1.0';
     .seg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s2); }
     .seg label { position: relative; }
     .seg input { position: absolute; opacity: 0; }
-    .seg span { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 var(--s2); white-space: nowrap; border-radius: var(--radius-btn); box-shadow: inset 0 0 0 2px var(--rule); font-weight: 700; cursor: pointer; }
+    .seg span { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 var(--s2); white-space: nowrap; font-size: 16px; font-stretch: 88%; border-radius: var(--radius-btn); box-shadow: inset 0 0 0 2px var(--rule); font-weight: 700; cursor: pointer; }
     .seg input:checked + span { box-shadow: inset 0 0 0 3px var(--board); background: color-mix(in srgb, var(--board) 12%, transparent); }
     .seg input:focus-visible + span { outline: 3px solid var(--ink); outline-offset: 2px; }
     .row { display: flex; gap: var(--s3); flex-wrap: wrap; align-items: center; }
