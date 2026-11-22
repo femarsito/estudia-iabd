@@ -48,7 +48,8 @@
         {
           "id": "mia-ud01",
           "number": 1,
-          "title": "Caracterización de sistemas de Inteligencia Artificial"
+          "title": "Caracterización de sistemas de Inteligencia Artificial",
+          "file": "mia/ud01.json"
         },
         {
           "id": "mia-ud02",

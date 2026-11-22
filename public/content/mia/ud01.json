@@ -500,17 +500,17 @@
     {
       "id": "mia-ud01-q003",
       "type": "choice",
-      "prompt": "Observar a una persona en acción para saber cómo piensa es la forma de estudio llamada ___.",
+      "prompt": "Para estudiar cómo razona la gente, grabas a varias personas mientras resuelven un puzle y anotas lo que hacen. ¿Qué forma de estudiar el pensamiento humano estás usando?",
       "options": [
-        "introspectiva",
-        "experimentación psicológica",
-        "fotografía del cerebro",
-        "ciencia cognitiva"
+        "Introspectiva",
+        "Experimentación psicológica",
+        "Fotografía del cerebro",
+        "Test de Turing"
       ],
       "answer": 1,
-      "explanation": "La experimentación psicológica observa a una persona en acción. La introspectiva analiza tus propios pensamientos y la fotografía del cerebro observa el cerebro en acción; la ciencia cognitiva es el campo que surgió después.",
+      "explanation": "Observas a otras personas en acción, y eso es la experimentación psicológica. La introspectiva analiza tus propios pensamientos y la fotografía del cerebro observa el cerebro en acción.",
       "source": "MIA UD1, apartado 1.1.1",
-      "difficulty": 1
+      "difficulty": 3
     },
     {
       "id": "mia-ud01-q004",
@@ -877,15 +877,15 @@
     {
       "id": "mia-ud01-q029",
       "type": "choice",
-      "prompt": "En logística, ¿qué significa IRO?",
+      "prompt": "En logística, ¿qué es la IRO, de la que la IA es la base según los apuntes?",
       "options": [
-        "Integración de robots operativos",
-        "Inventario regulado por ordenador",
-        "Interfaz de reparto optimizado",
-        "Optimización de rutas inteligente"
+        "Optimización de rutas inteligente",
+        "Servicios de logística tercerizada",
+        "Detección de anomalías y excepciones",
+        "Análisis predictivo para reducir imprevistos"
       ],
-      "answer": 3,
-      "explanation": "La IA es la base de la optimización de rutas inteligente, que ayuda a coordinar recursos y viajes de forma más rentable y, a menudo, en tiempo real.",
+      "answer": 0,
+      "explanation": "La IRO es la optimización de rutas inteligente, que coordina recursos y viajes de forma más rentable y a menudo en tiempo real. Los servicios de logística tercerizada son los 3PL, y la detección de anomalías es el uso más simple de la IA en logística.",
       "source": "MIA UD1, apartado 2.5",
       "difficulty": 1
     },
