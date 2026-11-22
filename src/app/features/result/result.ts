@@ -9,7 +9,6 @@ import { RichTextPipe } from '../../shared/rich-text';
   imports: [RouterLink, Icon, RichTextPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
-    :host { display: block; max-width: 760px; }
     .leaf { display: grid; gap: var(--s5); }
     .score { display: flex; align-items: baseline; gap: var(--s3); flex-wrap: wrap; }
     .score strong { font-size: clamp(56px, 16vw, 88px); font-weight: 800; font-stretch: 75%; line-height: 0.9; }

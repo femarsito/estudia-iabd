@@ -27,6 +27,8 @@ import { StudyStore } from '../../core/study.store';
     a.sep.ink { color: #121418; }
     a.sep.current { box-shadow: var(--shadow-leaf), inset 0 0 0 3px rgb(255 255 255 / 0.55); }
     a.sep.ink.current { box-shadow: var(--shadow-leaf), inset 0 0 0 3px rgb(18 20 24 / 0.35); }
+    /* La pestaña del separador activo lleva el mismo canto: sin él, sobre su propio color parece una etiqueta suelta. */
+    a.sep.current::before { box-shadow: inset 3px 3px 0 rgb(255 255 255 / 0.55), inset -3px 0 0 rgb(255 255 255 / 0.55); }
     .name { font-weight: 800; font-stretch: 85%; font-size: 22px; line-height: 1.15; }
     .name small { display: block; font-weight: 500; font-stretch: 100%; font-size: 14px; opacity: 0.88; margin-top: var(--s1); }
     .pct { font-weight: 800; font-size: 24px; font-stretch: 80%; }

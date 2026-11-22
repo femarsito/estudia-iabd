@@ -1,12 +1,16 @@
-import { ChangeDetectionStrategy, Component, DOCUMENT, effect, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DOCUMENT, computed, effect, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { SwUpdate } from '@angular/service-worker';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { filter, map } from 'rxjs';
 import { StudyStore } from './core/study.store';
 import { applyTheme } from './core/theme';
 import { Icon, IconName } from './shared/icon';
 import { TabRail } from './layout/tab-rail';
 
-const NAV: { path: string; label: string; icon: IconName }[] = [
+const WIDE_PAGES = new Set(['/']);
+
+const NAV:{ path: string; label: string; icon: IconName }[] = [
   { path: '/', label: 'Inicio', icon: 'home' },
   { path: '/modulos', label: 'Módulos', icon: 'binder' },
   { path: '/progreso', label: 'Progreso', icon: 'chart' },
@@ -42,12 +46,14 @@ const NAV: { path: string; label: string; icon: IconName }[] = [
     nav a.active app-icon { color: var(--board); filter: brightness(1.35); }
     @media (min-width: 900px) {
       .frame { max-width: 1180px; padding: var(--s6) var(--s6) var(--s6) calc(96px + var(--s6)); }
+      /* En test, lección y demás páginas de lectura la hoja mide 760 px y la regla sigue pegada a su canto. */
+      .frame.narrow { max-width: calc(96px + 2 * var(--s6) + 760px + 50px); }
       nav { inset: 0 auto 0 0; width: 96px; height: auto; grid-template-columns: 1fr; grid-auto-rows: 84px; align-content: start; padding-top: var(--s5); }
       app-tab-rail { top: var(--s6); }
     }
   `,
   template: `
-    <div class="frame">
+    <div class="frame" [class.narrow]="narrow()">
       <main [class.swap]="swap()" (animationend)="swap.set(false)">
         @if (store.progress.loadError(); as error) { <p class="alert" role="alert">{{ error }}</p> }
         <router-outlet />
@@ -71,6 +77,15 @@ export class App {
   protected readonly swap = signal(false);
   private lastBoard = this.store.board();
   private readonly doc = inject(DOCUMENT);
+  private readonly url = toSignal(
+    inject(Router).events.pipe(
+      filter((e) => e instanceof NavigationEnd),
+      map((e) => e.urlAfterRedirects),
+    ),
+    { initialValue: '/' },
+  );
+  /** Solo Inicio usa la carpeta abierta a dos hojas; el resto, una sola hoja. */
+  protected readonly narrow = computed(() => !WIDE_PAGES.has(this.url().split('?')[0]));
 
   constructor() {
     this.store.load();

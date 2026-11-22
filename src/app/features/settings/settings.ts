@@ -9,16 +9,15 @@ const APP_VERSION = '0.1.0';
   selector: 'app-settings',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
-    :host { display: block; max-width: 760px; }
     h1 { color: var(--on-board); font-size: 40px; margin-bottom: var(--s5); }
     .leaf { display: grid; gap: var(--s6); }
     h2 { font-size: 22px; margin-bottom: var(--s3); }
     fieldset { border: 0; margin: 0; padding: 0; }
     legend { font-size: 22px; font-weight: 800; font-stretch: 82%; margin-bottom: var(--s3); }
-    .seg { display: flex; gap: var(--s2); flex-wrap: wrap; }
+    .seg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s2); }
     .seg label { position: relative; }
     .seg input { position: absolute; opacity: 0; }
-    .seg span { display: inline-flex; align-items: center; min-height: 48px; padding: 0 var(--s4); border-radius: var(--radius-btn); box-shadow: inset 0 0 0 2px var(--rule); font-weight: 700; cursor: pointer; }
+    .seg span { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 var(--s2); white-space: nowrap; border-radius: var(--radius-btn); box-shadow: inset 0 0 0 2px var(--rule); font-weight: 700; cursor: pointer; }
     .seg input:checked + span { box-shadow: inset 0 0 0 3px var(--board); background: color-mix(in srgb, var(--board) 12%, transparent); }
     .seg input:focus-visible + span { outline: 3px solid var(--ink); outline-offset: 2px; }
     .row { display: flex; gap: var(--s3); flex-wrap: wrap; align-items: center; }

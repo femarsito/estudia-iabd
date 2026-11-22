@@ -10,7 +10,6 @@ import { Icon } from '../../shared/icon';
   imports: [RouterLink, Icon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
-    :host { display: block; max-width: 760px; }
     .head { color: var(--on-board); margin-bottom: var(--s5); }
     .head h1 { font-size: clamp(34px, 8vw, 48px); }
     .head p { color: var(--on-board-soft); margin-top: var(--s2); }

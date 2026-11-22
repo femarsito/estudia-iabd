@@ -5,6 +5,7 @@ import { StudyStore } from '../../core/study.store';
 import { Icon } from '../../shared/icon';
 import { RichTextPipe } from '../../shared/rich-text';
 import { lessonLink } from '../../shared/lesson-meta';
+import { PcStep } from '../../core/models';
 
 /** Lecciones «Lee» (tarjetas) y «En el PC» (pasos). Las prácticas van por el test. */
 @Component({
@@ -12,7 +13,6 @@ import { lessonLink } from '../../shared/lesson-meta';
   imports: [RouterLink, Icon, RichTextPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
-    :host { display: block; max-width: 760px; }
     .top { display: flex; align-items: center; gap: var(--s3); color: var(--on-board); margin-bottom: var(--s4); }
     .top a { color: inherit; display: inline-flex; padding: var(--s2); margin-left: calc(-1 * var(--s2)); }
     .progress { flex: 1; display: grid; grid-auto-flow: column; gap: 4px; }
@@ -31,7 +31,6 @@ import { lessonLink } from '../../shared/lesson-meta';
     ol.steps li { counter-increment: step; display: grid; gap: var(--s2); }
     .step-head { display: flex; gap: var(--s3); align-items: baseline; }
     .num { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--board); color: var(--on-board); font-weight: 800; font-size: 15px; }
-    .tool { color: var(--ink-soft); font-size: 15px; }
     pre { margin: 0; padding: var(--s3) var(--s4); background: #121418; color: #eef0f5; border-radius: var(--radius); overflow-x: auto; font-size: 14px; line-height: 1.5; }
     .code { display: grid; gap: var(--s1); min-width: 0; }
     .copy { justify-self: end; min-height: 44px; padding: 0 var(--s3); font-size: 14px; background: #2a2e37; color: #fff; border: 0; border-radius: 6px; display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
@@ -80,8 +79,7 @@ import { lessonLink } from '../../shared/lesson-meta';
                 <div class="step-head">
                   <span class="num" aria-hidden="true">{{ $index + 1 }}</span>
                   <div>
-                    @if ($first || s.where !== l.steps![$index - 1].where) { <span class="tool">En {{ s.where }}</span> }
-                    <div class="rich" [innerHTML]="s.text | richText"></div>
+                    <div class="rich" [innerHTML]="stepText(l.steps!, $index) | richText"></div>
                   </div>
                 </div>
                 @if (s.code) {
@@ -134,6 +132,13 @@ export class LessonPage {
       const l = this.lesson();
       if (l) this.title.setTitle(`${l.title} · Estudia IABD`);
     });
+  }
+
+  /** La herramienta se nombra dentro de la frase y solo cuando cambia: «En Colab, abre un cuaderno…». */
+  protected stepText(steps: PcStep[], i: number): string {
+    const s = steps[i];
+    if (i > 0 && steps[i - 1].where === s.where) return s.text;
+    return `En ${s.where}, ${s.text.charAt(0).toLowerCase()}${s.text.slice(1)}`;
   }
 
   protected async copy(code: string, i: number): Promise<void> {
