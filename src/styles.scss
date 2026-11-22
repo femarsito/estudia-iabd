@@ -42,7 +42,8 @@
 
 :root[data-board='pia'],
 :root[data-board='bda'] {
-  --on-board: var(--ink);
+  // Tinta fija: en oscuro --ink es clara y no se lee sobre naranja ni amarillo.
+  --on-board: #121418;
   --on-board-soft: rgb(18 20 24 / 0.78);
 }
 

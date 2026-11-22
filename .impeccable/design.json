@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-22T00:00:00Z",
+  "title": "Design System: Estudia IABD",
+  "extensions": {
+    "colorMeta": {
+      "saa-ultramar": { "role": "primary", "displayName": "Ultramar SAA", "tonalRamp": ["#0e1b46", "#182e75", "#2140a4", "#2a52d3", "#597cee", "#8da5f3", "#c1cef9", "#eaeffd"] },
+      "sbd-verde-azulado": { "role": "primary", "displayName": "Verde azulado SBD", "tonalRamp": ["#032622", "#064038", "#08594e", "#0a7265", "#3c998d", "#79b9b0", "#b6d9d4", "#e7f2f1"] },
+      "mia-violeta": { "role": "primary", "displayName": "Violeta MIA", "tonalRamp": ["#251344", "#3e2072", "#562ca0", "#6f39cd", "#9565e9", "#b695f0", "#d7c5f7", "#f2ecfc"] },
+      "pia-naranja": { "role": "primary", "displayName": "Naranja óxido PIA", "tonalRamp": ["#4d2008", "#80350d", "#b24a12", "#e65f17", "#ff8848", "#ffad81", "#ffd2ba", "#fff0e8"] },
+      "bda-amarillo": { "role": "primary", "displayName": "Amarillo cromo BDA", "tonalRamp": ["#493a00", "#796100", "#a98800", "#daaf00", "#f5ce33", "#f8dd73", "#fbedb2", "#fef9e6"] },
+      "tinta": { "role": "neutral", "displayName": "Tinta", "tonalRamp": ["#050607", "#090a0c", "#0d0e11", "#101216", "#414346", "#7d7e80", "#b8b8ba", "#e7e8e8"] },
+      "tinta-suave": { "role": "neutral", "displayName": "Tinta suave", "tonalRamp": ["#16181d", "#252830", "#343843", "#434856", "#6e7380", "#9b9fa8", "#c9cacf", "#edeeef"] },
+      "hoja": { "role": "neutral", "displayName": "Hoja", "tonalRamp": ["#4b4b4d", "#7d7e80", "#afb0b2", "#e1e2e6", "#fbfcff", "#fcfdff", "#fefeff", "#feffff"] },
+      "hoja-translucida": { "role": "neutral", "displayName": "Hoja translúcida" },
+      "regla": { "role": "neutral", "displayName": "Regla" },
+      "acierto": { "role": "tertiary", "displayName": "Verde hierba", "tonalRamp": ["#0e2f18", "#174f28", "#206f37", "#298e47", "#58b172", "#8cca9e", "#c0e2ca", "#eaf5ed"] },
+      "acierto-lavado": { "role": "tertiary", "displayName": "Lavado de acierto" },
+      "errata": { "role": "tertiary", "displayName": "Bermellón de fe de erratas", "tonalRamp": ["#450f0e", "#721916", "#a0231f", "#ce2d28", "#ea5b57", "#f18e8c", "#f7c2c0", "#fceaea"] },
+      "errata-lavado": { "role": "tertiary", "displayName": "Lavado de errata" },
+      "nav-apagado": { "role": "neutral", "displayName": "Gris de navegación" },
+      "tinta-noche": { "role": "neutral", "displayName": "Tinta de noche (tema oscuro, sin verificar)" },
+      "tinta-suave-noche": { "role": "neutral", "displayName": "Tinta suave de noche (tema oscuro, sin verificar)" },
+      "hoja-noche": { "role": "neutral", "displayName": "Hoja de noche (tema oscuro, sin verificar)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Título de la lección en Inicio." },
+      "headline": { "displayName": "Headline", "purpose": "Título de pantalla sobre el separador." },
+      "title": { "displayName": "Title", "purpose": "Títulos de sección dentro de la hoja y leyendas." },
+      "body": { "displayName": "Body", "purpose": "Interfaz y opciones de respuesta, con cifras tabulares." },
+      "reading": { "displayName": "Reading", "purpose": "Cuerpo de las tarjetas de lectura, máximo 62ch." },
+      "label": { "displayName": "Label", "purpose": "Siglas de módulo en las pestañas." },
+      "meta": { "displayName": "Meta", "purpose": "Datos secundarios en tinta suave." }
+    },
+    "shadows": [
+      { "name": "papel-apoyado", "value": "0 1px 1px rgb(0 0 0 / 0.08), 0 10px 24px -12px rgb(0 0 0 / 0.35)", "purpose": "Hojas, aviso de repaso y separadores de Módulos." },
+      { "name": "papel-apoyado-noche", "value": "0 1px 1px rgb(0 0 0 / 0.3), 0 12px 28px -12px rgb(0 0 0 / 0.7)", "purpose": "La misma sombra en tema oscuro (sin verificar)." },
+      { "name": "agujero-anilla", "value": "inset 0 1px 3px rgb(0 0 0 / 0.45), 0 0 0 3px color-mix(in srgb, var(--ink) 9%, transparent)", "purpose": "Los dos agujeros de anilla de cada hoja." },
+      { "name": "contorno-ficha", "value": "inset 0 0 0 2px var(--rule)", "purpose": "Opciones, controles e insignias; 3px en --board, acierto o errata al marcar." },
+      { "name": "pestana-actual", "value": "inset 3px 0 0 rgb(255 255 255 / 0.45), 2px 2px 8px rgb(0 0 0 / 0.2)", "purpose": "Pestaña del módulo activo en la regla." }
+    ],
+    "motion": [
+      { "name": "hinge", "value": "90ms steps(2, jump-none)", "purpose": "Báscula de la hoja al cambiar de módulo y toda transición de estado." },
+      { "name": "hinge-in", "value": "perspective(900px) rotateY(-14deg) a none, opacidad 0.7 a 1", "purpose": "Entrada de la hoja, girando sobre su canto izquierdo." },
+      { "name": "stamp", "value": "180ms steps(3, jump-none)", "purpose": "Sello de resultado." },
+      { "name": "reduced-motion", "value": "animation y transition a none", "purpose": "Con «reducir movimiento» todo es instantáneo." }
+    ],
+    "breakpoints": [
+      { "name": "riel", "value": "900px" },
+      { "name": "carpeta-abierta", "value": "1100px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal de cada hoja, a lo ancho y en el color del separador.",
+      "html": "<button class=\"ds-btn\">Seguir <svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border: 0; border-radius: 10px; background: var(--board, #2f5bea); color: var(--on-board, #fff); font-family: 'Archivo Variable', system-ui, sans-serif; font-weight: 800; font-size: 19px; font-stretch: 90%; cursor: pointer; transition: transform 90ms steps(2, jump-none), filter 90ms steps(2, jump-none); } .ds-btn:hover { filter: brightness(1.06); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 3px solid #121418; outline-offset: 2px; }"
+    },
+    {
+      "name": "Botón fantasma",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Acción secundaria dentro de la hoja.",
+      "html": "<button class=\"ds-btn-ghost\">Atrás</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border: 0; border-radius: 10px; background: transparent; color: #121418; box-shadow: inset 0 0 0 2px rgb(18 20 24 / 0.14); font-family: 'Archivo Variable', system-ui, sans-serif; font-weight: 800; font-size: 19px; font-stretch: 90%; cursor: pointer; } .ds-btn-ghost:hover { filter: brightness(1.06); } .ds-btn-ghost:focus-visible { outline: 3px solid #121418; outline-offset: 2px; }"
+    },
+    {
+      "name": "Hoja",
+      "kind": "card",
+      "refersTo": "leaf",
+      "description": "Superficie de estudio con franja de encuadernación y dos agujeros de anilla.",
+      "html": "<div class=\"ds-board\"><section class=\"ds-leaf\"><h1 class=\"ds-leaf-title\">IA fuerte y débil</h1><p class=\"ds-leaf-meta\">Lee · SAA · Unidad 1</p></section></div>",
+      "css": ".ds-board { background: #2f5bea; padding: 24px; } .ds-leaf { position: relative; min-height: 170px; padding: 24px 24px 24px 56px; border-radius: 6px; color: #121418; background: linear-gradient(to right, transparent 38px, rgb(18 20 24 / 0.14) 38px, rgb(18 20 24 / 0.14) 39px, transparent 39px), rgb(250 251 255 / 0.95); box-shadow: 0 1px 1px rgb(0 0 0 / 0.08), 0 10px 24px -12px rgb(0 0 0 / 0.35); } .ds-leaf::before, .ds-leaf::after { content: ''; position: absolute; left: 11px; width: 16px; height: 16px; border-radius: 50%; background: #2f5bea; box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.45), 0 0 0 3px rgb(18 20 24 / 0.09); } .ds-leaf::before { top: 44px; } .ds-leaf::after { top: 124px; } .ds-leaf-title { margin: 0; font-family: 'Archivo Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 82%; font-size: 44px; line-height: 1.05; letter-spacing: -0.01em; } .ds-leaf-meta { margin: 12px 0 0; color: #4a5060; font-size: 16px; }"
+    },
+    {
+      "name": "Opción de respuesta",
+      "kind": "input",
+      "refersTo": "answer-option",
+      "description": "Ficha perforada: el agujero se rellena al marcarla y toma el color de corrección al comprobar.",
+      "html": "<div class=\"ds-opts\"><button class=\"ds-opt\"><span class=\"ds-hole\"></span>Aprendizaje supervisado</button><button class=\"ds-opt is-on\"><span class=\"ds-hole\"></span>Aprendizaje por refuerzo</button><button class=\"ds-opt is-ok\"><span class=\"ds-hole\"></span>Correcta</button><button class=\"ds-opt is-ko\"><span class=\"ds-hole\"></span>Fallada</button></div>",
+      "css": ".ds-opts { display: grid; gap: 8px; } .ds-opt { width: 100%; min-height: 52px; display: grid; grid-template-columns: 22px 1fr; align-items: center; gap: 12px; padding: 12px 16px; text-align: left; font-family: 'Archivo Variable', system-ui, sans-serif; font-size: 17px; color: #121418; background: #fafbff; border: 0; border-radius: 10px; box-shadow: inset 0 0 0 2px rgb(18 20 24 / 0.14); cursor: pointer; transition: box-shadow 90ms steps(2, jump-none); } .ds-opt:hover { box-shadow: inset 0 0 0 2px color-mix(in srgb, #2f5bea 60%, transparent); } .ds-opt:focus-visible { outline: 3px solid #121418; outline-offset: 2px; } .ds-hole { width: 18px; height: 18px; border-radius: 50%; box-shadow: inset 0 0 0 2px rgb(18 20 24 / 0.14); } .ds-opt.is-on { box-shadow: inset 0 0 0 3px #2f5bea; } .ds-opt.is-on .ds-hole { background: #2f5bea; box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.4); } .ds-opt.is-ok { box-shadow: inset 0 0 0 3px #2e9e4f; background: #e3f4e8; } .ds-opt.is-ok .ds-hole { background: #2e9e4f; } .ds-opt.is-ko { box-shadow: inset 0 0 0 3px #e5322d; background: #fde6e5; } .ds-opt.is-ko .ds-hole { background: #e5322d; }"
+    },
+    {
+      "name": "Regla de pestañas",
+      "kind": "nav",
+      "refersTo": "tab-rail-tab",
+      "description": "Una pestaña vertical por módulo, alta según sus unidades; la actual sobresale.",
+      "html": "<nav class=\"ds-rail\"><a class=\"ds-tab is-current\" style=\"background:#2f5bea;min-height:96px\">SAA</a><a class=\"ds-tab\" style=\"background:#0b7f70;min-height:96px\">SBD</a><a class=\"ds-tab\" style=\"background:#7b3fe4;min-height:96px\">MIA</a><a class=\"ds-tab ink\" style=\"background:#ff6a1a;min-height:96px\">PIA</a><a class=\"ds-tab ink\" style=\"background:#f2c200;min-height:96px\">BDA</a></nav>",
+      "css": ".ds-rail { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; } .ds-tab { display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; transform: rotate(180deg); width: 34px; padding: 10px 0; border-radius: 8px 0 0 8px; font-family: 'Archivo Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 85%; font-size: 14px; letter-spacing: 0.06em; text-decoration: none; color: #fff; box-shadow: inset 3px 0 0 rgb(0 0 0 / 0.12); transition: width 90ms steps(2, jump-none); cursor: pointer; } .ds-tab.ink { color: #121418; } .ds-tab.is-current { width: 44px; font-size: 16px; box-shadow: inset 3px 0 0 rgb(255 255 255 / 0.45), 2px 2px 8px rgb(0 0 0 / 0.2); } .ds-tab:hover { filter: brightness(1.06); } .ds-tab:focus-visible { outline: 3px solid #121418; outline-offset: 2px; }"
+    },
+    {
+      "name": "Barra de navegación",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "Barra inferior en tinta en móvil; riel lateral de 96 px en escritorio.",
+      "html": "<nav class=\"ds-nav\"><a class=\"is-active\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 11 12 4l8 7M6 9.5V20h12V9.5M10 20v-5h4v5\"/></svg>Inicio</a><a><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6zM6 3v18M9 7h1M9 12h1M9 17h1M19 7h2M19 11h2\"/></svg>Módulos</a><a><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 20h16M7 16v-4M12 16V8M17 16v-7\"/></svg>Progreso</a><a><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM12 3v2M12 19v2M4.2 7.5l1.7 1M18.1 15.5l1.7 1M4.2 16.5l1.7-1M18.1 8.5l1.7-1\"/></svg>Ajustes</a></nav>",
+      "css": ".ds-nav { display: grid; grid-template-columns: repeat(4, 1fr); height: 68px; background: #121418; } .ds-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #9aa1ae; text-decoration: none; font-family: 'Archivo Variable', system-ui, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.02em; cursor: pointer; } .ds-nav a:hover { color: #fff; } .ds-nav a:focus-visible { outline: 3px solid #fff; outline-offset: -3px; } .ds-nav a.is-active { color: #fff; } .ds-nav a.is-active svg { color: #2f5bea; filter: brightness(1.35); }"
+    },
+    {
+      "name": "Separador de módulo",
+      "kind": "custom",
+      "description": "Separador a todo color con su pestaña escalonada arriba; el actual lleva canto interior.",
+      "html": "<a class=\"ds-sep is-current\" data-code=\"SAA\" style=\"background:#2f5bea\"><span class=\"ds-sep-name\">Sistemas de Aprendizaje Automático<small>SAA · 2 de 2 unidades disponibles</small></span><span class=\"ds-sep-pct\">0 %</span></a>",
+      "css": ".ds-sep { position: relative; margin-top: 30px; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 16px; min-height: 96px; padding: 24px 24px 16px; border-radius: 0 6px 6px 6px; color: #fff; text-decoration: none; font-family: 'Archivo Variable', system-ui, sans-serif; box-shadow: 0 1px 1px rgb(0 0 0 / 0.08), 0 10px 24px -12px rgb(0 0 0 / 0.35); transition: transform 90ms steps(2, jump-none); cursor: pointer; } .ds-sep::before { content: attr(data-code); position: absolute; bottom: 100%; left: 0; width: 18%; min-width: 64px; height: 26px; display: grid; place-items: center; background: inherit; border-radius: 8px 8px 0 0; font-weight: 800; font-stretch: 85%; font-size: 14px; letter-spacing: 0.06em; } .ds-sep:hover { transform: translateY(-2px); } .ds-sep:focus-visible { outline: 3px solid #121418; outline-offset: 2px; } .ds-sep.is-current { box-shadow: 0 1px 1px rgb(0 0 0 / 0.08), 0 10px 24px -12px rgb(0 0 0 / 0.35), inset 0 0 0 3px rgb(255 255 255 / 0.55); } .ds-sep.is-current::before { box-shadow: inset 3px 3px 0 rgb(255 255 255 / 0.55), inset -3px 0 0 rgb(255 255 255 / 0.55); } .ds-sep-name { font-weight: 800; font-stretch: 85%; font-size: 22px; line-height: 1.15; } .ds-sep-name small { display: block; font-weight: 500; font-stretch: 100%; font-size: 14px; opacity: 0.88; margin-top: 4px; } .ds-sep-pct { font-weight: 800; font-size: 24px; font-stretch: 80%; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La carpeta de anillas",
+    "overview": "La app es la carpeta del curso. El fondo de la pantalla es el separador del módulo activo, a todo color y a sangre; lo que se estudia va siempre en una hoja color leche encima, con la franja de encuadernación y dos agujeros de anilla en el canto izquierdo. Al cambiar de módulo, la hoja bascula en sus anillas en dos fotogramas y el separador cambia de color. Nada se desliza ni se difumina.\n\nEs una interfaz densa pero tranquila, pensada para ratos cortos con el móvil en una mano. El color lo pone el módulo y nada más; el resto es tinta sobre papel. Rechaza el aspecto de app de estudio genérica: fondo blanco, tarjetas grises y un verde de acierto como único color.\n\nLa hoja manda: toda pantalla tiene al menos una, y todo texto largo vive dentro de ella. Sobre el separador solo van el título de la pantalla, la marca, la racha y los puntos, y las barras de avance de lección y test.",
+    "keyCharacteristics": [
+      "Fondo de pantalla igual al color del módulo activo, a plena intensidad.",
+      "Hojas translúcidas con franja de encuadernación y dos agujeros de anilla.",
+      "Regla de pestañas vertical pegada al canto derecho de la hoja; la pestaña del módulo actual sobresale.",
+      "Archivo condensado y muy negro para títulos y cifras; Literata para leer tarjetas.",
+      "Movimiento por pasos (`steps()`), nunca por interpolación suave.",
+      "Iconos propios de trazo, sin emojis."
+    ],
+    "rules": [
+      { "name": "La regla del separador", "body": "El color de módulo cubre el fondo entero o no aparece; dentro de la hoja solo entra como acento funcional a través de `--board` (botón, marca, progreso), nunca como relleno decorativo.", "section": "colors" },
+      { "name": "La regla de la tinta sobre claros", "body": "Sobre naranja y amarillo el texto va en tinta; sobre ultramar, verde azulado y violeta, en blanco. Cualquier color de módulo nuevo se prueba contra 4,5:1 antes de decidir cuál lleva.", "section": "colors" },
+      { "name": "La regla de la fe de erratas", "body": "El verde y el bermellón significan acierto y fallo y nada más. No sirven para decorar, ni para estados de navegación, ni para resaltar.", "section": "colors" },
+      { "name": "La regla del rótulo condensado", "body": "Todo título va en Archivo 800 condensado (entre 75 % y 92 %) con interlineado apretado y `text-wrap: balance`. El ancho normal o expandido queda para el cuerpo y la marca.", "section": "typography" },
+      { "name": "La regla de la página de apuntes", "body": "Literata aparece solo en el texto largo de las tarjetas. Ni botones, ni títulos, ni metadatos.", "section": "typography" },
+      { "name": "La regla de la carpeta abierta", "body": "Dos hojas lado a lado solo en Inicio y solo en escritorio. Una pantalla nueva empieza con una sola hoja de 760 px.", "section": "layout" },
+      { "name": "La regla del canto", "body": "La regla de pestañas siempre toca la hoja. Si el marco cambia de ancho, la regla se mueve con la hoja, no con la ventana.", "section": "layout" },
+      { "name": "La regla del contorno interior", "body": "Dentro de la hoja no hay `border`; los límites se dibujan con `box-shadow: inset`, así el grosor puede pasar de 2 a 3 px al marcar sin mover el contenido.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do pinta el fondo de la pantalla con `--board` y pon el contenido en una hoja (`.leaf`) con su franja y sus dos agujeros.",
+      "Do usa `--board` y `--on-board` para todo acento del módulo, de modo que PIA y BDA cambien solos a texto en tinta.",
+      "Do comprueba 4,5:1 del texto sobre cada separador; por eso SBD es #0b7f70 y no #0f9d8a.",
+      "Do anima con `steps()` y la duración de 90 ms (`--hinge`); con «reducir movimiento» todo cambia al instante.",
+      "Do usa iconos SVG de `app-icon` (trazo 2, rejilla de 24).",
+      "Do deja una sola hoja de 760 px en pantallas nuevas; la carpeta abierta a dos hojas es solo de Inicio.",
+      "Do nombra la herramienta de un paso de PC dentro de la frase del paso."
+    ],
+    "donts": [
+      "Don't pongas el texto largo directamente sobre el separador; sobre el color solo van títulos de pantalla, marca, racha, puntos y barras de avance.",
+      "Don't uses el verde y el bermellón para nada que no sea acierto y fallo.",
+      "Don't pongas un rótulo pequeño en mayúsculas encima de los títulos (kicker o eyebrow); el contexto va en la línea de metadatos debajo.",
+      "Don't uses emojis en la interfaz.",
+      "Don't cargues fuentes desde un CDN; van autoalojadas para funcionar sin conexión.",
+      "Don't uses deslizamientos, fundidos ni curvas suaves para cambiar de pantalla o de módulo.",
+      "Don't pongas texto blanco sobre naranja o amarillo."
+    ]
+  }
+}
