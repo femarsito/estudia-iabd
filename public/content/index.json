@@ -29,7 +29,8 @@
         {
           "id": "sbd-ud01",
           "number": 1,
-          "title": "Introducción a Big Data"
+          "title": "Introducción a Big Data",
+          "file": "sbd/ud01.json"
         },
         {
           "id": "sbd-ud02",

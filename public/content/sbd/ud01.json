@@ -1,0 +1,1810 @@
+{
+  "id": "sbd-ud01",
+  "moduleId": "sbd",
+  "number": 1,
+  "title": "Introducción a Big Data",
+  "conceptMap": {
+    "src": "img/sbd-ud01-mapa.png",
+    "credit": "Mapa conceptual de los apuntes de SBD UD1, Junta de Andalucía (CC BY-NC-SA)"
+  },
+  "lessons": [
+    {
+      "id": "sbd-ud01-l01",
+      "kind": "read",
+      "title": "Las 5 Vs",
+      "section": "1.1. Las 5 Vs",
+      "cards": [
+        {
+          "title": "Por qué Big Data",
+          "body": "Big Data aparece porque hay **cantidades de datos tan grandes que desbordan los sistemas de una sola máquina**. Para saber si un procesamiento es de verdad Big Data se miran **las 5 Vs**: **volumen, velocidad, variedad, veracidad y valor**."
+        },
+        {
+          "title": "Volumen",
+          "body": "Es la **gran cantidad de bytes** que forman los datos. **Ningún organismo fija** a partir de qué tamaño algo es Big Data: hoy estos sistemas trabajan con **petabytes (PB)** e incluso **exabytes (EB)**. Las previsiones daban **4,4 ZB en 2013** y **163 ZB en 2025**, con crecimiento exponencial."
+        },
+        {
+          "title": "Unidades",
+          "body": "Un **byte son 8 bits**. En base 10 cada salto multiplica por **1000**: kB (10³), MB (10⁶), GB (10⁹), TB (10¹²), PB, EB, ZB y YB (10²⁴). En base 2 están el **KiB (2¹⁰ = 1024 bytes)**, el MiB (2²⁰)… hasta el YiB (2⁸⁰). Ojo: «1 MB» puede ser 10⁶ o 2²⁰ según el fabricante."
+        },
+        {
+          "title": "Velocidad",
+          "body": "Los datos **se siguen produciendo muy deprisa**: cada 60 segundos, unos 350.000 tweets, 300 horas de vídeo en YouTube y 171 millones de correos. El problema no es solo que crezca el volumen, sino **obtenerlos rápido e integrarlos** con los que ya tienes. De aquí nacen las estrategias de **streaming**."
+        },
+        {
+          "title": "Variedad",
+          "body": "- **Estructurados**: filas de tablas con un **esquema** (típicamente relacionales).\n- **Semiestructurados**: tienen estructura pero no son relacionales: **CSV, XML, JSON**.\n- **No estructurados**: sin esquema: **vídeo, imagen, audio**. Son **más del 80 %** del total.\n- **Metadatos**: datos sobre los datos (autor, fecha, resolución…)."
+        },
+        {
+          "title": "Veracidad y valor",
+          "body": "**Veracidad**: los datos no siempre son fieles a la realidad. El **ruido** son datos que no pueden convertirse en información; la **señal**, los que sí. Lo automático tiene menos ruido que lo humano. **Valor**: lo útil que es el dato. Depende de su **veracidad**, del **tiempo**, de que esté **completo** y de su **interpretación**."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud01-l02",
+      "kind": "practice",
+      "title": "Las 5 Vs",
+      "section": "1.1. Las 5 Vs",
+      "questionIds": [
+        "sbd-ud01-q001",
+        "sbd-ud01-q002",
+        "sbd-ud01-q003",
+        "sbd-ud01-q004",
+        "sbd-ud01-q005",
+        "sbd-ud01-q006",
+        "sbd-ud01-q007",
+        "sbd-ud01-q008",
+        "sbd-ud01-q009",
+        "sbd-ud01-q010",
+        "sbd-ud01-q011",
+        "sbd-ud01-q012"
+      ]
+    },
+    {
+      "id": "sbd-ud01-l03",
+      "kind": "read",
+      "title": "Qué conseguimos con Big Data",
+      "section": "1.2. Qué conseguimos gracias a Big Data",
+      "cards": [
+        {
+          "title": "Qué permite hacer",
+          "body": "- **Capturar** los datos desde sus orígenes.\n- **Integrarlos** para almacenarlos de modo unificado.\n- **Almacenarlos distribuidos y replicados**, con alta disponibilidad.\n- **Tratarlos de forma distribuida**, con muchas máquinas en paralelo.\n- Aplicar **minería de datos** para crear modelos predictivos y usarlos en sistemas automáticos.\n- Crear **visualizaciones y cuadros de mando**."
+        },
+        {
+          "title": "Beneficios",
+          "body": "Registros más detallados integrando varias fuentes, **optimizar operaciones**, identificar **nuevos mercados**, hacer **predicciones**, detectar **fraude e impagos**, apoyar la **toma de decisiones**, descubrimientos científicos, **ayudar a los médicos** a detectar enfermedades y crear fármacos con menos efectos secundarios."
+        },
+        {
+          "title": "De los eventos a la información",
+          "body": "- **Eventos**: ocurren constantemente (un pago con tarjeta, una medición meteorológica, una prueba médica).\n- **Datos**: los eventos quedan reflejados y se almacenan como registros o ficheros.\n- **Información**: datos con **contexto**, organizados de forma lógica, como todos los pagos con tarjeta en una misma tabla."
+        },
+        {
+          "title": "Del conocimiento al valor",
+          "body": "- **Conocimiento**: información tratada con significado; **modelos** que representan la realidad y sirven para predecir.\n- **Sabiduría**: esos modelos más el **entendimiento** para saber cómo emplearlos.\n- **Valor**: la sabiduría no actúa sola. El **valor añadido** es la diferencia entre el resultado basado en ella y el que tendrías sin tener en cuenta los datos."
+        },
+        {
+          "title": "Minería y ciencia de datos",
+          "body": "Son las disciplinas que **terminan de obtener el valor**. La **minería de datos** es una rama de la **inteligencia artificial** que usa técnicas de **aprendizaje automático**. La **ciencia de datos** es en el fondo lo mismo, con énfasis en que se hace en **entornos Big Data**. A veces se usan como sinónimos."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud01-l04",
+      "kind": "practice",
+      "title": "Qué conseguimos con Big Data",
+      "section": "1.2. Qué conseguimos gracias a Big Data",
+      "questionIds": [
+        "sbd-ud01-q013",
+        "sbd-ud01-q014",
+        "sbd-ud01-q015",
+        "sbd-ud01-q016",
+        "sbd-ud01-q017",
+        "sbd-ud01-q018",
+        "sbd-ud01-q019",
+        "sbd-ud01-q020",
+        "sbd-ud01-q021"
+      ]
+    },
+    {
+      "id": "sbd-ud01-l05",
+      "kind": "read",
+      "title": "Clústeres de computadoras",
+      "section": "2. Clústeres de computadoras",
+      "cards": [
+        {
+          "title": "Qué es un clúster",
+          "body": "Conjunto de computadoras (**servidores o nodos**) conectadas por red que trabajan **como una única unidad**. Es la **infraestructura básica** de Big Data. Antes se montaban con equipos especializados muy caros; hoy, con computadoras de uso común (**commodity hardware**). **Ley de Moore**: cada **2 años** aproximadamente se duplican los transistores de los procesadores."
+        },
+        {
+          "title": "Alto rendimiento",
+          "body": "Cada nodo es una **computadora completa**, con procesador, memoria y almacenamiento. Las cargas **paralelizables** se dividen en **subtareas** que se reparten entre los nodos. Así se resuelven problemas que una sola máquina no acabaría en un tiempo razonable, por potente que sea."
+        },
+        {
+          "title": "Alta disponibilidad",
+          "body": "Los nodos **se monitorizan entre sí** y detectan los que dejan de estar disponibles (fallo eléctrico, avería, corte de comunicaciones). Entonces se **rearranca** el nodo caído, se **arranca otro** que lo supla o responde **otro nodo con una réplica** de los datos."
+        },
+        {
+          "title": "Equilibrado de carga",
+          "body": "También se llama balance o balanceo. Son algoritmos que reparten el trabajo para evitar **cuellos de botella**, que aumentan la latencia media. Se monitoriza la carga y cada paquete de trabajo va a un nodo según:\n- el **tamaño del trabajo**;\n- el **estado de carga** de cada nodo;\n- la **potencia de procesamiento** de cada nodo."
+        },
+        {
+          "title": "Escalabilidad",
+          "body": "La potencia se amplía **añadiendo nodos**, así que no hace falta estimarla a priori, algo que suele acabar en sobreestimación.\n- **Escalado vertical**: mejorar el hardware de una máquina. Lo limita lo mejor del mercado y en la práctica **no da escalabilidad**.\n- **Escalado horizontal (scale-out)**: **añadir nodos**. Es el que da escalabilidad de verdad."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud01-l06",
+      "kind": "practice",
+      "title": "Clústeres de computadoras",
+      "section": "2. Clústeres de computadoras",
+      "questionIds": [
+        "sbd-ud01-q022",
+        "sbd-ud01-q023",
+        "sbd-ud01-q024",
+        "sbd-ud01-q025",
+        "sbd-ud01-q026",
+        "sbd-ud01-q027",
+        "sbd-ud01-q028",
+        "sbd-ud01-q029",
+        "sbd-ud01-q030",
+        "sbd-ud01-q031"
+      ]
+    },
+    {
+      "id": "sbd-ud01-l07",
+      "kind": "read",
+      "title": "Relacional, dataset y almacén de datos",
+      "section": "3.1 a 3.3. Base de datos relacional, dataset y almacén de datos",
+      "cards": [
+        {
+          "title": "Base de datos relacional",
+          "body": "Guarda registros en **tablas**: **filas** (una por registro) y **columnas** (los atributos). Cada tabla tiene un **esquema** que fija qué atributos hay y de qué **tipo** son: entero, decimal, texto, fecha… El lenguaje habitual para trabajar con ellas es **SQL**."
+        },
+        {
+          "title": "Por qué rinde tanto",
+          "body": "La uniformidad de las tablas da un **altísimo rendimiento en búsquedas**, dentro de una tabla o entre varias a través de sus **relaciones** (de ahí «relacional»). La clave son los **índices sobre columnas**, que aceleran tanto la búsqueda como el enlace de registros relacionados."
+        },
+        {
+          "title": "Su límite",
+          "body": "Es el tipo de base de datos **más usado del mundo** y rinde muy bien en transacciones, pero **no es escalable para Big Data**: sus motores no están pensados para tablas tan grandes que **no caben en un mismo servidor**."
+        },
+        {
+          "title": "Dataset",
+          "body": "**Colección de datos con cierta relación** por la que tiene sentido tratarlos juntos: tweets, posts, imágenes, registros de una base de datos (relacional o no) o las medidas de una estación meteorológica. Puede guardarse en **texto plano** (CSV, XML, JSON o sin formato), en **tablas** o en **ficheros multimedia**."
+        },
+        {
+          "title": "Almacén de datos",
+          "body": "El **data warehouse** es un repositorio **central** de una empresa o institución con datos **actuales e históricos**. Sirve para **inteligencia de negocio (BI)** y consultas analíticas, así que además de tablas relacionales suele incluir subsistemas **OLAP**. Se carga **periódicamente** desde sistemas **SCM, ERP o CRM** con procesos **ETL**."
+        },
+        {
+          "title": "Una instantánea",
+          "body": "Como se carga cada cierto tiempo, el almacén guarda una **instantánea del estado de los datos** a una fecha. Por eso, en general, **no se usa para transacciones**, sino para inteligencia de negocio y analítica."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud01-l08",
+      "kind": "practice",
+      "title": "Relacional, dataset y almacén de datos",
+      "section": "3.1 a 3.3. Base de datos relacional, dataset y almacén de datos",
+      "questionIds": [
+        "sbd-ud01-q032",
+        "sbd-ud01-q033",
+        "sbd-ud01-q034",
+        "sbd-ud01-q035",
+        "sbd-ud01-q036",
+        "sbd-ud01-q037",
+        "sbd-ud01-q038",
+        "sbd-ud01-q039",
+        "sbd-ud01-q040",
+        "sbd-ud01-q041"
+      ]
+    },
+    {
+      "id": "sbd-ud01-l09",
+      "kind": "read",
+      "title": "ACID, teorema CAP y BASE",
+      "section": "3.4 a 3.6. ACID, teorema CAP y BASE",
+      "cards": [
+        {
+          "title": "ACID",
+          "body": "Principio de diseño de las bases de datos para **uso transaccional**. Tiene cuatro características **de obligado cumplimiento**: **Atomicidad, Consistencia, Aislamiento y Durabilidad**. Hace un **control pesimista de la concurrencia** (da por hecho que lo que pueda fallar fallará): el motor **bloquea registros** e incluso tablas completas."
+        },
+        {
+          "title": "Las cuatro letras",
+          "body": "- **Atomicidad**: todo o nada. Si de dos inserciones falla la segunda, la primera no se consolida.\n- **Consistencia**: se comprueban **esquemas y restricciones** antes de escribir.\n- **Aislamiento**: nadie ve los resultados de una transacción **hasta que termina**.\n- **Durabilidad**: lo escrito se guarda en almacenamiento **no volátil** y no se pierde si se apaga la máquina."
+        },
+        {
+          "title": "El precio de la durabilidad",
+          "body": "La durabilidad descarta una base de datos que guarde la información **solo en memoria**. El almacenamiento no volátil es unas **100 veces (2 órdenes de magnitud) más lento** que la memoria, y eso **limita la velocidad** de las bases de datos ACID."
+        },
+        {
+          "title": "Teorema CAP",
+          "body": "También **conjetura de Brewer**. Una base de datos **distribuida** cumple **como máximo 2 de 3**:\n- **Consistencia**: toda lectura muestra la última escritura **o un error**, nunca un estado desfasado.\n- **Disponibilidad**: toda petición recibe respuesta **no errónea**, aunque no sea la última.\n- **Tolerancia al particionamiento**: funciona aunque se corte la comunicación entre nodos."
+        },
+        {
+          "title": "Por qué no las tres",
+          "body": "- **C+A**: los nodos tienen que estar comunicados, así que se pierde **P**.\n- **C+P**: durante el particionamiento los nodos no pueden seguir disponibles: se pierde **A**.\n- **A+P**: sin comunicación no hay consistencia: hay que aceptar **lecturas inconsistentes**.\nPrimero se decide a cuál se renuncia."
+        },
+        {
+          "title": "BASE",
+          "body": "Principio de bases distribuidas que **prefiere la disponibilidad a la consistencia**: en CAP es **A+P**.\n- **Básicamente disponible**: siempre responde, con éxito o con error, aunque caigan nodos.\n- **Estado blando**: la misma lectura dos veces puede dar resultados distintos sin escribir nada.\n- **Consistencia eventual**: llega cuando el cambio se ha propagado a **todos los nodos**."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud01-l10",
+      "kind": "practice",
+      "title": "ACID, teorema CAP y BASE",
+      "section": "3.4 a 3.6. ACID, teorema CAP y BASE",
+      "questionIds": [
+        "sbd-ud01-q042",
+        "sbd-ud01-q043",
+        "sbd-ud01-q044",
+        "sbd-ud01-q045",
+        "sbd-ud01-q046",
+        "sbd-ud01-q047",
+        "sbd-ud01-q048",
+        "sbd-ud01-q049",
+        "sbd-ud01-q050",
+        "sbd-ud01-q051",
+        "sbd-ud01-q052",
+        "sbd-ud01-q053"
+      ]
+    },
+    {
+      "id": "sbd-ud01-l11",
+      "kind": "read",
+      "title": "Procesamiento en paralelo y distribuido",
+      "section": "4.1 y 4.2. Procesamiento en paralelo y distribuido",
+      "cards": [
+        {
+          "title": "Dos procesadores no son el doble",
+          "body": "La **Sega Saturn** (1995) llevaba **2 procesadores** y no rendía el doble que uno: programarla era más difícil, había errores difíciles de detectar por el paralelismo, el **balanceo de carga no era perfecto**, un procesador esperaba a menudo al otro y la **comunicación** entre ambos añadía sobrecarga. Además era más cara de fabricar."
+        },
+        {
+          "title": "Procesamiento en paralelo",
+          "body": "Varias tareas **al mismo tiempo, con procesos dentro del mismo procesador**. Los sistemas operativos multitarea son anteriores al hardware paralelo: su gestor **reparte el tiempo** en ventanas de milisegundos. La multitarea real llegó con las **placas multiprocesador** y luego, para el usuario normal, con los procesadores **multihilo** y, algo después, **multinúcleo**."
+        },
+        {
+          "title": "Multinúcleo y multihilo",
+          "body": "- **Multinúcleo**: el procesador tiene varios núcleos, cada uno con una **CPU completa**.\n- **Multihilo**: una CPU atiende **más de un hilo** (normalmente 2); el segundo usa los recursos que el primero no está usando. Si los dos necesitan el mismo, uno espera. Por eso **2 núcleos y 4 hilos no equivalen a 4 núcleos**."
+        },
+        {
+          "title": "Paralelizable o no",
+          "body": "La dificultad es dividir una tarea en **subtareas independientes**, y **no siempre es posible**.\n- **Sí**: sumar muchísimos números. Un paquete por núcleo y otro proceso suma los resultados parciales.\n- **No**: sumar o restar cada número según el resultado actual sea par o impar. Cada paso **necesita el anterior**."
+        },
+        {
+          "title": "Procesamiento distribuido",
+          "body": "El trabajo se reparte entre **máquinas de un clúster** comunicadas por red. Cada una suele tener un procesador multinúcleo, así que hay un **doble nivel de paralelismo**: entre nodos y dentro de cada procesador. Los **frameworks de Big Data** lo gestionan de forma automática y **transparente** para el desarrollador."
+        },
+        {
+          "title": "Dónde se comunican",
+          "body": "De más rápida a más lenta:\n- **Misma máquina**: RAM, ficheros o base de datos, sin pasar por la red.\n- **Mismo switch**: varios órdenes de magnitud más lenta, pero obligatoria en Big Data.\n- **Fuera del switch**: más lenta cuantos **más saltos** entre switches.\n- **Fuera del CPD**: la más lenta de todas."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud01-l12",
+      "kind": "practice",
+      "title": "Procesamiento en paralelo y distribuido",
+      "section": "4.1 y 4.2. Procesamiento en paralelo y distribuido",
+      "questionIds": [
+        "sbd-ud01-q054",
+        "sbd-ud01-q055",
+        "sbd-ud01-q056",
+        "sbd-ud01-q057",
+        "sbd-ud01-q058",
+        "sbd-ud01-q059",
+        "sbd-ud01-q060",
+        "sbd-ud01-q061",
+        "sbd-ud01-q062",
+        "sbd-ud01-q063",
+        "sbd-ud01-q064"
+      ]
+    },
+    {
+      "id": "sbd-ud01-l13",
+      "kind": "read",
+      "title": "Estrategias, OLTP, OLAP y SCV",
+      "section": "4.3 a 4.6. Estrategias de procesamiento, OLTP, OLAP y principio SCV",
+      "cards": [
+        {
+          "title": "Cuatro estrategias",
+          "body": "- **Por lotes** (batch u offline): sin prisa, **horas o incluso días**. Analítica con gran cantidad de datos.\n- **Transaccional**: respuesta obligatoria, a ser posible **por debajo de 1 segundo**. No puede afectar a mucho volumen.\n- **Tiempo real** (realtime): resultados en poco tiempo. Analítica interactiva, normalmente descriptiva.\n- **Streaming**: al **ritmo del flujo** de datos de entrada."
+        },
+        {
+          "title": "Tiempo real y streaming",
+          "body": "El tiempo real con mucho volumen suele apoyarse en subsistemas **OLAP**, a menudo en memoria. El streaming actualiza sus estructuras según llegan datos, así que las tiene **en memoria**, y eso pone un **tope** a lo que trata a la vez. Lo transaccional ocurre en tiempo real, pero un **análisis en tiempo real no es transaccional**."
+        },
+        {
+          "title": "OLTP",
+          "body": "Sistema **orientado a transacciones**: datos operacionales del día a día que necesitan hacerse en tiempo real (de ahí **online**). Suele trabajar con **bases de datos relacionales** y solo hace acciones sencillas (**insertar, seleccionar, actualizar, eliminar**), sin analítica. Así responde en **menos de un segundo**."
+        },
+        {
+          "title": "OLAP",
+          "body": "Procesa **consultas analíticas** en tiempo real. Es parte de la **BI** y de la minería de datos, del análisis descriptivo al **prescriptivo**. Usa bases **multidimensionales** («**cubos OLAP**») con los datos **denormalizados**. A veces están en **RAM**, lo que limita cuántos datos se tratan a la vez."
+        },
+        {
+          "title": "Principio SCV",
+          "body": "CAP trata del **almacenamiento** distribuido; SCV, del **procesamiento** distribuido. Un sistema cumple **como máximo 2 de 3**:\n- **Velocidad** (speed): cuánto tarda en procesar desde que llegan los datos.\n- **Consistencia**: la **precisión** de los resultados (todos los datos o muestreo).\n- **Volumen**: cuántos datos puede procesar."
+        },
+        {
+          "title": "Por qué no las tres",
+          "body": "- **S+C**: no se puede procesar mucho **volumen**, porque alarga la respuesta.\n- **C+V**: no se puede ir a alta **velocidad**.\n- **V+S**: hay que **muestrear** un subconjunto, y el resultado no es **consistente**.\nEn Big Data el alto volumen **siempre está presente**."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud01-l14",
+      "kind": "practice",
+      "title": "Estrategias, OLTP, OLAP y SCV",
+      "section": "4.3 a 4.6. Estrategias de procesamiento, OLTP, OLAP y principio SCV",
+      "questionIds": [
+        "sbd-ud01-q065",
+        "sbd-ud01-q066",
+        "sbd-ud01-q067",
+        "sbd-ud01-q068",
+        "sbd-ud01-q069",
+        "sbd-ud01-q070",
+        "sbd-ud01-q071",
+        "sbd-ud01-q072",
+        "sbd-ud01-q073",
+        "sbd-ud01-q074",
+        "sbd-ud01-q075",
+        "sbd-ud01-q076"
+      ]
+    },
+    {
+      "id": "sbd-ud01-l15",
+      "kind": "read",
+      "title": "La arquitectura por capas",
+      "section": "5. La arquitectura por capas de Big Data",
+      "cards": [
+        {
+          "title": "El flujo por capas",
+          "body": "Cada proyecto puede elegir su arquitectura, pero lo habitual es que los datos pasen por capas: **ingestión → colección → almacenamiento → procesamiento → consulta y analítica → visualización**. **Seguridad** y **monitorización** son **transversales**: acompañan a todas."
+        },
+        {
+          "title": "Ingestión y colección",
+          "body": "- **Ingestión**: obtiene los datos de **múltiples fuentes**. Casi todas existían antes que el sistema, así que es **el sistema el que se adapta** a ellas: usa su protocolo e interpreta sus datos.\n- **Colección**: **integra y unifica** fuentes y formatos distintos en un único conjunto con sentido, casi listo para usar."
+        },
+        {
+          "title": "Almacenamiento y procesamiento",
+          "body": "- **Almacenamiento**: guarda los datos en sistemas de **almacenamiento distribuido** diseñados para ello.\n- **Procesamiento**: da **infraestructura** a la capa de consulta y analítica para tratar muchos datos (por lotes, tiempo real, streaming o híbrido). **Solo hace lo que le pide** la capa superior y no obtiene valor por sí misma."
+        },
+        {
+          "title": "Analítica y visualización",
+          "body": "- **Consulta y analítica**: aquí se **empieza a obtener valor** del dato, con estadística, algoritmia o análisis, siempre apoyándose en el procesamiento.\n- **Visualización**: la usa el **usuario final**, con reportes estáticos o **cuadros de mando** interactivos. Desde ella se suelen tomar las **decisiones de negocio**."
+        },
+        {
+          "title": "Las capas transversales",
+          "body": "- **Seguridad**: protege los datos con métodos **físicos y de software**, frente a ataques o uso malintencionado **desde dentro y desde fuera**.\n- **Monitorización**: vigila los datos y el propio sistema. La de datos incluye **auditoría, testeo, gestión y control** para que sean correctos y frescos, y es parte de la **gobernanza de datos**."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud01-l16",
+      "kind": "practice",
+      "title": "La arquitectura por capas",
+      "section": "5. La arquitectura por capas de Big Data",
+      "questionIds": [
+        "sbd-ud01-q077",
+        "sbd-ud01-q078",
+        "sbd-ud01-q079",
+        "sbd-ud01-q080",
+        "sbd-ud01-q081",
+        "sbd-ud01-q082",
+        "sbd-ud01-q083",
+        "sbd-ud01-q084",
+        "sbd-ud01-q085",
+        "sbd-ud01-q086"
+      ]
+    },
+    {
+      "id": "sbd-ud01-l17",
+      "kind": "read",
+      "title": "El paisaje de Big Data",
+      "section": "6. El paisaje de Big Data",
+      "cards": [
+        {
+          "title": "Qué es el paisaje",
+          "body": "El **Big Data Landscape** es el panorama de **herramientas y utilidades** para desarrollar proyectos Big Data, muchas veces agrupadas por **capa** o por **tipo de actividad**. **No hay una imagen única**: cada autor hace su propio collage. Se encuentran buscando «big data landscape»."
+        },
+        {
+          "title": "Hadoop y Spark",
+          "body": "- **Hadoop**: la plataforma **pionera**, enfocada a trabajo **por lotes**. Tiene un **ecosistema** de herramientas, cada una para una fase del trabajo con datos.\n- **Spark**: enfocada a **tiempo real y/o streaming**. Interactúa con muchas herramientas de Hadoop y, según se mire, es **una más de su ecosistema**."
+        },
+        {
+          "title": "Qué más aparece",
+          "body": "- Bases de datos **NoSQL y NewSQL**, para necesidades y casos específicos.\n- Herramientas de **analítica**, que a su vez se subclasifican.\n- Herramientas de **visualización**.\n- **Aplicaciones específicas** que se nutren de las anteriores o interactúan con ellas."
+        },
+        {
+          "title": "Un reparto de ejemplo",
+          "body": "En el caso práctico de los apuntes:\n- Plataforma: **Hadoop**.\n- Adquirir datos desde las fuentes: **Flume** o **Sqoop**.\n- Consultar los datos cargados en **HDFS**: **Pig** y **Hive**.\n- Análisis: **Spark**.\n- Aprendizaje automático: **H2O**.\n- Visualización: **Power BI** o **Tableau**."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud01-l18",
+      "kind": "practice",
+      "title": "El paisaje de Big Data",
+      "section": "6. El paisaje de Big Data",
+      "questionIds": [
+        "sbd-ud01-q087",
+        "sbd-ud01-q088",
+        "sbd-ud01-q089",
+        "sbd-ud01-q090",
+        "sbd-ud01-q091",
+        "sbd-ud01-q092",
+        "sbd-ud01-q093",
+        "sbd-ud01-q094"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "sbd-ud01-q001",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿qué sistemas quedan desbordados por las cantidades de datos que originan Big Data?",
+      "options": [
+        "Los sistemas convencionales monomáquina",
+        "Los clústeres montados con commodity hardware",
+        "Los almacenes de datos con subsistemas OLAP",
+        "Las bases de datos distribuidas que siguen BASE"
+      ],
+      "answer": 0,
+      "explanation": "Big Data aparece porque hay cantidades de datos tan grandes que una sola máquina convencional no puede con ellas. Los clústeres son justo la infraestructura con la que se resuelve ese problema.",
+      "source": "SBD UD1, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q002",
+      "type": "choice",
+      "prompt": "¿Cuál de estas es una de las 5 Vs de Big Data?",
+      "options": [
+        "Volatilidad",
+        "Variedad",
+        "Visibilidad",
+        "Virtualización"
+      ],
+      "answer": 1,
+      "explanation": "Las 5 Vs son volumen, velocidad, variedad, veracidad y valor. Las otras opciones suenan parecido, pero no están en la lista.",
+      "source": "SBD UD1, apartado 1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q003",
+      "type": "choice",
+      "prompt": "¿A partir de qué cantidad de datos se considera que estás en un entorno Big Data?",
+      "options": [
+        "A partir de 1 PB, según la norma oficial",
+        "A partir de 1 TB por servidor",
+        "A partir de 1 EB de datos digitales",
+        "No hay un tamaño fijado por ningún organismo"
+      ],
+      "answer": 3,
+      "explanation": "Ninguna entidad regula ese límite. Los apuntes solo dicen que hoy estos sistemas trabajan con petabytes e incluso exabytes.",
+      "source": "SBD UD1, apartado 1.1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q004",
+      "type": "choice",
+      "prompt": "¿Cuántos bytes tiene 1 GiB?",
+      "options": [
+        "2³⁰ bytes",
+        "10⁹ bytes",
+        "2²⁰ bytes",
+        "10¹² bytes"
+      ],
+      "answer": 0,
+      "explanation": "Las unidades con «i» van en base 2: el gibibyte son 2³⁰ bytes. 10⁹ bytes es el gigabyte en base 10, y 2²⁰ es el mebibyte.",
+      "source": "SBD UD1, apartado 1.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q005",
+      "type": "order",
+      "prompt": "Ordena estas unidades de menor a mayor.",
+      "steps": [
+        "Gigabyte (GB)",
+        "Terabyte (TB)",
+        "Petabyte (PB)",
+        "Exabyte (EB)",
+        "Zettabyte (ZB)"
+      ],
+      "explanation": "Cada unidad son 1000 de la anterior: GB (10⁹), TB (10¹²), PB (10¹⁵), EB (10¹⁸) y ZB (10²¹).",
+      "source": "SBD UD1, apartado 1.1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q006",
+      "type": "truefalse",
+      "prompt": "El principal problema de la velocidad es que el volumen de datos no para de crecer.",
+      "answer": false,
+      "explanation": "El crecimiento se puede cubrir dimensionando el almacenamiento de sobra. Lo difícil es obtener los datos rápido e integrarlos con los que ya tienes.",
+      "source": "SBD UD1, apartado 1.1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q007",
+      "type": "choice",
+      "prompt": "¿Qué estrategias de procesamiento nacen de la gran velocidad a la que llegan datos nuevos?",
+      "options": [
+        "Las de procesamiento por lotes",
+        "Las de carga periódica con ETL",
+        "Las de procesamiento en streaming",
+        "Las de escalado vertical"
+      ],
+      "answer": 2,
+      "explanation": "Si los datos no paran de llegar, hace falta tratarlos al ritmo al que entran, y eso es el streaming. Los lotes van justo al revés: sin prisa.",
+      "source": "SBD UD1, apartado 1.1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q008",
+      "type": "match",
+      "prompt": "Relaciona cada tipo de dato con su ejemplo.",
+      "pairs": [
+        [
+          "Estructurados",
+          "Filas de una tabla con esquema"
+        ],
+        [
+          "Semiestructurados",
+          "Ficheros CSV, XML o JSON"
+        ],
+        [
+          "No estructurados",
+          "Vídeos, imágenes y audios"
+        ],
+        [
+          "Metadatos",
+          "Autor, fecha de creación o resolución"
+        ]
+      ],
+      "explanation": "Los estructurados siguen un esquema de tabla y los semiestructurados tienen formato pero no son relacionales. Los no estructurados no siguen esquema, y los metadatos describen a los propios datos.",
+      "source": "SBD UD1, apartado 1.1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q009",
+      "type": "choice",
+      "prompt": "Guardas las grabaciones de las cámaras de seguridad de un almacén. ¿Qué tipo de datos son?",
+      "options": [
+        "Estructurados",
+        "No estructurados",
+        "Semiestructurados",
+        "Metadatos"
+      ],
+      "answer": 1,
+      "explanation": "El vídeo no se rige por ningún esquema, así que es no estructurado. La resolución o la duración de cada grabación sí serían metadatos.",
+      "source": "SBD UD1, apartado 1.1.3",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q010",
+      "type": "choice",
+      "prompt": "En el contexto de la veracidad, ¿qué es el ruido?",
+      "options": [
+        "Datos que llegan con retraso al sistema",
+        "Datos que no siguen ningún esquema",
+        "Datos duplicados en varios nodos",
+        "Datos que no pueden convertirse en información"
+      ],
+      "answer": 3,
+      "explanation": "El ruido son datos que no contienen información o la tienen corrupta e irrecuperable. Lo contrario es la señal. Que no sigan un esquema es otra cosa: datos no estructurados.",
+      "source": "SBD UD1, apartado 1.1.4",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q011",
+      "type": "truefalse",
+      "prompt": "Un sensor enterrado mide bien la temperatura del suelo. Si usas esos datos para estudiar la temperatura ambiente, aportan poco valor aunque sean veraces.",
+      "answer": true,
+      "explanation": "El dato es fiel a la realidad, pero se está interpretando mal. Una interpretación errónea reduce el valor aunque la veracidad sea buena.",
+      "source": "SBD UD1, apartado 1.1.5",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q012",
+      "type": "choice",
+      "prompt": "Recibes pedidos con datos correctos, pero a muchos les falta la dirección de entrega. ¿Qué factor del valor falla?",
+      "options": [
+        "La completitud",
+        "La veracidad",
+        "La interpretación",
+        "El tiempo"
+      ],
+      "answer": 0,
+      "explanation": "Veraz significa que lo que llega es correcto; completo, que llega todo lo que necesitas. Aquí lo que hay es correcto, pero falta información.",
+      "source": "SBD UD1, apartado 1.1.5",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q013",
+      "type": "order",
+      "prompt": "Ordena los niveles por los que pasan los datos hasta aportar valor.",
+      "steps": [
+        "Eventos",
+        "Datos",
+        "Información",
+        "Conocimiento",
+        "Sabiduría",
+        "Valor"
+      ],
+      "explanation": "Los eventos se registran como datos, que con contexto son información. Al darle significado obtienes conocimiento, al saber usarlo, sabiduría, y al actuar con ella, valor.",
+      "source": "SBD UD1, apartado 1.2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q014",
+      "type": "choice",
+      "prompt": "Juntas en una misma tabla todos los registros de pagos con tarjeta de tus clientes. ¿A qué nivel has llegado?",
+      "options": [
+        "Datos",
+        "Conocimiento",
+        "Información",
+        "Sabiduría"
+      ],
+      "answer": 2,
+      "explanation": "Has dado contexto a los datos organizándolos de forma lógica, y eso es información. Para llegar a conocimiento tendrías que darle significado, por ejemplo con un modelo.",
+      "source": "SBD UD1, apartado 1.2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q015",
+      "type": "choice",
+      "prompt": "¿Qué añade la sabiduría al conocimiento?",
+      "options": [
+        "El contexto que organiza los datos de forma lógica",
+        "El entendimiento necesario para saber emplear los modelos",
+        "El registro de los eventos en ficheros o tablas",
+        "Las acciones concretas que se toman con los datos"
+      ],
+      "answer": 1,
+      "explanation": "El conocimiento son modelos predictivos; la sabiduría suma el saber cómo usarlos. El contexto es lo que convierte datos en información, y las acciones son las que generan el valor.",
+      "source": "SBD UD1, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q016",
+      "type": "truefalse",
+      "prompt": "La sabiduría genera por sí misma el valor, sin necesidad de tomar ninguna acción.",
+      "answer": false,
+      "explanation": "La sabiduría sola no genera ninguna acción. El valor aparece cuando actúas basándote en ella y el resultado mejora respecto a no usar los datos.",
+      "source": "SBD UD1, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q017",
+      "type": "choice",
+      "prompt": "¿Qué es el valor añadido que se consigue con los datos?",
+      "options": [
+        "La mejora de rendimiento que da añadir nodos a un clúster",
+        "El precio al que se puede vender un dataset a otra empresa",
+        "La cantidad de datos nuevos que se generan cada minuto",
+        "La diferencia entre decidir con la sabiduría de los datos y decidir sin ellos"
+      ],
+      "answer": 3,
+      "explanation": "Se compara el resultado de actuar según la sabiduría de los datos con el que tendrías sin tenerlos en cuenta. Esa diferencia es el valor añadido.",
+      "source": "SBD UD1, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q018",
+      "type": "match",
+      "prompt": "Relaciona cada concepto con su descripción.",
+      "pairs": [
+        [
+          "Minería de datos",
+          "Rama de la IA que usa aprendizaje automático"
+        ],
+        [
+          "Ciencia de datos",
+          "Minería de datos en entornos Big Data"
+        ],
+        [
+          "Conocimiento",
+          "Modelos que representan la realidad"
+        ],
+        [
+          "Información",
+          "Datos con contexto y organizados"
+        ]
+      ],
+      "explanation": "Minería y ciencia de datos son casi lo mismo; la segunda pone el énfasis en Big Data. Información y conocimiento son dos niveles del camino de los eventos al valor.",
+      "source": "SBD UD1, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q019",
+      "type": "truefalse",
+      "prompt": "Almacenar los datos de forma distribuida y replicada permite conseguir altos valores de disponibilidad.",
+      "answer": true,
+      "explanation": "Si los datos están repartidos y copiados en varias máquinas, siguen accesibles aunque alguna falle. Es una de las operaciones que permite Big Data.",
+      "source": "SBD UD1, apartado 1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q020",
+      "type": "choice",
+      "prompt": "¿Cuál de estos es uno de los beneficios de Big Data que recogen los apuntes?",
+      "options": [
+        "Detectar casos de fraude e impagos",
+        "Sustituir a los médicos en el diagnóstico",
+        "Garantizar que todos los datos son veraces",
+        "Evitar el uso de bases de datos relacionales"
+      ],
+      "answer": 0,
+      "explanation": "Detectar fraude e impagos está en la lista de beneficios. En medicina, los apuntes hablan de ayudar a los médicos, no de sustituirlos.",
+      "source": "SBD UD1, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q021",
+      "type": "order",
+      "prompt": "Ordena estas operaciones que permite Big Data, desde que aparece el dato hasta que se usa.",
+      "steps": [
+        "Capturar los datos desde sus orígenes",
+        "Integrarlos para almacenarlos de modo unificado",
+        "Almacenarlos de forma distribuida y replicada",
+        "Aplicar minería de datos para crear modelos",
+        "Usar los modelos para hacer predicciones"
+      ],
+      "explanation": "Primero se captura e integra el dato y luego se guarda. Con los datos almacenados se crean modelos, y solo después se pueden usar para predecir.",
+      "source": "SBD UD1, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q022",
+      "type": "choice",
+      "prompt": "¿Qué es el commodity hardware?",
+      "options": [
+        "Servidores de un único fabricante",
+        "Computadoras especializadas muy caras",
+        "Computadoras de uso común",
+        "Procesadores diseñados solo para clústeres"
+      ],
+      "answer": 2,
+      "explanation": "Los clústeres se hacían antes con equipos especializados y caros. Al mejorar las prestaciones, aparecieron plataformas que usan computadoras de uso común.",
+      "source": "SBD UD1, apartado 2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q023",
+      "type": "choice",
+      "prompt": "¿Qué dice la Ley de Moore?",
+      "options": [
+        "Que cada año se duplica la velocidad de las redes de comunicaciones",
+        "Que cada 2 años, más o menos, se duplican los transistores de los procesadores",
+        "Que cada 2 años, más o menos, se duplica la capacidad de los discos",
+        "Que cada 5 años, más o menos, se duplica la memoria RAM de los equipos"
+      ],
+      "answer": 1,
+      "explanation": "La ley habla del número de transistores en los nuevos procesadores, que se duplica cada unos 2 años. Eso explica por qué el hardware común se volvió suficiente para montar clústeres.",
+      "source": "SBD UD1, apartado 2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q024",
+      "type": "match",
+      "prompt": "Relaciona cada ventaja de un clúster con lo que aporta.",
+      "pairs": [
+        [
+          "Alto rendimiento",
+          "Divide las cargas en subtareas entre nodos"
+        ],
+        [
+          "Alta disponibilidad",
+          "Sigue dando servicio aunque caiga un nodo"
+        ],
+        [
+          "Equilibrado de carga",
+          "Reparte el trabajo para evitar cuellos de botella"
+        ],
+        [
+          "Escalabilidad",
+          "Amplía la potencia añadiendo nodos"
+        ]
+      ],
+      "explanation": "Cada ventaja responde a un problema distinto: velocidad, caídas, sobrecarga y crecimiento. Conviene no mezclar disponibilidad (seguir funcionando) con escalabilidad (crecer).",
+      "source": "SBD UD1, apartado 2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q025",
+      "type": "choice",
+      "prompt": "Un nodo se queda sin corriente y otro nodo del clúster responde a las peticiones con una réplica de sus datos. ¿Qué ventaja estás viendo?",
+      "options": [
+        "Alto rendimiento",
+        "Escalabilidad",
+        "Equilibrado de carga",
+        "Alta disponibilidad"
+      ],
+      "answer": 3,
+      "explanation": "La alta disponibilidad consiste en que los servicios y datos sigan accesibles aunque caigan nodos. Responder desde una réplica es una de sus formas.",
+      "source": "SBD UD1, apartado 2",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q026",
+      "type": "choice",
+      "prompt": "¿En qué se fija el equilibrado de carga para decidir a qué nodo enviar un trabajo?",
+      "options": [
+        "En el estado de carga de cada nodo",
+        "En la distancia física entre los nodos",
+        "En la antigüedad de cada nodo",
+        "En el sistema operativo de cada nodo"
+      ],
+      "answer": 0,
+      "explanation": "Los apuntes citan tres criterios: el tamaño del trabajo, el estado de carga de cada nodo y su potencia de procesamiento. La distancia afecta a la comunicación, pero no es un criterio del balanceo.",
+      "source": "SBD UD1, apartado 2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q027",
+      "type": "choice",
+      "prompt": "¿Qué provoca un cuello de botella en un clúster?",
+      "options": [
+        "Guardar réplicas de los datos en varios nodos",
+        "Añadir nodos nuevos mientras el clúster trabaja",
+        "Enviar trabajos a nodos que ya están sobrecargados",
+        "Montar el clúster con computadoras de uso común"
+      ],
+      "answer": 2,
+      "explanation": "Si mandas trabajo a nodos saturados, la latencia media sube. El equilibrado de carga existe precisamente para evitarlo.",
+      "source": "SBD UD1, apartado 2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q028",
+      "type": "truefalse",
+      "prompt": "El escalado vertical es el que, en la práctica, permite conseguir escalabilidad en un clúster.",
+      "answer": false,
+      "explanation": "El vertical mejora el hardware de una sola máquina y choca con lo mejor que haya en el mercado. La escalabilidad real llega con el horizontal, añadiendo nodos.",
+      "source": "SBD UD1, apartado 2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q029",
+      "type": "choice",
+      "prompt": "Cambias la memoria de un servidor por otra de más capacidad. ¿Qué tipo de escalado es?",
+      "options": [
+        "Escalado horizontal",
+        "Escalado vertical",
+        "Escalado distribuido",
+        "Escalado replicado"
+      ],
+      "answer": 1,
+      "explanation": "Mejorar el procesador, la memoria o el almacenamiento de una máquina es escalado vertical. El horizontal sería añadir otro nodo.",
+      "source": "SBD UD1, apartado 2",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q030",
+      "type": "truefalse",
+      "prompt": "Con un clúster escalable puedes empezar con unos pocos nodos e ir añadiendo más según los necesites.",
+      "answer": true,
+      "explanation": "Como la potencia se amplía añadiendo nodos, no hace falta acertar de antemano con la potencia necesaria.",
+      "source": "SBD UD1, apartado 2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q031",
+      "type": "choice",
+      "prompt": "¿Por qué la escalabilidad es tan deseable en Big Data?",
+      "options": [
+        "Porque hace que cada nodo procese más rápido por sí solo",
+        "Porque garantiza que todas las lecturas muestren siempre la última escritura",
+        "Porque elimina la necesidad de comunicar los nodos a través de la red",
+        "Porque evita estimar a priori la potencia, algo que suele acabar en sobreestimación"
+      ],
+      "answer": 3,
+      "explanation": "Sin escalabilidad tendrías que calcular desde el principio cuánta potencia necesitas y lo normal es pasarse por seguridad. Con ella vas creciendo según haga falta.",
+      "source": "SBD UD1, apartado 2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q032",
+      "type": "choice",
+      "prompt": "¿Qué indica el esquema de una tabla en una base de datos relacional?",
+      "options": [
+        "Qué atributos tienen los registros y de qué tipo son",
+        "En qué servidor se guarda cada fila de la tabla",
+        "Qué índices se crean automáticamente al consultar",
+        "Qué usuarios pueden consultar cada columna"
+      ],
+      "answer": 0,
+      "explanation": "El esquema fija los atributos y su tipo (entero, decimal, texto, fecha). Por eso en una relacional tienes que conocer los tipos antes de guardar nada.",
+      "source": "SBD UD1, apartado 3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q033",
+      "type": "choice",
+      "prompt": "¿Cuál es una de las claves del alto rendimiento de las bases de datos relacionales en las búsquedas?",
+      "options": [
+        "Guardar cada tabla repartida en varios servidores",
+        "No tener que definir los tipos de los datos",
+        "Crear índices sobre las columnas de las tablas",
+        "Guardar los datos denormalizados en cubos"
+      ],
+      "answer": 2,
+      "explanation": "Los índices aceleran la búsqueda en una tabla y el enlace entre tablas relacionadas. Guardar datos denormalizados es propio de OLAP, no de las relacionales.",
+      "source": "SBD UD1, apartado 3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q034",
+      "type": "truefalse",
+      "prompt": "La base de datos relacional es el tipo de base de datos más utilizado en el mundo.",
+      "answer": true,
+      "explanation": "Es la más usada y rinde muy bien en transacciones. Su punto débil es que no escala para Big Data.",
+      "source": "SBD UD1, apartado 3",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q035",
+      "type": "choice",
+      "prompt": "La tabla de envíos de una empresa crece tanto que no cabe ni en el disco más grande del mercado. ¿Qué te dicen los apuntes sobre seguir con una base relacional?",
+      "options": [
+        "Que basta con crear más índices sobre la tabla",
+        "Que sus motores no están pensados para ese caso",
+        "Que hay que pasar la tabla a un sistema OLTP",
+        "Que hay que cambiar SQL por otro lenguaje"
+      ],
+      "answer": 1,
+      "explanation": "Las relacionales no escalan para Big Data porque no están pensadas para tablas que no caben en un servidor. Los índices aceleran búsquedas, pero no resuelven el espacio.",
+      "source": "SBD UD1, apartado 3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q036",
+      "type": "choice",
+      "prompt": "¿Dónde puede estar guardado un dataset?",
+      "options": [
+        "Solo en ficheros JSON o XML con su esquema",
+        "Solo en ficheros de texto plano como CSV",
+        "Solo en tablas de bases de datos relacionales",
+        "En ficheros de texto plano, en tablas o en ficheros multimedia"
+      ],
+      "answer": 3,
+      "explanation": "Un dataset es una colección de datos relacionados y puede estar en cualquiera de esos formatos. Lo que lo define es la relación entre los datos, no cómo se guardan.",
+      "source": "SBD UD1, apartado 3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q037",
+      "type": "truefalse",
+      "prompt": "Un dataset solo puede estar formado por registros de una base de datos relacional.",
+      "answer": false,
+      "explanation": "También son datasets una colección de tweets, de imágenes o las medidas de una estación meteorológica. Y los registros pueden venir de una base relacional o no relacional.",
+      "source": "SBD UD1, apartado 3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q038",
+      "type": "choice",
+      "prompt": "¿Para qué se usa principalmente un almacén de datos?",
+      "options": [
+        "Para inteligencia de negocio y consultas analíticas",
+        "Para las transacciones del día a día",
+        "Para procesar datos en streaming",
+        "Para guardar las copias de seguridad de los nodos"
+      ],
+      "answer": 0,
+      "explanation": "El data warehouse se pensó para BI y analítica. Como guarda una instantánea cargada periódicamente, no se suele usar para transacciones.",
+      "source": "SBD UD1, apartado 3.3",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q039",
+      "type": "choice",
+      "prompt": "¿Cómo llegan normalmente los datos a un almacén de datos?",
+      "options": [
+        "Los introducen a mano los analistas",
+        "Se escriben en tiempo real con cada transacción",
+        "Se cargan periódicamente con procesos ETL",
+        "Llegan por streaming desde los sensores"
+      ],
+      "answer": 2,
+      "explanation": "Los datos se cargan cada cierto tiempo desde sistemas como SCM, ERP o CRM mediante procesos ETL. Por eso el almacén refleja el estado de los datos a una fecha.",
+      "source": "SBD UD1, apartado 3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q040",
+      "type": "match",
+      "prompt": "Relaciona cada término con su descripción.",
+      "pairs": [
+        [
+          "Data warehouse",
+          "Repositorio central con datos actuales e históricos"
+        ],
+        [
+          "ETL",
+          "Proceso que carga los datos desde sus fuentes"
+        ],
+        [
+          "SCM, ERP o CRM",
+          "Sistemas de los que salen los datos del almacén"
+        ],
+        [
+          "OLAP",
+          "Subsistema para consultas analíticas"
+        ],
+        [
+          "Dataset",
+          "Colección de datos relacionados entre sí"
+        ]
+      ],
+      "explanation": "El almacén se alimenta de sistemas como SCM, ERP o CRM mediante ETL y suele incluir OLAP para la analítica. Un dataset es un concepto más general: cualquier colección de datos con relación.",
+      "source": "SBD UD1, apartados 3.2 y 3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q041",
+      "type": "truefalse",
+      "prompt": "Un almacén de datos guarda por lo general una instantánea del estado de los datos a cierta fecha, y por eso no se suele usar para transacciones.",
+      "answer": true,
+      "explanation": "La carga es periódica, así que lo que hay dentro es una foto en un momento dado. Su función es la inteligencia de negocio y la analítica.",
+      "source": "SBD UD1, apartado 3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q042",
+      "type": "match",
+      "prompt": "Relaciona cada propiedad ACID con lo que asegura.",
+      "pairs": [
+        [
+          "Atomicidad",
+          "La operación tiene éxito o falla por completo"
+        ],
+        [
+          "Consistencia",
+          "Se comprueban esquemas y restricciones antes de escribir"
+        ],
+        [
+          "Aislamiento",
+          "Nadie ve los resultados de una transacción a medias"
+        ],
+        [
+          "Durabilidad",
+          "Lo escrito no se pierde si se apaga la máquina"
+        ]
+      ],
+      "explanation": "Cada letra de ACID es una garantía distinta. La que más se confunde es la consistencia, que aquí significa cumplir esquemas y restricciones.",
+      "source": "SBD UD1, apartado 3.4",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q043",
+      "type": "choice",
+      "prompt": "Una transacción inserta dos registros. El primero se inserta bien, pero el segundo no cumple el esquema. Por la atomicidad, ¿qué pasa con el primero?",
+      "options": [
+        "Se guarda y el segundo se reintenta después",
+        "No se consolida y la base queda como estaba",
+        "Se guarda marcado como pendiente de revisar",
+        "Se queda en memoria hasta que se corrija el segundo"
+      ],
+      "answer": 1,
+      "explanation": "La atomicidad es todo o nada. Si una parte falla, el motor deja la base exactamente como estaba antes de empezar.",
+      "source": "SBD UD1, apartado 3.4",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q044",
+      "type": "choice",
+      "prompt": "Mientras una transacción inserta dos registros, otro usuario consulta la tabla. Por el aislamiento, ¿qué puede ver?",
+      "options": [
+        "Solo el primero, si ya se ha insertado",
+        "El segundo, pero no el primero",
+        "Los registros en el orden en que llegan",
+        "Los dos registros o ninguno"
+      ],
+      "answer": 3,
+      "explanation": "Los resultados de una transacción no son visibles hasta que se completa. Verás los dos si ya terminó o ninguno si aún no ha acabado, nunca solo uno.",
+      "source": "SBD UD1, apartado 3.4",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q045",
+      "type": "choice",
+      "prompt": "¿Por qué la durabilidad limita la velocidad de las bases de datos ACID?",
+      "options": [
+        "Porque el almacenamiento no volátil es unas 100 veces más lento que la memoria",
+        "Porque obliga a bloquear tablas completas en cada lectura que se hace",
+        "Porque obliga a replicar cada escritura en todos los nodos del clúster",
+        "Porque obliga a comprobar el esquema completo antes de cada escritura"
+      ],
+      "answer": 0,
+      "explanation": "Para que lo escrito no se pierda hay que persistirlo en almacenamiento no volátil, que es unos dos órdenes de magnitud más lento que la memoria. Comprobar el esquema es cosa de la consistencia.",
+      "source": "SBD UD1, apartado 3.4",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q046",
+      "type": "choice",
+      "prompt": "Según el teorema CAP, ¿cuántas de sus propiedades puede cumplir a la vez una base de datos distribuida?",
+      "options": [
+        "Solo 1 de las 3",
+        "Las 3, si la red es rápida",
+        "Como máximo 2 de las 3",
+        "Las 3, si hay réplicas"
+      ],
+      "answer": 2,
+      "explanation": "Nunca se cumple C+A+P. Hay que escoger entre C+A, C+P o A+P, decidiendo primero a qué propiedad se renuncia.",
+      "source": "SBD UD1, apartado 3.5",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q047",
+      "type": "truefalse",
+      "prompt": "En el teorema CAP, la consistencia permite devolver un error, pero nunca un estado desfasado.",
+      "answer": true,
+      "explanation": "Una lectura consistente muestra el estado tras la última escritura o, si no puede, un error. Lo que no puede hacer es devolver datos viejos.",
+      "source": "SBD UD1, apartado 3.5",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q048",
+      "type": "choice",
+      "prompt": "Se corta la red entre dos nodos y tu base de datos sigue respondiendo sin error, aunque un nodo no tenga la última escritura. ¿Qué combinación CAP has elegido?",
+      "options": [
+        "C+A",
+        "A+P",
+        "C+P",
+        "C+A+P"
+      ],
+      "answer": 1,
+      "explanation": "Sigue funcionando con la red partida (P) y responde sin error (A), a costa de lecturas que no reflejan la última escritura. Has renunciado a la consistencia.",
+      "source": "SBD UD1, apartado 3.5",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q049",
+      "type": "choice",
+      "prompt": "Si exiges consistencia y tolerancia al particionamiento (C+P), ¿qué pierdes?",
+      "options": [
+        "La atomicidad",
+        "La consistencia",
+        "La durabilidad",
+        "La disponibilidad"
+      ],
+      "answer": 3,
+      "explanation": "Durante el particionamiento los nodos no pueden seguir disponibles hasta que vuelva a haber un estado consistente. Durabilidad y atomicidad son de ACID, no de CAP.",
+      "source": "SBD UD1, apartado 3.5",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q050",
+      "type": "choice",
+      "prompt": "Desde el punto de vista del teorema CAP, ¿qué combinación sigue una base de datos BASE?",
+      "options": [
+        "A+P",
+        "C+P",
+        "C+A",
+        "C+A+P"
+      ],
+      "answer": 0,
+      "explanation": "BASE prefiere la disponibilidad antes que la consistencia y sigue respondiendo aunque haya particionamiento. Por eso es A+P.",
+      "source": "SBD UD1, apartado 3.6",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q051",
+      "type": "truefalse",
+      "prompt": "Por el estado blando, dos lecturas iguales seguidas pueden dar resultados distintos aunque no haya ninguna escritura entre ellas.",
+      "answer": true,
+      "explanation": "Puede haber escrituras que aún no se han consolidado en el nodo que lees. Por eso solo hay cierta probabilidad de ver el estado final.",
+      "source": "SBD UD1, apartado 3.6",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q052",
+      "type": "choice",
+      "prompt": "En una base de datos BASE, ¿cuándo se alcanza la consistencia tras una escritura?",
+      "options": [
+        "Cuando el motor bloquea la tabla afectada",
+        "En cuanto el cambio llega al primer nodo",
+        "Cuando el cambio se ha propagado a todos los nodos",
+        "Cuando el usuario repite la misma lectura"
+      ],
+      "answer": 2,
+      "explanation": "Por eso se llama consistencia eventual: llega cuando el cambio está en todos los nodos. Mientras tanto se ve un estado blando. Bloquear tablas es propio de ACID.",
+      "source": "SBD UD1, apartado 3.6",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q053",
+      "type": "order",
+      "prompt": "Ordena lo que pasa en una base de datos BASE tras una escritura.",
+      "steps": [
+        "Se produce una escritura en la base de datos",
+        "El cambio se propaga y hay estado blando",
+        "El cambio está en todos los nodos y hay consistencia"
+      ],
+      "explanation": "Tras cada escritura, el cambio tarda en llegar a todos los nodos y mientras tanto la base está en estado blando. La consistencia solo llega cuando el cambio se ha propagado a todos.",
+      "source": "SBD UD1, apartado 3.6",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q054",
+      "type": "truefalse",
+      "prompt": "Gracias a sus dos procesadores, la Sega Saturn conseguía el doble de rendimiento que con uno solo.",
+      "answer": false,
+      "explanation": "No había balanceo de carga perfecto, un procesador esperaba a menudo al otro y la comunicación añadía sobrecarga. El rendimiento quedaba lejos del doble.",
+      "source": "SBD UD1, apartado 4",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q055",
+      "type": "choice",
+      "prompt": "¿Qué es un procesador multinúcleo?",
+      "options": [
+        "Una CPU que atiende dos hilos de ejecución a la vez",
+        "Un procesador con varios núcleos, cada uno con una CPU completa",
+        "Una placa base con zócalos para varios procesadores",
+        "Un sistema operativo que reparte el tiempo entre procesos"
+      ],
+      "answer": 1,
+      "explanation": "Cada núcleo es una CPU completa. Atender dos hilos en una misma CPU es multihilo, y la placa con varios zócalos es una placa multiprocesador.",
+      "source": "SBD UD1, apartado 4.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q056",
+      "type": "choice",
+      "prompt": "¿Por qué un procesador «de 2 núcleos y 4 hilos» no equivale a uno de 4 núcleos físicos?",
+      "options": [
+        "Porque los hilos no pueden hacer operaciones como multiplicar dos valores",
+        "Porque los hilos solo funcionan con sistemas operativos que no son multitarea",
+        "Porque cada hilo tiene su propia CPU completa, pero funciona más despacio",
+        "Porque los hilos de un núcleo comparten recursos y a veces uno espera al otro"
+      ],
+      "answer": 3,
+      "explanation": "En multihilo el segundo hilo aprovecha los recursos que el primero no usa. Si ambos necesitan el mismo recurso, uno queda parado esperando.",
+      "source": "SBD UD1, apartado 4.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q057",
+      "type": "order",
+      "prompt": "Ordena estos avances según fueron apareciendo.",
+      "steps": [
+        "Sistemas operativos multitarea",
+        "Placas base multiprocesador",
+        "Procesadores multihilo",
+        "Procesadores multinúcleo"
+      ],
+      "explanation": "La multitarea existía antes que el hardware paralelo, repartiendo el tiempo entre procesos. Después llegaron las placas multiprocesador, luego los procesadores multihilo y algo más tarde los multinúcleo.",
+      "source": "SBD UD1, apartado 4.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q058",
+      "type": "truefalse",
+      "prompt": "Sumar mil billones de números es una tarea paralelizable: cada núcleo suma un paquete y otro proceso suma los resultados parciales.",
+      "answer": true,
+      "explanation": "Cada paquete se puede sumar sin depender de los demás. Solo al final hace falta juntar los resultados parciales.",
+      "source": "SBD UD1, apartado 4.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q059",
+      "type": "truefalse",
+      "prompt": "Si cada paso de una tarea necesita el resultado del paso anterior, repartirla en bloques entre varios núcleos la acelera mucho.",
+      "answer": false,
+      "explanation": "Cada bloque tendría que esperar a que terminase el anterior, así que no hay un modo eficiente de repartirla. No todas las tareas se pueden paralelizar.",
+      "source": "SBD UD1, apartado 4.1",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q060",
+      "type": "choice",
+      "prompt": "¿Qué distingue el procesamiento distribuido del procesamiento en paralelo?",
+      "options": [
+        "Que el trabajo se reparte entre varias máquinas conectadas por red",
+        "Que cada máquina usa un único núcleo de su procesador",
+        "Que los procesos no necesitan comunicarse entre sí",
+        "Que el desarrollador reparte el trabajo a mano en cada nodo"
+      ],
+      "answer": 0,
+      "explanation": "En paralelo los procesos están en el mismo procesador; en distribuido, en distintas máquinas de un clúster. Además cada máquina suele ser multinúcleo, así que se combinan los dos niveles.",
+      "source": "SBD UD1, apartado 4.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q061",
+      "type": "truefalse",
+      "prompt": "En un clúster, el desarrollador tiene que decidir a mano cómo repartir el trabajo entre los nodos y los núcleos de cada uno.",
+      "answer": false,
+      "explanation": "Los frameworks de Big Data gestionan ese doble nivel de paralelismo de forma automática y transparente para el desarrollador.",
+      "source": "SBD UD1, apartado 4.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q062",
+      "type": "order",
+      "prompt": "Ordena estos tipos de comunicación entre procesos de la más rápida a la más lenta.",
+      "steps": [
+        "Dentro de la misma máquina",
+        "Entre dos máquinas del mismo switch",
+        "Entre máquinas separadas por varios switches",
+        "Fuera del CPD"
+      ],
+      "explanation": "Dentro de una máquina no se usa la red. Entre máquinas, cuantos más saltos entre switches, más lenta, y salir del CPD es lo más lento de todo.",
+      "source": "SBD UD1, apartado 4.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q063",
+      "type": "choice",
+      "prompt": "Dos nodos del mismo rack intercambian resultados parciales. ¿Por qué suele ser la comunicación más rápida posible entre dos máquinas?",
+      "options": [
+        "Porque los servidores de un rack suelen ir al mismo switch",
+        "Porque no necesitan pasar por su interfaz de red",
+        "Porque comparten la misma memoria RAM del rack",
+        "Porque los datos salen y vuelven a entrar en el CPD"
+      ],
+      "answer": 0,
+      "explanation": "Los servidores de un mismo rack suelen estar conectados al mismo switch, y entre máquinas ese es el caso con menos saltos. Aun así, sigue siendo varios órdenes de magnitud más lenta que dentro de una misma máquina, donde no se usa la red.",
+      "source": "SBD UD1, apartado 4.2",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q064",
+      "type": "choice",
+      "prompt": "¿Para qué conoce el software del clúster la jerarquía de switches del CPD?",
+      "options": [
+        "Para cifrar la información que viaja entre los racks",
+        "Para colocar datos y procesado con el menor número de saltos",
+        "Para repartir la alimentación eléctrica entre los racks",
+        "Para decidir qué nodo hace las copias de seguridad"
+      ],
+      "answer": 1,
+      "explanation": "Sabiendo cómo están conectados los racks, puede decidir dónde poner los datos y dónde procesarlos para que la información salte lo menos posible entre switches.",
+      "source": "SBD UD1, apartado 4.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q065",
+      "type": "match",
+      "prompt": "Relaciona cada estrategia de procesamiento con su rasgo principal.",
+      "pairs": [
+        [
+          "Por lotes",
+          "Puede tardar horas o incluso días"
+        ],
+        [
+          "Transaccional",
+          "Respuesta obligatoria por debajo de 1 segundo"
+        ],
+        [
+          "Tiempo real",
+          "Analítica interactiva con respuesta corta"
+        ],
+        [
+          "Streaming",
+          "Procesa al ritmo del flujo de entrada"
+        ]
+      ],
+      "explanation": "Por lotes no tiene prisa y transaccional tiene un límite estricto. Tiempo real y streaming responden rápido, pero el streaming además va al ritmo al que entran los datos.",
+      "source": "SBD UD1, apartado 4.3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q066",
+      "type": "choice",
+      "prompt": "Cada noche se analiza todo el histórico de ventas y el informe está listo a la mañana siguiente. ¿Qué estrategia de procesamiento es?",
+      "options": [
+        "Streaming",
+        "Transaccional",
+        "Tiempo real",
+        "Por lotes"
+      ],
+      "answer": 3,
+      "explanation": "Es analítica con gran cantidad de datos y sin necesidad de respuesta inmediata: puede tardar horas. Eso es procesamiento por lotes.",
+      "source": "SBD UD1, apartado 4.3",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q067",
+      "type": "choice",
+      "prompt": "Una tienda online tiene que registrar cada compra y confirmarla al cliente en menos de un segundo. ¿Qué estrategia de procesamiento es?",
+      "options": [
+        "Transaccional",
+        "Por lotes",
+        "Tiempo real",
+        "Streaming"
+      ],
+      "answer": 0,
+      "explanation": "Es una transacción con un tiempo de respuesta muy corto y obligatorio. Es cierto que ocurre en tiempo real, pero lo que la define es que hay una transacción.",
+      "source": "SBD UD1, apartado 4.3",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q068",
+      "type": "truefalse",
+      "prompt": "Un análisis de datos hecho en tiempo real también es un procesamiento transaccional.",
+      "answer": false,
+      "explanation": "Lo transaccional sí ocurre en tiempo real, pero al revés no vale. Analizar datos no implica ninguna transacción.",
+      "source": "SBD UD1, apartado 4.3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q069",
+      "type": "choice",
+      "prompt": "¿Por qué el procesamiento en streaming tiene un tope en la cantidad de datos que trata a la vez?",
+      "options": [
+        "Porque cada lote debe terminar en menos de un segundo",
+        "Porque solo puede trabajar sobre bases de datos relacionales",
+        "Porque sus estructuras se actualizan en memoria según llegan datos",
+        "Porque solo puede procesar datos estructurados"
+      ],
+      "answer": 2,
+      "explanation": "Las estructuras de la analítica se actualizan con cada dato nuevo, así que tienen que estar en memoria. La memoria es limitada y de ahí sale el tope.",
+      "source": "SBD UD1, apartado 4.3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q070",
+      "type": "choice",
+      "prompt": "¿Qué tipo de operaciones hace un sistema OLTP?",
+      "options": [
+        "Consultas analíticas sobre cubos multidimensionales",
+        "Insertar, seleccionar, actualizar y eliminar, sin analítica",
+        "Cargas periódicas desde otras fuentes con ETL",
+        "Muestreos de datos para responder antes"
+      ],
+      "answer": 1,
+      "explanation": "OLTP solo hace acciones sencillas sobre datos operacionales, y por eso responde en menos de un segundo. Los cubos multidimensionales son de OLAP.",
+      "source": "SBD UD1, apartado 4.4",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q071",
+      "type": "choice",
+      "prompt": "¿Cómo guarda OLAP los datos para responder en muy poco tiempo a consultas complejas?",
+      "options": [
+        "En bases relacionales con bloqueo de registros",
+        "Normalizados, en muchas tablas relacionadas",
+        "En ficheros de texto plano sin ningún esquema",
+        "Denormalizados, en bases de datos multidimensionales"
+      ],
+      "answer": 3,
+      "explanation": "Los cubos OLAP juntan los datos en lugar de repartirlos en varias tablas. Así una consulta que en relacional tocaría muchas tablas se resuelve muy rápido.",
+      "source": "SBD UD1, apartado 4.5",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q072",
+      "type": "truefalse",
+      "prompt": "Los sistemas OLAP solo se usan para análisis de tipo descriptivo.",
+      "answer": false,
+      "explanation": "OLAP se usa en todos los niveles de la analítica, desde el descriptivo hasta el prescriptivo. Es parte de la inteligencia de negocio y de la minería de datos.",
+      "source": "SBD UD1, apartado 4.5",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q073",
+      "type": "choice",
+      "prompt": "¿De qué trata el principio SCV?",
+      "options": [
+        "Del procesamiento distribuido",
+        "Del almacenamiento distribuido",
+        "De las transacciones en bases relacionales",
+        "De la seguridad de los datos"
+      ],
+      "answer": 0,
+      "explanation": "SCV habla de lo que puede conseguir un sistema de procesamiento distribuido. El almacenamiento distribuido es terreno del teorema CAP.",
+      "source": "SBD UD1, apartado 4.6",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q074",
+      "type": "choice",
+      "prompt": "¿Qué significa la C en el principio SCV?",
+      "options": [
+        "Que los datos cumplen esquemas y restricciones",
+        "Que toda lectura muestra la última escritura",
+        "La precisión de los resultados de la analítica",
+        "Que los datos llegan al ritmo del flujo de entrada"
+      ],
+      "answer": 2,
+      "explanation": "En SCV la consistencia es la precisión: alta si usas todos los datos y menor si muestreas. La última escritura es la C de CAP y los esquemas, la C de ACID.",
+      "source": "SBD UD1, apartado 4.6",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q075",
+      "type": "choice",
+      "prompt": "Necesitas resultados rápidos sobre un volumen enorme de datos, así que analizas solo una muestra. Según SCV, ¿a qué renuncias?",
+      "options": [
+        "A la velocidad",
+        "A la consistencia",
+        "Al volumen",
+        "A la disponibilidad"
+      ],
+      "answer": 1,
+      "explanation": "Has elegido volumen y velocidad (V+S). Para conseguirlo muestreas un subconjunto, y el resultado ya no es consistente. La disponibilidad es de CAP, no de SCV.",
+      "source": "SBD UD1, apartado 4.6",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q076",
+      "type": "truefalse",
+      "prompt": "Procesar por lotes todo un conjunto enorme de datos es una elección C+V: renuncias a la velocidad.",
+      "answer": true,
+      "explanation": "Con mucho volumen y precisión total no se puede ir a alta velocidad. Los lotes aceptan tardar horas o días a cambio de usar todos los datos.",
+      "source": "SBD UD1, apartado 4.6",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q077",
+      "type": "order",
+      "prompt": "Ordena las capas por las que pasan los datos en la arquitectura de Big Data.",
+      "steps": [
+        "Ingestión",
+        "Colección",
+        "Almacenamiento",
+        "Procesamiento",
+        "Consulta y analítica",
+        "Visualización"
+      ],
+      "explanation": "Primero se obtienen los datos, se integran y se guardan. Luego el procesamiento da soporte a la analítica, y el resultado llega al usuario en la visualización.",
+      "source": "SBD UD1, apartado 5",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q078",
+      "type": "choice",
+      "prompt": "¿En qué capa se empieza a obtener valor del dato?",
+      "options": [
+        "Procesamiento",
+        "Almacenamiento",
+        "Colección",
+        "Consulta y analítica"
+      ],
+      "answer": 3,
+      "explanation": "En consulta y analítica se aplica estadística, algoritmia o análisis. El procesamiento solo da la infraestructura y hace lo que le pide la capa superior.",
+      "source": "SBD UD1, apartado 5",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q079",
+      "type": "truefalse",
+      "prompt": "En la capa de ingestión, las fuentes de datos se adaptan al protocolo del sistema Big Data.",
+      "answer": false,
+      "explanation": "La mayoría de las fuentes existían antes que el sistema, así que es el sistema el que se adapta: usa el protocolo de cada fuente e interpreta sus datos.",
+      "source": "SBD UD1, apartado 5",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q080",
+      "type": "choice",
+      "prompt": "Recibes datos de sensores en JSON, de un ERP en tablas y de una web en XML, y los conviertes en un único conjunto coherente. ¿Qué capa está trabajando?",
+      "options": [
+        "Colección",
+        "Ingestión",
+        "Almacenamiento",
+        "Procesamiento"
+      ],
+      "answer": 0,
+      "explanation": "La colección integra fuentes y formatos distintos en un único conjunto con sentido. La ingestión es el paso anterior: obtener los datos de cada fuente.",
+      "source": "SBD UD1, apartado 5",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q081",
+      "type": "choice",
+      "prompt": "¿Qué capas son transversales en la arquitectura de Big Data?",
+      "options": [
+        "Almacenamiento y procesamiento",
+        "Ingestión y colección",
+        "Seguridad y monitorización",
+        "Consulta y visualización"
+      ],
+      "answer": 2,
+      "explanation": "Seguridad y monitorización acompañan a todas las demás capas. Las otras forman el recorrido de los datos de principio a fin.",
+      "source": "SBD UD1, apartado 5",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q082",
+      "type": "truefalse",
+      "prompt": "La capa de procesamiento obtiene valor del dato por sí misma, sin depender de otras capas.",
+      "answer": false,
+      "explanation": "El procesamiento da infraestructura y solo hace lo que le pide la capa de consulta y analítica. El valor empieza a obtenerse en esa capa superior.",
+      "source": "SBD UD1, apartado 5",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q083",
+      "type": "match",
+      "prompt": "Relaciona cada capa con su función.",
+      "pairs": [
+        [
+          "Almacenamiento",
+          "Guarda los datos en sistemas distribuidos"
+        ],
+        [
+          "Procesamiento",
+          "Da infraestructura para tratar muchos datos"
+        ],
+        [
+          "Visualización",
+          "Reportes y cuadros de mando para el usuario final"
+        ],
+        [
+          "Monitorización",
+          "Auditoría y control para que los datos sean correctos"
+        ]
+      ],
+      "explanation": "Cada capa tiene un papel concreto en el recorrido del dato. La monitorización es transversal y forma parte de la gobernanza de datos.",
+      "source": "SBD UD1, apartado 5",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q084",
+      "type": "choice",
+      "prompt": "La monitorización de los datos es una parte importante de…",
+      "options": [
+        "La capa de colección",
+        "La gobernanza de datos",
+        "El teorema CAP",
+        "La minería de datos"
+      ],
+      "answer": 1,
+      "explanation": "Auditar, testear, gestionar y controlar los datos para que sean correctos y frescos forma parte de los mecanismos de gobernanza de datos.",
+      "source": "SBD UD1, apartado 5",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q085",
+      "type": "choice",
+      "prompt": "Una directora abre un cuadro de mando interactivo para decidir dónde abrir una nueva tienda. ¿Con qué capa está interactuando?",
+      "options": [
+        "Colección",
+        "Consulta y analítica",
+        "Procesamiento",
+        "Visualización"
+      ],
+      "answer": 3,
+      "explanation": "El usuario final trabaja con la capa de visualización, con reportes o cuadros de mando. Desde ahí se suelen tomar las decisiones de negocio.",
+      "source": "SBD UD1, apartado 5",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q086",
+      "type": "truefalse",
+      "prompt": "La capa de seguridad protege los datos solo frente a ataques que vienen de fuera de la empresa.",
+      "answer": false,
+      "explanation": "Protege ante ataques o uso malintencionado tanto desde dentro como desde fuera de la organización, con métodos físicos y de software.",
+      "source": "SBD UD1, apartado 5",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q087",
+      "type": "choice",
+      "prompt": "¿A qué tipo de trabajo está enfocada Hadoop?",
+      "options": [
+        "Al trabajo por lotes",
+        "Al procesamiento en streaming",
+        "A las transacciones",
+        "A la visualización"
+      ],
+      "answer": 0,
+      "explanation": "Hadoop es la plataforma pionera de Big Data y está pensada para lotes. El tiempo real y el streaming son el terreno de Spark.",
+      "source": "SBD UD1, apartado 6",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q088",
+      "type": "choice",
+      "prompt": "¿A qué está enfocada Spark?",
+      "options": [
+        "Al almacenamiento en bases de datos NoSQL",
+        "Solo al trabajo por lotes, como Hadoop",
+        "Al procesamiento en tiempo real y/o streaming",
+        "A crear cuadros de mando para el usuario"
+      ],
+      "answer": 2,
+      "explanation": "Spark se enfoca a tiempo real y streaming e interactúa con muchas herramientas del ecosistema Hadoop. Los cuadros de mando son cosa de herramientas como Power BI o Tableau.",
+      "source": "SBD UD1, apartado 6",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q089",
+      "type": "match",
+      "prompt": "Relaciona cada herramienta del caso práctico con su función.",
+      "pairs": [
+        [
+          "Flume o Sqoop",
+          "Adquirir datos desde las fuentes"
+        ],
+        [
+          "Pig o Hive",
+          "Consultar los datos cargados en HDFS"
+        ],
+        [
+          "H2O",
+          "Aprendizaje automático"
+        ],
+        [
+          "Power BI o Tableau",
+          "Visualización"
+        ]
+      ],
+      "explanation": "En el caso práctico, Hadoop es la plataforma y cada herramienta cubre una fase. Spark se reserva para el análisis.",
+      "source": "SBD UD1, apartado 6",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q090",
+      "type": "truefalse",
+      "prompt": "Existe una imagen oficial y única del paisaje de Big Data.",
+      "answer": false,
+      "explanation": "Distintos autores han hecho sus propios collages, unos más detallados que otros. Por eso los apuntes te mandan buscar «big data landscape».",
+      "source": "SBD UD1, apartado 6",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud01-q091",
+      "type": "choice",
+      "prompt": "Siguiendo el caso práctico de los apuntes, necesitas traer los datos desde sus fuentes al sistema. ¿Qué herramienta usarías?",
+      "options": [
+        "Hive",
+        "Sqoop",
+        "Tableau",
+        "H2O"
+      ],
+      "answer": 1,
+      "explanation": "Para adquirir datos desde las fuentes el caso usa Flume o Sqoop. Hive sirve para consultar lo que ya está en HDFS.",
+      "source": "SBD UD1, apartado 6",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud01-q092",
+      "type": "truefalse",
+      "prompt": "Según los apuntes, Spark puede considerarse una herramienta más del ecosistema Hadoop.",
+      "answer": true,
+      "explanation": "Spark interactúa con muchas herramientas de ese ecosistema y, según el punto de vista, se puede ver como una más de ellas.",
+      "source": "SBD UD1, apartado 6",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q093",
+      "type": "choice",
+      "prompt": "¿Qué papel tienen las bases de datos NoSQL y NewSQL en el paisaje de Big Data?",
+      "options": [
+        "Aprendizaje automático sobre los datos de HDFS",
+        "Visualización de los datos en cuadros de mando",
+        "Adquisición de datos desde las fuentes externas",
+        "Almacenamiento para necesidades y casos específicos"
+      ],
+      "answer": 3,
+      "explanation": "Aparecen como soluciones de almacenamiento para casos concretos. Adquirir, analizar y visualizar lo hacen otras herramientas del paisaje.",
+      "source": "SBD UD1, apartado 6",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud01-q094",
+      "type": "choice",
+      "prompt": "Quieres analizar los datos a medida que van llegando en un flujo continuo. Según los apuntes, ¿qué plataforma encaja mejor?",
+      "options": [
+        "Spark",
+        "Hadoop",
+        "Sqoop",
+        "Tableau"
+      ],
+      "answer": 0,
+      "explanation": "Spark está enfocada a tiempo real y streaming. Hadoop es para lotes, Sqoop adquiere datos y Tableau los visualiza.",
+      "source": "SBD UD1, apartado 6",
+      "difficulty": 3
+    }
+  ]
+}
