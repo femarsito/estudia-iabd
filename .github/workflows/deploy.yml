@@ -18,19 +18,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: npm
-      - run: npm ci
+      # Si falla, las últimas líneas salen como anotaciones, que se leen sin iniciar sesión.
+      - name: Instalar dependencias
+        run: |
+          npm ci > npm-ci.log 2>&1 || { tail -n 25 npm-ci.log | sed 's/^/::error::/'; exit 1; }
       - run: npm run test:content
       - run: npm run validate
       - run: npx ng test --watch=false
       - run: npx ng build --base-href /estudia-iabd/
       # Sin servidor propio: GitHub Pages sirve 404.html en las rutas internas al recargar.
       - run: cp dist/estudia-iabd/browser/index.html dist/estudia-iabd/browser/404.html
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: dist/estudia-iabd/browser
 
