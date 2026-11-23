@@ -69,7 +69,8 @@
         {
           "id": "pia-ud01",
           "number": 1,
-          "title": "Introducción a la programación de Inteligencia Artificial"
+          "title": "Introducción a la programación de Inteligencia Artificial",
+          "file": "pia/ud01.json"
         },
         {
           "id": "pia-ud02",

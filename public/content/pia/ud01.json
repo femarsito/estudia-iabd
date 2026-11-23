@@ -718,15 +718,16 @@
     },
     {
       "type": "choice",
-      "prompt": "En este código la variable cambia de tipo durante la ejecución. ¿En cuál de estos lenguajes sería posible, según los apuntes?",
+      "prompt": "En este código la variable cambia de tipo durante la ejecución. ¿En qué pareja de lenguajes sería posible, según los apuntes?",
       "code": "pedidos = 25\npedidos = \"veinticinco\"",
       "options": [
-        "Java",
-        "C++",
-        "Python"
+        "Java y C++",
+        "Python y Ruby",
+        "Java y Python",
+        "C++ y Ruby"
       ],
-      "answer": 2,
-      "explanation": "Python es de tipado dinámico: los tipos se comprueban al ejecutar y una variable puede cambiar de tipo. Java y C++ son de tipado estático, con el tipo declarado y verificado al compilar.",
+      "answer": 1,
+      "explanation": "Python y Ruby son los ejemplos de tipado dinámico de los apuntes: los tipos se comprueban al ejecutar y una variable puede cambiar de tipo. Java y C++ son de tipado estático, así que cualquier pareja con uno de ellos falla.",
       "source": "PIA UD1, apartado 1.1",
       "difficulty": 3,
       "id": "pia-ud01-q012"
@@ -881,9 +882,9 @@
     },
     {
       "type": "truefalse",
-      "prompt": "Las pruebas unitarias comprueban que varios componentes del software se comunican bien entre sí.",
-      "answer": false,
-      "explanation": "Eso lo hacen las pruebas de integración. Las unitarias prueban un elemento, como una clase o una función, de forma independiente del resto.",
+      "prompt": "Las pruebas de aceptación suelen centrarse en los requisitos de rendimiento y en la amigabilidad de las interfaces.",
+      "answer": true,
+      "explanation": "Así lo dicen los apuntes: validan que el sistema cumpla los criterios de aceptación del cliente o del usuario final y suelen fijarse en el rendimiento y en lo amigable de las interfaces. No hay que confundirlas con las pruebas de rendimiento, que miden el sistema bajo carga.",
       "source": "PIA UD1, apartado 1.2",
       "difficulty": 2,
       "id": "pia-ud01-q023"
@@ -947,7 +948,7 @@
     },
     {
       "type": "choice",
-      "prompt": "¿En qué tarea de la preparación de los datos se identifican los posibles sesgos y las correlaciones?",
+      "prompt": "Un equipo hace estudios estadísticos de sus datos y decide qué hacer con los valores perdidos. ¿En qué tarea de la preparación de los datos está?",
       "options": [
         "Ingesta de datos",
         "Estudio de problemas de aprendizaje automático",
@@ -955,9 +956,9 @@
         "Análisis y transformación de los datos"
       ],
       "answer": 3,
-      "explanation": "Al analizar los datos se hacen estudios estadísticos, se tratan los valores perdidos y se buscan sesgos y correlaciones. La ingesta solo identifica fuentes y recopila los datos.",
+      "explanation": "Los estudios estadísticos y el tratamiento de los valores perdidos son parte del análisis y transformación de los datos. La ingesta solo identifica las fuentes y recopila, estructura y valida los datos.",
       "source": "PIA UD1, apartado 1.2.1",
-      "difficulty": 2,
+      "difficulty": 3,
       "id": "pia-ud01-q028"
     },
     {
@@ -1059,15 +1060,15 @@
     },
     {
       "type": "choice",
-      "prompt": "Una empresa logística quiere repartir sus camiones entre los almacenes para mover las mercancías con el menor coste. ¿Qué tipo de problema es?",
+      "prompt": "Un hospital quiere organizar los turnos de su personal para cubrir todas las horas con los recursos que tiene. ¿Qué tipo de problema es?",
       "options": [
-        "Visión por computadora",
-        "Optimización y planificación",
         "Predicción y análisis de datos",
+        "Optimización y planificación",
+        "Clasificación y reconocimiento de patrones",
         "Recomendación personalizada"
       ],
       "answer": 1,
-      "explanation": "Buscar la mejor distribución de mercancías y recursos es optimización y planificación. Que se hable de costes no lo convierte en predicción: no se anticipa nada, se busca la mejor solución.",
+      "explanation": "La programación de horarios y la asignación de recursos son ejemplos de optimización y planificación: se busca la mejor solución a un problema complejo. La predicción, en cambio, anticipa tendencias a partir de datos históricos.",
       "source": "PIA UD1, apartado 2",
       "difficulty": 3,
       "id": "pia-ud01-q036"
@@ -1163,15 +1164,15 @@
     },
     {
       "type": "choice",
-      "prompt": "Un grupo de investigación quiere explorar datos y hacer modelado predictivo con muchas herramientas estadísticas y de visualización. ¿Qué lenguaje encaja mejor según los apuntes?",
+      "prompt": "Quieres tener cuanto antes una versión de tu IA que funcione para probarla en las primeras fases del desarrollo. ¿Qué característica del lenguaje te interesa más?",
       "options": [
-        "Julia",
-        "R",
-        "Java",
-        "C++"
+        "Legibilidad",
+        "Capacidad de prototipado rápido",
+        "Comunidad de desarrollo",
+        "Tipado estático"
       ],
       "answer": 1,
-      "explanation": "R destaca por sus paquetes de análisis estadístico y visualización, y los apuntes lo señalan para modelado predictivo y exploración de datos. Java se usa más en sistemas empresariales.",
+      "explanation": "El prototipado rápido permite generar versiones operativas en fases tempranas y ejecutar y probar código de forma ágil. La legibilidad facilita el trabajo colaborativo y la comunidad sirve para compartir soluciones.",
       "source": "PIA UD1, apartado 2.1",
       "difficulty": 3,
       "id": "pia-ud01-q043"
@@ -1204,15 +1205,15 @@
     },
     {
       "type": "choice",
-      "prompt": "¿Qué lenguaje es portable gracias a su máquina virtual y al bytecode?",
+      "prompt": "¿En qué tipo de aplicaciones de IA se usa sobre todo Java, según los apuntes?",
       "options": [
-        "Julia",
-        "R",
-        "Java",
-        "C++"
+        "Sistemas empresariales y aplicaciones de gran escala",
+        "Sistemas embebidos y procesamiento de señales",
+        "Cómputo científico y numérico intensivo",
+        "Investigación estadística y visualización de datos"
       ],
-      "answer": 2,
-      "explanation": "El código Java se convierte en bytecode, que se ejecuta en cualquier equipo con la JVM. Por eso se usa en sistemas empresariales de gran escala.",
+      "answer": 0,
+      "explanation": "Java no es tan común en IA como Python o R, pero se usa en sistemas de IA empresariales y en aplicaciones de gran escala. Los sistemas embebidos son terreno de C++, el cómputo científico de Julia y la estadística de R.",
       "source": "PIA UD1, apartado 2.1",
       "difficulty": 1,
       "id": "pia-ud01-q045"
@@ -1311,12 +1312,12 @@
       "prompt": "Una API de IA te devuelve el resultado de una predicción. Según los apuntes, ¿en qué formato suele llegar?",
       "options": [
         "HTML",
-        "XML",
+        "SQL",
         "CSS",
         "JSON"
       ],
       "answer": 3,
-      "explanation": "Los apuntes dicen que las APIs de inteligencia artificial suelen dar los resultados en JSON. XML se menciona más para ficheros de configuración.",
+      "explanation": "Los apuntes dicen que las APIs de inteligencia artificial suelen dar los resultados al usuario en JSON. HTML se usa para la interfaz o para sacar datos con web scraping, y ni CSS ni SQL sirven para eso.",
       "source": "PIA UD1, apartado 2.2",
       "difficulty": 2,
       "id": "pia-ud01-q053"
@@ -1429,15 +1430,15 @@
     },
     {
       "type": "choice",
-      "prompt": "Tu empresa trabaja con Microsoft Azure y quiere montar un chatbot. ¿Qué servicio usa?",
+      "prompt": "Tu empresa trabaja con Microsoft Azure y quiere desarrollar y desplegar su propio modelo de machine learning. ¿Qué servicio usa?",
       "options": [
         "Azure Speech Services",
         "Cognitive Services",
         "Azure Machine Learning",
         "Azure Bot Service"
       ],
-      "answer": 3,
-      "explanation": "Azure Bot Service es el de crear chatbots. Speech Services convierte texto a voz y viceversa, y Cognitive Services analiza imágenes, voz y texto.",
+      "answer": 2,
+      "explanation": "Azure Machine Learning es el servicio para desarrollar y desplegar modelos. Cognitive Services analiza imágenes, voz y texto, y Azure Bot Service sirve para crear chatbots.",
       "source": "PIA UD1, apartado 2.4",
       "difficulty": 3,
       "id": "pia-ud01-q060"
@@ -1470,14 +1471,15 @@
     },
     {
       "type": "choice",
-      "prompt": "¿Qué servicio de IBM sirve para buscar y analizar datos no estructurados?",
+      "prompt": "¿Qué servicio sirve para buscar y analizar datos no estructurados, según los apuntes?",
       "options": [
         "Watson Studio",
         "Watson Assistant",
-        "Watson Discovery"
+        "Watson Discovery",
+        "Dialogflow"
       ],
       "answer": 2,
-      "explanation": "Watson Discovery busca y analiza datos no estructurados. Studio es para desarrollar y entrenar modelos y Assistant, para chatbots.",
+      "explanation": "Watson Discovery, de IBM, busca y analiza datos no estructurados. Watson Studio sirve para desarrollar y entrenar modelos, y Watson Assistant y Dialogflow, de Google, para crear chatbots.",
       "source": "PIA UD1, apartado 2.4",
       "difficulty": 1,
       "id": "pia-ud01-q062"
@@ -1871,7 +1873,7 @@
     },
     {
       "type": "choice",
-      "prompt": "Un ayuntamiento quiere una IA que vigile el comportamiento de los vecinos y les quite ayudas a quienes se porten mal. ¿Cómo la clasifica la Ley de IA?",
+      "prompt": "Una empresa quiere una IA que capture de forma indiscriminada imágenes faciales de la gente para su base de datos. ¿Cómo la clasifica la Ley de IA?",
       "options": [
         "Riesgo mínimo",
         "Riesgo inaceptable",
@@ -1879,7 +1881,7 @@
         "Riesgo limitado"
       ],
       "answer": 1,
-      "explanation": "Registrar el comportamiento, clasificar a las personas y aplicar penalizaciones o recompensas es un sistema de puntuación ciudadana, y está prohibido.",
+      "explanation": "La captura indiscriminada de imágenes faciales está entre las aplicaciones prohibidas, junto a la categorización biométrica por características sensibles. No basta con cumplir obligaciones: no se puede usar.",
       "source": "PIA UD1, apartado 4.2",
       "difficulty": 3,
       "id": "pia-ud01-q089"
