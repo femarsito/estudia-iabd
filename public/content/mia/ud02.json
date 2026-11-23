@@ -1,0 +1,2064 @@
+{
+  "id": "mia-ud02",
+  "moduleId": "mia",
+  "number": 2,
+  "title": "Utilización de los modelos de Inteligencia Artificial",
+  "lessons": [
+    {
+      "id": "mia-ud02-l01",
+      "kind": "read",
+      "title": "Agentes racionales y entornos de trabajo",
+      "section": "1 y 1.1. Agentes racionales y entornos de trabajo",
+      "cards": [
+        {
+          "title": "Qué es un agente",
+          "body": "Un agente es un **programa autónomo** que decide qué acción hacer según lo que **percibe con sus sensores**, su **base de conocimiento** y sus **objetivos**. Un **agente inteligente** opera **sin intervención humana**. Seguir una conducta racional es **hacer la acción correcta**; si hay incertidumbre, la de **mayor beneficio esperado**."
+        },
+        {
+          "title": "De qué depende",
+          "body": "Un agente racional puede ser una persona, una empresa, una máquina o un software; la IA tomó el término de la **economía**. Depende de:\n- una **medida de desempeño** (objetivo);\n- la **secuencia de percepción** (sensores);\n- lo que sabe del **entorno**;\n- las acciones que puede tomar (**actuadores**)."
+        },
+        {
+          "title": "Función y programa agente",
+          "body": "La **función agente** es una descripción matemática abstracta que relaciona percepciones con acciones. Su implementación en un sistema es el **programa agente**. Por eso **Agente = Arquitectura + Programa**. Las técnicas más usadas para dotarlo de inteligencia son el aprendizaje automático, los sistemas basados en el conocimiento y los basados en reglas."
+        },
+        {
+          "title": "Dimensiones del entorno (I)",
+          "body": "- **Completamente observable**: los sensores captan todo lo relevante para elegir la acción. Sin sensores, el entorno **no es observable**.\n- **Multiagente**: hay más de un agente, como el ajedrez (**2 agentes**); el Sudoku es de **agente individual**.\n- **Determinista**: el siguiente estado queda definido por el estado actual y la acción."
+        },
+        {
+          "title": "Dimensiones del entorno (II)",
+          "body": "- **Episódico**: cada episodio no depende de las acciones anteriores. En el **secuencial**, la decisión actual puede afectar a todas las futuras.\n- **Discreto o continuo**: se aplica al estado, al tiempo y a percepciones y acciones.\n- **Dinámico**: el entorno cambia mientras el agente decide; si aún no ha decidido, cuenta como **no hacer nada**."
+        },
+        {
+          "title": "Entornos simulados",
+          "body": "Conociendo las dimensiones se crean **entornos simulados** para experimentar con el agente. Se suele probar en **muchos entornos de una misma clase**: para un taxista simulado, con distinto tráfico, iluminación y clima, y lo que interesa es el **rendimiento medio**."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l02",
+      "kind": "practice",
+      "title": "Agentes racionales y entornos de trabajo",
+      "section": "1 y 1.1. Agentes racionales y entornos de trabajo",
+      "questionIds": [
+        "mia-ud02-q001",
+        "mia-ud02-q002",
+        "mia-ud02-q003",
+        "mia-ud02-q004",
+        "mia-ud02-q005",
+        "mia-ud02-q006",
+        "mia-ud02-q007"
+      ]
+    },
+    {
+      "id": "mia-ud02-l03",
+      "kind": "read",
+      "title": "Tipos de problemas y programas agente",
+      "section": "1.2. Sistemas de resolución de problemas",
+      "cards": [
+        {
+          "title": "Estado frente a secuencia",
+          "body": "- **Búsqueda de estado**: solo se conocen las propiedades del estado objetivo, ni siquiera si existe. Basta llegar a un estado que cumpla las restricciones, **da igual el camino**.\n- **Búsqueda de secuencias de acciones**: se conoce el espacio de estados y cuáles son objetivo. Lo óptimo es la **ruta menos costosa**."
+        },
+        {
+          "title": "En línea frente a fuera de línea",
+          "body": "En un problema **en línea**, el agente no conoce el espacio de estados y **construye un modelo mientras actúa**. En uno **fuera de línea**, las percepciones no importan, así que podría descubrir **toda la secuencia de acciones antes de hacer nada**."
+        },
+        {
+          "title": "Sin sensores y contingencia",
+          "body": "- **Ausencia de sensores**: en entornos **deterministas y no observables**. El agente no sabe dónde está y trabaja con **conjuntos de estados**.\n- **Contingencia**: no sabe qué efecto tendrán sus acciones (entorno parcialmente observable o no determinista). Se resuelve con una **lista de acciones condicionales**."
+        },
+        {
+          "title": "Programa agente",
+          "body": "El **programa agente** implementa una función agente y se ejecuta sobre un dispositivo con **sensores y actuadores**: la **arquitectura**. Recibe lo que pasa en el momento actual; si la acción depende de percepciones pasadas, tiene que **guardar el histórico en memoria**."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l04",
+      "kind": "practice",
+      "title": "Tipos de problemas y programas agente",
+      "section": "1.2. Sistemas de resolución de problemas",
+      "questionIds": [
+        "mia-ud02-q008",
+        "mia-ud02-q009",
+        "mia-ud02-q010",
+        "mia-ud02-q011",
+        "mia-ud02-q012",
+        "mia-ud02-q013",
+        "mia-ud02-q014"
+      ]
+    },
+    {
+      "id": "mia-ud02-l05",
+      "kind": "read",
+      "title": "Agentes por tablas, reactivos y basados en modelos",
+      "section": "1.3, 1.3.1 y 1.3.2. Tipos de programas agente (I)",
+      "cards": [
+        {
+          "title": "Agente dirigido por tablas",
+          "body": "Usa una tabla con **todas las secuencias de percepciones** y su acción. Es **teóricamente funcional**, pero no realista: para el ajedrez haría falta una tabla de al menos **10^150 filas**. No hay dispositivo que la guarde ni tiempo para crearla. Solo es factible en **dominios pequeños**."
+        },
+        {
+          "title": "Por qué no conviene",
+          "body": "- Requiere **tablas muy grandes**.\n- Construirlas lleva **mucho tiempo**.\n- **No tiene autonomía**: si cambia el ambiente, no sabe qué hacer.\n- Aunque aprenda, tardaría mucho en aprender todas las entradas.\n\nEn Python, la tabla es un **diccionario tupla-acción**; si una secuencia no está, se usa la **acción por defecto**."
+        },
+        {
+          "title": "Agente reactivo simple",
+          "body": "Usa **reglas condición-acción** y decide solo con la **percepción actual**, ignorando las anteriores: «IF el coche de enfrente frena THEN empieza a frenar». Tiene una **inteligencia muy limitada** y, si la visibilidad es parcial, **riesgo de bucles infinitos**. Se usa en robots de limpieza, calefacción y NPC de videojuegos."
+        },
+        {
+          "title": "El aspirador sin ubicación",
+          "body": "Con el sensor de ubicación roto, el aspirador solo percibe **sucio** o **limpio**. Si empieza en A e intenta ir a la izquierda, o en B a la derecha, falla y entra en **bucle infinito**. Una salida es hacer **acciones aleatorias**, justificables en **multiagente** pero poco racionales con **agente individual**."
+        },
+        {
+          "title": "Agente basado en modelos",
+          "body": "Mantiene un **estado interno** que depende del histórico de percepciones, útil en entornos **parcialmente observables**.\n- **Situación = f(percepciones, datos anteriores)**\n- **Acción = f(situación)**\n\nA diferencia del reactivo simple, **una misma percepción puede dar acciones distintas**."
+        },
+        {
+          "title": "Sus dos modelos",
+          "body": "- **Modelo de transición**: cómo cambia el mundo con el tiempo, por los efectos de las acciones del agente y por su propia evolución.\n- **Modelo de sensor**: cómo se refleja el estado del mundo en las percepciones.\n\nEjemplo: un robot con un **mapa de obstáculos** creado a partir de su historia busca la dirección más despejada."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l06",
+      "kind": "practice",
+      "title": "Agentes por tablas, reactivos y basados en modelos",
+      "section": "1.3, 1.3.1 y 1.3.2. Tipos de programas agente (I)",
+      "questionIds": [
+        "mia-ud02-q015",
+        "mia-ud02-q016",
+        "mia-ud02-q017",
+        "mia-ud02-q018",
+        "mia-ud02-q019",
+        "mia-ud02-q020",
+        "mia-ud02-q021",
+        "mia-ud02-q022",
+        "mia-ud02-q023",
+        "mia-ud02-q024"
+      ]
+    },
+    {
+      "id": "mia-ud02-l07",
+      "kind": "read",
+      "title": "Agentes por objetivos, por utilidad y que aprenden",
+      "section": "1.3.3 a 1.3.5. Tipos de programas agente (II)",
+      "cards": [
+        {
+          "title": "Basados en objetivos",
+          "body": "La información sobre la **meta** describe situaciones deseables. Si la meta no es inmediata, el agente hace **búsqueda y planificación**. Las acciones **no se asocian al estado mediante una tabla** y el enfoque **considera el futuro**, a diferencia de las reglas."
+        },
+        {
+          "title": "Más flexibles",
+          "body": "Añaden dos modelos: el **efecto de las acciones**, **estado_nuevo = f(estado_anterior, acción)**, y el **objetivo**, estado final deseado. Parecen menos eficientes, pero son **más flexibles**: el conocimiento está **explícito y se puede modificar**. En los reactivos es específico de un objetivo y se cambia a mano."
+        },
+        {
+          "title": "Basados en utilidad",
+          "body": "Tienen **múltiples objetivos** y miden el grado de satisfacción de sus metas. **Si un estado se prefiere a otro, tiene mayor utilidad**. La utilidad **mapea un estado a un número real**. Los objetivos solos no distinguen estados **felices** (alta calidad) de **infelices** (baja calidad), y hay que considerar objetivos conflictivos y metas inciertas."
+        },
+        {
+          "title": "Agentes que aprenden",
+          "body": "Cualquiera de los tipos anteriores puede construirse como agente que aprende. **Aprendizaje automático**: programas que **mejoran su comportamiento con la experiencia**. Permite operar en **entornos inicialmente desconocidos** y llegar a ser más competente de lo que permitía su conocimiento inicial."
+        },
+        {
+          "title": "Sus componentes",
+          "body": "- **Crítica**: recibe el **nivel de actuación** y lo que perciben los sensores, y da **retroalimentación**.\n- **Elementos de aprendizaje**: hacen **cambios** en el elemento de actuación.\n- **Elemento de actuación**: decide qué hacen los actuadores.\n- **Generador de problemas**: recibe los **objetivos a aprender**."
+        },
+        {
+          "title": "Cómo gana experiencia",
+          "body": "- Con **ejemplos de un usuario**, clasificados o etiquetados: **aprendizaje supervisado**.\n- Con **exploración autónoma**, como jugar miles de partidas contra sí mismo o salir de un laberinto por prueba y error: los apuntes lo llaman **aprendizaje no supervisado**."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l08",
+      "kind": "practice",
+      "title": "Agentes por objetivos, por utilidad y que aprenden",
+      "section": "1.3.3 a 1.3.5. Tipos de programas agente (II)",
+      "questionIds": [
+        "mia-ud02-q025",
+        "mia-ud02-q026",
+        "mia-ud02-q027",
+        "mia-ud02-q028",
+        "mia-ud02-q029",
+        "mia-ud02-q030",
+        "mia-ud02-q031",
+        "mia-ud02-q032"
+      ]
+    },
+    {
+      "id": "mia-ud02-l09",
+      "kind": "read",
+      "title": "Representación del conocimiento y reglas",
+      "section": "2, 2.1 y 2.2. Reglas y representaciones semánticas",
+      "cards": [
+        {
+          "title": "Para qué sirve",
+          "body": "Permite a la IA **procesar y utilizar** información, hacer inferencias, tomar decisiones y **expresar el conocimiento** con claridad ante las personas. Hay que cuidar la cobertura, la comprensibilidad, la consistencia, la eficiencia y la facilidad de modificación. Las generalizaciones deben ser **comprensibles, modificables e incrementables**."
+        },
+        {
+          "title": "Tipos de conocimiento",
+          "body": "- **Declarativo**: hechos sobre objetos o situaciones.\n- **Relacional**: relaciones expresables mediante tablas.\n- **Heredable**: estructuración jerárquica.\n- **Inferible**: descrito mediante lógica."
+        },
+        {
+          "title": "Técnicas basadas en reglas",
+          "body": "Usan **reglas explícitas** (de inferencia o de producción) y **lógica simbólica**. Son clave en los **sistemas expertos**. Se basan en tres conceptos:\n- **reglas de producción**, del tipo **IF-THEN**: «IF temperatura > 30 THEN encender ventilador»;\n- **base de conocimiento**;\n- **motor de inferencia**."
+        },
+        {
+          "title": "Base y motor de inferencia",
+          "body": "La **base de conocimiento** reúne reglas y hechos, y puede ser **estática** o **dinámica**. El **motor de inferencia** aplica las reglas para sacar conclusiones:\n- **hacia adelante**: de los hechos hasta un objetivo;\n- **hacia atrás**: del objetivo a comprobar si los hechos lo satisfacen."
+        },
+        {
+          "title": "Lógica formal",
+          "body": "Las **representaciones semánticas estructuradas** codifican información preservando su significado. Una de ellas es la **lógica formal**:\n- **sintaxis formal**: símbolos (p, q, r) y operadores (∧, ∨, ¬) para fórmulas bien formadas;\n- **semántica formal**: significado de las fórmulas, por ejemplo con **tablas de verdad**."
+        },
+        {
+          "title": "Inferencia y consistencia",
+          "body": "- **Reglas de inferencia**: formas válidas de sacar conclusiones. **Modus Ponens**: si «p → q» y «p» son verdaderos, «q» es verdadero.\n- **Consistencia**: no permite conclusiones contradictorias.\n- **Completitud**: todas las verdades lógicas son demostrables en el sistema."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l10",
+      "kind": "practice",
+      "title": "Representación del conocimiento y reglas",
+      "section": "2, 2.1 y 2.2. Reglas y representaciones semánticas",
+      "questionIds": [
+        "mia-ud02-q033",
+        "mia-ud02-q034",
+        "mia-ud02-q035",
+        "mia-ud02-q036",
+        "mia-ud02-q037",
+        "mia-ud02-q038",
+        "mia-ud02-q039",
+        "mia-ud02-q040",
+        "mia-ud02-q041"
+      ]
+    },
+    {
+      "id": "mia-ud02-l11",
+      "kind": "read",
+      "title": "Representaciones numéricas, probabilísticas y aprendizaje",
+      "section": "2.3 a 2.5. Representaciones y modelos",
+      "cards": [
+        {
+          "title": "Representaciones numéricas",
+          "body": "- **Matriz de características**: cada **fila es un ejemplo** y cada **columna, una característica**.\n- **Matriz de confusión**: evalúa clasificadores; **filas = clases verdaderas**, **columnas = clases predichas**.\n- **Vector de características**: cada componente es un atributo del ejemplo."
+        },
+        {
+          "title": "Representaciones vectoriales",
+          "body": "Sirven para datos complejos y no estructurados:\n- **word embeddings**: palabras como vectores según su contexto;\n- **oraciones y documentos**: **Doc2Vec**, **BERT**;\n- **imagen**: convoluciones en **CNN**;\n- **audio**: **transformada de Fourier**, **MFCC** y **RNN**."
+        },
+        {
+          "title": "Beneficios de los vectores",
+          "body": "- Capturan **relaciones semánticas**: en Word2Vec, **Rey − Hombre + Mujer** da un vector cercano a **Reina**.\n- Permiten **reducir la dimensionalidad** con **PCA** y **t-SNE**, por ejemplo a 2D o 3D para visualizar.\n- Facilitan clasificación, regresión y agrupamiento."
+        },
+        {
+          "title": "Modelos probabilísticos",
+          "body": "Asignan **probabilidades** a eventos para **cuantificar la incertidumbre**. **No requieren representación gráfica explícita**. Claves: incorporar incertidumbre, inferencia probabilística y aprendizaje de parámetros. Ejemplos: **redes bayesianas** y **modelos de Márkov**."
+        },
+        {
+          "title": "Modelos basados en grafos",
+          "body": "Los **nodos** representan variables o entidades y las **aristas**, sus relaciones. Su **representación gráfica central** es su rasgo distintivo. Los **Modelos Gráficos Probabilísticos (PGM)** son un subtipo que añade probabilidad. Ejemplos: **grafos semánticos** y **redes neuronales de grafos**."
+        },
+        {
+          "title": "Aprendizaje automático",
+          "body": "Su calidad se mide con **precisión, recall, F1-score y error cuadrático medio**. Optimizar es ajustar parámetros para **minimizar el error**, con hiperparámetros, **regularización contra el sobreajuste** y funciones de coste.\n- **Supervisado**: árboles de decisión, regresión lineal.\n- **No supervisado**: K-means.\n- **Refuerzo**: Q-Learning, DQN."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l12",
+      "kind": "practice",
+      "title": "Representaciones numéricas, probabilísticas y aprendizaje",
+      "section": "2.3 a 2.5. Representaciones y modelos",
+      "questionIds": [
+        "mia-ud02-q042",
+        "mia-ud02-q043",
+        "mia-ud02-q044",
+        "mia-ud02-q045",
+        "mia-ud02-q046",
+        "mia-ud02-q047",
+        "mia-ud02-q048",
+        "mia-ud02-q049",
+        "mia-ud02-q050"
+      ]
+    },
+    {
+      "id": "mia-ud02-l13",
+      "kind": "read",
+      "title": "Planificación automática",
+      "section": "3 y 3.1. Planificación y descripción de problemas",
+      "cards": [
+        {
+          "title": "Qué es",
+          "body": "Subárea de la IA que genera **secuencias de acciones** para alcanzar un **objetivo** desde un **estado inicial** en un entorno definido. Se usa de la robótica a la exploración espacial, y se enfrenta a la **complejidad**, la **incertidumbre** y la **escalabilidad**."
+        },
+        {
+          "title": "Un mundo con supuestos",
+          "body": "La planificación clásica trabaja en un entorno **discreto, determinista, estático y completamente observable**:\n- **mundo finito**: número finito de estados;\n- **determinista**: sin azar, las acciones tienen el efecto esperado;\n- **estático**: solo cambia el estado el agente que planifica."
+        },
+        {
+          "title": "Más restricciones",
+          "body": "- **Objetivos simples**: sin considerar estados intermedios.\n- **Planes secuenciales**: una sola acción cada vez.\n- **Tiempo implícito**: las acciones no tienen duración.\n- **Planificación offline**: primero se delibera el plan y luego se ejecuta, **sin intercalar**.\n\nAlgunas se pueden **relajar con facilidad**."
+        },
+        {
+          "title": "Proceso y sus problemas",
+          "body": "Pasos: **plantear un objetivo**, **formular el problema**, **buscar soluciones** y **ejecutar** las acciones. Esto trae dos problemas: el programa queda **acoplado al dominio** y hay que representar un **espacio de estados excesivamente grande**."
+        },
+        {
+          "title": "PDDL",
+          "body": "Los **lenguajes de definición de dominio (PDDL)** nacen para resolver esos dos problemas: expresan todas las acciones posibles de forma única **sin conocimiento específico del dominio**. Su sintaxis se basa en **LISP**, un lenguaje declarativo basado en listas."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l14",
+      "kind": "practice",
+      "title": "Planificación automática",
+      "section": "3 y 3.1. Planificación y descripción de problemas",
+      "questionIds": [
+        "mia-ud02-q051",
+        "mia-ud02-q052",
+        "mia-ud02-q053",
+        "mia-ud02-q054",
+        "mia-ud02-q055",
+        "mia-ud02-q056",
+        "mia-ud02-q057"
+      ]
+    },
+    {
+      "id": "mia-ud02-l15",
+      "kind": "read",
+      "title": "PDDL: dominio, problema y acciones",
+      "section": "3.1.1 y 3.1.2. Componentes y lenguaje PDDL",
+      "cards": [
+        {
+          "title": "Dominio y problema",
+          "body": "El modelo se separa en **descripción del dominio** y **descripción del problema**. Varios problemas pueden conectarse al **mismo dominio**, como instancias de una clase en OOP. Dominio más problema son la entrada de un **planificador independiente del dominio**."
+        },
+        {
+          "title": "Los dos ficheros",
+          "body": "- **domain**: tipos de objetos, **predicados o funciones** y **acciones posibles**.\n- **problem**: **objetos concretos**, **situación inicial** y **objetivo (goal)**.\n\nPDDL **no especifica la salida**; suele ser un **plan total o parcialmente ordenado**, a veces con acciones en paralelo."
+        },
+        {
+          "title": "Estados factorizados",
+          "body": "Cada estado es una **colección de variables**: una conjunción de átomos. Por ejemplo, **En(Camión1, Madrid) ∧ En(Camión2, Barcelona)** usa **un predicado** (En) y **cuatro objetos**. El **estado inicial** no lleva variables; el **objetivo** es una conjunción de sentencias positivas o negativas."
+        },
+        {
+          "title": "Esquema de acciones",
+          "body": "Tiene **nombre**, **lista de variables**, **precondición** y **efecto**, estos dos como conjunciones de sentencias positivas o negativas. Una acción es **aplicable a un estado s** si s **cumple sus precondiciones**. Un conjunto de esquemas define un **dominio de planificación**."
+        },
+        {
+          "title": "Ejemplo: volar",
+          "body": "Volar admite **un avión, un aeropuerto de origen y otro de destino**. Su efecto quita el avión del origen y lo pone en el destino.\n\n`PRECOND: En(a, origen) ∧ Avion(a) ∧ Aeropuerto(origen) ∧ Aeropuerto(destino)`\n`EFFECT: ¬En(a, origen) ∧ En(a, destino)`"
+        },
+        {
+          "title": "Ejemplo: el plan",
+          "body": "Con **acciones** Cargar, Descargar y Volar, **predicados** Dentro y En, y **objetos** 2 aviones, 2 cargamentos y 2 aeropuertos, el planificador puede dar:\n\n`Cargar(C1,A1,MAD), Volar(A1,MAD,BCN), Descargar(C1,A1,BCN)`"
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l16",
+      "kind": "practice",
+      "title": "PDDL: dominio, problema y acciones",
+      "section": "3.1.1 y 3.1.2. Componentes y lenguaje PDDL",
+      "questionIds": [
+        "mia-ud02-q058",
+        "mia-ud02-q059",
+        "mia-ud02-q060",
+        "mia-ud02-q061",
+        "mia-ud02-q062",
+        "mia-ud02-q063",
+        "mia-ud02-q064"
+      ]
+    },
+    {
+      "id": "mia-ud02-l17",
+      "kind": "read",
+      "title": "Razonamiento impreciso y lógica difusa",
+      "section": "4, 4.1 y 4.1.1. Lógica difusa y reglas difusas",
+      "cards": [
+        {
+          "title": "Razonamiento impreciso",
+          "body": "Permite decidir e inferir cuando la información es **incierta o incompleta**. Usa la **teoría de la probabilidad**, la **lógica difusa**, la **teoría de la evidencia** y las **redes neuronales** para manejar la ambigüedad y la incertidumbre."
+        },
+        {
+          "title": "Lógica difusa",
+          "body": "También llamada **fuzzy logic**, es una **extensión de la lógica clásica de primer orden** para datos poco exactos, con el concepto de **certeza parcial**. Frente al «sí» o «no» de **Boole**, trata conceptos como «posiblemente», «casi» o «muy»: el mundo real tiene **matices de gris**."
+        },
+        {
+          "title": "Siete verdades (I)",
+          "body": "- **No es imprecisa**: da resultados no ambiguos; la lógica de **Boole es un caso especial** de ella.\n- **Es distinta de la probabilidad**: la imprecisión es **ambigüedad**, no incertidumbre.\n- **Diseñar conjuntos imprecisos es fácil**, y se ajustan con pruebas."
+        },
+        {
+          "title": "Siete verdades (II)",
+          "body": "- Los sistemas imprecisos son **estables y fáciles de optimizar**.\n- **No son redes neuronales**.\n- Son **más que control de procesos**: verla solo así es demasiado limitado.\n- Es un proceso de **representación y razonamiento**, útil incluso en problemas difíciles."
+        },
+        {
+          "title": "Proposición atómica difusa",
+          "body": "«La velocidad tiene un valor positivo grande» se escribe **V es PG**. Se interpreta con la **pertenencia μPG(v)** de la velocidad al conjunto difuso PG. Los conectores **«y», «o» y «no»** se interpretan como **intersección, unión y complemento**, con **T-normas, T-conormas** y el operador complemento."
+        },
+        {
+          "title": "Reglas difusas",
+          "body": "Forma: **p: IF X es A THEN Y es B**. En las reglas clásicas, si el antecedente es cierto, el consecuente también. Con antecedente difuso, **todas las reglas se ejecutan parcialmente** y el consecuente es cierto **en cierto grado**."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l18",
+      "kind": "practice",
+      "title": "Razonamiento impreciso y lógica difusa",
+      "section": "4, 4.1 y 4.1.1. Lógica difusa y reglas difusas",
+      "questionIds": [
+        "mia-ud02-q065",
+        "mia-ud02-q066",
+        "mia-ud02-q067",
+        "mia-ud02-q068",
+        "mia-ud02-q069",
+        "mia-ud02-q070",
+        "mia-ud02-q071",
+        "mia-ud02-q072"
+      ]
+    },
+    {
+      "id": "mia-ud02-l19",
+      "kind": "read",
+      "title": "Motor de inferencia difuso",
+      "section": "4.1.2. Motor de inferencia",
+      "cards": [
+        {
+          "title": "Inferencia difusa",
+          "body": "Obtiene un **valor de salida** para una **entrada** usando conjuntos difusos. Tras **fuzzificar** las entradas (calcular su grado de pertenencia), se razona con reglas **SI x es A, ENTONCES y es B**. La parte SI es el **antecedente** y la parte ENTONCES, el **consecuente**."
+        },
+        {
+          "title": "Clásica frente a difusa",
+          "body": "La regla clásica usa **valores discretos**: «SI velocidad > 100, ENTONCES distancia_de_frenado es larga». La difusa, **valores difusos**: «SI velocidad es rápida…». La velocidad va de **0 a 220 km/h** con conjuntos lenta, media y rápida; la distancia, de **0 a 300 m** con corta, media y larga."
+        },
+        {
+          "title": "Menos reglas",
+          "body": "Los sistemas de razonamiento impreciso basados en lógica difusa combinan las reglas posibles y reducen el número de reglas a codificar en **al menos un 90 %** frente a los sistemas de reglas clásicas."
+        },
+        {
+          "title": "Defuzzificación",
+          "body": "Solo hace falta si quieres un **valor discreto** de salida. Métodos comunes:\n- **centro de masas**: suma de puntos de muestra multiplicados por su pertenencia, dividida entre la suma de pertenencias;\n- **valor de máxima pertenencia**.\n\nLos motores más conocidos son **Mamdani** y **TSK**."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l20",
+      "kind": "practice",
+      "title": "Motor de inferencia difuso",
+      "section": "4.1.2. Motor de inferencia",
+      "questionIds": [
+        "mia-ud02-q073",
+        "mia-ud02-q074",
+        "mia-ud02-q075",
+        "mia-ud02-q076",
+        "mia-ud02-q077",
+        "mia-ud02-q078",
+        "mia-ud02-q079"
+      ]
+    },
+    {
+      "id": "mia-ud02-l21",
+      "kind": "read",
+      "title": "Probabilidad, redes bayesianas y Márkov",
+      "section": "4.2, 4.2.1 y 4.2.3. Teoría de la probabilidad",
+      "cards": [
+        {
+          "title": "De la lógica a la probabilidad",
+          "body": "Los primeros **sistemas expertos de los 70** usaban un enfoque **puramente lógico**; la siguiente generación, técnicas **probabilistas**. Su problema: el **crecimiento exponencial** de probabilidades al aumentar las variables. Métodos **no numéricos**: **razonamiento por defecto** (conclusiones válidas hasta que haya razón para cambiar), redes cualitativas y mantenimiento de coherencia."
+        },
+        {
+          "title": "Métodos numéricos",
+          "body": "Los **probabilistas** dan un **grado de creencia entre 0 y 1**: una probabilidad de **0.8** es un **80 % de creencia**, no un 80 % de verdad, y cambia con nuevas evidencias.\n- **Exactos**: redes bayesianas, diagramas de influencia.\n- **Aproximados**: bayesiano subjetivo, factores de certeza.\n- **No probabilista**: **Dempster-Shafer**, con intervalos."
+        },
+        {
+          "title": "Difusa frente a probabilidad",
+          "body": "La **probabilidad** representa la **frecuencia relativa** de un evento **bien definido**. El **grado de pertenencia difuso** representa la **similitud** entre eventos cuyas propiedades **no están bien definidas**. La lógica difusa es **multivaluada**: trabaja con grados de verdad."
+        },
+        {
+          "title": "Redes bayesianas",
+          "body": "También **redes de creencias**. Son un **grafo dirigido acíclico (DAG)**: cada **nodo** es una variable aleatoria con su probabilidad condicional y cada **arco**, una **dependencia condicional**. **Hacia adelante** infieren variables no observadas con el **teorema de Bayes**; **hacia atrás** actualizan probabilidades con nuevas observaciones."
+        },
+        {
+          "title": "Inferencia y usos",
+          "body": "- **Eliminación de variables**: exacto, con sumas marginales y productos.\n- **Muestreo de Gibbs**: para redes grandes.\n- **Propagación de creencias**: exacta, en árboles o grafos sin ciclos.\n\nUsos: diagnóstico médico, recomendación, visión, PLN y análisis de riesgo."
+        },
+        {
+          "title": "Modelos de Márkov",
+          "body": "El siguiente estado **solo depende del actual**, no de toda la historia.\n- **Discreta**: tiempos y estados discretos; matriz de transición, con **Pij** de i a j.\n- **Continua**: tiempo continuo, estados discretos, **tasa de transición**.\n- **Oculto (HMM)**: estados no observables que producen observaciones visibles; voz, bioinformática."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l22",
+      "kind": "practice",
+      "title": "Probabilidad, redes bayesianas y Márkov",
+      "section": "4.2, 4.2.1 y 4.2.3. Teoría de la probabilidad",
+      "questionIds": [
+        "mia-ud02-q080",
+        "mia-ud02-q081",
+        "mia-ud02-q082",
+        "mia-ud02-q083",
+        "mia-ud02-q084",
+        "mia-ud02-q085",
+        "mia-ud02-q086"
+      ]
+    },
+    {
+      "id": "mia-ud02-l23",
+      "kind": "read",
+      "title": "Redes neuronales y deep learning",
+      "section": "4.3 y 4.4. Redes neuronales y deep learning",
+      "cards": [
+        {
+          "title": "Red neuronal",
+          "body": "Modelo matemático **inspirado en el cerebro humano**, con capas de «neuronas» artificiales. La básica tiene **capa de entrada**, **una o más capas ocultas** y **capa de salida**. Cada neurona se conecta con **todas las de la capa siguiente**."
+        },
+        {
+          "title": "Entrenamiento",
+          "body": "Consiste en **ajustar los pesos** de las conexiones para **minimizar el error** entre salidas predichas y reales, normalmente con **descenso de gradiente**. Cada neurona aplica una **función de activación** a la suma ponderada de sus entradas para introducir **no linealidades**: **sigmoide**, **ReLU** o **tanh**."
+        },
+        {
+          "title": "Propagación",
+          "body": "- **Hacia adelante**: los datos pasan de la entrada, por las ocultas, a la salida.\n- **Hacia atrás**: usa el error de la salida para ajustar los pesos con **retropropagación (backpropagation)**, que calcula el **gradiente del error** respecto a los pesos."
+        },
+        {
+          "title": "Deep learning",
+          "body": "Es una **subdisciplina del machine learning** con redes de **muchas capas**, que aprenden **representaciones jerárquicas**. Descubre características relevantes **sin ingeniería de características manual** y maneja grandes volúmenes de datos, por eso encaja con el **big data**."
+        },
+        {
+          "title": "Tipos de redes profundas",
+          "body": "- **Convolucionales (CNN)**: datos en **grilla**, como imágenes y vídeo, con **filtros** que detectan patrones locales.\n- **Recurrentes (RNN)**: datos **secuenciales**, como texto y series temporales.\n- **Generativas antagónicas (GAN)**: **generador** y **discriminador** que crean datos nuevos."
+        },
+        {
+          "title": "Ventajas y desventajas",
+          "body": "A favor: aprende **representaciones complejas** y es **flexible**.\n\nEn contra:\n- necesita **grandes cantidades de datos etiquetados**;\n- **coste computacional** alto, con **GPU**;\n- es una **caja negra**: le falta interpretabilidad y transparencia."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l24",
+      "kind": "practice",
+      "title": "Redes neuronales y deep learning",
+      "section": "4.3 y 4.4. Redes neuronales y deep learning",
+      "questionIds": [
+        "mia-ud02-q087",
+        "mia-ud02-q088",
+        "mia-ud02-q089",
+        "mia-ud02-q090",
+        "mia-ud02-q091",
+        "mia-ud02-q092",
+        "mia-ud02-q093"
+      ]
+    },
+    {
+      "id": "mia-ud02-l25",
+      "kind": "read",
+      "title": "Regulación de la IA",
+      "section": "5. Regulación de la Inteligencia Artificial",
+      "cards": [
+        {
+          "title": "Un campo en evolución",
+          "body": "La regulación de la IA **cambia según la región** y el organismo que la desarrolla. Busca **equilibrar la innovación** con la **protección de derechos** y la **seguridad** de los ciudadanos. La **cooperación internacional** es clave."
+        },
+        {
+          "title": "El Reglamento europeo",
+          "body": "La **Unión Europea** es pionera con su **Reglamento de Inteligencia Artificial**, la **AI Act**. Su objetivo principal es **clasificar los sistemas de IA según su riesgo**, con requisitos de **transparencia y responsabilidad**, y **prohibir** las aplicaciones de riesgo alto para los ciudadanos."
+        },
+        {
+          "title": "Qué exige",
+          "body": "Los sistemas deben ser **transparentes**, **comprensibles** y **trazables**: se tiene que poder rastrear **cómo y por qué** se tomó una decisión. Se prohíben usos inaceptables como la **manipulación subliminal** y la **puntuación social**. Incluye revisar normas como el **RGPD**."
+        },
+        {
+          "title": "Un modelo para otros",
+          "body": "La ley europea es un **hito** en la regulación internacional de la IA. **Otros países la observan** como posible modelo para sus propias leyes."
+        }
+      ]
+    },
+    {
+      "id": "mia-ud02-l26",
+      "kind": "practice",
+      "title": "Regulación de la IA",
+      "section": "5. Regulación de la Inteligencia Artificial",
+      "questionIds": [
+        "mia-ud02-q094",
+        "mia-ud02-q095",
+        "mia-ud02-q096",
+        "mia-ud02-q097",
+        "mia-ud02-q098"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "mia-ud02-q001",
+      "type": "choice",
+      "prompt": "¿Qué caracteriza a un agente inteligente?",
+      "options": [
+        "Ejecuta en cada paso la orden que le da un operador",
+        "Guarda percepciones pero no llega a actuar",
+        "Opera de forma autónoma, sin intervención humana",
+        "Necesita un cuerpo físico con ruedas y brazos"
+      ],
+      "answer": 2,
+      "explanation": "Los apuntes definen el agente inteligente como un programa que opera de forma autónoma. No hace falta que sea un robot: puede ser solo software.",
+      "source": "MIA UD2, introducción",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q002",
+      "type": "choice",
+      "prompt": "¿Cómo se llama la implementación de la función agente sobre un sistema?",
+      "options": [
+        "Arquitectura del agente",
+        "Programa agente",
+        "Medida de desempeño",
+        "Secuencia de percepción"
+      ],
+      "answer": 1,
+      "explanation": "La función agente es la descripción abstracta; el programa agente es su implementación. La arquitectura es el dispositivo donde se ejecuta ese programa.",
+      "source": "MIA UD2, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q003",
+      "type": "choice",
+      "prompt": "Un agente juega al ajedrez contra otro jugador. ¿Qué tipo de entorno es según el número de agentes?",
+      "options": [
+        "Multiagente, con dos agentes",
+        "Individual, porque solo decide el agente",
+        "Individual, porque el rival es parte del entorno",
+        "Multiagente, con un agente por cada pieza"
+      ],
+      "answer": 0,
+      "explanation": "Los apuntes ponen el ajedrez como entorno multiagente de 2 agentes, porque el rendimiento de uno depende de lo que haga el otro. El Sudoku, en cambio, es de agente individual.",
+      "source": "MIA UD2, apartado 1.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q004",
+      "type": "truefalse",
+      "prompt": "En un entorno episódico, lo que el agente hizo en los episodios anteriores condiciona el episodio siguiente.",
+      "answer": false,
+      "explanation": "En el episódico, cada episodio no depende de las acciones realizadas en los anteriores. Que una decisión condicione las futuras es lo propio del entorno secuencial.",
+      "source": "MIA UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q005",
+      "type": "match",
+      "prompt": "Relaciona cada tipo de entorno con su definición.",
+      "pairs": [
+        [
+          "Completamente observable",
+          "Los sensores captan todo lo relevante para decidir"
+        ],
+        [
+          "Determinista",
+          "El siguiente estado depende del estado actual y la acción"
+        ],
+        [
+          "Episódico",
+          "Cada episodio no depende de las acciones anteriores"
+        ],
+        [
+          "Dinámico",
+          "El entorno puede cambiar mientras el agente decide"
+        ]
+      ],
+      "explanation": "Son cuatro de las dimensiones que usan los apuntes para describir el entorno de trabajo y elegir el diseño del agente.",
+      "source": "MIA UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q006",
+      "type": "choice",
+      "prompt": "Si un agente carece de sensores, ¿cómo es su entorno?",
+      "options": [
+        "Parcialmente observable",
+        "No observable",
+        "Completamente observable",
+        "Estático"
+      ],
+      "answer": 1,
+      "explanation": "Sin sensores el agente no percibe nada del entorno, así que es no observable. Parcialmente observable sería si capta solo parte de lo relevante.",
+      "source": "MIA UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q007",
+      "type": "choice",
+      "prompt": "¿Por qué los entornos estáticos son fáciles de manejar?",
+      "options": [
+        "El agente no tiene que seguir observando mientras decide",
+        "Tienen siempre un número finito de estados",
+        "En ellos solo puede haber un agente",
+        "Cada acción da siempre el mismo resultado"
+      ],
+      "answer": 0,
+      "explanation": "En un entorno estático nada cambia mientras el agente decide, así que no necesita seguir mirando ni preocuparse del paso del tiempo.",
+      "source": "MIA UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q008",
+      "type": "match",
+      "prompt": "Relaciona cada tipo de problema con su descripción.",
+      "pairs": [
+        [
+          "Búsqueda de estado",
+          "Basta un estado que cumpla las restricciones"
+        ],
+        [
+          "Búsqueda de secuencias de acciones",
+          "Se busca la ruta menos costosa a estados conocidos"
+        ],
+        [
+          "Problema en línea",
+          "El agente construye el modelo mientras actúa"
+        ],
+        [
+          "Ausencia de sensores",
+          "El agente razona con conjuntos de estados posibles"
+        ]
+      ],
+      "explanation": "En la búsqueda de estado no importa el camino; en la de secuencias, sí. En línea el agente no conoce el espacio de estados, y sin sensores no sabe dónde está.",
+      "source": "MIA UD2, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q009",
+      "type": "choice",
+      "prompt": "¿En qué entornos se dan los problemas de ausencia de sensores?",
+      "options": [
+        "No deterministas y parcialmente observables",
+        "Deterministas y completamente observables",
+        "Deterministas y no observables",
+        "Estáticos y episódicos"
+      ],
+      "answer": 2,
+      "explanation": "Los apuntes los sitúan en entornos deterministas y no observables. La combinación de no determinista y parcialmente observable es la de los problemas de contingencia.",
+      "source": "MIA UD2, apartado 1.2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q010",
+      "type": "truefalse",
+      "prompt": "En un problema fuera de línea, el agente podría descubrir toda la secuencia de acciones antes de hacer nada.",
+      "answer": true,
+      "explanation": "Como las percepciones no importan en absoluto, puede calcular el plan entero antes de actuar. Lo contrario pasa en los problemas en línea.",
+      "source": "MIA UD2, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q011",
+      "type": "choice",
+      "prompt": "En la búsqueda de secuencias de acciones, ¿qué significa encontrar lo óptimo?",
+      "options": [
+        "Encontrar la ruta menos costosa",
+        "Encontrar el mejor estado posible",
+        "Encontrar cualquier estado válido",
+        "Construir el modelo mientras actúa"
+      ],
+      "answer": 0,
+      "explanation": "Aquí sí importa el camino, así que lo óptimo es la ruta menos costosa. Encontrar el mejor estado posible es lo óptimo en la búsqueda de estado.",
+      "source": "MIA UD2, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q012",
+      "type": "choice",
+      "prompt": "Un robot de almacén no sabe qué efecto tendrán sus acciones porque otros robots también mueven cajas. ¿Qué tipo de problema tiene?",
+      "options": [
+        "De ausencia de sensores",
+        "Fuera de línea",
+        "De búsqueda de estado",
+        "De contingencia"
+      ],
+      "answer": 3,
+      "explanation": "Que otros agentes cambien el entorno lo hace no determinista y el agente no sabe qué efecto tendrán sus acciones: es contingencia. Sin sensores, el problema sería no saber dónde está.",
+      "source": "MIA UD2, apartado 1.2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q013",
+      "type": "choice",
+      "prompt": "¿Qué es la arquitectura de un agente?",
+      "options": [
+        "La tabla que relaciona percepciones y acciones",
+        "La descripción matemática de la función agente",
+        "El dispositivo con sensores y actuadores donde se ejecuta",
+        "La medida con la que se evalúa su éxito"
+      ],
+      "answer": 2,
+      "explanation": "El programa agente se ejecuta sobre un dispositivo con sensores físicos y actuadores, y eso es la arquitectura. Junto con el programa forma el agente.",
+      "source": "MIA UD2, apartado 1.2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q014",
+      "type": "choice",
+      "prompt": "¿Qué necesita un programa agente si su acción depende de percepciones pasadas?",
+      "options": [
+        "Añadir más sensores físicos",
+        "Guardar el histórico de percepciones en memoria",
+        "Una función de utilidad",
+        "Un entorno determinista"
+      ],
+      "answer": 1,
+      "explanation": "El programa solo recibe lo que pasa en el momento actual. Para usar percepciones pasadas tiene que haberlas guardado para poder revisarlas.",
+      "source": "MIA UD2, apartado 1.2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q015",
+      "type": "choice",
+      "prompt": "En este agente dirigido por tablas, ¿qué pasa si la secuencia de percepciones no está en la tabla?",
+      "code": "def table_driven_agent_program(table, current_percept, past_percepts=[]):\n    past_percepts.append(current_percept)\n    percept = tuple(past_percepts)\n    action = table.get(percept)\n    if action is None:\n        action = table.get(tuple())\n    return action",
+      "options": [
+        "Devuelve la acción por defecto, guardada con la tupla vacía",
+        "Lanza una excepción y el agente se detiene",
+        "Devuelve la acción asociada a la última percepción",
+        "Vacía el histórico de percepciones y vuelve a empezar"
+      ],
+      "answer": 0,
+      "explanation": "Si table.get(percept) da None, el programa busca table.get(tuple()), que es la acción por defecto definida en la tabla. El histórico no se borra: sigue creciendo.",
+      "source": "MIA UD2, apartado 1.3",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q016",
+      "type": "choice",
+      "prompt": "¿Cuál de estos es un motivo para no usar una tabla de percepciones y acciones?",
+      "options": [
+        "Necesita un modelo de transición del mundo",
+        "Solo funciona en entornos multiagente",
+        "Ignora siempre la percepción actual",
+        "No tiene autonomía si cambia el ambiente"
+      ],
+      "answer": 3,
+      "explanation": "Si el ambiente cambia, el agente por tablas deja de saber qué hacer. Además, las tablas son enormes y lleva mucho tiempo construirlas.",
+      "source": "MIA UD2, apartado 1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q017",
+      "type": "choice",
+      "prompt": "¿Qué devuelve vacuum_reflex_agent_program('A', 'Clean')?",
+      "code": "def vacuum_reflex_agent_program(location, status):\n    if status == 'Dirty':\n        return 'vacuum'\n    elif location == 'A':\n        return 'right'\n    elif location == 'B':\n        return 'left'",
+      "options": [
+        "'vacuum'",
+        "'left'",
+        "'right'",
+        "None"
+      ],
+      "answer": 2,
+      "explanation": "El estado no es 'Dirty', así que no aspira. Como la ubicación es 'A', entra en la segunda condición y devuelve 'right'.",
+      "source": "MIA UD2, apartado 1.3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q018",
+      "type": "choice",
+      "prompt": "¿En qué se basa un agente reactivo simple para decidir?",
+      "options": [
+        "En la percepción actual y un modelo del mundo",
+        "Solo en la percepción actual",
+        "En todo el histórico de percepciones",
+        "En una función de utilidad"
+      ],
+      "answer": 1,
+      "explanation": "El reactivo simple aplica reglas condición-acción a la percepción actual e ignora las anteriores. Guardar un estado interno es lo que hace el basado en modelos.",
+      "source": "MIA UD2, apartado 1.3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q019",
+      "type": "truefalse",
+      "prompt": "Con el sensor de ubicación roto, el aspirador reactivo simple puede entrar en un bucle infinito.",
+      "answer": true,
+      "explanation": "Si empieza en A, moverse a la izquierda falla, y si empieza en B, moverse a la derecha también. Como no sabe dónde está, repite la acción sin fin.",
+      "source": "MIA UD2, apartado 1.3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q020",
+      "type": "truefalse",
+      "prompt": "Los comportamientos aleatorios para salir de bucles suelen ser racionales en entornos de agente individual.",
+      "answer": false,
+      "explanation": "Los apuntes dicen lo contrario: pueden estar justificados en entornos multiagente, pero en los de agente individual no suelen ser racionales.",
+      "source": "MIA UD2, apartado 1.3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q021",
+      "type": "order",
+      "prompt": "Ordena lo que hace la función de un agente reactivo simple.",
+      "steps": [
+        "Interpretar la percepción para obtener el estado",
+        "Buscar la regla que coincide con el estado",
+        "Obtener la acción de esa regla",
+        "Devolver la acción"
+      ],
+      "explanation": "Primero se interpreta la entrada, luego se busca la regla coincidente en el conjunto de reglas y se devuelve su acción.",
+      "source": "MIA UD2, apartado 1.3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q022",
+      "type": "match",
+      "prompt": "Relaciona cada conocimiento del agente basado en modelos con lo que describe.",
+      "pairs": [
+        [
+          "Modelo de transición",
+          "Cómo cambia el mundo y qué efecto tienen las acciones"
+        ],
+        [
+          "Modelo de sensor",
+          "Cómo se refleja el estado del mundo en las percepciones"
+        ],
+        [
+          "Reglas condición-acción",
+          "Qué acción tomar en cada situación"
+        ]
+      ],
+      "explanation": "Con los dos modelos el agente mantiene un estado interno del mundo, y con las reglas decide qué hacer en él.",
+      "source": "MIA UD2, apartado 1.3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q023",
+      "type": "choice",
+      "prompt": "¿Qué diferencia importante tiene el agente basado en modelos frente al reactivo simple?",
+      "options": [
+        "Una misma percepción puede dar acciones distintas",
+        "Asocia cada acción directamente a una percepción",
+        "No usa reglas de condición-acción",
+        "Planifica siempre a largo plazo"
+      ],
+      "answer": 0,
+      "explanation": "Como decide según su estado interno y no solo según la percepción, la misma percepción puede llevar a acciones distintas. Sigue usando reglas.",
+      "source": "MIA UD2, apartado 1.3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q024",
+      "type": "order",
+      "prompt": "Ordena los pasos de la función de un agente reactivo basado en modelos.",
+      "steps": [
+        "Actualizar el estado con la percepción",
+        "Buscar la regla que coincide con el estado",
+        "Obtener la acción de la regla",
+        "Actualizar el estado con la acción elegida",
+        "Devolver la acción"
+      ],
+      "explanation": "El estado se actualiza dos veces: antes de elegir, con lo percibido, y después, con la acción que se va a hacer.",
+      "source": "MIA UD2, apartado 1.3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q025",
+      "type": "truefalse",
+      "prompt": "Los agentes basados en objetivos asocian las acciones al estado del entorno mediante una tabla.",
+      "answer": false,
+      "explanation": "Los apuntes dicen expresamente que en estos agentes las acciones no se asocian al estado mediante una tabla: se buscan y planifican para llegar a la meta.",
+      "source": "MIA UD2, apartado 1.3.3",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q026",
+      "type": "choice",
+      "prompt": "¿Qué hace un agente basado en objetivos si la meta no es inmediata a una acción?",
+      "options": [
+        "Una acción aleatoria para explorar",
+        "Un proceso de búsqueda y planificación",
+        "Consultar la tabla de percepciones",
+        "Esperar a recibir una nueva percepción"
+      ],
+      "answer": 1,
+      "explanation": "Cuando una sola acción no alcanza la meta, el agente tiene que buscar y planificar la secuencia que lleva a ella.",
+      "source": "MIA UD2, apartado 1.3.3",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q027",
+      "type": "choice",
+      "prompt": "¿Qué modelo del agente basado en objetivos representa esta expresión?",
+      "code": "estado_nuevo = f(estado_anterior, acción)",
+      "options": [
+        "El modelado del efecto de las acciones",
+        "El modelo de sensor",
+        "La función de utilidad",
+        "El objetivo del sistema"
+      ],
+      "answer": 0,
+      "explanation": "Asocia a cada par (estado, acción) el cambio de estado que produce. El objetivo, en cambio, es el estado final deseado.",
+      "source": "MIA UD2, apartado 1.3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q028",
+      "type": "choice",
+      "prompt": "¿Por qué los agentes basados en objetivos son más flexibles que los reactivos?",
+      "options": [
+        "Responden más rápido a cada percepción",
+        "No necesitan ningún modelo del entorno",
+        "Eligen acciones aleatorias cuando dudan",
+        "Su conocimiento es explícito y se puede modificar"
+      ],
+      "answer": 3,
+      "explanation": "El conocimiento que motiva sus decisiones está representado de forma explícita. En los reactivos es específico de un objetivo y hay que cambiarlo a mano.",
+      "source": "MIA UD2, apartado 1.3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q029",
+      "type": "choice",
+      "prompt": "En un agente basado en utilidad, la utilidad mapea un estado a ___.",
+      "options": [
+        "una acción concreta",
+        "una percepción",
+        "un número real",
+        "una regla de producción"
+      ],
+      "answer": 2,
+      "explanation": "La utilidad asigna a cada estado un número real, lo que permite comparar qué estado se prefiere frente a otro.",
+      "source": "MIA UD2, apartado 1.3.4",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q030",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿por qué los objetivos no bastan para un comportamiento de calidad?",
+      "options": [
+        "No se pueden alcanzar con planificación",
+        "No distinguen estados felices de infelices",
+        "Solo sirven en entornos estáticos",
+        "Exigen tablas de tamaño enorme"
+      ],
+      "answer": 1,
+      "explanation": "Con objetivos sabes si llegas o no, pero no si un estado es de alta o baja calidad. Para eso está la medida de utilidad.",
+      "source": "MIA UD2, apartado 1.3.4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q031",
+      "type": "order",
+      "prompt": "Ordena las preguntas que se hace un agente basado en utilidad antes de actuar.",
+      "steps": [
+        "¿Cómo es el mundo ahora?",
+        "¿Qué pasará si realizo la acción A?",
+        "¿Cómo de útil será alcanzar ese estado?",
+        "¿Qué debo hacer?"
+      ],
+      "explanation": "Primero estima el estado actual, luego prevé el resultado de la acción, lo valora con la utilidad y, por último, decide.",
+      "source": "MIA UD2, apartado 1.3.4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q032",
+      "type": "choice",
+      "prompt": "Un programa aprende a jugar al ajedrez jugando miles de partidas contra sí mismo. ¿Cómo adquiere la experiencia según los apuntes?",
+      "options": [
+        "Con ejemplos etiquetados por un usuario",
+        "Con reglas de condición-acción fijas",
+        "Con un plan calculado fuera de línea",
+        "Por exploración autónoma"
+      ],
+      "answer": 3,
+      "explanation": "Los apuntes ponen este caso como ejemplo de exploración autónoma, que llaman aprendizaje no supervisado. Los ejemplos de un usuario serían aprendizaje supervisado.",
+      "source": "MIA UD2, apartado 1.3.5",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q033",
+      "type": "match",
+      "prompt": "Relaciona cada tipo de conocimiento con su descripción.",
+      "pairs": [
+        [
+          "Declarativo",
+          "Hechos sobre objetos o situaciones"
+        ],
+        [
+          "Relacional",
+          "Relaciones expresables mediante tablas"
+        ],
+        [
+          "Heredable",
+          "Estructuración jerárquica"
+        ],
+        [
+          "Inferible",
+          "Conocimiento descrito mediante lógica"
+        ]
+      ],
+      "explanation": "Son los cuatro tipos de conocimiento que los apuntes piden tener en cuenta al representar el conocimiento.",
+      "source": "MIA UD2, apartado 2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q034",
+      "type": "choice",
+      "prompt": "¿Cuáles son los tres conceptos clave de las técnicas basadas en reglas?",
+      "options": [
+        "Sensores, actuadores y entorno",
+        "Reglas de producción, base de conocimiento y motor de inferencia",
+        "Dominio, problema y planificador",
+        "Fuzzificación, reglas y defuzzificación"
+      ],
+      "answer": 1,
+      "explanation": "Las reglas IF-THEN se guardan en la base de conocimiento y el motor de inferencia las aplica a los datos.",
+      "source": "MIA UD2, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q035",
+      "type": "choice",
+      "prompt": "¿Qué tipo de regla es esta y qué indica su parte THEN?",
+      "code": "IF temperatura > 30 THEN encender ventilador",
+      "options": [
+        "Regla de producción; la acción si se cumple la condición",
+        "Regla de producción; la condición que debe cumplirse",
+        "Hecho de la base de conocimiento; el objetivo",
+        "Regla difusa; el grado de pertenencia"
+      ],
+      "answer": 0,
+      "explanation": "Es una regla de producción: la parte IF es la condición y la parte THEN dice qué hacer cuando se cumple.",
+      "source": "MIA UD2, apartado 2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q036",
+      "type": "choice",
+      "prompt": "Un sistema experto parte de un diagnóstico que quiere confirmar y comprueba si los hechos conocidos lo sostienen. ¿Qué método usa?",
+      "options": [
+        "Encadenamiento hacia adelante",
+        "Propagación de creencias",
+        "Defuzzificación",
+        "Encadenamiento hacia atrás"
+      ],
+      "answer": 3,
+      "explanation": "Empezar por el objetivo y trabajar hacia atrás es el encadenamiento hacia atrás. Hacia adelante se parte de los hechos.",
+      "source": "MIA UD2, apartado 2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q037",
+      "type": "truefalse",
+      "prompt": "El encadenamiento hacia adelante empieza por el objetivo y busca hechos que lo satisfagan.",
+      "answer": false,
+      "explanation": "Eso es el encadenamiento hacia atrás. Hacia adelante se empieza con los hechos conocidos y se aplican reglas hasta llegar al objetivo.",
+      "source": "MIA UD2, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q038",
+      "type": "truefalse",
+      "prompt": "La base de conocimiento puede ser estática o dinámica.",
+      "answer": true,
+      "explanation": "Puede no cambiar nunca o actualizarse según se adquiere nueva información.",
+      "source": "MIA UD2, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q039",
+      "type": "match",
+      "prompt": "Relaciona cada característica de la lógica formal con su definición.",
+      "pairs": [
+        [
+          "Sintaxis formal",
+          "Símbolos y reglas para construir fórmulas bien formadas"
+        ],
+        [
+          "Semántica formal",
+          "Significado de las fórmulas, por ejemplo con tablas de verdad"
+        ],
+        [
+          "Reglas de inferencia",
+          "Formas válidas de derivar conclusiones de premisas"
+        ],
+        [
+          "Consistencia",
+          "No permitir conclusiones contradictorias"
+        ]
+      ],
+      "explanation": "La sintaxis dice cómo se escribe, la semántica qué significa, las reglas de inferencia cómo se razona y la consistencia evita contradicciones.",
+      "source": "MIA UD2, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q040",
+      "type": "choice",
+      "prompt": "Si «p → q» es verdadero y «p» es verdadero, entonces «q» es verdadero. ¿Cómo se llama esta regla?",
+      "options": [
+        "Encadenamiento hacia atrás",
+        "Tabla de verdad",
+        "Completitud",
+        "Modus Ponens"
+      ],
+      "answer": 3,
+      "explanation": "Es el ejemplo de regla de inferencia que dan los apuntes. Una tabla de verdad define el significado de los conectivos, no es una regla de inferencia.",
+      "source": "MIA UD2, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q041",
+      "type": "choice",
+      "prompt": "¿Qué garantiza que una lógica sea completa?",
+      "options": [
+        "Que no se puedan sacar conclusiones contradictorias",
+        "Que todas las fórmulas estén bien formadas",
+        "Que todas las verdades lógicas sean demostrables",
+        "Que cada conectivo tenga su tabla de verdad"
+      ],
+      "answer": 2,
+      "explanation": "La completitud asegura que toda verdad lógica se puede demostrar. No permitir contradicciones es la consistencia, la trampa habitual.",
+      "source": "MIA UD2, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q042",
+      "type": "choice",
+      "prompt": "En una matriz de características, ¿qué representa cada fila?",
+      "options": [
+        "Una característica o atributo",
+        "Un ejemplo o instancia de datos",
+        "Una clase verdadera",
+        "Una clase predicha"
+      ],
+      "answer": 1,
+      "explanation": "Cada fila es un ejemplo y cada columna, una característica. Las clases verdaderas y predichas son de la matriz de confusión.",
+      "source": "MIA UD2, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q043",
+      "type": "choice",
+      "prompt": "En la matriz de confusión tal como la describen los apuntes, ¿qué representan las columnas?",
+      "options": [
+        "Las clases predichas",
+        "Las clases verdaderas",
+        "Los ejemplos de datos",
+        "Las características"
+      ],
+      "answer": 0,
+      "explanation": "Según los apuntes, las filas son las clases verdaderas y las columnas, las predichas. Es fácil cruzarlas, así que fíjate en el orden.",
+      "source": "MIA UD2, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q044",
+      "type": "match",
+      "prompt": "Relaciona cada representación vectorial con la técnica que usa.",
+      "pairs": [
+        [
+          "Palabras",
+          "Word embeddings según el contexto"
+        ],
+        [
+          "Oraciones y documentos",
+          "Doc2Vec o BERT"
+        ],
+        [
+          "Imágenes",
+          "Convoluciones en redes CNN"
+        ],
+        [
+          "Audio",
+          "Transformada de Fourier y MFCC"
+        ]
+      ],
+      "explanation": "Cada tipo de dato no estructurado se convierte en vector con su técnica propia, como recogen los apuntes.",
+      "source": "MIA UD2, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q045",
+      "type": "choice",
+      "prompt": "En Word2Vec, ¿a qué se acerca el resultado de esta operación?",
+      "code": "Rey − Hombre + Mujer",
+      "options": [
+        "Al vector nulo",
+        "Al vector de «Hombre»",
+        "Al vector de «Reina»",
+        "A un vector de dos dimensiones"
+      ],
+      "answer": 2,
+      "explanation": "Es el ejemplo de los apuntes de cómo los embeddings capturan relaciones semánticas como las analogías.",
+      "source": "MIA UD2, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q046",
+      "type": "truefalse",
+      "prompt": "Los modelos probabilísticos necesitan siempre una representación gráfica explícita de las relaciones entre variables.",
+      "answer": false,
+      "explanation": "No la requieren, aunque algunos incorporen elementos gráficos. La representación gráfica central es lo distintivo de los modelos basados en grafos.",
+      "source": "MIA UD2, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q047",
+      "type": "choice",
+      "prompt": "¿Qué son los Modelos Gráficos Probabilísticos (PGM)?",
+      "options": [
+        "Un subtipo de modelos de grafos con principios probabilísticos",
+        "Un tipo de red neuronal convolucional",
+        "Un método para reducir la dimensionalidad",
+        "Una matriz de confusión con probabilidades"
+      ],
+      "answer": 0,
+      "explanation": "Combinan la representación de grafos con la probabilidad. Se usan cuando la estructura de relaciones entre variables es importante.",
+      "source": "MIA UD2, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q048",
+      "type": "match",
+      "prompt": "Relaciona cada tipo de aprendizaje automático con sus ejemplos.",
+      "pairs": [
+        [
+          "Supervisado",
+          "Árboles de decisión y regresión lineal"
+        ],
+        [
+          "No supervisado",
+          "K-means y clustering jerárquico"
+        ],
+        [
+          "Por refuerzo",
+          "Q-Learning y Deep Q-Networks"
+        ]
+      ],
+      "explanation": "Supervisado aprende de datos etiquetados, no supervisado busca patrones sin etiquetas y por refuerzo aprende con recompensas y penalizaciones.",
+      "source": "MIA UD2, apartado 2.5",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q049",
+      "type": "choice",
+      "prompt": "Un modelo aprende interactuando con un entorno y recibe recompensas o penalizaciones según lo que hace. ¿Qué tipo de aprendizaje es?",
+      "options": [
+        "Supervisado",
+        "No supervisado",
+        "Por refuerzo",
+        "Probabilístico"
+      ],
+      "answer": 2,
+      "explanation": "Aprender a partir de recompensas y penalizaciones es la definición de aprendizaje por refuerzo del apartado 2.5. El supervisado necesita datos etiquetados.",
+      "source": "MIA UD2, apartado 2.5",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q050",
+      "type": "choice",
+      "prompt": "Al optimizar un modelo de aprendizaje automático, ¿para qué sirve la regularización?",
+      "options": [
+        "Para normalizar los datos de entrada",
+        "Para evitar el sobreajuste",
+        "Para calcular el recall",
+        "Para etiquetar los ejemplos"
+      ],
+      "answer": 1,
+      "explanation": "Los apuntes la citan como parte de la optimización, precisamente para evitar el sobreajuste. La normalización es parte de la representación de los datos.",
+      "source": "MIA UD2, apartado 2.5",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q051",
+      "type": "order",
+      "prompt": "Ordena el proceso de resolución de un problema de planificación.",
+      "steps": [
+        "Plantear un objetivo",
+        "Formular el problema",
+        "Buscar soluciones",
+        "Ejecutar las acciones encontradas"
+      ],
+      "explanation": "Primero se fija qué se quiere, después se describen estados y acciones, se busca la secuencia y, por último, se ejecuta.",
+      "source": "MIA UD2, apartado 3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q052",
+      "type": "match",
+      "prompt": "Relaciona cada supuesto de la planificación clásica con su significado.",
+      "pairs": [
+        [
+          "Mundo determinista",
+          "Las acciones siempre tienen el efecto esperado"
+        ],
+        [
+          "Tiempo implícito",
+          "No cuenta cuánto dura cada acción"
+        ],
+        [
+          "Planes secuenciales",
+          "El agente hace una sola acción cada vez"
+        ],
+        [
+          "Planificación offline",
+          "Primero se planifica y después se ejecuta"
+        ]
+      ],
+      "explanation": "Son restricciones que simplifican el problema. Los apuntes dicen que son un buen punto de partida y que algunas se pueden relajar.",
+      "source": "MIA UD2, apartado 3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q053",
+      "type": "truefalse",
+      "prompt": "En la planificación offline se van intercalando la planificación y la ejecución.",
+      "answer": false,
+      "explanation": "Hay dos fases separadas: en la primera el agente obtiene un plan válido y en la segunda lo ejecuta. No se intercalan.",
+      "source": "MIA UD2, apartado 3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q054",
+      "type": "choice",
+      "prompt": "¿Qué dos problemas vienen a resolver los lenguajes PDDL?",
+      "options": [
+        "Los entornos dinámicos y multiagente",
+        "El acoplamiento al dominio y un espacio de estados enorme",
+        "La falta de sensores y los efectos inciertos",
+        "El sobreajuste y la falta de datos"
+      ],
+      "answer": 1,
+      "explanation": "Plantear el proceso de resolución a mano acopla el agente al dominio y obliga a representar un espacio de estados muy grande. PDDL nace para evitarlo.",
+      "source": "MIA UD2, apartado 3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q055",
+      "type": "choice",
+      "prompt": "¿En qué lenguaje se basa la sintaxis de PDDL?",
+      "options": [
+        "LISP",
+        "Prolog",
+        "Python",
+        "SQL"
+      ],
+      "answer": 0,
+      "explanation": "PDDL toma la sintaxis de LISP, un lenguaje declarativo basado en listas. En los apuntes se usa notación de lógica de primer orden para no entrar en ella.",
+      "source": "MIA UD2, apartado 3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q056",
+      "type": "choice",
+      "prompt": "Un robot calcula su plan y, mientras lo ejecuta, otro robot mueve una caja del almacén. ¿Qué supuesto clásico se incumple?",
+      "options": [
+        "Tiempo implícito",
+        "Objetivos simples",
+        "Planes secuenciales",
+        "Mundo estático"
+      ],
+      "answer": 3,
+      "explanation": "En un mundo estático nadie más que el agente que planifica cambia el estado. Si otro robot mueve la caja, ese supuesto deja de cumplirse.",
+      "source": "MIA UD2, apartado 3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q057",
+      "type": "choice",
+      "prompt": "¿Qué significa trabajar con objetivos simples en planificación clásica?",
+      "options": [
+        "Cada agente tiene un único objetivo posible",
+        "El objetivo se expresa con un número real",
+        "La meta se fija sin considerar estados intermedios",
+        "El objetivo se alcanza siempre en un solo paso"
+      ],
+      "answer": 2,
+      "explanation": "Objetivos simples, o sin restricciones, quiere decir que solo importa el estado final, no los estados por los que se pasa.",
+      "source": "MIA UD2, apartado 3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q058",
+      "type": "choice",
+      "prompt": "¿Qué contiene el fichero domain de PDDL?",
+      "options": [
+        "Objetos concretos, estado inicial y objetivo",
+        "Tipos de objetos, predicados y acciones posibles",
+        "El plan que devuelve el planificador",
+        "El algoritmo de búsqueda que se usará"
+      ],
+      "answer": 1,
+      "explanation": "El dominio describe lo general: tipos, predicados o funciones y acciones. Los objetos concretos, el estado inicial y el objetivo van en el fichero problem.",
+      "source": "MIA UD2, apartado 3.1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q059",
+      "type": "truefalse",
+      "prompt": "PDDL especifica cómo debe ser la salida del planificador.",
+      "answer": false,
+      "explanation": "PDDL no la especifica. Por lo general es un plan total o parcialmente ordenado, con algunas acciones que pueden ir en paralelo.",
+      "source": "MIA UD2, apartado 3.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q060",
+      "type": "choice",
+      "prompt": "Dado este esquema, ¿cuándo es aplicable la acción volar a un estado s?",
+      "code": "Action(volar(a, origen, destino),\n  PRECOND: En(a, origen) ∧ Avion(a) ∧ Aeropuerto(origen) ∧ Aeropuerto(destino)\n  EFFECT: ¬En(a, origen) ∧ En(a, destino))",
+      "options": [
+        "Cuando s ya contiene su efecto",
+        "Siempre que a sea un avión",
+        "Cuando el destino forma parte del objetivo",
+        "Cuando s cumple todas sus precondiciones"
+      ],
+      "answer": 3,
+      "explanation": "Una acción con sus variables ya sustituidas es aplicable a s si s cumple las precondiciones. Que a sea un avión es solo una de ellas.",
+      "source": "MIA UD2, apartado 3.1.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q061",
+      "type": "choice",
+      "prompt": "Con este esquema, ¿cómo queda el avión A1 tras ejecutar volar(A1, MAD, BCN)?",
+      "code": "EFFECT: ¬En(a, origen) ∧ En(a, destino)",
+      "options": [
+        "Está a la vez en MAD y en BCN",
+        "Sigue en MAD hasta descargar",
+        "Ya no está en MAD y está en BCN",
+        "Deja de cumplir Avion(A1)"
+      ],
+      "answer": 2,
+      "explanation": "El efecto niega En(a, origen) y afirma En(a, destino). Los predicados Avion y Aeropuerto no cambian.",
+      "source": "MIA UD2, apartado 3.1.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q062",
+      "type": "order",
+      "prompt": "Ordena el plan para llevar el cargamento C1 de Madrid a Barcelona en el avión A1.",
+      "steps": [
+        "Cargar(C1, A1, MAD)",
+        "Volar(A1, MAD, BCN)",
+        "Descargar(C1, A1, BCN)"
+      ],
+      "explanation": "Hay que cargar en el aeropuerto donde están el avión y el cargamento, volar al destino y descargar allí, que es donde se cumplen las precondiciones de cada acción.",
+      "source": "MIA UD2, apartado 3.1.2",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q063",
+      "type": "choice",
+      "prompt": "¿Cuántos predicados y objetos usa este estado?",
+      "code": "En(Camión1, Madrid) ∧ En(Camión2, Barcelona)",
+      "options": [
+        "Un predicado y cuatro objetos",
+        "Dos predicados y dos objetos",
+        "Dos predicados y cuatro objetos",
+        "Un predicado y dos objetos"
+      ],
+      "answer": 0,
+      "explanation": "Solo aparece el predicado En, usado dos veces, y cuatro objetos: dos camiones y dos ciudades.",
+      "source": "MIA UD2, apartado 3.1.1",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q064",
+      "type": "truefalse",
+      "prompt": "El estado inicial se especifica con una conjunción de sentencias que no incluyen variables.",
+      "answer": true,
+      "explanation": "El estado inicial usa sentencias concretas, sin variables. El objetivo es una conjunción de sentencias positivas o negativas.",
+      "source": "MIA UD2, apartado 3.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q065",
+      "type": "choice",
+      "prompt": "¿Qué es la lógica difusa según los apuntes?",
+      "options": [
+        "Un caso especial de la lógica de Boole",
+        "Un tipo concreto de red neuronal",
+        "Una extensión de la lógica clásica de primer orden",
+        "Una rama de la teoría de la probabilidad"
+      ],
+      "answer": 2,
+      "explanation": "Es una extensión de la lógica clásica para datos poco exactos. Ocurre al revés de lo que dice la trampa: Boole es un caso especial de la lógica difusa.",
+      "source": "MIA UD2, apartado 4.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q066",
+      "type": "truefalse",
+      "prompt": "La lógica de Boole clásica es un caso especial de la lógica imprecisa.",
+      "answer": true,
+      "explanation": "Es una de las siete verdades de los apuntes: la lógica imprecisa no es imprecisa en sí y la de Boole queda como caso particular.",
+      "source": "MIA UD2, apartado 4.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q067",
+      "type": "choice",
+      "prompt": "¿En qué se diferencia la lógica imprecisa de la probabilidad?",
+      "options": [
+        "Trata la naturaleza del propio evento, no si ocurrirá",
+        "Usa valores de 0 a 100 en lugar de 0 a 1",
+        "Solo sirve para el control de procesos",
+        "Necesita muchos más datos para funcionar"
+      ],
+      "answer": 0,
+      "explanation": "La probabilidad intenta saber si ocurrirá un evento bien definido; la lógica imprecisa trata la naturaleza del evento. Su imprecisión es ambigüedad, no incertidumbre.",
+      "source": "MIA UD2, apartado 4.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q068",
+      "type": "order",
+      "prompt": "Ordena cómo se transforma «La velocidad tiene un valor positivo grande» en variables lingüísticas.",
+      "steps": [
+        "Elegir un símbolo V para la variable velocidad",
+        "Elegir un símbolo PG para el valor positivo grande",
+        "Escribir la expresión como V es PG"
+      ],
+      "explanation": "Primero se da símbolo a la variable física, luego al valor y por último se compone la proposición atómica difusa.",
+      "source": "MIA UD2, apartado 4.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q069",
+      "type": "choice",
+      "prompt": "¿Cómo se interpreta la proposición atómica difusa «V es PG»?",
+      "options": [
+        "Comprobando si V es mayor que PG",
+        "Por la probabilidad de que V valga PG",
+        "Por la pertenencia de la velocidad al conjunto PG",
+        "Con la tabla de verdad de V y PG"
+      ],
+      "answer": 2,
+      "explanation": "La interpretación es μPG(v): el grado en que un valor v de la velocidad pertenece al conjunto difuso PG. No es una comparación ni una probabilidad.",
+      "source": "MIA UD2, apartado 4.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q070",
+      "type": "match",
+      "prompt": "Relaciona cada conector lingüístico con la operación difusa que lo interpreta.",
+      "pairs": [
+        [
+          "«y»",
+          "Intersección mediante T-normas"
+        ],
+        [
+          "«o»",
+          "Unión mediante T-conormas"
+        ],
+        [
+          "«no»",
+          "Complemento"
+        ]
+      ],
+      "explanation": "Las proposiciones compuestas se interpretan con operaciones de conjuntos difusos: intersección, unión y complemento.",
+      "source": "MIA UD2, apartado 4.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q071",
+      "type": "truefalse",
+      "prompt": "En un sistema difuso con antecedente difuso, solo se ejecutan las reglas cuyo antecedente es totalmente cierto.",
+      "answer": false,
+      "explanation": "Todas las reglas se ejecutan parcialmente, y el consecuente es cierto en el mismo tipo de grado que el antecedente. Lo de todo o nada es de las reglas clásicas.",
+      "source": "MIA UD2, apartado 4.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q072",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿qué pasa si ves la lógica imprecisa solo como herramienta de control de procesos?",
+      "options": [
+        "Es su único uso real",
+        "Es correcto si se añade el análisis de señales",
+        "Es incompatible con los sistemas expertos",
+        "Es una interpretación demasiado limitada"
+      ],
+      "answer": 3,
+      "explanation": "Los apuntes dicen que la lógica imprecisa es algo más que control de procesos: es una forma de representar y analizar información sea cual sea la aplicación.",
+      "source": "MIA UD2, apartado 4.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q073",
+      "type": "choice",
+      "prompt": "En la regla «SI x es A, ENTONCES y es B», ¿cómo se llama la parte «SI x es A»?",
+      "options": [
+        "Consecuente",
+        "Conjunto difuso",
+        "Antecedente",
+        "Defuzzificación"
+      ],
+      "answer": 2,
+      "explanation": "La parte SI es el antecedente y la parte ENTONCES, el consecuente. A y B son los valores lingüísticos definidos por conjuntos difusos.",
+      "source": "MIA UD2, apartado 4.1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q074",
+      "type": "choice",
+      "prompt": "¿Cuánto reducen los sistemas difusos el número de reglas a codificar frente a los clásicos?",
+      "options": [
+        "Alrededor de un 50 %",
+        "Al menos un 90 %",
+        "Como mucho un 10 %",
+        "No lo reducen, lo aumentan"
+      ],
+      "answer": 1,
+      "explanation": "Al combinar las reglas posibles, los apuntes hablan de una reducción de al menos un 90 % respecto a los sistemas de reglas clásicas.",
+      "source": "MIA UD2, apartado 4.1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q075",
+      "type": "truefalse",
+      "prompt": "La defuzzificación es un paso obligatorio en cualquier sistema difuso.",
+      "answer": false,
+      "explanation": "Los apuntes dicen que quitar la imprecisión solo es necesario si quieres obtener un valor discreto de salida. Los métodos más comunes son el centro de masas y el valor de máxima pertenencia.",
+      "source": "MIA UD2, apartado 4.1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q076",
+      "type": "order",
+      "prompt": "Ordena el cálculo de la salida por el método del centro de masas.",
+      "steps": [
+        "Tomar una muestra de puntos del eje horizontal",
+        "Sumar cada punto multiplicado por su grado de pertenencia",
+        "Dividir entre la suma de los grados de pertenencia"
+      ],
+      "explanation": "Es una media ponderada: cada punto pesa según su grado de pertenencia y al final se divide entre la suma de los pesos.",
+      "source": "MIA UD2, apartado 4.1.2",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q077",
+      "type": "choice",
+      "prompt": "La velocidad va de 0 a 220 km/h. En la regla difusa «SI velocidad es rápida…», ¿qué es «rápida»?",
+      "options": [
+        "Un valor fijo por encima de 100 km/h",
+        "La probabilidad de superar el límite",
+        "Un conjunto difuso dentro del rango de la velocidad",
+        "El consecuente de la regla"
+      ],
+      "answer": 2,
+      "explanation": "En la regla difusa, el rango de la velocidad se cubre con conjuntos difusos como lenta, media y rápida. Un umbral fijo como «> 100» es propio de la regla clásica.",
+      "source": "MIA UD2, apartado 4.1.2",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q078",
+      "type": "choice",
+      "prompt": "¿Cuáles son los motores de inferencia difusa más conocidos según los apuntes?",
+      "options": [
+        "Gibbs y Márkov",
+        "Mamdani y TSK",
+        "Forward y backward chaining",
+        "CNN y RNN"
+      ],
+      "answer": 1,
+      "explanation": "Los apuntes citan la inferencia Mamdani y la TSK. Gibbs es un método de inferencia en redes bayesianas y el encadenamiento es de los sistemas de reglas. En los apuntes aparece escrito «Mandani».",
+      "source": "MIA UD2, apartado 4.1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q079",
+      "type": "order",
+      "prompt": "Ordena las fases de un sistema de inferencia difusa.",
+      "steps": [
+        "Fuzzificar las variables de entrada",
+        "Aplicar las reglas SI-ENTONCES",
+        "Defuzzificar si se necesita un valor discreto"
+      ],
+      "explanation": "Primero se obtiene el grado de pertenencia de las entradas, luego se razona con las reglas y, si hace falta un valor concreto, se quita la imprecisión.",
+      "source": "MIA UD2, apartado 4.1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q080",
+      "type": "choice",
+      "prompt": "Un sistema asigna probabilidad 0.8 a una oración. ¿Qué significa?",
+      "options": [
+        "Que la oración es verdad en un 80 %",
+        "Que pertenece al conjunto en grado 0.8",
+        "Que 8 de cada 10 reglas la confirman",
+        "Un 80 % de grado de creencia en ella"
+      ],
+      "answer": 3,
+      "explanation": "Los apuntes insisten en que no es un 80 % de verdad, sino un 80 % de grado de creencia según las evidencias. Y puede cambiar si llegan más.",
+      "source": "MIA UD2, apartado 4.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q081",
+      "type": "match",
+      "prompt": "Relaciona cada técnica con su tipo de método para tratar la incertidumbre.",
+      "pairs": [
+        [
+          "Razonamiento por defecto",
+          "Método no numérico"
+        ],
+        [
+          "Redes bayesianas",
+          "Método probabilista exacto"
+        ],
+        [
+          "Factores de certeza",
+          "Método probabilista aproximado"
+        ],
+        [
+          "Teoría de Dempster-Shafer",
+          "Método numérico no probabilista"
+        ]
+      ],
+      "explanation": "Los apuntes separan los métodos no numéricos de los numéricos, y dentro de estos los probabilistas exactos, los aproximados y los no probabilistas.",
+      "source": "MIA UD2, apartado 4.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q082",
+      "type": "choice",
+      "prompt": "¿Cuál fue el principal problema de los sistemas expertos probabilistas?",
+      "options": [
+        "Que no podían representar la incertidumbre",
+        "El crecimiento exponencial de probabilidades necesarias",
+        "Que solo aceptaban valores verdadero o falso",
+        "Que necesitaban redes neuronales profundas"
+      ],
+      "answer": 1,
+      "explanation": "Al aumentar el número de variables, las probabilidades necesarias para la distribución conjunta crecían de forma exponencial. Eso llevó a buscar otras aproximaciones.",
+      "source": "MIA UD2, apartado 4.2",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q083",
+      "type": "truefalse",
+      "prompt": "Según los apuntes, la probabilidad representa la frecuencia relativa de ocurrencia de un evento bien definido.",
+      "answer": true,
+      "explanation": "Es la diferencia clave con el grado de pertenencia difuso, que mide la similitud entre eventos cuyas propiedades no están definidas con precisión.",
+      "source": "MIA UD2, apartado 4.2",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q084",
+      "type": "choice",
+      "prompt": "¿Qué estructura usa una red bayesiana?",
+      "options": [
+        "Un grafo no dirigido con ciclos",
+        "Un árbol de decisión",
+        "Una matriz de transición",
+        "Un grafo dirigido acíclico"
+      ],
+      "answer": 3,
+      "explanation": "Una red bayesiana es un DAG: los arcos tienen dirección y no hay ciclos. La matriz de transición es propia de las cadenas de Márkov.",
+      "source": "MIA UD2, apartado 4.2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q085",
+      "type": "truefalse",
+      "prompt": "Una red bayesiana que funciona hacia atrás infiere las variables no observadas a partir de las observadas.",
+      "answer": false,
+      "explanation": "Eso lo hace hacia adelante, con el teorema de Bayes. Hacia atrás se actualizan las probabilidades del modelo a medida que llegan observaciones.",
+      "source": "MIA UD2, apartado 4.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q086",
+      "type": "choice",
+      "prompt": "¿Qué propiedad de las cadenas de Márkov expresa esta igualdad?",
+      "code": "P(X(t+1)=x | X(t)=x_t, X(t−1)=x_(t−1), …, X(0)=x_0) = P(X(t+1)=x | X(t)=x_t)",
+      "options": [
+        "El siguiente estado depende de toda la historia",
+        "El siguiente estado solo depende del actual",
+        "Los estados no son observables",
+        "El tiempo es continuo"
+      ],
+      "answer": 1,
+      "explanation": "Condicionar en toda la historia da lo mismo que condicionar solo en el estado actual. Por eso basta conocer el presente para predecir lo siguiente.",
+      "source": "MIA UD2, apartado 4.2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q087",
+      "type": "choice",
+      "prompt": "¿Qué capas tiene una red neuronal básica?",
+      "options": [
+        "Entrada, una o más ocultas y salida",
+        "Solo una de entrada y otra de salida",
+        "Entrada, convolución y agrupamiento",
+        "Generador, discriminador y salida"
+      ],
+      "answer": 0,
+      "explanation": "La red básica de los apuntes tiene una capa de entrada, una o más ocultas y una de salida. Convolución y generador son de tipos concretos de redes profundas.",
+      "source": "MIA UD2, apartado 4.3",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q088",
+      "type": "choice",
+      "prompt": "¿Para qué aplica cada neurona una función de activación?",
+      "options": [
+        "Para ajustar los pesos de la red",
+        "Para medir el error de la salida",
+        "Para reducir el número de capas",
+        "Para introducir no linealidades"
+      ],
+      "answer": 3,
+      "explanation": "La función de activación se aplica a la suma ponderada de entradas y permite aprender tareas complejas. Ajustar los pesos es cosa de la retropropagación.",
+      "source": "MIA UD2, apartado 4.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q089",
+      "type": "order",
+      "prompt": "Ordena una iteración de entrenamiento de una red neuronal.",
+      "steps": [
+        "Propagar los datos de la entrada a la salida",
+        "Calcular el error en la salida",
+        "Retropropagar el gradiente del error",
+        "Ajustar los pesos con descenso de gradiente"
+      ],
+      "explanation": "Primero se obtiene la salida, luego el error, la retropropagación calcula su gradiente respecto a los pesos y el descenso de gradiente los ajusta.",
+      "source": "MIA UD2, apartado 4.3",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q090",
+      "type": "match",
+      "prompt": "Relaciona cada tipo de red profunda con su uso.",
+      "pairs": [
+        [
+          "Convolucional (CNN)",
+          "Imágenes y vídeo con filtros de patrones locales"
+        ],
+        [
+          "Recurrente (RNN)",
+          "Texto y series temporales"
+        ],
+        [
+          "Generativa antagónica (GAN)",
+          "Generador y discriminador que crean datos nuevos"
+        ]
+      ],
+      "explanation": "Las CNN trabajan datos en grilla, las RNN datos secuenciales y las GAN generan datos realistas con dos redes entrenadas juntas.",
+      "source": "MIA UD2, apartado 4.4",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q091",
+      "type": "choice",
+      "prompt": "Quieres predecir las ventas de mañana a partir de la serie de ventas de los últimos años. ¿Qué tipo de red encaja mejor según los apuntes?",
+      "options": [
+        "Red neuronal recurrente",
+        "Red neuronal convolucional",
+        "Red generativa antagónica",
+        "Red bayesiana"
+      ],
+      "answer": 0,
+      "explanation": "Una serie temporal es un dato secuencial, y las RNN preservan información a través del tiempo con sus conexiones recurrentes. Las CNN son para datos en grilla.",
+      "source": "MIA UD2, apartado 4.4",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q092",
+      "type": "truefalse",
+      "prompt": "El deep learning necesita ingeniería de características manual para descubrir lo relevante de los datos.",
+      "answer": false,
+      "explanation": "Una de sus ventajas es justo que aprende automáticamente las características relevantes sin ingeniería manual.",
+      "source": "MIA UD2, apartado 4.4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q093",
+      "type": "choice",
+      "prompt": "¿A qué se refiere la crítica de que el deep learning es una «caja negra»?",
+      "options": [
+        "A que necesita hardware especializado",
+        "A que requiere muchos datos etiquetados",
+        "A su falta de interpretabilidad y transparencia",
+        "A que solo se aplica a imágenes"
+      ],
+      "answer": 2,
+      "explanation": "Caja negra significa que cuesta entender cómo decide. El hardware y los datos son otras desventajas distintas.",
+      "source": "MIA UD2, apartado 4.4",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q094",
+      "type": "choice",
+      "prompt": "¿Con qué nombre se conoce el Reglamento de Inteligencia Artificial de la UE?",
+      "options": [
+        "RGPD",
+        "AI Act",
+        "Data Act",
+        "Big Data Act"
+      ],
+      "answer": 1,
+      "explanation": "El Reglamento de IA se conoce como AI Act. El RGPD es el Reglamento General de Protección de Datos, que la AI Act incluye entre las normas a revisar.",
+      "source": "MIA UD2, apartado 5",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q095",
+      "type": "choice",
+      "prompt": "¿Cuál es el objetivo principal de la AI Act según los apuntes?",
+      "options": [
+        "Clasificar los sistemas de IA según su riesgo",
+        "Prohibir el uso de la IA generativa",
+        "Financiar la investigación en IA",
+        "Sustituir al RGPD en la Unión Europea"
+      ],
+      "answer": 0,
+      "explanation": "La ley clasifica los sistemas según su riesgo y, a partir de ahí, fija requisitos o prohíbe los usos de riesgo alto. No sustituye al RGPD.",
+      "source": "MIA UD2, apartado 5",
+      "difficulty": 1
+    },
+    {
+      "id": "mia-ud02-q096",
+      "type": "choice",
+      "prompt": "Según la AI Act, ¿qué significa que un sistema de IA sea trazable?",
+      "options": [
+        "Que su código fuente es público",
+        "Que guarda los datos de sus usuarios",
+        "Que su riesgo se ha clasificado como bajo",
+        "Que se puede rastrear cómo y por qué decidió"
+      ],
+      "answer": 3,
+      "explanation": "La trazabilidad es poder seguir el camino de una decisión concreta. Va unida a la transparencia y a que el funcionamiento sea comprensible.",
+      "source": "MIA UD2, apartado 5",
+      "difficulty": 2
+    },
+    {
+      "id": "mia-ud02-q097",
+      "type": "choice",
+      "prompt": "Un sistema puntúa a los ciudadanos según su comportamiento social. ¿Qué dice la AI Act según los apuntes?",
+      "options": [
+        "Está permitido si es transparente",
+        "Está permitido si es trazable",
+        "Es un uso inaceptable y está prohibido",
+        "Solo se regula en el RGPD"
+      ],
+      "answer": 2,
+      "explanation": "Los apuntes citan los sistemas de puntuación social, junto con la manipulación subliminal, como usos prohibidos por inaceptables.",
+      "source": "MIA UD2, apartado 5",
+      "difficulty": 3
+    },
+    {
+      "id": "mia-ud02-q098",
+      "type": "truefalse",
+      "prompt": "La regulación de la IA sigue el mismo enfoque en todas las regiones del mundo.",
+      "answer": false,
+      "explanation": "Los apuntes dicen que es un campo en evolución con enfoques diversos según la región y el organismo. La UE ha sido la pionera.",
+      "source": "MIA UD2, apartado 5",
+      "difficulty": 1
+    }
+  ]
+}
