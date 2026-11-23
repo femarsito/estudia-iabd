@@ -1,0 +1,2195 @@
+{
+  "id": "pia-ud02",
+  "moduleId": "pia",
+  "number": 2,
+  "title": "Lenguajes de programación de IA. Lenguaje R",
+  "lessons": [
+    {
+      "id": "pia-ud02-l01",
+      "kind": "read",
+      "title": "R y los lenguajes de IA",
+      "section": "Introducción y 1",
+      "cards": [
+        {
+          "title": "Tres lenguajes para la IA",
+          "body": "Para aplicar técnicas de IA destacan **Python**, **R** y **Java**. Se elige uno u otro según lo que pida el proyecto:\n- **Python**: el más popular; simple, legible y con muchas bibliotecas y una gran comunidad.\n- **R**: **análisis estadístico, minería y visualización de datos**.\n- **Java**: **rendimiento y escalabilidad** en aplicaciones empresariales."
+        },
+        {
+          "title": "Qué es R",
+          "body": "Un lenguaje y un entorno de **software libre** pensado para el **análisis estadístico y la visualización de datos**. Lo crearon **Ross Ihaka y Robert Gentleman** en la **Universidad de Auckland** (Nueva Zelanda) y hoy lo mantiene la comunidad del **R Project**. Con él se manipulan datos, se analizan y se presentan en gráficos."
+        },
+        {
+          "title": "R en un caso real",
+          "body": "En el caso práctico, Ana elige R para analizar los envíos de su empresa. Su equipo usa:\n- **dplyr** y **tidyr**: manipular y transformar datos.\n- **ggplot2**: visualizaciones.\n- **kmeans**: agrupar zonas de entrega en clústeres.\n- **forecast**: series temporales para predecir la demanda."
+        },
+        {
+          "title": "Los scripts de la unidad",
+          "body": "Los ejemplos vienen en **PIA02_Scripts.zip**. Lo que más rinde es abrirlos en **RStudio** y ejecutarlos **línea a línea**, mirando la consola y cómo cambian las variables, y después probar variaciones propias."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l02",
+      "kind": "read",
+      "title": "Características de R",
+      "section": "1.1",
+      "cards": [
+        {
+          "title": "Alto nivel e interpretado",
+          "body": "R es de **alto nivel**: hace cálculos estadísticos complejos y manipula datos con eficacia, con muchos operadores para **arrays y matrices**. Es **interpretado**: se ejecuta **línea a línea sin compilar**, y su intérprete está disponible para los sistemas operativos más populares."
+        },
+        {
+          "title": "Libre y extensible",
+          "body": "Es **gratuito y de código abierto**: cualquiera puede descargarlo, usarlo y modificarlo sin coste. Se amplía con **paquetes**:\n- **CRAN**: paquetes de estadística y análisis de datos.\n- **Bioconductor**: paquetes específicos de **bioinformática**."
+        },
+        {
+          "title": "Gráficos, integración y estadística",
+          "body": "- **Sistema gráfico** para todo, desde gráficos simples a visualizaciones complejas.\n- Importa y exporta **CSV, Excel, SQL**… y se integra con **Python y C++**.\n- Técnicas estadísticas: modelado lineal y no lineal, pruebas estadísticas, **series temporales**, clasificación y **clustering**."
+        },
+        {
+          "title": "CRAN",
+          "body": "**The Comprehensive R Archive Network** guarda todas las versiones de **R base** y los paquetes que han pasado la **revisión del CRAN Team**. Es una red de **servidores con copias** repartidos por el mundo que se actualizan **a diario**: descargues de donde descargues, obtienes la versión más reciente, la misma en todos."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l03",
+      "kind": "practice",
+      "title": "R y sus características",
+      "section": "Introducción, 1 y 1.1",
+      "questionIds": [
+        "pia-ud02-q001",
+        "pia-ud02-q002",
+        "pia-ud02-q003",
+        "pia-ud02-q004",
+        "pia-ud02-q005",
+        "pia-ud02-q006",
+        "pia-ud02-q007",
+        "pia-ud02-q008"
+      ]
+    },
+    {
+      "id": "pia-ud02-l04",
+      "kind": "read",
+      "title": "El entorno RStudio",
+      "section": "1.2",
+      "cards": [
+        {
+          "title": "Qué hay que instalar",
+          "body": "Dos cosas: el **intérprete de R**, desde la web de R-project y mejor de un servidor en España, y el entorno **RStudio**, desde posit.co. Primero el intérprete y después RStudio. Cada uno tiene su instalador para el sistema operativo que uses: **Windows, macOS o Linux**."
+        },
+        {
+          "title": "Barra de herramientas y editor",
+          "body": "- **Barra de herramientas** (arriba): menú y botones para ejecutar lo seleccionado, una línea o el script entero, o detener la ejecución.\n- **Editor de código** (centro izquierda, el panel más grande): colorea el código, **numera las líneas** y **autocompleta**."
+        },
+        {
+          "title": "Abajo a la izquierda",
+          "body": "- **Console**: ejecuta R **en tiempo real**; con las **flechas arriba y abajo** recuperas comandos anteriores.\n- **Terminal**: comandos del **sistema operativo**.\n- **Background Jobs**: procesos en **segundo plano**."
+        },
+        {
+          "title": "Arriba a la derecha",
+          "body": "- **Environment**: variables, datos y objetos del entorno de trabajo.\n- **History**: los comandos ejecutados en la sesión, que puedes reutilizar en la consola o en el editor.\n- **Panel de proyecto** (en la esquina): abre, cierra y gestiona proyectos, cada uno con su propio entorno."
+        },
+        {
+          "title": "Abajo a la derecha",
+          "body": "- **Files**: navegador de archivos.\n- **Plots**: gráficos generados; se pueden exportar, copiar y borrar.\n- **Packages**: lista los paquetes instalados; permite cargarlos, actualizarlos y desinstalarlos.\n- **Help**: documentación de R.\n- **Viewer**: salidas HTML de R Markdown y aplicaciones Shiny."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l05",
+      "kind": "pc",
+      "title": "Instalar R y RStudio",
+      "section": "1.2",
+      "steps": [
+        {
+          "where": "Navegador",
+          "text": "Entra en la web oficial de R (R-project) y pulsa en Descargar R. Elige un servidor, mejor uno de España, y descarga el instalador de tu sistema operativo: Windows, macOS o Linux."
+        },
+        {
+          "where": "Instalador de R",
+          "text": "Ejecuta el instalador y sigue sus instrucciones hasta terminar. En la captura de los apuntes es «R for Windows 4.4.0»."
+        },
+        {
+          "where": "Navegador",
+          "text": "Con el intérprete ya instalado, descarga RStudio desde https://posit.co/products/open-source/rstudio/ para tu sistema y sigue su instalador."
+        },
+        {
+          "where": "RStudio",
+          "text": "Descomprime PIA02_Scripts.zip, que está en los apuntes, y abre `01_Tipos_de_Variables.R`. Ejecútalo línea a línea con **Run** o entero con **Source**, y mira el panel Environment.",
+          "code": "edad <- 42     # Entero\nnota <- 9.75   # Número de punto flotante\nname <- \"Ana\"  # Cadena de caracteres\nsupera_curso <- TRUE   # Valores booleanos\nfecha <- as.Date(\"2025-01-30\") # Fechas\nnotas <- factor(c(\"suspenso\", \"suficiente\", \"bien\", \"notable\", \"sobresaliente\"))",
+          "expected": "En Environment aparecen edad 42, nota 9.75, name \"Ana\", supera_curso TRUE, fecha 2025-01-30 y notas como Factor w/ 5 levels."
+        },
+        {
+          "where": "RStudio",
+          "text": "Prueba una línea que falla: sumar un número y un texto. La consola explica la causa y la variable no aparece en Environment. El mensaje sale en el idioma de tu R; el de abajo es el de R en español.",
+          "code": "error_no_numerico <- 5 + \"hola\"",
+          "expected": "Error in 5 + \"hola\" : argumento no-numérico para operador binario"
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l06",
+      "kind": "practice",
+      "title": "El entorno RStudio",
+      "section": "1.2",
+      "questionIds": [
+        "pia-ud02-q009",
+        "pia-ud02-q010",
+        "pia-ud02-q011",
+        "pia-ud02-q012",
+        "pia-ud02-q013",
+        "pia-ud02-q014",
+        "pia-ud02-q015",
+        "pia-ud02-q016"
+      ]
+    },
+    {
+      "id": "pia-ud02-l07",
+      "kind": "read",
+      "title": "Variables, tipos y comentarios",
+      "section": "1.3 y 1.3.1",
+      "cards": [
+        {
+          "title": "Cómo trata R los datos",
+          "body": "- **Datos básicos**: numérico, lógico, fecha y cadena, además de **factores**.\n- **Inferencia de tipos**: el intérprete decide el tipo **al ejecutar**.\n- **Tipado dinámico**: una variable puede **cambiar de tipo** durante la ejecución.\n- **Tipado fuerte**: no deja operar con **tipos incompatibles**; para cambiar el tipo hay que usar funciones."
+        },
+        {
+          "title": "Comentarios",
+          "body": "Empiezan por **#**: lo que va detrás en esa línea no se ejecuta. Buenas prácticas:\n- **Claros y concisos**: solo en las partes importantes o complejas.\n- **Actualizados** cuando cambia el código.\n- **Descriptivos**: el **qué** y el **por qué**, no el cómo."
+        },
+        {
+          "title": "<- o =",
+          "body": "Los dos asignan, pero la recomendación es:\n- **<-** para asignar valores a variables.\n- **=** para dar valor a los **argumentos de las funciones**.\nEjemplo: `media <- mean(x = c(1, 2, 3, 4, 5))`"
+        },
+        {
+          "title": "Tipos básicos",
+          "body": "- **Numéricos**: enteros o en punto flotante.\n- **Cadenas**: texto **entre comillas**.\n- **Lógicos**: `TRUE` o `FALSE`.\n- **Fechas y horas**: a partir de cadenas bien formadas.\n- **Factores**: **datos categóricos**, variables cualitativas con unos valores determinados."
+        },
+        {
+          "title": "Un script de ejemplo",
+          "body": "`edad <- 42`, `nota <- 9.75`, `name <- \"Ana\"`, `supera_curso <- TRUE`, `fecha <- as.Date(\"2025-01-30\")` y `notas <- factor(c(...))` con cinco notas. Se ejecuta **línea a línea** o entero, y **Environment** muestra cada variable; `notas` sale como **Factor w/ 5 levels**."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l08",
+      "kind": "practice",
+      "title": "Variables, tipos y comentarios",
+      "section": "1.3 y 1.3.1",
+      "questionIds": [
+        "pia-ud02-q017",
+        "pia-ud02-q018",
+        "pia-ud02-q019",
+        "pia-ud02-q020",
+        "pia-ud02-q021",
+        "pia-ud02-q022",
+        "pia-ud02-q023",
+        "pia-ud02-q024"
+      ]
+    },
+    {
+      "id": "pia-ud02-l09",
+      "kind": "read",
+      "title": "Operaciones y conversión de tipos",
+      "section": "1.3.2 y 1.3.3",
+      "cards": [
+        {
+          "title": "Operadores",
+          "body": "- Aritméticos: `+`, `-`, `*`, `/` y **potencia `^`**.\n- Comparación: `==`, **`!=`**, `>`, `<`, `>=`, `<=`.\n- Lógicos: **AND `&`**, **OR `|`** y **NOT `!`**.\nCon `a <- 9` y `b <- 2`: `a / b` da **4.5**, `a ^ b` da **81** y `a == b`, **FALSE**."
+        },
+        {
+          "title": "Cuando una línea falla",
+          "body": "La **consola** muestra la causa y la línea **no tiene efecto en Environment**: la variable no llega a crearse. Dos ejemplos de los apuntes:\n- `5 + \"hola\"`: argumento no numérico para un operador binario.\n- `5 * & 3`: símbolo inesperado."
+        },
+        {
+          "title": "Por qué convertir",
+          "body": "Los datos llegan de fuentes y formatos distintos. Un **CSV**, por ejemplo, puede traer números **como cadenas**, y para calcular hay que pasarlos a numéricos. R lo hace con funciones explícitas."
+        },
+        {
+          "title": "Funciones de conversión",
+          "body": "- **as.numeric()**: a número; si no puede, devuelve **NA con una advertencia**.\n- **as.character()**: a cadena.\n- **as.logical()**: a lógico; el **0 da FALSE** y cualquier otro número, **TRUE**.\n- **as.factor()**: a factor, para **datos categóricos**."
+        },
+        {
+          "title": "NA",
+          "body": "**NA** (Not Available) marca un **valor que falta**. `as.numeric(\"hello\")` da **NA_real_**, mientras que `as.numeric(\"42\")` da 42. Ignorar los NA puede dar **resultados sesgados o incorrectos**: hay que saber identificarlos, eliminarlos o imputarlos."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l10",
+      "kind": "practice",
+      "title": "Operaciones y conversión de tipos",
+      "section": "1.3.2 y 1.3.3",
+      "questionIds": [
+        "pia-ud02-q025",
+        "pia-ud02-q026",
+        "pia-ud02-q027",
+        "pia-ud02-q028",
+        "pia-ud02-q029",
+        "pia-ud02-q030",
+        "pia-ud02-q031",
+        "pia-ud02-q032"
+      ]
+    },
+    {
+      "id": "pia-ud02-l11",
+      "kind": "read",
+      "title": "Operaciones con cadenas",
+      "section": "1.3.4",
+      "cards": [
+        {
+          "title": "Unir cadenas",
+          "body": "- **paste()**: une con un separador; por defecto, **un espacio**. Con `sep` eliges otro.\n- **paste0()**: une **sin separador**.\nCon `nombre <- \"Miguel\"` y `apellido <- \"López\"`, `paste(nombre, apellido)` da \"Miguel López\" y `paste(nombre, apellido, sep = \"$\")`, \"Miguel$López\"."
+        },
+        {
+          "title": "Extraer, mayúsculas y longitud",
+          "body": "Con `texto <- \"Hola Mundo!\"`:\n- **substr(texto, 6, 10)**: subcadena, \"Mundo\".\n- **toupper()** / **tolower()**: \"HOLA MUNDO!\" / \"hola mundo!\".\n- **nchar(texto)**: longitud, **11**."
+        },
+        {
+          "title": "Buscar",
+          "body": "- **grep()**: devuelve las **posiciones** de los elementos que contienen el patrón.\n- **grepl()**: devuelve un **vector lógico**, TRUE o FALSE por elemento.\nCon `c(\"maiz\", \"arena\", \"pez\", \"mono\")` y el patrón \"n\", grep da **2 4** y grepl, **FALSE TRUE FALSE TRUE**."
+        },
+        {
+          "title": "Reemplazar, dividir y comparar",
+          "body": "- **sub()**: reemplaza **solo la primera** coincidencia.\n- **gsub()**: reemplaza **todas**.\n- **strsplit()**: divide en partes por un delimitador.\n- **identical()**: TRUE si las cadenas son iguales.\n`sub(\"o\", \"A\", \"Hola Mundo!\")` da \"HAla Mundo!\"."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l12",
+      "kind": "practice",
+      "title": "Operaciones con cadenas",
+      "section": "1.3.4",
+      "questionIds": [
+        "pia-ud02-q033",
+        "pia-ud02-q034",
+        "pia-ud02-q035",
+        "pia-ud02-q036",
+        "pia-ud02-q037",
+        "pia-ud02-q038",
+        "pia-ud02-q039",
+        "pia-ud02-q040"
+      ]
+    },
+    {
+      "id": "pia-ud02-l13",
+      "kind": "read",
+      "title": "Fechas y horas",
+      "section": "1.3.5",
+      "cards": [
+        {
+          "title": "Crear fechas",
+          "body": "- **as.Date()**: de cadena a **fecha**.\n- **as.POSIXct()** y **as.POSIXlt()**: de cadena a **fecha y hora**.\n- **Sys.Date()**: la fecha del sistema.\n- **Sys.time()**: fecha y hora del sistema, en formato largo."
+        },
+        {
+          "title": "Formatear",
+          "body": "- **format()**: extrae componentes. `format(fecha, \"%d/%m/%Y\")` da \"01/10/2024\".\n- **weekdays()**, **months()** y **quarters()**: día de la semana, mes y trimestre.\nPara el 1 de octubre de 2024 salen \"martes\", \"octubre\" y \"Q4\"."
+        },
+        {
+          "title": "Operar con fechas",
+          "body": "- Sumar o restar un **entero** mueve la fecha ese **número de días**: `fecha + 7` lleva del 2024-10-01 al **2024-10-08**.\n- Restar dos fechas da la **diferencia en días**."
+        },
+        {
+          "title": "Redondear con lubridate",
+          "body": "- **floor_date()**: al inicio del periodo.\n- **ceiling_date()**: al final.\n- **round_date()**: al punto más cercano.\nCon 2024-10-01 14:35, por mes floor_date da 2024-10-01 y ceiling_date, **2024-11-01**; round_date por hora da **15:00**."
+        },
+        {
+          "title": "Instalar y cargar paquetes",
+          "body": "Una librería es una colección de funciones y datos que amplía R.\n- **install.packages(\"lubridate\")**: la instala, con el nombre **entre comillas**. Basta **una vez**.\n- **library(lubridate)**: la carga, **sin comillas**, en **cada nueva sesión**.\nCargada, aparece marcada en la pestaña **Packages**."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l14",
+      "kind": "pc",
+      "title": "En RStudio: fechas con lubridate",
+      "section": "1.3.5",
+      "steps": [
+        {
+          "where": "RStudio",
+          "text": "Crea una fecha a partir de una cadena y saca su formato, el día de la semana, el mes y el trimestre. Los nombres salen en el idioma de tu R; la salida de abajo es la de R en español.",
+          "code": "fecha <- as.Date(\"2024-10-1\")\nformato_fecha <- format(fecha, \"%d/%m/%Y\")\ndia_semana <- weekdays(fecha)\nmes <- months(fecha)\ntrimestre <- quarters(fecha)\nprint(paste(\"El\", formato_fecha, \"fue un\", dia_semana, \"de\", mes, \"en el trimestre\", trimestre))",
+          "expected": "[1] \"El 01/10/2024 fue un martes de octubre en el trimestre Q4\""
+        },
+        {
+          "where": "RStudio",
+          "text": "Suma 7 días a la fecha con `+`.",
+          "code": "nueva_fecha <- fecha + 7\nprint(paste(\"Una semana después del\", fecha, \"es\", nueva_fecha))",
+          "expected": "[1] \"Una semana después del 2024-10-01 es 2024-10-08\""
+        },
+        {
+          "where": "Consola",
+          "text": "Instala el paquete lubridate. Solo hace falta una vez; el nombre va entre comillas.",
+          "code": "install.packages(\"lubridate\")"
+        },
+        {
+          "where": "RStudio",
+          "text": "Carga lubridate (esto sí, en cada sesión) y redondea una fecha con hora al inicio del mes, al final del mes y a la hora más cercana.",
+          "code": "library(lubridate)\nfecha_hora <- as.POSIXct(\"2024-10-1 14:35:00\")\nredondeo_inicio <- floor_date(fecha_hora, \"month\")\nredondeo_final <- ceiling_date(fecha_hora, \"month\")\nredondeo_cercano <- round_date(fecha_hora, \"hour\")",
+          "expected": "En Environment: redondeo_inicio 2024-10-01, redondeo_final 2024-11-01 y redondeo_cercano 2024-10-01 15:00:00. En la pestaña Packages, lubridate aparece marcado."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l15",
+      "kind": "practice",
+      "title": "Fechas y horas",
+      "section": "1.3.5",
+      "questionIds": [
+        "pia-ud02-q041",
+        "pia-ud02-q042",
+        "pia-ud02-q043",
+        "pia-ud02-q044",
+        "pia-ud02-q045",
+        "pia-ud02-q046",
+        "pia-ud02-q047",
+        "pia-ud02-q048"
+      ]
+    },
+    {
+      "id": "pia-ud02-l16",
+      "kind": "read",
+      "title": "Mensajes por consola",
+      "section": "1.4",
+      "cards": [
+        {
+          "title": "print()",
+          "body": "Imprime la **representación de un objeto** con la **indexación** de sus elementos por líneas. Con `a <- \"Hola\"`, `print(a)` muestra `[1] \"Hola\"`. En un vector largo, cada línea empieza por la posición de su primer elemento: `[18] 59` indica que 59 es el **elemento 18**."
+        },
+        {
+          "title": "cat()",
+          "body": "**Concatena** y muestra uno o más objetos, **sin la indexación**. Con `a <- \"Hola\"` y `b <- \"mundo\"`, `cat(a, b, \"\\n\")` muestra `Hola mundo`."
+        },
+        {
+          "title": "message(), warning() y stop()",
+          "body": "- **message()**: mensaje informativo; se puede **suprimir o redirigir**.\n- **warning()**: advertencia, y el script **sigue**.\n- **stop()**: error que **detiene** el script; para fallos críticos.\nEn RStudio la salida de las tres sale **en rojo**."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l17",
+      "kind": "practice",
+      "title": "Mensajes por consola",
+      "section": "1.4",
+      "questionIds": [
+        "pia-ud02-q049",
+        "pia-ud02-q050",
+        "pia-ud02-q051",
+        "pia-ud02-q052",
+        "pia-ud02-q053",
+        "pia-ud02-q054",
+        "pia-ud02-q055",
+        "pia-ud02-q056"
+      ]
+    },
+    {
+      "id": "pia-ud02-l18",
+      "kind": "read",
+      "title": "Estructuras, secuencias y c()",
+      "section": "1.5",
+      "cards": [
+        {
+          "title": "Cuatro estructuras",
+          "body": "- **Vectores**: **homogéneos**; se crean con **array()**.\n- **Matrices**: **bidimensionales y homogéneas**; con **matrix()**.\n- **Listas**: **heterogéneas**, pueden contener otras estructuras; con **list()**.\n- **Data frames**: **bidimensionales y heterogéneos**, los más versátiles; con **data.frame()**."
+        },
+        {
+          "title": "Un ejemplo de cada",
+          "body": "- `array(1:8, dim = c(2, 2, 2))`: array de 2x2x2.\n- `matrix(seq(1, 12, 2), nrow = 2, ncol = 3)`: 2 filas y 3 columnas.\n- `list(array = vector1, char = c(\"a\", \"b\", \"c\"), matrix = matriz)`: lista con nombres.\n- `data.frame(id = 1:3, name = c(...), age = c(45, 60, 52))`."
+        },
+        {
+          "title": "Secuencias con : y seq()",
+          "body": "- `a:b`: enteros de a a b. `3:12` sube y `100:95` baja.\n- `seq(1, 10)`: de 1 a 10, ambos incluidos.\n- `seq(10, 1, by = -2)`: **10 8 6 4 2**; el final solo entra si cae en el salto.\n- `seq(length = 5, from = 0, to = 1)`: **0.00 0.25 0.50 0.75 1.00**; R calcula el salto."
+        },
+        {
+          "title": "Repetir con rep()",
+          "body": "- `rep(4, 5)`: 4 4 4 4 4.\n- `rep(c(1, 2, 3), times = 3)`: **1 2 3 1 2 3 1 2 3**.\n- `rep(c(1, 2, 3), each = 3)`: **1 1 1 2 2 2 3 3 3**.\nCon secuencias se accede a elementos **sin bucles**, que es más eficiente."
+        },
+        {
+          "title": "La función c()",
+          "body": "Combina sus argumentos en un vector. Si son de **tipos distintos**, los pasa a un **tipo común** (coerción):\n- `c(5, TRUE, \"Aprobado\", 6.2)`: todo a **cadena**.\n- `c(5, 7.9, 0, TRUE)`: todo a **número**; TRUE vale **1**.\nTambién une vectores: `c(seq(1, 10, 2), seq(2, 10, 2))`."
+        },
+        {
+          "title": "c() para acceder y dar dimensiones",
+          "body": "- `frutas[c(1, 3)]`: elementos 1 y 3.\n- `c(frutas, cosas[c(1, 2)])`: frutas más los dos primeros de cosas.\n- `array(c(23, 56, 45, 23, 23, 53, 63, 67), dim = c(2, 4))`: c() da las dimensiones, **2x4**."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l19",
+      "kind": "practice",
+      "title": "Estructuras, secuencias y c()",
+      "section": "1.5",
+      "questionIds": [
+        "pia-ud02-q057",
+        "pia-ud02-q058",
+        "pia-ud02-q059",
+        "pia-ud02-q060",
+        "pia-ud02-q061",
+        "pia-ud02-q062",
+        "pia-ud02-q063",
+        "pia-ud02-q064"
+      ]
+    },
+    {
+      "id": "pia-ud02-l20",
+      "kind": "read",
+      "title": "Vectores y which()",
+      "section": "1.5.1",
+      "cards": [
+        {
+          "title": "Crear y acceder",
+          "body": "`v1 <- array(c(1:5, rep(10, 2), 5:1))` da **1 2 3 4 5 10 10 5 4 3 2 1**; como c() ya da un array, **array() se puede omitir**.\n- `v1[c(6, 7)] <- 0`: 0 en las posiciones 6 y 7.\n- `array(v1, dim = c(2, 6))`: 2x6, **por columnas**.\n- `v2[, 3:4] <- 0`: sin fila, **todas las filas**."
+        },
+        {
+          "title": "Operar y concatenar",
+          "body": "- `v1 * 2`: la operación se aplica a **todos los elementos**.\n- `v3 - v1`: **elemento a elemento**, entre vectores de las mismas dimensiones.\n- `c(v1, v3)`: concatena los vectores.\n- **length()**: longitud del vector."
+        },
+        {
+          "title": "Agregación",
+          "body": "Con v1 = 1 2 3 4 5 0 0 5 4 3 2 1:\n- **mean()**: media, 2.5.\n- **sum()**: suma, 30.\n- **sd()**: desviación estándar.\n- **max()** y **min()**: 5 y 0."
+        },
+        {
+          "title": "Ordenar e invertir",
+          "body": "Con `v1 <- c(20, 30, 10, 40)`:\n- **sort(v1)**: los valores ordenados, **10 20 30 40**.\n- **order(v1)**: las **posiciones** en orden, **3 1 2 4**. `v1[order(v1)]` los muestra ordenados sin mover v1.\n- `decreasing = TRUE`: orden descendente.\n- **rev()**: invierte el orden."
+        },
+        {
+          "title": "which() e is.na()",
+          "body": "**which()** devuelve las **posiciones** que cumplen una condición; vale para vectores, matrices y data frames. **is.na()** da TRUE si el valor es NA. Con `numeros <- c(4, 3, NA, 21, NA, 4, 3, 6, NA, 8)`, `which(is.na(numeros))` da **3 5 9**."
+        },
+        {
+          "title": "Sustituir los NA",
+          "body": "- `numeros[posNA] <- 0`: los NA pasan a 0.\n- `numeros[posNA] <- mean(numeros, na.rm = TRUE)`: pasan a la media del resto, aquí **7**. **na.rm = TRUE** hace que mean() **no tenga en cuenta los NA**.\nAsí se filtra **sin bucles**, que cuestan más."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l21",
+      "kind": "practice",
+      "title": "Vectores y which()",
+      "section": "1.5.1",
+      "questionIds": [
+        "pia-ud02-q065",
+        "pia-ud02-q066",
+        "pia-ud02-q067",
+        "pia-ud02-q068",
+        "pia-ud02-q069",
+        "pia-ud02-q070",
+        "pia-ud02-q071",
+        "pia-ud02-q072"
+      ]
+    },
+    {
+      "id": "pia-ud02-l22",
+      "kind": "read",
+      "title": "Matrices",
+      "section": "1.5.2",
+      "cards": [
+        {
+          "title": "matrix()",
+          "body": "`matrix(data, nrow, ncol, byrow = FALSE, dimnames = NULL)`\n- **data**: vector con los elementos.\n- **nrow** / **ncol**: número de filas y columnas.\n- **byrow**: con TRUE rellena **por filas**; si no, **por columnas**.\n- **dimnames**: lista con los nombres de filas y columnas."
+        },
+        {
+          "title": "cbind() y rbind()",
+          "body": "- **cbind()**: une vectores, matrices o data frames **por columnas**.\n- **rbind()**: los une **por filas**.\n- **rownames()** y **colnames()**: ponen nombre a filas y columnas de una matriz ya creada.\n`rbind(v1, v2, v3)` con tres vectores de 4 elementos da una matriz **3x4**."
+        },
+        {
+          "title": "Acceso y operaciones",
+          "body": "- `matriz1[2, 3]`: elemento de la **fila 2, columna 3**.\n- `matriz1 + 5`: suma 5 a **todos** los elementos.\n- `matriz1 * matriz1`: multiplica **elemento a elemento**; las dos con las mismas dimensiones."
+        },
+        {
+          "title": "Operaciones propias",
+          "body": "- **%*%**: multiplicación matricial; una 2x4 por una 4x2 da una **2x2**.\n- **t()**: traspuesta, cambia filas por columnas.\n- **diag(n)**: identidad n×n; con una matriz, **extrae su diagonal** como vector.\n- **det()**: determinante. **var()**: varianza."
+        },
+        {
+          "title": "solve()",
+          "body": "- `solve(A)`: **inversa** de A.\n- `solve(A, b)`: resuelve **Ax = b**, con A la matriz de coeficientes y b el vector de constantes.\nEjemplo: `A <- matrix(c(2, 1, 3, -1), nrow = 2, byrow = TRUE)`, `b <- c(8, -1)` y `x <- solve(A, b)`."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l23",
+      "kind": "practice",
+      "title": "Matrices",
+      "section": "1.5.2",
+      "questionIds": [
+        "pia-ud02-q073",
+        "pia-ud02-q074",
+        "pia-ud02-q075",
+        "pia-ud02-q076",
+        "pia-ud02-q077",
+        "pia-ud02-q078",
+        "pia-ud02-q079",
+        "pia-ud02-q080"
+      ]
+    },
+    {
+      "id": "pia-ud02-l24",
+      "kind": "read",
+      "title": "Data frames",
+      "section": "1.5.3",
+      "cards": [
+        {
+          "title": "Qué es un data frame",
+          "body": "La estructura **más usada** de R: bidimensional, como una **tabla** de una base de datos o una hoja de cálculo, y **cada columna puede tener un tipo distinto**. Se crea con **data.frame()** a partir de vectores o listas, o importando archivos CSV, Excel…"
+        },
+        {
+          "title": "Crear desde vectores",
+          "body": "- `nombres <- c(\"Ana\", \"Luis\", \"Marta\", \"Juan\")`\n- `edades <- c(23, 34, 28, 45)`\n- `ocupaciones <- c(\"Ingeniera\", \"Doctor\", \"Abogada\", \"Profesor\")`\n- `socios <- data.frame(Nombre = nombres, Edad = edades, Ocupación = ocupaciones)`"
+        },
+        {
+          "title": "Importar archivos",
+          "body": "Para **CSV y TXT** basta con lo que trae R: `df <- read.csv(\"ruta/clientes.csv\")`, **sin instalar paquetes**. Para .xls, .xlsx y otros formatos hay que instalar el paquete adecuado, que suele permitir elegir filas y columnas o filtrar."
+        },
+        {
+          "title": "Acceder a los datos",
+          "body": "- `socios[2, 3]`: fila 2, columna 3.\n- `socios$Nombre`: la columna Nombre.\n- `socios[1, ]`: la fila 1 con **todas las columnas**."
+        },
+        {
+          "title": "Añadir, filtrar y ordenar",
+          "body": "- `socios$Salario <- c(50000, 60000, 70000, 80000)`: columna nueva.\n- `socios$SalarioNeto <- socios$Salario - (0.21 * socios$Salario)`: columna calculada.\n- `subset(socios, Edad > 30)`: filas que cumplen la condición.\n- `socios[order(socios$Edad), ]`: ordena por edad con **order()**."
+        },
+        {
+          "title": "Funciones útiles",
+          "body": "- **str()**: estructura y tipos.\n- **dim()**: filas y columnas; **nrow()** y **ncol()** por separado.\n- **summary()**: resumen estadístico.\n- **head()** / **tail()**: primeras o últimas filas.\n- **names()**: nombres de las columnas.\n**Mockaroo** genera datasets de prueba sin usar datos sensibles."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l25",
+      "kind": "practice",
+      "title": "Data frames",
+      "section": "1.5.3",
+      "questionIds": [
+        "pia-ud02-q081",
+        "pia-ud02-q082",
+        "pia-ud02-q083",
+        "pia-ud02-q084",
+        "pia-ud02-q085",
+        "pia-ud02-q086",
+        "pia-ud02-q087",
+        "pia-ud02-q088"
+      ]
+    },
+    {
+      "id": "pia-ud02-l26",
+      "kind": "read",
+      "title": "Control de flujo",
+      "section": "1.6",
+      "cards": [
+        {
+          "title": "Condicionales",
+          "body": "- **if / else if / else**: ejecuta un bloque u otro según se cumplan las condiciones.\n- **ifelse(condición, valor_si_verdadero, valor_si_falso)**: aplica la condición de forma **vectorial**, a cada elemento; útil con muchos datos.\n`ifelse(c(15, 30, 24, 50) >= 18, \"Mayor\", \"Menor\")` da \"Menor\" \"Mayor\" \"Mayor\" \"Mayor\"."
+        },
+        {
+          "title": "Ejemplos con if",
+          "body": "- `if (n %% 2 == 0)` mira si n es par; `%%` da el resto. Con n = 55 el resto es 1 y sale \"El 55 es impar.\".\n- Encadenando `is.na()`, `is.numeric()` e `is.character()` se sabe qué contiene una variable: con 55, que tiene un valor numérico."
+        },
+        {
+          "title": "Bucles",
+          "body": "- **for**: recorre una secuencia; el número de vueltas se **conoce de antemano**.\n- **while**: repite **mientras** se cumpla una condición.\n- **repeat**: repite **sin fin** hasta que se ejecuta **break**.\n- **next**: salta la iteración actual y pasa a la siguiente."
+        },
+        {
+          "title": "Ejemplo: buscar un divisor",
+          "body": "Con `divisor <- 2` y `numero <- 221`, `while (numero %% divisor != 0)` suma 1 a divisor en cada vuelta y para en **13**: \"El 221 es divisible por 13\". Con **repeat** se hace igual, saliendo con **break** cuando el resto es 0."
+        },
+        {
+          "title": "Menos bucles",
+          "body": "Gracias a las funciones de R que trabajan con estructuras enteras (secuencias, which(), ifelse()…), muchas tareas se hacen **sin estructuras de control**, que aumentan el coste de ejecución. Aun así, hay casos en que son imprescindibles."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l27",
+      "kind": "read",
+      "title": "Funciones",
+      "section": "1.7",
+      "cards": [
+        {
+          "title": "Definir una función",
+          "body": "Se crea con **function** y se guarda en un nombre:\n`nombre_funcion <- function(argumentos) { ... return(valor_de_retorno) }`\nSon bloques **reutilizables** para una tarea concreta: dan un código **modular**, más limpio y manejable."
+        },
+        {
+          "title": "Valores por defecto",
+          "body": "Si no se pasa el argumento, se usa su valor por defecto:\n`saludo <- function(nombre = \"Amigo\") { mensaje <- paste(\"Hola,\", nombre); return(mensaje) }`\n`saludo(\"Ana\")` da \"Hola, Ana\" y `saludo()`, \"Hola, Amigo\"."
+        },
+        {
+          "title": "Número variable de argumentos",
+          "body": "Con **...** la función acepta los argumentos que le pases; útil cuando no sabes cuántos serán.\n`suma_varios <- function(...) { numeros <- c(...); return(sum(numeros)) }`\n`suma_varios(1, 2, 3, 4, 5)` da **15**."
+        },
+        {
+          "title": "Funciones como argumentos",
+          "body": "Una función puede recibir **otra función** como argumento:\n`operar <- function(a, b, funcion) { return(funcion(a, b)) }`\nCon `suma` y `multiplicacion` definidas, `operar(4, 2, suma)` da **6** y `operar(4, 2, multiplicacion)`, **8**."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud02-l28",
+      "kind": "practice",
+      "title": "Control de flujo y funciones",
+      "section": "1.6 y 1.7",
+      "questionIds": [
+        "pia-ud02-q089",
+        "pia-ud02-q090",
+        "pia-ud02-q091",
+        "pia-ud02-q092",
+        "pia-ud02-q093",
+        "pia-ud02-q094",
+        "pia-ud02-q095",
+        "pia-ud02-q096",
+        "pia-ud02-q097",
+        "pia-ud02-q098",
+        "pia-ud02-q099",
+        "pia-ud02-q100"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "pia-ud02-q001",
+      "type": "choice",
+      "prompt": "Un proyecto se centra en el análisis estadístico y la visualización de datos. Según los apuntes, ¿qué lenguaje se suele elegir para eso?",
+      "options": [
+        "C++",
+        "R",
+        "Java",
+        "Python"
+      ],
+      "answer": 1,
+      "explanation": "Los apuntes eligen R por su capacidad analítica y de visualización. Python se prefiere por su simplicidad y sus bibliotecas, y Java por su rendimiento en aplicaciones empresariales.",
+      "source": "PIA UD2, introducción",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q002",
+      "type": "choice",
+      "prompt": "¿Quién creó R originalmente?",
+      "options": [
+        "El CRAN Team",
+        "La comunidad de Bioconductor",
+        "Posit, la empresa de RStudio",
+        "Ross Ihaka y Robert Gentleman"
+      ],
+      "answer": 3,
+      "explanation": "R nació en la Universidad de Auckland de la mano de Ross Ihaka y Robert Gentleman. Después lo ha mantenido y mejorado la comunidad del R Project; el CRAN Team revisa paquetes.",
+      "source": "PIA UD2, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q003",
+      "type": "order",
+      "prompt": "Ordena cómo trabajó el equipo de Ana con R en el caso práctico.",
+      "steps": [
+        "Recopilar los datos de bases SQL, archivos CSV y registros internos",
+        "Limpiar y organizar los datos con R",
+        "Buscar patrones con dplyr, tidyr y ggplot2",
+        "Desarrollar algoritmos de aprendizaje automático para las rutas"
+      ],
+      "explanation": "Primero se reúnen los datos de todas las fuentes y se dejan limpios. Con ellos listos se buscan patrones y, al final, se construyen los algoritmos que se integran en la gestión de envíos.",
+      "source": "PIA UD2, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q004",
+      "type": "match",
+      "prompt": "Relaciona cada paquete de R del caso práctico con el uso que le dio el equipo.",
+      "pairs": [
+        [
+          "dplyr y tidyr",
+          "Manipular y transformar los datos"
+        ],
+        [
+          "ggplot2",
+          "Crear visualizaciones"
+        ],
+        [
+          "kmeans",
+          "Agrupar zonas de entrega en clústeres"
+        ],
+        [
+          "forecast",
+          "Predecir la demanda con series temporales"
+        ]
+      ],
+      "explanation": "kmeans hace clustering y forecast trabaja con series temporales. ggplot2 es el de los gráficos y dplyr y tidyr transforman los datos.",
+      "source": "PIA UD2, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q005",
+      "type": "truefalse",
+      "prompt": "R es gratuito y de código abierto: puedes descargarlo, usarlo y modificarlo sin coste.",
+      "answer": true,
+      "explanation": "Es una de sus características principales. Además se amplía con paquetes de CRAN o de Bioconductor.",
+      "source": "PIA UD2, apartado 1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q006",
+      "type": "choice",
+      "prompt": "Necesitas paquetes de R para un trabajo de bioinformática. ¿Qué repositorio nombran los apuntes para eso?",
+      "options": [
+        "Bioconductor",
+        "CRAN",
+        "R Project",
+        "RStudio"
+      ],
+      "answer": 0,
+      "explanation": "Bioconductor ofrece paquetes específicos de bioinformática. CRAN reúne paquetes para necesidades estadísticas y de análisis de datos en general.",
+      "source": "PIA UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q007",
+      "type": "truefalse",
+      "prompt": "Según el servidor de CRAN del que descargues un paquete, puedes obtener una versión distinta.",
+      "answer": false,
+      "explanation": "Los servidores de CRAN son copias que se actualizan a diario. Descargues de donde descargues, obtienes la versión más reciente, igual en todos.",
+      "source": "PIA UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q008",
+      "type": "truefalse",
+      "prompt": "R puede integrarse con otros lenguajes, como Python y C++.",
+      "answer": true,
+      "explanation": "Es parte de su alta capacidad de integración, junto con importar y exportar datos en formatos como CSV, Excel o SQL.",
+      "source": "PIA UD2, apartado 1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q009",
+      "type": "order",
+      "prompt": "Ordena los pasos para preparar el entorno de trabajo de R.",
+      "steps": [
+        "Entrar en la web oficial de R y pulsar en Descargar R",
+        "Elegir un servidor, mejor uno de España",
+        "Descargar y ejecutar el instalador de R para tu sistema",
+        "Descargar el instalador de RStudio desde posit.co",
+        "Instalar RStudio siguiendo su instalador"
+      ],
+      "explanation": "Primero va el intérprete de R y, una vez instalado, el entorno RStudio. El servidor se elige antes de descargar el instalador.",
+      "source": "PIA UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q010",
+      "type": "choice",
+      "prompt": "¿En qué panel de RStudio escribes y editas el código de un script?",
+      "options": [
+        "Environment",
+        "Viewer",
+        "Editor de código",
+        "Console"
+      ],
+      "answer": 2,
+      "explanation": "El editor ocupa la parte central izquierda y es el panel más grande. La consola ejecuta comandos al momento, pero el script se escribe en el editor.",
+      "source": "PIA UD2, apartado 1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q011",
+      "type": "choice",
+      "prompt": "Quieres repetir en la consola un comando que acabas de ejecutar. ¿Cuál es la forma más directa?",
+      "options": [
+        "Buscarlo en la pestaña Files",
+        "Abrir la pestaña Packages",
+        "Pulsar la flecha arriba en la consola",
+        "Abrir la pestaña Viewer"
+      ],
+      "answer": 2,
+      "explanation": "En la consola, las flechas arriba y abajo recorren los comandos ya ejecutados. Files navega por archivos y Viewer muestra salidas HTML.",
+      "source": "PIA UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q012",
+      "type": "choice",
+      "prompt": "¿Dónde lanzas comandos del sistema operativo sin salir de RStudio?",
+      "options": [
+        "En la pestaña Terminal",
+        "En la pestaña Console",
+        "En la pestaña History",
+        "En la pestaña Viewer"
+      ],
+      "answer": 0,
+      "explanation": "Terminal, junto a la consola, sirve para comandos del sistema operativo. Console ejecuta código R.",
+      "source": "PIA UD2, apartado 1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q013",
+      "type": "match",
+      "prompt": "Relaciona cada pestaña del panel inferior derecho con su uso.",
+      "pairs": [
+        [
+          "Files",
+          "Navegar y gestionar archivos"
+        ],
+        [
+          "Packages",
+          "Cargar, actualizar y desinstalar paquetes"
+        ],
+        [
+          "Help",
+          "Consultar la documentación de R"
+        ],
+        [
+          "Viewer",
+          "Ver salidas HTML de R Markdown y Shiny"
+        ]
+      ],
+      "explanation": "Todas están en el panel inferior derecho. Packages es la que gestiona las librerías y Viewer la que muestra R Markdown y Shiny.",
+      "source": "PIA UD2, apartado 1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q014",
+      "type": "truefalse",
+      "prompt": "El panel Environment muestra las variables, datos y objetos disponibles en el entorno de trabajo.",
+      "answer": true,
+      "explanation": "Por eso, al ejecutar un script línea a línea, en Environment ves cómo se crean y cambian las variables.",
+      "source": "PIA UD2, apartado 1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q015",
+      "type": "choice",
+      "prompt": "¿Dónde aparece, por defecto, el panel Environment / History?",
+      "options": [
+        "Abajo a la izquierda",
+        "Abajo a la derecha",
+        "En el centro a la izquierda",
+        "Arriba a la derecha"
+      ],
+      "answer": 3,
+      "explanation": "Abajo a la izquierda está la consola, abajo a la derecha Files, Plots y compañía, y en el centro izquierda el editor.",
+      "source": "PIA UD2, apartado 1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q016",
+      "type": "truefalse",
+      "prompt": "El panel de proyecto permite tener un entorno de trabajo específico para cada proyecto.",
+      "answer": true,
+      "explanation": "Está en la esquina superior derecha y sirve para abrir, cerrar y gestionar proyectos y organizar el trabajo.",
+      "source": "PIA UD2, apartado 1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q017",
+      "type": "choice",
+      "prompt": "¿Qué parte de esta línea no se ejecuta?",
+      "code": "nota <- 9.75   # Número de punto flotante",
+      "options": [
+        "Nada: R ejecuta la línea completa",
+        "Lo que va detrás de #",
+        "Toda la línea, porque lleva un comentario",
+        "Solo el valor 9.75"
+      ],
+      "answer": 1,
+      "explanation": "El # abre un comentario que llega hasta el final de la línea. La asignación de la izquierda sí se ejecuta.",
+      "source": "PIA UD2, apartado 1.3",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q018",
+      "type": "choice",
+      "prompt": "Según las buenas prácticas de los apuntes, ¿qué deben explicar sobre todo los comentarios?",
+      "options": [
+        "El autor de cada línea",
+        "El qué y el por qué del código",
+        "El cómo, línea a línea",
+        "La versión de R con la que se escribió"
+      ],
+      "answer": 1,
+      "explanation": "El cómo ya se ve en el propio código, y quien lo lee conoce el lenguaje. Lo útil es saber qué hace y por qué.",
+      "source": "PIA UD2, apartado 1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q019",
+      "type": "choice",
+      "prompt": "¿Qué línea sigue la recomendación de uso de <- y =?",
+      "options": [
+        "media = mean(x <- c(1, 2, 3))",
+        "media = mean(x = c(1, 2, 3))",
+        "media <- mean(x <- c(1, 2, 3))",
+        "media <- mean(x = c(1, 2, 3))"
+      ],
+      "answer": 3,
+      "explanation": "<- se reserva para asignar a variables y = para los argumentos de las funciones. Es la convención de estilo habitual en R y evita confusiones.",
+      "source": "PIA UD2, apartado 1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q020",
+      "type": "truefalse",
+      "prompt": "Por el tipado fuerte, R no deja operar directamente con tipos incompatibles, como un número y una cadena.",
+      "answer": true,
+      "explanation": "Para operar con ellos antes hay que convertir el tipo con funciones. Por eso 5 + \"hola\" da error.",
+      "source": "PIA UD2, apartado 1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q021",
+      "type": "match",
+      "prompt": "Relaciona cada característica de R con lo que significa.",
+      "pairs": [
+        [
+          "Inferencia de tipos",
+          "El intérprete decide el tipo al ejecutar"
+        ],
+        [
+          "Tipado dinámico",
+          "Una variable puede cambiar de tipo"
+        ],
+        [
+          "Tipado fuerte",
+          "No se opera con tipos incompatibles"
+        ]
+      ],
+      "explanation": "Las tres hablan del tipo de las variables. La inferencia decide el tipo, el tipado dinámico permite cambiarlo y el fuerte impide mezclar tipos que no casan.",
+      "source": "PIA UD2, apartado 1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q022",
+      "type": "choice",
+      "prompt": "Ejecutas esta línea. ¿Cómo aparece notas en el panel Environment?",
+      "code": "notas <- factor(c(\"suspenso\", \"suficiente\", \"bien\", \"notable\", \"sobresaliente\"))",
+      "options": [
+        "Factor w/ 5 levels",
+        "chr [1:5]",
+        "num [1:5]",
+        "Factor w/ 1 level"
+      ],
+      "answer": 0,
+      "explanation": "factor() convierte las cinco cadenas en un factor con cinco niveles, uno por valor distinto. Sin factor() sería un vector de cadenas (chr).",
+      "source": "PIA UD2, apartado 1.3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q023",
+      "type": "choice",
+      "prompt": "¿Cómo se escribe una cadena de caracteres en R?",
+      "options": [
+        "Precedida de #",
+        "Entre llaves",
+        "Entre comillas",
+        "Entre corchetes"
+      ],
+      "answer": 2,
+      "explanation": "Las cadenas son texto y van entre comillas, como \"Ana\". El # abre un comentario.",
+      "source": "PIA UD2, apartado 1.3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q024",
+      "type": "truefalse",
+      "prompt": "En RStudio un script solo se puede ejecutar entero, no línea a línea.",
+      "answer": false,
+      "explanation": "Se puede ejecutar línea a línea o el script completo de una vez. Ir línea a línea permite ver cómo cambian las variables en Environment.",
+      "source": "PIA UD2, apartado 1.3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q025",
+      "type": "choice",
+      "prompt": "¿Qué valores guardan cociente y potencia?",
+      "code": "a <- 9\nb <- 2\ncociente <- a / b\npotencia <- a ^ b",
+      "options": [
+        "4.5 y 18",
+        "4 y 18",
+        "4.5 y 81",
+        "4 y 81"
+      ],
+      "answer": 2,
+      "explanation": "/ es la división normal, así que 9 / 2 da 4.5. ^ es la potencia: 9 ^ 2 = 81. El 18 sería multiplicar, 9 * 2.",
+      "source": "PIA UD2, apartado 1.3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q026",
+      "type": "choice",
+      "prompt": "¿Qué valor toma bandera?",
+      "code": "a <- 9\nb <- 2\nes_igual <- a == b\nes_mayor <- a > b\nbandera <- es_igual & es_mayor",
+      "options": [
+        "FALSE",
+        "TRUE",
+        "NA",
+        "Da error"
+      ],
+      "answer": 0,
+      "explanation": "es_igual es FALSE (9 no es 2) y es_mayor es TRUE. El AND & solo da TRUE si los dos lo son, así que el resultado es FALSE.",
+      "source": "PIA UD2, apartado 1.3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q027",
+      "type": "choice",
+      "prompt": "¿Qué pasa al ejecutar esta línea?",
+      "code": "error_no_numerico <- 5 + \"hola\"",
+      "options": [
+        "Guarda la cadena \"5hola\"",
+        "Guarda NA con una advertencia",
+        "Guarda 5 e ignora el texto",
+        "Da error y la variable no se crea"
+      ],
+      "answer": 3,
+      "explanation": "R no suma un número y una cadena: la consola avisa de un argumento no numérico para un operador binario. Una línea con error no tiene efecto en Environment.",
+      "source": "PIA UD2, apartado 1.3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q028",
+      "type": "match",
+      "prompt": "Relaciona cada operador de R con su operación.",
+      "pairs": [
+        [
+          "^",
+          "Potencia"
+        ],
+        [
+          "!=",
+          "No igual a"
+        ],
+        [
+          "|",
+          "OR lógico"
+        ],
+        [
+          "!",
+          "NOT lógico"
+        ]
+      ],
+      "explanation": "^ es el único aritmético de la lista. != compara y |, ! son operadores lógicos, junto con & (AND).",
+      "source": "PIA UD2, apartado 1.3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q029",
+      "type": "truefalse",
+      "prompt": "Tras ejecutar este código, boolean2 vale TRUE porque cualquier número distinto de 0 se convierte en TRUE.",
+      "code": "num_log <- 0\nnumero <- 123\nboolean1 <- as.logical(num_log)\nboolean2 <- as.logical(numero)",
+      "answer": true,
+      "explanation": "as.logical() pasa el 0 a FALSE y el resto de números a TRUE. Por eso boolean1 vale FALSE y boolean2, con 123, TRUE.",
+      "source": "PIA UD2, apartado 1.3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q030",
+      "type": "choice",
+      "prompt": "¿Qué valor guarda numero2?",
+      "code": "cadena2 <- \"hello\"\nnumero2 <- as.numeric(cadena2)",
+      "options": [
+        "Ninguno: da error y numero2 no se crea",
+        "NA",
+        "0",
+        "\"hello\""
+      ],
+      "answer": 1,
+      "explanation": "\"hello\" no tiene equivalente numérico, así que as.numeric() devuelve NA (NA_real_) con una advertencia. La variable sí se crea.",
+      "source": "PIA UD2, apartado 1.3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q031",
+      "type": "choice",
+      "prompt": "La última línea falla. ¿Por qué?",
+      "code": "numero <- 123\ncadena <- as.character(num_val)",
+      "options": [
+        "Porque numero debería ir entre comillas",
+        "Porque num_val no está definida",
+        "Porque as.character() no admite números",
+        "Porque 123 no se puede pasar a cadena"
+      ],
+      "answer": 1,
+      "explanation": "La variable que existe es numero; num_val no se ha creado en ningún sitio. as.character() sí convierte números a cadena.",
+      "source": "PIA UD2, apartado 1.3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q032",
+      "type": "choice",
+      "prompt": "¿Cuántos niveles tiene fac_val?",
+      "code": "vector <- c(\"manzana\", \"platano\", \"mora\")\nfac_val <- as.factor(vector)",
+      "options": [
+        "1",
+        "2",
+        "Ninguno: un vector de cadenas no se puede pasar a factor",
+        "3"
+      ],
+      "answer": 3,
+      "explanation": "as.factor() crea un nivel por cada valor distinto. Hay tres frutas distintas, así que hay tres niveles.",
+      "source": "PIA UD2, apartado 1.3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q033",
+      "type": "choice",
+      "prompt": "¿Qué guarda nombre_completo2?",
+      "code": "nombre <- \"Miguel\"\napellido <- \"López\"\nnombre_completo2 <- paste(nombre, apellido, sep = \"$\")",
+      "options": [
+        "\"Miguel$López\"",
+        "\"Miguel López\"",
+        "\"MiguelLópez\"",
+        "\"Miguel $ López\""
+      ],
+      "answer": 0,
+      "explanation": "sep = \"$\" sustituye el espacio que paste() pone por defecto. \"MiguelLópez\" saldría con paste0(), que no usa separador.",
+      "source": "PIA UD2, apartado 1.3.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q034",
+      "type": "choice",
+      "prompt": "¿Qué guarda sub_texto?",
+      "code": "texto <- \"Hola Mundo!\"\nsub_texto <- substr(texto, 6, 10)",
+      "options": [
+        "\"Mundo!\"",
+        "\"undo!\"",
+        "\"Mundo\"",
+        "\" Mund\""
+      ],
+      "answer": 2,
+      "explanation": "substr() toma de la posición 6 a la 10, ambas incluidas. La 5 es el espacio y la 11, la exclamación.",
+      "source": "PIA UD2, apartado 1.3.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q035",
+      "type": "choice",
+      "prompt": "¿Qué devuelve la segunda línea?",
+      "code": "texto <- \"Hola Mundo!\"\nsub(\"o\", \"A\", texto)",
+      "options": [
+        "\"Hola MundA!\"",
+        "\"HALA MUNDO!\"",
+        "\"HAla Mundo!\"",
+        "\"HAla MundA!\""
+      ],
+      "answer": 2,
+      "explanation": "sub() solo cambia la primera \"o\" que encuentra. \"HAla MundA!\" sería el resultado de gsub(), que cambia todas.",
+      "source": "PIA UD2, apartado 1.3.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q036",
+      "type": "choice",
+      "prompt": "¿Qué guarda posiciones_n?",
+      "code": "vector <- c(\"maiz\", \"arena\", \"pez\", \"mono\")\nposiciones_n <- grep(\"n\", vector)",
+      "options": [
+        "2 4",
+        "FALSE TRUE FALSE TRUE",
+        "\"arena\" \"mono\"",
+        "1 3"
+      ],
+      "answer": 0,
+      "explanation": "grep() devuelve las posiciones de los elementos con el patrón: \"arena\" (2) y \"mono\" (4). El vector lógico sería la salida de grepl().",
+      "source": "PIA UD2, apartado 1.3.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q037",
+      "type": "choice",
+      "prompt": "¿Qué valor guarda length?",
+      "code": "texto <- \"Hola Mundo!\"\nlength <- nchar(texto)",
+      "options": [
+        "10",
+        "2",
+        "1",
+        "11"
+      ],
+      "answer": 3,
+      "explanation": "nchar() cuenta todos los caracteres, también el espacio y la exclamación: \"Hola Mundo!\" tiene 11.",
+      "source": "PIA UD2, apartado 1.3.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q038",
+      "type": "truefalse",
+      "prompt": "Tras ejecutar este código, iguales vale TRUE.",
+      "code": "texto <- \"Hola Mundo!\"\niguales <- identical(texto, \"Hola Mundo.\")",
+      "answer": false,
+      "explanation": "identical() solo da TRUE si las cadenas son exactamente iguales. Una termina en \"!\" y la otra en \".\", así que vale FALSE.",
+      "source": "PIA UD2, apartado 1.3.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q039",
+      "type": "match",
+      "prompt": "Relaciona cada función de cadenas con lo que hace.",
+      "pairs": [
+        [
+          "toupper()",
+          "Pasa la cadena a mayúsculas"
+        ],
+        [
+          "strsplit()",
+          "Divide la cadena por un delimitador"
+        ],
+        [
+          "grepl()",
+          "Devuelve un vector lógico por elemento"
+        ],
+        [
+          "nchar()",
+          "Devuelve la longitud de la cadena"
+        ]
+      ],
+      "explanation": "grepl() busca como grep(), pero responde con TRUE o FALSE por elemento. strsplit() parte la cadena y nchar() la mide.",
+      "source": "PIA UD2, apartado 1.3.4",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q040",
+      "type": "choice",
+      "prompt": "¿Qué diferencia hay entre grep() y grepl()?",
+      "options": [
+        "grep() distingue mayúsculas; grepl() no",
+        "grep() da posiciones; grepl(), un vector lógico",
+        "grep() reemplaza el patrón; grepl() solo lo busca",
+        "grep() trabaja con vectores; grepl(), con una sola cadena"
+      ],
+      "answer": 1,
+      "explanation": "Las dos buscan un patrón en los elementos de un vector. Cambia la forma de la salida: posiciones o un TRUE/FALSE por elemento.",
+      "source": "PIA UD2, apartado 1.3.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q041",
+      "type": "choice",
+      "prompt": "¿Qué guarda nueva_fecha?",
+      "code": "fecha <- as.Date(\"2024-10-1\")\nnueva_fecha <- fecha + 7",
+      "options": [
+        "Da error: no se puede sumar un número a una fecha",
+        "2024-10-08",
+        "2024-10-07",
+        "2024-10-01 07:00:00"
+      ],
+      "answer": 1,
+      "explanation": "Sumar un entero a una fecha la adelanta ese número de días: del 1 al 8 de octubre.",
+      "source": "PIA UD2, apartado 1.3.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q042",
+      "type": "choice",
+      "prompt": "¿Qué guarda formato_fecha?",
+      "code": "fecha <- as.Date(\"2024-10-1\")\nformato_fecha <- format(fecha, \"%d/%m/%Y\")",
+      "options": [
+        "\"10/01/2024\"",
+        "\"2024/10/01\"",
+        "\"1/10/24\"",
+        "\"01/10/2024\""
+      ],
+      "answer": 3,
+      "explanation": "%d es el día, %m el mes y %Y el año con cuatro cifras, en ese orden y separados por barras.",
+      "source": "PIA UD2, apartado 1.3.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q043",
+      "type": "choice",
+      "prompt": "¿Qué guarda trimestre?",
+      "code": "fecha <- as.Date(\"2024-10-1\")\ntrimestre <- quarters(fecha)",
+      "options": [
+        "\"Q4\"",
+        "\"Q3\"",
+        "\"octubre\"",
+        "\"martes\""
+      ],
+      "answer": 0,
+      "explanation": "quarters() da el trimestre: octubre está en el cuarto, Q4. \"octubre\" lo daría months() y \"martes\", weekdays().",
+      "source": "PIA UD2, apartado 1.3.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q044",
+      "type": "choice",
+      "prompt": "¿Qué fecha guarda redondeo_final?",
+      "code": "library(lubridate)\nfecha_hora <- as.POSIXct(\"2024-10-1 14:35:00\")\nredondeo_final <- ceiling_date(fecha_hora, \"month\")",
+      "options": [
+        "2024-10-31",
+        "2024-10-01 15:00:00",
+        "2024-11-01",
+        "2024-10-01"
+      ],
+      "answer": 2,
+      "explanation": "ceiling_date() redondea al final del periodo, que con \"month\" es el inicio del mes siguiente. 2024-10-01 sería floor_date() y las 15:00, round_date() por hora.",
+      "source": "PIA UD2, apartado 1.3.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q045",
+      "type": "choice",
+      "prompt": "Abres una sesión nueva de R con lubridate ya instalado y ejecutas esto. ¿Qué falta antes?",
+      "code": "fecha_hora <- as.POSIXct(\"2024-10-1 14:35:00\")\nredondeo <- round_date(fecha_hora, \"hour\")",
+      "options": [
+        "Nada: un paquete instalado ya está cargado",
+        "Convertir la fecha con as.Date()",
+        "Cargar el paquete con library(lubridate)",
+        "Instalarlo otra vez con install.packages()"
+      ],
+      "answer": 2,
+      "explanation": "round_date() es de lubridate. El paquete se instala una sola vez, pero hay que cargarlo con library() en cada sesión nueva.",
+      "source": "PIA UD2, apartado 1.3.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q046",
+      "type": "order",
+      "prompt": "Ordena los pasos para usar floor_date() por primera vez.",
+      "steps": [
+        "Instalar el paquete con install.packages(\"lubridate\")",
+        "Cargarlo en la sesión con library(lubridate)",
+        "Redondear la fecha y hora con floor_date()"
+      ],
+      "explanation": "Sin instalar el paquete no se puede cargar, y sin cargarlo floor_date() no existe en la sesión. La instalación se hace una vez; la carga, en cada sesión nueva.",
+      "source": "PIA UD2, apartado 1.3.5",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q047",
+      "type": "match",
+      "prompt": "Relaciona cada función con lo que devuelve.",
+      "pairs": [
+        [
+          "Sys.time()",
+          "Fecha y hora del sistema"
+        ],
+        [
+          "as.POSIXct()",
+          "Una fecha y hora creada desde una cadena"
+        ],
+        [
+          "months()",
+          "El nombre del mes"
+        ],
+        [
+          "floor_date()",
+          "La fecha redondeada al inicio del periodo"
+        ]
+      ],
+      "explanation": "Sys.time() lee el reloj del sistema y as.POSIXct() convierte texto. months() y floor_date() trabajan sobre una fecha que ya tienes.",
+      "source": "PIA UD2, apartado 1.3.5",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q048",
+      "type": "truefalse",
+      "prompt": "Si restas dos fechas, obtienes la diferencia entre ellas en días.",
+      "answer": true,
+      "explanation": "Igual que sumar un entero mueve la fecha unos días, restar dos fechas da los días que las separan.",
+      "source": "PIA UD2, apartado 1.3.5",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q049",
+      "type": "choice",
+      "prompt": "¿Qué muestra la consola?",
+      "code": "a <- \"Hola\"\nb <- \"mundo\"\ncat(a, b, \"\\n\")",
+      "options": [
+        "Hola mundo",
+        "[1] \"Hola\" \"mundo\"",
+        "[1] Hola mundo",
+        "Holamundo"
+      ],
+      "answer": 0,
+      "explanation": "cat() concatena los objetos separados por un espacio y no añade la indexación [1] ni las comillas, que son cosa de print().",
+      "source": "PIA UD2, apartado 1.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q050",
+      "type": "choice",
+      "prompt": "¿Qué muestra la consola?",
+      "code": "a <- \"Hola\"\nprint(a)",
+      "options": [
+        "Hola",
+        "[1] Hola",
+        "\"Hola\" [1]",
+        "[1] \"Hola\""
+      ],
+      "answer": 3,
+      "explanation": "print() muestra la representación del objeto: la cadena entre comillas y delante la posición del primer elemento, [1].",
+      "source": "PIA UD2, apartado 1.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q051",
+      "type": "choice",
+      "prompt": "¿Qué mensaje sale en la consola?",
+      "code": "a <- \"Hola\"\nmessage(a, \". Este es un mensaje informativo.\")",
+      "options": [
+        "Warning message: Hola. Este es un mensaje informativo.",
+        "Hola. Este es un mensaje informativo.",
+        "Hola . Este es un mensaje informativo.",
+        "[1] \"Hola. Este es un mensaje informativo.\""
+      ],
+      "answer": 1,
+      "explanation": "message() junta sus argumentos sin separador y sin indexación. \"Warning message\" es la cabecera de warning().",
+      "source": "PIA UD2, apartado 1.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q052",
+      "type": "choice",
+      "prompt": "Al imprimir un vector largo con print(), una línea empieza por [18]. ¿Qué indica?",
+      "options": [
+        "Que el vector tiene 18 elementos",
+        "Que el primer valor de esa línea es el elemento 18",
+        "Que esa línea tiene 18 elementos",
+        "Que es la línea 18 de la salida"
+      ],
+      "answer": 1,
+      "explanation": "print() reparte la salida en líneas y marca al principio de cada una la posición de su primer elemento. En los apuntes, [18] va delante del 59.",
+      "source": "PIA UD2, apartado 1.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q053",
+      "type": "match",
+      "prompt": "Relaciona cada función con lo que hace en la consola.",
+      "pairs": [
+        [
+          "print()",
+          "Muestra el objeto con su indexación"
+        ],
+        [
+          "cat()",
+          "Concatena y muestra sin indexación"
+        ],
+        [
+          "warning()",
+          "Avisa y deja seguir el script"
+        ],
+        [
+          "stop()",
+          "Da un error y detiene el script"
+        ]
+      ],
+      "explanation": "print() y cat() muestran datos; la diferencia es la indexación. warning() y stop() avisan de problemas, pero solo stop() para la ejecución.",
+      "source": "PIA UD2, apartado 1.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q054",
+      "type": "choice",
+      "prompt": "Tu script descubre que falta el archivo de datos y no tiene sentido seguir. ¿Qué función usas?",
+      "options": [
+        "warning()",
+        "message()",
+        "cat()",
+        "stop()"
+      ],
+      "answer": 3,
+      "explanation": "stop() genera un error y detiene el script, pensado para errores críticos. warning() avisaría pero dejaría continuar.",
+      "source": "PIA UD2, apartado 1.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q055",
+      "type": "truefalse",
+      "prompt": "warning() muestra una advertencia y detiene la ejecución del script.",
+      "answer": false,
+      "explanation": "warning() avisa sin detener la ejecución. La que para el script es stop().",
+      "source": "PIA UD2, apartado 1.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q056",
+      "type": "truefalse",
+      "prompt": "Los mensajes de message() se pueden suprimir o redirigir.",
+      "answer": true,
+      "explanation": "message() da mensajes informativos durante la ejecución, y por eso se pueden ocultar o mandar a otro sitio.",
+      "source": "PIA UD2, apartado 1.4",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q057",
+      "type": "choice",
+      "prompt": "¿Qué secuencia genera?",
+      "code": "seq(10, 1, by = -2)",
+      "options": [
+        "10 8 6 4 2",
+        "10 8 6 4 2 0",
+        "10 8 6 4 2 1",
+        "8 6 4 2"
+      ],
+      "answer": 0,
+      "explanation": "Empieza en 10 y resta 2 cada vez. El 1 solo entraría si cayera en un salto, y el 0 se pasa del final.",
+      "source": "PIA UD2, apartado 1.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q058",
+      "type": "choice",
+      "prompt": "¿Qué secuencia genera?",
+      "code": "rep(c(1, 2, 3), each = 3)",
+      "options": [
+        "3 6 9",
+        "1 2 3",
+        "1 1 1 2 2 2 3 3 3",
+        "1 2 3 1 2 3 1 2 3"
+      ],
+      "answer": 2,
+      "explanation": "each repite cada elemento seguido. 1 2 3 1 2 3 1 2 3 es lo que sale con times = 3, que repite el vector entero.",
+      "source": "PIA UD2, apartado 1.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q059",
+      "type": "choice",
+      "prompt": "¿Qué secuencia genera?",
+      "code": "seq(length = 5, from = 0, to = 1)",
+      "options": [
+        "0.00 0.20 0.40 0.60 0.80",
+        "0 1 0 1 0",
+        "0.00 0.25 0.50 0.75 1.00",
+        "0.0 0.2 0.4 0.6 0.8 1.0"
+      ],
+      "answer": 2,
+      "explanation": "Pide 5 números repartidos de 0 a 1, ambos incluidos. R calcula el salto, que es 0.25. Con salto 0.2 saldrían 6 números.",
+      "source": "PIA UD2, apartado 1.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q060",
+      "type": "choice",
+      "prompt": "¿Qué guarda mixto2?",
+      "code": "mixto2 <- c(5, 7.9, 0, TRUE)",
+      "options": [
+        "5 7.9 0 1",
+        "\"5\" \"7.9\" \"0\" \"TRUE\"",
+        "5 7.9 0 TRUE",
+        "5 8 0 1"
+      ],
+      "answer": 0,
+      "explanation": "c() pasa todo a un tipo común. Aquí el mejor es el numérico, y TRUE se convierte en 1. Si hubiera una cadena, todo pasaría a cadena.",
+      "source": "PIA UD2, apartado 1.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q061",
+      "type": "choice",
+      "prompt": "¿Qué muestra la consola?",
+      "code": "frutas <- c(\"manzana\", \"banana\", \"cereza\")\nprint(frutas[c(1, 3)])",
+      "options": [
+        "[1] \"manzana\" \"banana\" \"cereza\"",
+        "[1] \"banana\"",
+        "[1] \"manzana\" \"banana\"",
+        "[1] \"manzana\" \"cereza\""
+      ],
+      "answer": 3,
+      "explanation": "c(1, 3) actúa como índice y pide los elementos de las posiciones 1 y 3. No es un rango del 1 al 3.",
+      "source": "PIA UD2, apartado 1.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q062",
+      "type": "match",
+      "prompt": "Relaciona cada estructura de datos con su descripción.",
+      "pairs": [
+        [
+          "Vector",
+          "Homogéneo; se crea con array()"
+        ],
+        [
+          "Matriz",
+          "Bidimensional y homogénea"
+        ],
+        [
+          "Lista",
+          "Heterogénea; puede contener otras estructuras"
+        ],
+        [
+          "Data frame",
+          "Bidimensional y heterogéneo"
+        ]
+      ],
+      "explanation": "Matriz y data frame son bidimensionales; la diferencia es que el data frame admite tipos distintos. La lista es heterogénea y puede guardar otras estructuras.",
+      "source": "PIA UD2, apartado 1.5",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q063",
+      "type": "truefalse",
+      "prompt": "Esta línea genera 1 3 5 7 9 2 4 6 8 10.",
+      "code": "impar_par <- c(seq(1, 10, 2), seq(2, 10, 2))",
+      "answer": true,
+      "explanation": "seq(1, 10, 2) da los impares 1 3 5 7 9 y seq(2, 10, 2), los pares 2 4 6 8 10. c() los concatena en ese orden.",
+      "source": "PIA UD2, apartado 1.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q064",
+      "type": "truefalse",
+      "prompt": "100:95 da error porque el operador : solo genera secuencias crecientes.",
+      "answer": false,
+      "explanation": "Con a:b, si a es mayor que b, la secuencia baja: 100:95 da 100 99 98 97 96 95.",
+      "source": "PIA UD2, apartado 1.5",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q065",
+      "type": "choice",
+      "prompt": "¿Qué contiene v1?",
+      "code": "v1 <- array(c(1:5, rep(10, 2), 5:1))",
+      "options": [
+        "1 2 3 4 5 20 5 4 3 2 1",
+        "1 2 3 4 5 10 10 5 4 3 2 1",
+        "1 2 3 4 5 10 2 5 4 3 2 1",
+        "1 2 3 4 5 10 10 1 2 3 4 5"
+      ],
+      "answer": 1,
+      "explanation": "1:5 sube del 1 al 5, rep(10, 2) repite el 10 dos veces y 5:1 baja del 5 al 1. c() los junta en ese orden.",
+      "source": "PIA UD2, apartado 1.5.1",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q066",
+      "type": "choice",
+      "prompt": "¿Qué guarda v3?",
+      "code": "v1 <- c(20, 30, 10, 40)\nv3 <- order(v1)",
+      "options": [
+        "40 30 20 10",
+        "3 1 2 4",
+        "10 20 30 40",
+        "2 3 1 4"
+      ],
+      "answer": 1,
+      "explanation": "order() no devuelve los valores, sino sus posiciones en orden: el menor (10) está en la 3, luego el 20 en la 1, el 30 en la 2 y el 40 en la 4. Los valores ordenados los da sort().",
+      "source": "PIA UD2, apartado 1.5.1",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q067",
+      "type": "choice",
+      "prompt": "¿Qué guarda v4?",
+      "code": "v1 <- c(20, 30, 10, 40)\nv2 <- sort(v1)\nv4 <- rev(v2)",
+      "options": [
+        "40 10 30 20",
+        "10 20 30 40",
+        "4 2 1 3",
+        "40 30 20 10"
+      ],
+      "answer": 3,
+      "explanation": "sort() deja v2 en 10 20 30 40 y rev() le da la vuelta. 40 10 30 20 sería invertir v1 sin ordenar.",
+      "source": "PIA UD2, apartado 1.5.1",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q068",
+      "type": "choice",
+      "prompt": "¿Qué muestra la consola?",
+      "code": "numeros <- c(4, 3, NA, 21, NA, 4, 3, 6, NA, 8)\nposNA <- which(is.na(numeros))\nprint(posNA)",
+      "options": [
+        "[1] 3 5 9",
+        "[1] NA NA NA",
+        "[1] FALSE FALSE TRUE FALSE TRUE FALSE FALSE FALSE TRUE FALSE",
+        "[1] 3"
+      ],
+      "answer": 0,
+      "explanation": "is.na() da un TRUE por cada NA y which() convierte esos TRUE en posiciones. El vector lógico es lo que devolvería is.na() solo.",
+      "source": "PIA UD2, apartado 1.5.1",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q069",
+      "type": "choice",
+      "prompt": "¿Qué contiene numeros al final?",
+      "code": "numeros <- c(4, 3, NA, 21, NA, 4, 3, 6, NA, 8)\nposNA <- which(is.na(numeros))\nnumeros[posNA] <- mean(numeros, na.rm = TRUE)",
+      "options": [
+        "4 3 21 4 3 6 8",
+        "4 3 NA 21 NA 4 3 6 NA 8",
+        "4 3 7 21 7 4 3 6 7 8",
+        "4 3 0 21 0 4 3 6 0 8"
+      ],
+      "answer": 2,
+      "explanation": "La media de los valores que no son NA es 49 / 7 = 7, y se escribe en las posiciones 3, 5 y 9. El vector no pierde elementos.",
+      "source": "PIA UD2, apartado 1.5.1",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q070",
+      "type": "truefalse",
+      "prompt": "mean(numeros, na.rm = TRUE) sustituye los NA de numeros por la media.",
+      "answer": false,
+      "explanation": "na.rm = TRUE solo hace que mean() calcule la media sin tener en cuenta los NA. Para sustituirlos hay que asignar el resultado, como en numeros[posNA] <- ...",
+      "source": "PIA UD2, apartado 1.5.1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q071",
+      "type": "truefalse",
+      "prompt": "En v2[, 3:4] <- 0, al no indicar la fila, el 0 se asigna a todas las filas de las columnas 3 y 4.",
+      "answer": true,
+      "explanation": "Dejar vacía la posición de una dimensión equivale a tomarla entera. Aquí se aplica a todas las filas de esas columnas.",
+      "source": "PIA UD2, apartado 1.5.1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q072",
+      "type": "order",
+      "prompt": "Ordena las líneas para cambiar por ceros los valores perdidos de un vector.",
+      "steps": [
+        "numeros <- c(4, 3, NA, 21, NA, 4, 3, 6, NA, 8)",
+        "posNA <- which(is.na(numeros))",
+        "numeros[posNA] <- 0",
+        "print(numeros)"
+      ],
+      "explanation": "Primero el vector, luego las posiciones de los NA con which(), después la asignación y al final se muestra el resultado.",
+      "source": "PIA UD2, apartado 1.5.1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q073",
+      "type": "choice",
+      "prompt": "¿Qué valor guarda dato?",
+      "code": "matriz1 <- matrix(1:8, nrow = 2, byrow = TRUE)\ndato <- matriz1[2, 3]",
+      "options": [
+        "3",
+        "5",
+        "7",
+        "6"
+      ],
+      "answer": 2,
+      "explanation": "Con byrow = TRUE la primera fila es 1 2 3 4 y la segunda, 5 6 7 8. En la columna 3 de la fila 2 está el 7. Rellenando por columnas saldría 6.",
+      "source": "PIA UD2, apartado 1.5.2",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q074",
+      "type": "choice",
+      "prompt": "¿Qué valor queda en la fila 1, columna 2 de matriz?",
+      "code": "matriz <- matrix(seq(1, 12, 2), nrow = 2, ncol = 3)",
+      "options": [
+        "5",
+        "3",
+        "7",
+        "2"
+      ],
+      "answer": 0,
+      "explanation": "seq(1, 12, 2) da 1 3 5 7 9 11. Sin byrow, matrix() rellena por columnas: la primera es 1 y 3 y la segunda, 5 y 7. Por filas, ahí estaría el 3.",
+      "source": "PIA UD2, apartado 1.5.2",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q075",
+      "type": "choice",
+      "prompt": "¿Qué dimensiones tiene matriz_producto?",
+      "code": "matriz3 <- rbind(v1 = 2:5, v2 = rep(1, 4))\nmatriz4 <- rbind(a1 = c(1, 0), a2 = c(0, 1), a3 = c(1, 0), a4 = c(0, 1))\nmatriz_producto <- matriz3 %*% matriz4",
+      "options": [
+        "4x4",
+        "2x4",
+        "Da error: las matrices no tienen el mismo tamaño",
+        "2x2"
+      ],
+      "answer": 3,
+      "explanation": "matriz3 es 2x4 y matriz4 es 4x2. En la multiplicación matricial con %*% el resultado toma las filas de la primera y las columnas de la segunda: 2x2.",
+      "source": "PIA UD2, apartado 1.5.2",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q076",
+      "type": "choice",
+      "prompt": "¿Qué dimensiones tiene matriz2?",
+      "code": "v1 <- c(1, 2, 3, 4)\nv2 <- c(10, 20, 30, 40)\nv3 <- c(0, 0, 0, 0)\nmatriz2 <- rbind(v1, v2, v3)",
+      "options": [
+        "12 filas y 1 columna",
+        "3 filas y 4 columnas",
+        "4 filas y 3 columnas",
+        "1 fila y 12 columnas"
+      ],
+      "answer": 1,
+      "explanation": "rbind() pone cada vector como una fila: tres vectores de 4 elementos dan 3 filas y 4 columnas. Con cbind() saldría 4x3.",
+      "source": "PIA UD2, apartado 1.5.2",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q077",
+      "type": "order",
+      "prompt": "Ordena las líneas para crear y mostrar una matriz con nombres de columna.",
+      "steps": [
+        "Crear los vectores v1, v2 y v3",
+        "Unirlos por filas con matriz2 <- rbind(v1, v2, v3)",
+        "Poner nombre a las columnas con colnames(matriz2) <- paste0(\"c\", 1:4)",
+        "Mostrar la matriz con print(matriz2)"
+      ],
+      "explanation": "Los vectores tienen que existir antes de unirlos con rbind(). colnames() pone nombre a una matriz ya creada, así que va después.",
+      "source": "PIA UD2, apartado 1.5.2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q078",
+      "type": "match",
+      "prompt": "Relaciona cada función con lo que hace con una matriz.",
+      "pairs": [
+        [
+          "t()",
+          "Calcula la traspuesta"
+        ],
+        [
+          "diag(5)",
+          "Genera la identidad 5x5"
+        ],
+        [
+          "det()",
+          "Calcula el determinante"
+        ],
+        [
+          "solve(A)",
+          "Calcula la inversa de A"
+        ]
+      ],
+      "explanation": "diag() con un número crea la identidad y con una matriz extrae la diagonal. solve() con un solo argumento da la inversa.",
+      "source": "PIA UD2, apartado 1.5.2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q079",
+      "type": "choice",
+      "prompt": "Tienes la matriz de coeficientes A y el vector de constantes b de un sistema Ax = b. ¿Qué línea lo resuelve?",
+      "options": [
+        "x <- det(A, b)",
+        "x <- solve(A, b)",
+        "x <- solve(A) * b",
+        "x <- A %*% b"
+      ],
+      "answer": 1,
+      "explanation": "solve(A, b) calcula directamente el vector x. Multiplicar con * sería elemento a elemento y A %*% b calcula el producto, no la solución.",
+      "source": "PIA UD2, apartado 1.5.2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q080",
+      "type": "truefalse",
+      "prompt": "matriz1 * matriz1 hace la multiplicación matricial de matriz1 por sí misma.",
+      "answer": false,
+      "explanation": "El * multiplica elemento a elemento, y por eso las dos matrices tienen que tener las mismas dimensiones. La multiplicación matricial se hace con %*%.",
+      "source": "PIA UD2, apartado 1.5.2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q081",
+      "type": "choice",
+      "prompt": "¿Qué guarda elemento?",
+      "code": "nombres <- c(\"Ana\", \"Luis\", \"Marta\", \"Juan\")\nedades <- c(23, 34, 28, 45)\nocupaciones <- c(\"Ingeniera\", \"Doctor\", \"Abogada\", \"Profesor\")\nsocios <- data.frame(Nombre = nombres, Edad = edades, Ocupación = ocupaciones)\nelemento <- socios[2, 3]",
+      "options": [
+        "34",
+        "\"Marta\"",
+        "\"Abogada\"",
+        "\"Doctor\""
+      ],
+      "answer": 3,
+      "explanation": "La fila 2 es la de Luis y la columna 3, Ocupación. 34 está en la columna 2 y \"Abogada\" en la fila 3.",
+      "source": "PIA UD2, apartado 1.5.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q082",
+      "type": "choice",
+      "prompt": "¿Cuántas filas tiene socios_mayores_30?",
+      "code": "nombres <- c(\"Ana\", \"Luis\", \"Marta\", \"Juan\")\nedades <- c(23, 34, 28, 45)\nocupaciones <- c(\"Ingeniera\", \"Doctor\", \"Abogada\", \"Profesor\")\nsocios <- data.frame(Nombre = nombres, Edad = edades, Ocupación = ocupaciones)\nsocios_mayores_30 <- subset(socios, Edad > 30)",
+      "options": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ],
+      "answer": 0,
+      "explanation": "subset() se queda con las filas que cumplen Edad > 30: Luis (34) y Juan (45). Ana tiene 23 y Marta, 28.",
+      "source": "PIA UD2, apartado 1.5.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q083",
+      "type": "choice",
+      "prompt": "¿Quién queda en la segunda fila de socios_ordenado?",
+      "code": "nombres <- c(\"Ana\", \"Luis\", \"Marta\", \"Juan\")\nedades <- c(23, 34, 28, 45)\nocupaciones <- c(\"Ingeniera\", \"Doctor\", \"Abogada\", \"Profesor\")\nsocios <- data.frame(Nombre = nombres, Edad = edades, Ocupación = ocupaciones)\nsocios_ordenado <- socios[order(socios$Edad), ]",
+      "options": [
+        "Ana",
+        "Juan",
+        "Marta",
+        "Luis"
+      ],
+      "answer": 2,
+      "explanation": "order(socios$Edad) da las filas de menor a mayor edad: Ana (23), Marta (28), Luis (34) y Juan (45). Luis era el segundo antes de ordenar.",
+      "source": "PIA UD2, apartado 1.5.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q084",
+      "type": "choice",
+      "prompt": "¿Qué valor tiene SalarioNeto en la primera fila?",
+      "code": "nombres <- c(\"Ana\", \"Luis\", \"Marta\", \"Juan\")\nedades <- c(23, 34, 28, 45)\nocupaciones <- c(\"Ingeniera\", \"Doctor\", \"Abogada\", \"Profesor\")\nsocios <- data.frame(Nombre = nombres, Edad = edades, Ocupación = ocupaciones)\nsocios$Salario <- c(50000, 60000, 70000, 80000)\nsocios$SalarioNeto <- socios$Salario - (0.21 * socios$Salario)",
+      "options": [
+        "49979",
+        "60500",
+        "39500",
+        "10500"
+      ],
+      "answer": 2,
+      "explanation": "A 50000 se le resta su 21 %, que son 10500: quedan 39500. 10500 es solo lo que se descuenta.",
+      "source": "PIA UD2, apartado 1.5.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q085",
+      "type": "match",
+      "prompt": "Relaciona cada función con lo que muestra de un data frame.",
+      "pairs": [
+        [
+          "str()",
+          "La estructura y el tipo de cada columna"
+        ],
+        [
+          "dim()",
+          "El número de filas y de columnas"
+        ],
+        [
+          "summary()",
+          "Un resumen estadístico"
+        ],
+        [
+          "names()",
+          "Los nombres de las columnas"
+        ]
+      ],
+      "explanation": "dim() da filas y columnas a la vez; nrow() y ncol() las dan por separado. summary() resume y str() describe la estructura.",
+      "source": "PIA UD2, apartado 1.5.3",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q086",
+      "type": "truefalse",
+      "prompt": "Para leer un archivo CSV con read.csv() no hace falta instalar ningún paquete.",
+      "answer": true,
+      "explanation": "Las funciones para CSV y TXT ya vienen con R. Para otros formatos, como Excel, sí hay que instalar el paquete adecuado.",
+      "source": "PIA UD2, apartado 1.5.3",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q087",
+      "type": "choice",
+      "prompt": "¿Qué distingue a un data frame de una matriz?",
+      "options": [
+        "Sus columnas pueden tener tipos de datos distintos",
+        "Tiene más de dos dimensiones",
+        "Solo admite datos numéricos",
+        "No se puede acceder a sus elementos por posición"
+      ],
+      "answer": 0,
+      "explanation": "Los dos son bidimensionales, pero la matriz es homogénea y el data frame es heterogéneo. Por eso sirve como tabla de datos.",
+      "source": "PIA UD2, apartado 1.5.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q088",
+      "type": "order",
+      "prompt": "Ordena los pasos para crear y ver el data frame socios.",
+      "steps": [
+        "Definir los vectores nombres, edades y ocupaciones",
+        "Crear el data frame con data.frame()",
+        "Mostrarlo con print(socios)"
+      ],
+      "explanation": "data.frame() necesita que los vectores de cada columna existan antes. Solo se puede imprimir cuando el data frame está creado.",
+      "source": "PIA UD2, apartado 1.5.3",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud02-q089",
+      "type": "choice",
+      "prompt": "¿Qué guarda resultado?",
+      "code": "edad <- c(15, 30, 24, 50)\nresultado <- ifelse(edad >= 18, \"Mayor\", \"Menor\")",
+      "options": [
+        "\"Mayor\"",
+        "\"Menor\"",
+        "\"Mayor\" \"Menor\" \"Menor\" \"Menor\"",
+        "\"Menor\" \"Mayor\" \"Mayor\" \"Mayor\""
+      ],
+      "answer": 3,
+      "explanation": "ifelse() evalúa la condición en cada elemento y devuelve un vector del mismo tamaño. Solo 15 es menor que 18.",
+      "source": "PIA UD2, apartado 1.6",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q090",
+      "type": "choice",
+      "prompt": "¿Qué muestra la consola?",
+      "code": "n <- 55\nif (n %% 2 == 0) {\n  print(paste(\"El\", n, \"es par.\"))\n} else {\n  print(paste(\"El\", n, \"es impar.\"))\n}",
+      "options": [
+        "No muestra nada",
+        "[1] \"El 55 es impar.\"",
+        "[1] \"El 55 es par.\"",
+        "[1] \"El 1 es impar.\""
+      ],
+      "answer": 1,
+      "explanation": "55 %% 2 es 1, así que la condición es falsa y se ejecuta el else. paste() usa n, que sigue valiendo 55.",
+      "source": "PIA UD2, apartado 1.6",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q091",
+      "type": "choice",
+      "prompt": "¿Qué valor tiene divisor cuando termina el bucle?",
+      "code": "divisor <- 2\nnumero <- 221\nwhile (numero %% divisor != 0) {\n  divisor <- divisor + 1\n}",
+      "options": [
+        "2",
+        "13",
+        "17",
+        "221"
+      ],
+      "answer": 1,
+      "explanation": "El bucle suma 1 mientras el resto no sea 0. 221 = 13 × 17, y el primer divisor que encuentra subiendo desde 2 es 13.",
+      "source": "PIA UD2, apartado 1.6",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q092",
+      "type": "choice",
+      "prompt": "¿Qué muestra la consola?",
+      "code": "n <- 55\nif (is.na(n)) {\n  print(\"La variable tiene un valor nulo.\")\n} else if (is.numeric(n)) {\n  print(\"La variable tiene un valor numérico.\")\n} else if (is.character(n)) {\n  print(\"La variable contiene una cadena.\")\n} else {\n  print(\"No se sabe nada de la variable.\")\n}",
+      "options": [
+        "[1] \"La variable tiene un valor nulo.\"",
+        "[1] \"La variable contiene una cadena.\"",
+        "[1] \"No se sabe nada de la variable.\"",
+        "[1] \"La variable tiene un valor numérico.\""
+      ],
+      "answer": 3,
+      "explanation": "55 no es NA, así que la primera condición falla; is.numeric(55) es TRUE y se ejecuta ese bloque. Las ramas siguientes ya no se comprueban.",
+      "source": "PIA UD2, apartado 1.6",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q093",
+      "type": "choice",
+      "prompt": "¿Qué va en el hueco ___ para que el bucle termine al encontrar el divisor?",
+      "code": "divisor <- 2\nnumero <- 221\nrepeat {\n  if (numero %% divisor == 0) {\n    ___\n  }\n  divisor <- divisor + 1\n}",
+      "options": [
+        "break",
+        "next",
+        "else",
+        "while"
+      ],
+      "answer": 0,
+      "explanation": "repeat se repite sin fin hasta que se ejecuta break. next solo saltaría a la siguiente vuelta, y el bucle no acabaría nunca.",
+      "source": "PIA UD2, apartado 1.6",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q094",
+      "type": "match",
+      "prompt": "Relaciona cada estructura con cuándo se usa.",
+      "pairs": [
+        [
+          "for",
+          "El número de vueltas se conoce de antemano"
+        ],
+        [
+          "while",
+          "Se repite mientras se cumpla una condición"
+        ],
+        [
+          "repeat",
+          "Se repite sin fin hasta un break"
+        ],
+        [
+          "next",
+          "Se salta la vuelta actual y se pasa a la siguiente"
+        ]
+      ],
+      "explanation": "for recorre una secuencia y while depende de una condición. repeat necesita un break para salir, y next no sale del bucle, solo salta una vuelta.",
+      "source": "PIA UD2, apartado 1.6",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q095",
+      "type": "choice",
+      "prompt": "¿Qué muestra la primera vuelta del bucle?",
+      "code": "nombres <- c(\"Ana\", \"Luis\", \"Marta\", \"Juan\")\nfor (nombre in nombres) {\n  print(paste(\"Hola\", nombre))\n}",
+      "options": [
+        "[1] \"Hola Ana Luis Marta Juan\"",
+        "[1] \"HolaAna\"",
+        "[1] \"Hola Ana\"",
+        "[1] \"Hola nombre\""
+      ],
+      "answer": 2,
+      "explanation": "En cada vuelta, nombre toma un elemento del vector, empezando por \"Ana\". paste() une con un espacio.",
+      "source": "PIA UD2, apartado 1.6",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q096",
+      "type": "order",
+      "prompt": "Ordena cómo funciona el bucle while que busca el primer divisor de 221.",
+      "steps": [
+        "Dar a divisor el valor 2",
+        "Comprobar si el resto de numero entre divisor es distinto de 0",
+        "Si lo es, sumar 1 a divisor y volver a comprobar",
+        "Al salir del bucle, mostrar el divisor encontrado"
+      ],
+      "explanation": "while comprueba la condición antes de cada vuelta. Cuando el resto es 0 la condición falla, el bucle termina y se imprime el divisor.",
+      "source": "PIA UD2, apartado 1.6",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud02-q097",
+      "type": "choice",
+      "prompt": "¿Qué devuelve saludo()?",
+      "code": "saludo <- function(nombre = \"Amigo\") {\n  mensaje <- paste(\"Hola,\", nombre)\n  return(mensaje)\n}\nsaludo()",
+      "options": [
+        "\"Hola, nombre\"",
+        "Da error: falta el argumento nombre",
+        "\"Hola, Amigo\"",
+        "\"Hola, \""
+      ],
+      "answer": 2,
+      "explanation": "Si no se pasa nombre, la función usa su valor por defecto, \"Amigo\". paste() lo une a \"Hola,\" con un espacio.",
+      "source": "PIA UD2, apartado 1.7",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q098",
+      "type": "choice",
+      "prompt": "¿Qué muestra la consola?",
+      "code": "suma_varios <- function(...) {\n  numeros <- c(...)\n  resultado <- sum(numeros)\n  return(resultado)\n}\nprint(suma_varios(1, 2, 3, 4, 5))",
+      "options": [
+        "[1] 15",
+        "[1] 5",
+        "[1] 1 2 3 4 5",
+        "[1] 1"
+      ],
+      "answer": 0,
+      "explanation": "Los ... recogen todos los argumentos, c(...) los junta en un vector y sum() los suma: 1 + 2 + 3 + 4 + 5 = 15.",
+      "source": "PIA UD2, apartado 1.7",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q099",
+      "type": "choice",
+      "prompt": "¿Qué muestra la consola?",
+      "code": "operar <- function(a, b, funcion) {\n  return(funcion(a, b))\n}\nsuma <- function(a, b) {\n  return(a + b)\n}\nmultiplicacion <- function(a, b) {\n  return(a * b)\n}\nprint(operar(4, 2, multiplicacion))",
+      "options": [
+        "[1] 6",
+        "[1] 2",
+        "[1] 16",
+        "[1] 8"
+      ],
+      "answer": 3,
+      "explanation": "operar() llama a la función que recibe con a y b. Recibe multiplicacion, así que calcula 4 * 2 = 8. Con suma daría 6.",
+      "source": "PIA UD2, apartado 1.7",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud02-q100",
+      "type": "truefalse",
+      "prompt": "Con ... una función de R puede aceptar un número variable de argumentos.",
+      "answer": true,
+      "explanation": "Es útil cuando no sabes de antemano cuántos argumentos se van a pasar, como en suma_varios().",
+      "source": "PIA UD2, apartado 1.7",
+      "difficulty": 1
+    }
+  ]
+}

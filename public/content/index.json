@@ -76,7 +76,8 @@
         {
           "id": "pia-ud02",
           "number": 2,
-          "title": "Lenguajes de programación de IA. Lenguaje R"
+          "title": "Lenguajes de programación de IA. Lenguaje R",
+          "file": "pia/ud02.json"
         }
       ]
     },
