@@ -36,7 +36,8 @@
         {
           "id": "sbd-ud02",
           "number": 2,
-          "title": "Almacenamiento de datos y MongoDB"
+          "title": "Almacenamiento de datos y MongoDB",
+          "file": "sbd/ud02.json"
         }
       ]
     },

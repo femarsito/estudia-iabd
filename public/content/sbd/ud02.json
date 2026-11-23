@@ -1,0 +1,1923 @@
+{
+  "id": "sbd-ud02",
+  "moduleId": "sbd",
+  "number": 2,
+  "title": "Almacenamiento de datos y MongoDB",
+  "conceptMap": {
+    "src": "img/sbd-ud02-mapa.png",
+    "credit": "Mapa conceptual de los apuntes de SBD UD2, Junta de Andalucía (CC BY-NC-SA)"
+  },
+  "lessons": [
+    {
+      "id": "sbd-ud02-l01",
+      "kind": "read",
+      "title": "Sistemas de ficheros y RAID",
+      "section": "1 y 1.1. Sistemas de ficheros y RAID",
+      "cards": [
+        {
+          "title": "Sistema de ficheros",
+          "body": "Es la infraestructura para **almacenar y organizar datos** en discos duros, memorias de estado sólido, cintas o DVD. Su unidad atómica es el **fichero**, que se guarda y se lee de forma independiente. Además organiza los ficheros en un **árbol de directorios**."
+        },
+        {
+          "title": "Sistema operativo y tipos",
+          "body": "El **sistema operativo** interactúa con el sistema de ficheros y así ofrece almacenamiento y recuperación de datos a las aplicaciones. Hay varios tipos, como **FAT32, NTFS o EXT4**. Cada sistema operativo usa uno para su propia información, pero suele ser compatible con otros para leer datos externos."
+        },
+        {
+          "title": "RAID",
+          "body": "Reparte los datos entre **varias unidades** para conseguir unidades más grandes que el mayor disco, **replicación automática** o las dos cosas. **No es un sistema de ficheros**: es una capa por debajo. Con dos discos de 2 TB, el sistema de ficheros puede ver **una sola unidad de 4 TB**."
+        },
+        {
+          "title": "Hardware, software y niveles",
+          "body": "- **Por hardware**: con controladoras RAID específicas.\n- **Por software**: el procesador hace ese trabajo, **más lento pero más barato**.\n\nLas estrategias se llaman **niveles**. Los más usados son **RAID 0, RAID 1 y RAID 5**."
+        },
+        {
+          "title": "RAID 0 y RAID 1",
+          "body": "- **RAID 0, conjunto dividido**: dos discos de 1 TB se ven como uno de **2 TB**. **Sin redundancia** y con casi el **doble de velocidad** de lectura y escritura.\n- **RAID 1, espejo**: dos discos de 1 TB se ven como uno de **1 TB** con los datos replicados. Hasta el doble de velocidad de **lectura**, ninguna ganancia en escritura. **Aguanta el fallo de un disco**."
+        },
+        {
+          "title": "RAID 5",
+          "body": "**Conjunto dividido con paridad distribuida**. Necesita **mínimo 3 discos**: tres de 1 TB se ven como uno de **2 TB** con replicación. Da una unidad mayor que cada disco, lee más rápido porque lee de varias unidades a la vez y **aguanta el fallo de un disco**."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud02-l02",
+      "kind": "practice",
+      "title": "Sistemas de ficheros y RAID",
+      "section": "1 y 1.1. Sistemas de ficheros y RAID",
+      "questionIds": [
+        "sbd-ud02-q001",
+        "sbd-ud02-q002",
+        "sbd-ud02-q003",
+        "sbd-ud02-q004",
+        "sbd-ud02-q005",
+        "sbd-ud02-q006",
+        "sbd-ud02-q007",
+        "sbd-ud02-q008",
+        "sbd-ud02-q009"
+      ]
+    },
+    {
+      "id": "sbd-ud02-l03",
+      "kind": "read",
+      "title": "Sistemas de ficheros distribuidos",
+      "section": "1.2. Sistemas de ficheros distribuidos",
+      "cards": [
+        {
+          "title": "Qué son",
+          "body": "Guardan los ficheros **repartiendo su contenido entre las máquinas de un clúster**. Tú trabajas con ellos de forma unificada, como si los ficheros estuvieran en la máquina donde corre tu aplicación."
+        },
+        {
+          "title": "Bloques",
+          "body": "Los ficheros no se guardan enteros: se dividen en fragmentos llamados **bloques**, que se reparten por el clúster. Por eso puedes guardar un fichero **más grande que el espacio de cualquiera de los nodos**."
+        },
+        {
+          "title": "Replicación integrada",
+          "body": "Son **agnósticos** respecto de los datos que guardan. Dan redundancia y alta disponibilidad **replicando cada bloque en varios nodos**, con un **índice de replicación configurable** que tiene que ser **como mínimo 2** para que haya replicación. Por eso ya no hace falta **RAID** en cada nodo."
+        },
+        {
+          "title": "Más velocidad",
+          "body": "Como cada fichero está repartido entre varios nodos, las lecturas y escrituras se hacen **en paralelo**. Así se superan las tasas de una unidad individual y se evita el **cuello de botella** de usar una sola unidad física."
+        },
+        {
+          "title": "Bloques grandes",
+          "body": "Usan **bloques muy grandes** (por ejemplo, **128 MB**). Funcionan mejor con **pocos ficheros grandes** que con muchos pequeños. Si las fuentes envían muchos ficheros pequeños, se **combinan en ficheros grandes durante el ETL**."
+        },
+        {
+          "title": "Ejemplos",
+          "body": "- **HDFS**, de Apache Hadoop, uno de los más conocidos en Big Data. Su precursor es **GFS**, de Google.\n- En la nube, el más conocido es **Amazon S3**; también están Google Cloud Storage y Azure Blob Storage."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud02-l04",
+      "kind": "practice",
+      "title": "Sistemas de ficheros distribuidos",
+      "section": "1.2. Sistemas de ficheros distribuidos",
+      "questionIds": [
+        "sbd-ud02-q010",
+        "sbd-ud02-q011",
+        "sbd-ud02-q012",
+        "sbd-ud02-q013",
+        "sbd-ud02-q014",
+        "sbd-ud02-q015",
+        "sbd-ud02-q016",
+        "sbd-ud02-q017"
+      ]
+    },
+    {
+      "id": "sbd-ud02-l05",
+      "kind": "read",
+      "title": "Almacenamiento distribuido en memoria",
+      "section": "1.2.1. Almacenamiento distribuido en memoria",
+      "cards": [
+        {
+          "title": "Por qué en memoria",
+          "body": "La RAM es cada vez más barata y cabe más en cada máquina. Tener los datos en RAM **elimina la latencia de entrada-salida** y el tiempo de transferencia del almacenamiento. Leer 1 MB seguido tarda unos **20 ms en disco** y del orden de **0,2 ms en RAM**."
+        },
+        {
+          "title": "Ventajas",
+          "body": "Rinde mejor ante el **flujo rápido de datos** (la característica de velocidad). Al procesar mucho más deprisa permite **analíticas en tiempo real** más complejas y descubrir cosas antes, para tomar buenas decisiones de negocio en menos tiempo."
+        },
+        {
+          "title": "Inconvenientes",
+          "body": "Si los nodos ya tienen toda la RAM que admite su placa, para tener más memoria hay que hacer **escalado horizontal añadiendo nodos**, y eso sale **costoso**. Además **no da durabilidad por sí mismo**: se suele usar para datos de analítica **copiados de otro almacenamiento que sí es persistente**."
+        },
+        {
+          "title": "Cuándo es apropiado",
+          "body": "- Los datos **llegan rápido**.\n- Hace falta analítica continua, en **tiempo real** o en **streaming**.\n- Consultas interactivas o visualizar datos en tiempo real.\n- El **mismo conjunto de datos** sirve a la vez para varias tareas o se recorre de forma iterativa (análisis exploratorio, algoritmos de grafos).\n- Soluciones de **baja latencia** con ACID."
+        },
+        {
+          "title": "Cuándo no lo es",
+          "body": "- El procesamiento es **por lotes**.\n- Hay que trabajar con **grandes cantidades de datos**.\n- Necesitas que los datos **persistan** nada más llegar.\n- El **presupuesto es limitado** y vas a tener que ampliar memoria con nodos nuevos."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud02-l06",
+      "kind": "practice",
+      "title": "Almacenamiento distribuido en memoria",
+      "section": "1.2.1. Almacenamiento distribuido en memoria",
+      "questionIds": [
+        "sbd-ud02-q018",
+        "sbd-ud02-q019",
+        "sbd-ud02-q020",
+        "sbd-ud02-q021",
+        "sbd-ud02-q022",
+        "sbd-ud02-q023",
+        "sbd-ud02-q024",
+        "sbd-ud02-q025"
+      ]
+    },
+    {
+      "id": "sbd-ud02-l07",
+      "kind": "read",
+      "title": "HDFS",
+      "section": "1.3 y 1.3.1. HDFS: características y funcionamiento",
+      "cards": [
+        {
+          "title": "Qué es",
+          "body": "**HDFS** (Hadoop Distributed File System) es el sistema de ficheros distribuido de **Hadoop**, la plataforma Big Data de código abierto pionera. Es una versión de código abierto de **GFS**: se basa en un artículo que Google publicó en **2003** explicando cómo funcionaba."
+        },
+        {
+          "title": "Commodity hardware",
+          "body": "Reparte ficheros grandes por un clúster de nodos **commodity hardware**, que **no equivale a máquinas baratas**. Como los nodos tienen un precio reducido, se suele ver HDFS como un «disco duro enorme que sale barato»."
+        },
+        {
+          "title": "Schema-on-read",
+          "body": "Como cualquier sistema de ficheros, HDFS **no obliga a que los datos cumplan un esquema** fijado antes (las relacionales son **schema-on-write**). Por eso es habitual guardar en HDFS, según llegan, todos los datos que puedan tener valor y decidir más adelante cómo interpretarlos."
+        },
+        {
+          "title": "Bloques de 128 MB",
+          "body": "HDFS parte los ficheros en bloques de **128 MB por defecto** (configurable) para **minimizar las búsquedas en disco** y leer a la velocidad de transferencia. Está optimizado para **velocidad de transferencia, no para latencia**: Hadoop nació para analítica **por lotes**. Un fichero más pequeño que el bloque **no desperdicia espacio**."
+        },
+        {
+          "title": "Namenode",
+          "body": "El directorio se mantiene **en la memoria de uno de los nodos, el Namenode**, para acceder más rápido. Por eso HDFS prefiere **ficheros grandes**: muchos ficheros pequeños necesitarían muchísima RAM. Y como cada fichero se reparte en bloques, puede ser **más grande que la mayor unidad física**."
+        },
+        {
+          "title": "Rack awareness",
+          "body": "HDFS guarda la **topología de conexiones (vía switch)** de los nodos. Así, al ejecutar un trabajo, lo reparte para **maximizar la localidad de los datos** y **minimizar los saltos entre switch**. Aunque se llama así, lo que importa no es el rack sino **el switch al que se conecta el nodo**."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud02-l08",
+      "kind": "practice",
+      "title": "HDFS",
+      "section": "1.3 y 1.3.1. HDFS: características y funcionamiento",
+      "questionIds": [
+        "sbd-ud02-q026",
+        "sbd-ud02-q027",
+        "sbd-ud02-q028",
+        "sbd-ud02-q029",
+        "sbd-ud02-q030",
+        "sbd-ud02-q031",
+        "sbd-ud02-q032",
+        "sbd-ud02-q033",
+        "sbd-ud02-q034",
+        "sbd-ud02-q035"
+      ]
+    },
+    {
+      "id": "sbd-ud02-l09",
+      "kind": "read",
+      "title": "Acceso a HDFS por comandos y con Python",
+      "section": "1.3.2 y 1.3.3. Acceso a HDFS mediante línea de comandos y Python",
+      "cards": [
+        {
+          "title": "Poner HDFS en marcha",
+          "body": "HDFS forma parte de Hadoop: lo normal es **descargar e instalar Hadoop**. Como Hadoop son procesos Java, también podrías arrancar solo los procesos **namenode** y **datanode**. Puedes usar la línea de comandos en **cualquier máquina con Hadoop** que ejecute el servicio HDFS, sea namenode o datanode."
+        },
+        {
+          "title": "hadoop fs",
+          "body": "Se usa `hadoop fs` (o `hdfs dfs`) con un parámetro, como en Unix/Linux. HDFS tiene árbol de directorios y permisos al estilo Unix y la raíz es `/`.\n- `-ls <ruta>`: lista, como `ls -l`.\n- `-mkdir <ruta>`: crea un directorio.\n- `-cp` y `-mv`: copian y mueven dentro de HDFS.\n- `-rm [-r] <ruta>`: borra; con `-r`, de forma **recursiva**.\n- `-help`: muestra la ayuda."
+        },
+        {
+          "title": "Entre local y HDFS",
+          "body": "- `-copyFromLocal <origen_local> <destino>`: copia **de tu disco a HDFS**.\n- `-copyToLocal <origen> <destino_local>`: copia **de HDFS a tu disco**.\n- `-cat <fichero>`: imprime el fichero **completo**.\n- `-tail <fichero>`: imprime el **último kB**."
+        },
+        {
+          "title": "Snakebite",
+          "body": "Desde un lenguaje de programación se usan **librerías**, que permiten una interacción más rica que la línea de comandos. En Python, los apuntes usan **Snakebite**: implementa el protocolo **Hadoop RPC** y habla con el **Namenode** sin llamar a `hadoop fs` ni a `hdfs dfs`. Te conectas con `Client('localhost', 9000)`."
+        },
+        {
+          "title": "Métodos de Snakebite",
+          "body": "- `ls(['/'])`: lista un directorio.\n- `mkdir([...], create_parent=True)`: crea directorios, también los padres que falten.\n- `delete([...], recurse=True)`: borra ficheros y directorios.\n- `copyToLocal([...], '/tmp')`: copia de HDFS a local.\n- `text([...])`: lee el contenido.\n\nDevuelven resultados que recorres con un `for`."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud02-l10",
+      "kind": "practice",
+      "title": "Acceso a HDFS por comandos y con Python",
+      "section": "1.3.2 y 1.3.3. Acceso a HDFS mediante línea de comandos y Python",
+      "questionIds": [
+        "sbd-ud02-q036",
+        "sbd-ud02-q037",
+        "sbd-ud02-q038",
+        "sbd-ud02-q039",
+        "sbd-ud02-q040",
+        "sbd-ud02-q041",
+        "sbd-ud02-q042",
+        "sbd-ud02-q043",
+        "sbd-ud02-q044",
+        "sbd-ud02-q045"
+      ]
+    },
+    {
+      "id": "sbd-ud02-l11",
+      "kind": "read",
+      "title": "Bases de datos NoSQL",
+      "section": "2 y 2.1. Bases de datos NoSQL y conceptos generales",
+      "cards": [
+        {
+          "title": "El problema del esquema",
+          "body": "Las bases de datos relacionales son **schema-on-write**: tienes que conocer el formato de los registros (**qué atributos y de qué tipos**) antes de escribirlos. Eso obliga a diseñar el esquema pronto, quizá sin conocer bien el problema. Se puede cambiar sobre la marcha, pero **en producción es peligroso**."
+        },
+        {
+          "title": "Schema-on-read",
+          "body": "Las bases de datos **schema-on-read** permiten escribir (en este caso **documentos**, no registros) **sin cumplir un esquema de tabla**. El esquema de cada documento se interpreta **en el momento de leerlo**."
+        },
+        {
+          "title": "NoSQL",
+          "body": "NoSQL significa **«no sólo SQL»** o **«no relacionales»**: bases de datos que, por algún motivo, se salen de la denominación de relacional. Por lo general **no usan SQL**, pero no es una regla absoluta: **algunas sí usan lenguajes de tipo SQL**, y por eso a veces se llaman «no sólo SQL»."
+        },
+        {
+          "title": "Conceptos generales",
+          "body": "- **Sharding**: dividir los datos para repartirlos por el clúster.\n- **Replicación**: hacer copias de los datos en distintos nodos.\n- **Sharding con replicación**: combinar las dos para tener las ventajas de ambas.\n\n**No son exclusivos de NoSQL**, y no todas las NoSQL los tienen, aunque **la mayoría sí**."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud02-l12",
+      "kind": "practice",
+      "title": "Bases de datos NoSQL",
+      "section": "2 y 2.1. Bases de datos NoSQL y conceptos generales",
+      "questionIds": [
+        "sbd-ud02-q046",
+        "sbd-ud02-q047",
+        "sbd-ud02-q048",
+        "sbd-ud02-q049",
+        "sbd-ud02-q050",
+        "sbd-ud02-q051",
+        "sbd-ud02-q052",
+        "sbd-ud02-q053"
+      ]
+    },
+    {
+      "id": "sbd-ud02-l13",
+      "kind": "read",
+      "title": "Sharding y replicación",
+      "section": "2.1.1 a 2.1.3. Sharding, replicación y sharding con replicación",
+      "cards": [
+        {
+          "title": "Sharding",
+          "body": "Particiona un conjunto de datos en subconjuntos más pequeños, los **shards**, que se reparten por los nodos. Permite tratar **conjuntos más grandes** de lo que podría un nodo de forma individual, **reparte la carga** (escalabilidad horizontal) y da **tolerancia parcial a fallos**: si cae un nodo, solo queda afectada su fracción de datos."
+        },
+        {
+          "title": "Consultas y estrategia",
+          "body": "Una consulta va a **todos los nodos que puedan tener datos** y luego se **fusionan** las respuestas. Si solo responde un nodo, ese paso final sobra. El mayor problema es diseñar la **estrategia de sharding** para que los datos que se consultan juntos queden **en el mismo shard**: suele ser complicado y a veces imposible."
+        },
+        {
+          "title": "Replicación",
+          "body": "Guarda **copias del mismo conjunto de datos** (las **réplicas**) en distintos nodos. Da **más disponibilidad**, porque puedes leer desde varios nodos, y **tolerancia a fallos**, porque si un nodo no responde sus datos siguen en otro."
+        },
+        {
+          "title": "Maestro-esclavo",
+          "body": "Todas las **escrituras van al maestro** y luego se replican a los esclavos. El maestro es un **punto único de fallo**. Se lee de cualquier nodo, normalmente de los esclavos. Va bien para **lectura intensiva** (añades esclavos), mal para **escritura intensiva** y cuando necesitas **lecturas consistentes**: un esclavo puede no tener aún el último dato."
+        },
+        {
+          "title": "Par a par",
+          "body": "Todos los nodos (**peers**) están al mismo nivel: **no hay punto único de fallo** y se lee y escribe en todos. Puede haber inconsistencias si se modifica a la vez el mismo dato.\n- **Pesimista**: usa **bloqueos**; baja la disponibilidad mientras dura el bloqueo.\n- **Optimista**: **sin bloqueos**; admite inconsistencias mientras se propagan las escrituras y siempre está disponible."
+        },
+        {
+          "title": "Sharding con replicación",
+          "body": "Cada shard se **replica en varios nodos**: tolerancia a fallos, disponibilidad y escalabilidad a la vez. Un nodo puede guardar **réplicas de varios shards**.\n- **Maestro-esclavo**: un maestro por shard, que es **punto único de fallo de ese shard**.\n- **Par a par**: réplicas al mismo nivel, **sin punto único de fallo**."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud02-l14",
+      "kind": "practice",
+      "title": "Sharding y replicación",
+      "section": "2.1.1 a 2.1.3. Sharding, replicación y sharding con replicación",
+      "questionIds": [
+        "sbd-ud02-q054",
+        "sbd-ud02-q055",
+        "sbd-ud02-q056",
+        "sbd-ud02-q057",
+        "sbd-ud02-q058",
+        "sbd-ud02-q059",
+        "sbd-ud02-q060",
+        "sbd-ud02-q061",
+        "sbd-ud02-q062",
+        "sbd-ud02-q063"
+      ]
+    },
+    {
+      "id": "sbd-ud02-l15",
+      "kind": "read",
+      "title": "Documentales y clave-valor",
+      "section": "2.2, 2.2.1 y 2.2.2. Tipos de NoSQL: documentales y clave-valor",
+      "cards": [
+        {
+          "title": "Cuatro familias",
+          "body": "Cada base NoSQL resuelve un tipo de problema, pero casi todas caen en **4 familias**:\n- **Documentales**: pares clave-documento, normalmente en **JSON**.\n- **Clave-valor**: pares clave-valor; el valor puede ser de un carácter a un objeto complejo.\n- **Columnares**: guardan por **columnas** en vez de por filas.\n- **Orientadas a grafo**: **nodos y relaciones**, ambos con propiedades."
+        },
+        {
+          "title": "Documentales",
+          "body": "Para cada clave guardan un **documento completo**, normalmente en **JSON**, sin cumplir un esquema previo: son **schema-on-read**. No hay tablas, pero sí **colecciones**, que agrupan documentos de tipo parecido. Ejemplos: **MongoDB** y **Apache CouchDB**."
+        },
+        {
+          "title": "Ventajas documentales",
+          "body": "- Gran **flexibilidad**: los documentos pueden ser heterogéneos.\n- Van muy bien con **sharding y replicación**.\n- Admiten **índices** sobre partes de los documentos.\n- Guardar información desnormalizada evita muchas veces el **JOIN**.\n- Algunas cumplen ACID en ciertos casos. Los apuntes dicen que **MongoDB** lo hace en **un único documento**, no en transacciones multidocumento (las versiones actuales ya las admiten)."
+        },
+        {
+          "title": "Inconvenientes documentales",
+          "body": "No son totalmente **ACID**: se quedan en **BASE**. Sin JOIN, si necesitas datos de varias colecciones es **la aplicación** la que hace varios accesos y combina. Aunque no haya esquema fijo, hay que **planificar qué guardar** según las consultas más típicas. Los apuntes prefieren decir **schema-on-read** en vez de schemaless."
+        },
+        {
+          "title": "Clave-valor",
+          "body": "Guardan un **valor arbitrario** al que se accede **solo por su clave**, como una tabla hash o un array asociativo. La clave es cualquier cadena. El valor suele ser un **BLOB** (serie de bytes) y lo interpreta **la aplicación cliente**. Ejemplos: **Redis**, Memcached, MemcacheDB, Berkeley DB y Voldemort."
+        },
+        {
+          "title": "Pros y contras clave-valor",
+          "body": "Ventajas: mucha **flexibilidad** y van muy bien con **sharding y replicación**.\n\nInconvenientes: **sin JOIN** y **sin indexación** para buscar, porque todo acceso es por clave. Algunas permiten seleccionar claves con **expresiones regulares**."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud02-l16",
+      "kind": "practice",
+      "title": "Documentales y clave-valor",
+      "section": "2.2, 2.2.1 y 2.2.2. Tipos de NoSQL: documentales y clave-valor",
+      "questionIds": [
+        "sbd-ud02-q064",
+        "sbd-ud02-q065",
+        "sbd-ud02-q066",
+        "sbd-ud02-q067",
+        "sbd-ud02-q068",
+        "sbd-ud02-q069",
+        "sbd-ud02-q070",
+        "sbd-ud02-q071",
+        "sbd-ud02-q072",
+        "sbd-ud02-q073"
+      ]
+    },
+    {
+      "id": "sbd-ud02-l17",
+      "kind": "read",
+      "title": "Columnares y orientadas a grafos",
+      "section": "2.2.3 y 2.2.4. Columnares y orientadas a grafos",
+      "cards": [
+        {
+          "title": "Columnares",
+          "body": "También llamadas **orientadas a columna** o **tabulares**, se inspiran en **BigTable**, de Google. Una relacional guarda y lee **por filas**; una columnar guarda **por columnas**: primero todos los ids, luego todos los nombres, y así. Ejemplos: **Google BigTable, HBase y Apache Cassandra**."
+        },
+        {
+          "title": "Ventajas columnares",
+          "body": "- **Ahorran mucho espacio** cuando hay muchos campos vacíos.\n- Escalan para **grandes volúmenes** de datos.\n- Leen solo las columnas necesarias, sin recorrer filas completas: **lecturas muy rápidas**.\n- Son válidas para sistemas **OLAP**."
+        },
+        {
+          "title": "Inconvenientes columnares",
+          "body": "- Poco eficientes en **accesos por fila**, así que **no son buena opción para OLTP**.\n- Poco eficientes si vas **añadiendo datos sobre la marcha**: modificar una celda puede obligar a **escanear una columna completa**."
+        },
+        {
+          "title": "Orientadas a grafos",
+          "body": "Son las que **más se diferencian de las relacionales**: no acceden a valores por clave ni tienen forma de tabla. Guardan **nodos** conectados por **relaciones**, y **tanto nodos como relaciones** pueden tener propiedades. Se recorren con **lenguajes específicos**. Ejemplos: **AllegroGraph** y **Neo4j**."
+        },
+        {
+          "title": "Pros y contras de los grafos",
+          "body": "Ventajas: muy buenas con **relaciones complejas**, como motores basados en reglas o **redes sociales**, y pueden soportar **ACID**.\n\nInconvenientes: un grafo es difícil o imposible de partir entre nodos, así que **el grafo más grande debe caber en un único nodo**. Y recorrer grafos es **ineficiente si no hay relaciones complejas**."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud02-l18",
+      "kind": "practice",
+      "title": "Columnares y orientadas a grafos",
+      "section": "2.2.3 y 2.2.4. Columnares y orientadas a grafos",
+      "questionIds": [
+        "sbd-ud02-q074",
+        "sbd-ud02-q075",
+        "sbd-ud02-q076",
+        "sbd-ud02-q077",
+        "sbd-ud02-q078",
+        "sbd-ud02-q079",
+        "sbd-ud02-q080",
+        "sbd-ud02-q081",
+        "sbd-ud02-q082",
+        "sbd-ud02-q083"
+      ]
+    },
+    {
+      "id": "sbd-ud02-l19",
+      "kind": "read",
+      "title": "Primeros pasos con MongoDB",
+      "section": "3. Primeros pasos con MongoDB",
+      "cards": [
+        {
+          "title": "Por qué MongoDB",
+          "body": "Es una de las bases de datos **NoSQL más conocidas y usadas**, y es **documental**. Encaja cuando la información de cada entidad es **muy heterogénea** y quieres guardarla **toda junta en un documento**, para recuperarla entera por su identificador."
+        },
+        {
+          "title": "Librerías o intérprete",
+          "body": "Casi todos los lenguajes tienen **una librería** para trabajar con MongoDB: si estás programando, ese es el modo. El **intérprete de comandos** facilita la **administración desde un terminal** sin crear ningún programa, y es una forma sencilla de aprender. Los apuntes siguen el **tutorial oficial** (Getting Started)."
+        },
+        {
+          "title": "CRUD",
+          "body": "Las operaciones básicas se agrupan en **CRUD**:\n- **Insert** documents: la **C** de create.\n- **Query** documents: la **R** de read.\n- **Update** documents: la **U** de update.\n- **Delete** documents: la **D** de delete."
+        },
+        {
+          "title": "Comandos básicos",
+          "body": "- `use <base_de_datos>` **cambia de base de datos**.\n- `db.<colección>.find({...})` **busca documentos** en una colección.\n- `{ $gt: 100 }` significa **mayor que 100**.\n- Con un punto entras en un campo que está dentro de otro: `\"premios.victorias\"` es el campo victorias **dentro de** premios."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud02-l20",
+      "kind": "pc",
+      "title": "MongoDB con Atlas y mongosh",
+      "section": "3. Primeros pasos con MongoDB (tarea con Atlas y mongosh)",
+      "steps": [
+        {
+          "where": "MongoDB Atlas",
+          "text": "Entra en MongoDB Atlas y crea un clúster gratuito (M0). Si la cuenta del instituto (@g.educaand.es) da el error 400 access_not_configured, entra con una cuenta personal de Google."
+        },
+        {
+          "where": "MongoDB Atlas",
+          "text": "Crea un usuario de base de datos para conectarte y comprueba en Network Access (puede aparecer como «Database & Network Access») que tu IP está permitida. Guarda la contraseña en un sitio seguro y no la pongas en capturas ni en apuntes."
+        },
+        {
+          "where": "MongoDB Atlas",
+          "text": "Carga los datos de ejemplo de Atlas para tener la base de datos sample_mflix, que es la que usa la tarea."
+        },
+        {
+          "where": "Terminal",
+          "text": "Conéctate con mongosh usando la cadena de conexión que te da Atlas en Connect. Cambia lo que va entre < > por tus datos.",
+          "code": "mongosh \"<cadena de conexión de tu clúster>\" --username <tu_usuario>",
+          "expected": "mongosh te pide la contraseña y se abre el intérprete conectado a tu clúster."
+        },
+        {
+          "where": "mongosh",
+          "text": "Comprueba con qué usuario estás conectado. Ejecútalo antes de cada captura para que se vea el usuario.",
+          "code": "db.runCommand({ connectionStatus: 1 }).authInfo.authenticatedUsers",
+          "expected": "Sale tu usuario de base de datos."
+        },
+        {
+          "where": "mongosh",
+          "text": "Mira las bases de datos que hay, cambia a sample_mflix y lista sus colecciones.",
+          "code": "show dbs\nuse sample_mflix\nshow collections",
+          "expected": "Entre las colecciones aparece movies."
+        },
+        {
+          "where": "mongosh",
+          "text": "Cuenta las películas de más de 500 minutos y luego muestra el título y la duración de las cinco más largas.",
+          "code": "db.movies.countDocuments({ runtime: { $gt: 500 } })\ndb.movies.find({ runtime: { $gt: 500 } }, { title: 1, runtime: 1, _id: 0 }).sort({ runtime: -1 }).limit(5)",
+          "expected": "Primero sale un número, el que te salga. Después, como mucho cinco documentos con solo title y runtime, de mayor a menor duración."
+        },
+        {
+          "where": "mongosh",
+          "text": "Cuenta las películas con más de 70 premios en las que USA esté entre sus países. Fíjate en el punto para entrar en el campo wins, que está dentro de awards.",
+          "code": "db.movies.countDocuments({ \"awards.wins\": { $gt: 70 }, countries: \"USA\" })",
+          "expected": "Sale un número, el que te salga."
+        },
+        {
+          "where": "mongosh",
+          "text": "Cuenta las películas anteriores a 1930 o posteriores a 2016 con $or.",
+          "code": "db.movies.countDocuments({ $or: [ { year: { $lt: 1930 } }, { year: { $gt: 2016 } } ] })",
+          "expected": "Sale un número, el que te salga."
+        },
+        {
+          "where": "mongosh",
+          "text": "Busca las películas de Brad Pitt con más de 7,8 en IMDb y muestra solo el título.",
+          "code": "db.movies.find({ cast: \"Brad Pitt\", \"imdb.rating\": { $gt: 7.8 } }, { title: 1, _id: 0 })",
+          "expected": "Sale una lista corta de títulos, sin el _id."
+        },
+        {
+          "where": "mongosh",
+          "text": "Cuenta los títulos que contienen «ocean» sin distinguir mayúsculas y minúsculas.",
+          "code": "db.movies.countDocuments({ title: { $regex: \"ocean\", $options: \"i\" } })",
+          "expected": "Sale un número, el que te salga."
+        },
+        {
+          "where": "mongosh",
+          "text": "En una base de datos de pruebas, inserta un documento, modifícalo con $set y consulta el resultado.",
+          "code": "use pruebas\ndb.notas.insertOne({ alumno: \"Ana\", nota: 6 })\ndb.notas.updateOne({ alumno: \"Ana\" }, { $set: { nota: 8 } })\ndb.notas.find()",
+          "expected": "El documento de Ana aparece con nota 8."
+        },
+        {
+          "where": "mongosh",
+          "text": "Borra la colección y después la base de datos de pruebas. dropDatabase() borra la base de datos en la que estás, así que haz antes use de la correcta.",
+          "code": "use pruebas\ndb.notas.drop()\ndb.dropDatabase()",
+          "expected": "drop() devuelve true y dropDatabase() responde con ok: 1."
+        }
+      ]
+    },
+    {
+      "id": "sbd-ud02-l21",
+      "kind": "practice",
+      "title": "Primeros pasos con MongoDB",
+      "section": "3. Primeros pasos con MongoDB",
+      "questionIds": [
+        "sbd-ud02-q084",
+        "sbd-ud02-q085",
+        "sbd-ud02-q086",
+        "sbd-ud02-q087",
+        "sbd-ud02-q088",
+        "sbd-ud02-q089",
+        "sbd-ud02-q090",
+        "sbd-ud02-q091",
+        "sbd-ud02-q092",
+        "sbd-ud02-q093"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "sbd-ud02-q001",
+      "type": "choice",
+      "prompt": "¿Cuál es la unidad atómica de almacenamiento que usa un sistema de ficheros?",
+      "options": [
+        "El fichero",
+        "El bloque",
+        "El directorio",
+        "El disco"
+      ],
+      "answer": 0,
+      "explanation": "El sistema de ficheros usa el fichero como unidad atómica para guardar los datos. Los bloques aparecen al hablar de sistemas distribuidos, y los directorios solo organizan los ficheros en un árbol.",
+      "source": "SBD UD2, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q002",
+      "type": "choice",
+      "prompt": "FAT32, NTFS y EXT4 son ejemplos de ___.",
+      "options": [
+        "tipos de sistema de ficheros",
+        "niveles de RAID",
+        "sistemas de ficheros distribuidos",
+        "bases de datos clave-valor"
+      ],
+      "answer": 0,
+      "explanation": "Son tipos distintos de sistema de ficheros. Cada sistema operativo usa uno para su propia información y suele ser compatible con otros.",
+      "source": "SBD UD2, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q003",
+      "type": "truefalse",
+      "prompt": "RAID es un tipo de sistema de ficheros, igual que NTFS o EXT4.",
+      "answer": false,
+      "explanation": "RAID no es un sistema de ficheros: es una capa que trabaja por debajo de él. Por ejemplo, junta dos discos y el sistema de ficheros solo ve una unidad.",
+      "source": "SBD UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q004",
+      "type": "choice",
+      "prompt": "Conectas dos discos de 1 TB en RAID 1. ¿Qué capacidad ve el sistema de ficheros?",
+      "options": [
+        "1 TB",
+        "2 TB",
+        "4 TB",
+        "0,5 TB"
+      ],
+      "answer": 0,
+      "explanation": "RAID 1 es un espejo: los dos discos guardan lo mismo, así que ves una unidad de 1 TB con los datos replicados. Los 2 TB serían con RAID 0.",
+      "source": "SBD UD2, apartado 1.1",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q005",
+      "type": "choice",
+      "prompt": "Tienes dos discos, quieres la máxima velocidad de escritura y no te importa perder los datos si falla uno. ¿Qué nivel eliges?",
+      "options": [
+        "RAID 0",
+        "RAID 1",
+        "RAID 5",
+        "Ninguno, RAID no mejora la velocidad"
+      ],
+      "answer": 0,
+      "explanation": "RAID 0 casi duplica la velocidad de lectura y escritura, a cambio de no tener redundancia. RAID 1 no gana nada en escritura y RAID 5 necesita al menos 3 discos.",
+      "source": "SBD UD2, apartado 1.1",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q006",
+      "type": "choice",
+      "prompt": "¿Cuántos discos necesita como mínimo RAID 5?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": 1,
+      "explanation": "RAID 5 reparte los datos y la paridad entre los discos y necesita un mínimo de 3. Con tres discos de 1 TB ves una unidad de 2 TB.",
+      "source": "SBD UD2, apartado 1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q007",
+      "type": "choice",
+      "prompt": "¿Qué cambia si montas RAID por software en lugar de por hardware?",
+      "options": [
+        "Es más lento, pero más barato",
+        "Es más rápido, pero más caro",
+        "Solo admite RAID 0",
+        "Necesita una controladora RAID específica"
+      ],
+      "answer": 0,
+      "explanation": "Por software, el procesador hace el trabajo de la controladora, lo que es más lento pero más barato. La controladora específica es justo lo que usa el RAID por hardware.",
+      "source": "SBD UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q008",
+      "type": "truefalse",
+      "prompt": "RAID 1 duplica la velocidad de escritura respecto a un solo disco.",
+      "answer": false,
+      "explanation": "RAID 1 llega hasta el doble de velocidad de lectura, pero no gana nada en escritura, porque hay que escribir lo mismo en los dos discos.",
+      "source": "SBD UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q009",
+      "type": "match",
+      "prompt": "Relaciona cada nivel de RAID con su nombre.",
+      "pairs": [
+        [
+          "RAID 0",
+          "Conjunto dividido"
+        ],
+        [
+          "RAID 1",
+          "Conjunto en espejo"
+        ],
+        [
+          "RAID 5",
+          "Conjunto dividido con paridad distribuida"
+        ]
+      ],
+      "explanation": "RAID 0 divide los datos entre discos sin copia, RAID 1 duplica todo en espejo y RAID 5 divide los datos y reparte la paridad entre los discos.",
+      "source": "SBD UD2, apartado 1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q010",
+      "type": "choice",
+      "prompt": "¿Cómo consigue un sistema de ficheros distribuido guardar un fichero más grande que el disco de cualquier nodo?",
+      "options": [
+        "Lo divide en bloques que reparte por el clúster",
+        "Lo comprime antes de guardarlo",
+        "Lo guarda en un nodo con RAID 0",
+        "Lo mantiene en la memoria RAM"
+      ],
+      "answer": 0,
+      "explanation": "El fichero no se guarda entero: se parte en bloques que se reparten por los nodos. Por eso el tamaño del fichero no depende del disco de un solo nodo.",
+      "source": "SBD UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q011",
+      "type": "truefalse",
+      "prompt": "En un sistema de ficheros distribuido, el índice de replicación tiene que ser como mínimo 2 para que haya replicación.",
+      "answer": true,
+      "explanation": "El índice dice en cuántos nodos distintos queda cada bloque. Con 1 solo habría una copia, así que no habría replicación.",
+      "source": "SBD UD2, apartado 1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q012",
+      "type": "choice",
+      "prompt": "¿Por qué en un sistema de ficheros distribuido ya no hace falta RAID en cada nodo?",
+      "options": [
+        "Porque la replicación va integrada en el propio sistema",
+        "Porque los nodos usan discos de estado sólido",
+        "Porque los bloques de 128 MB nunca se pierden",
+        "Porque el clúster guarda los datos en memoria"
+      ],
+      "answer": 0,
+      "explanation": "El sistema distribuido ya replica cada bloque en varios nodos. Esa capacidad integrada hace innecesaria la replicación tipo RAID en el sistema de ficheros local.",
+      "source": "SBD UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q013",
+      "type": "choice",
+      "prompt": "¿Por qué un sistema de ficheros distribuido puede leer y escribir más rápido que un disco individual?",
+      "options": [
+        "Porque lee y escribe en paralelo en varios nodos",
+        "Porque usa bloques pequeños que se encuentran antes",
+        "Porque guarda cada fichero en el nodo más rápido",
+        "Porque no replica los bloques"
+      ],
+      "answer": 0,
+      "explanation": "Cada fichero está repartido entre varios nodos, así que las operaciones se hacen en paralelo y se evita el cuello de botella de una sola unidad física.",
+      "source": "SBD UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q014",
+      "type": "truefalse",
+      "prompt": "Los sistemas de ficheros distribuidos para Big Data funcionan mejor con muchos ficheros pequeños que con pocos ficheros grandes.",
+      "answer": false,
+      "explanation": "Es al revés: usan bloques muy grandes, así que funcionan mejor con pocos ficheros de gran tamaño.",
+      "source": "SBD UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q015",
+      "type": "choice",
+      "prompt": "Tus fuentes generan miles de ficheros de pocos kB al día. Según los apuntes, ¿qué conviene hacer antes de guardarlos en el sistema distribuido?",
+      "options": [
+        "Combinarlos en ficheros grandes durante el ETL",
+        "Bajar el índice de replicación a 1",
+        "Guardarlos en RAID 0 en cada nodo",
+        "Guardar cada uno en un nodo distinto"
+      ],
+      "answer": 0,
+      "explanation": "Como estos sistemas van mejor con pocos ficheros grandes, lo que se hace es juntar los pequeños durante el ETL. Bajar la replicación a 1 solo quitaría la redundancia.",
+      "source": "SBD UD2, apartado 1.2",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q016",
+      "type": "match",
+      "prompt": "Relaciona cada sistema con lo que dicen de él los apuntes.",
+      "pairs": [
+        [
+          "HDFS",
+          "Sistema de ficheros distribuido de Apache Hadoop"
+        ],
+        [
+          "GFS",
+          "Sistema de Google precursor de HDFS"
+        ],
+        [
+          "Amazon S3",
+          "El más conocido dentro del mundo cloud"
+        ]
+      ],
+      "explanation": "HDFS es el de Hadoop y se basa en GFS, de Google. En la nube, el más conocido es Amazon S3, junto a Google Cloud Storage y Azure Blob Storage.",
+      "source": "SBD UD2, apartado 1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q017",
+      "type": "order",
+      "prompt": "Ordena qué pasa con los ficheros pequeños que llegan de las fuentes hasta quedar en el sistema distribuido.",
+      "steps": [
+        "Las fuentes generan muchos ficheros pequeños",
+        "Se combinan en ficheros grandes durante el ETL",
+        "El sistema distribuido parte cada fichero grande en bloques",
+        "Los bloques se reparten y se replican por los nodos del clúster"
+      ],
+      "explanation": "Primero se juntan los ficheros pequeños en el ETL, porque el sistema trabaja mejor con ficheros grandes. Después se guardan y el sistema los parte en bloques que reparte por los nodos.",
+      "source": "SBD UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q018",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿cuánto tarda más o menos una lectura secuencial de 1 MB desde memoria RAM?",
+      "options": [
+        "0,2 ms",
+        "20 ms",
+        "2 ms",
+        "200 ms"
+      ],
+      "answer": 0,
+      "explanation": "Desde RAM es del orden de 0,2 ms, frente a unos 20 ms desde disco. Esa diferencia es la latencia que elimina el almacenamiento en memoria.",
+      "source": "SBD UD2, apartado 1.2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q019",
+      "type": "choice",
+      "prompt": "¿Qué problema elimina tener los datos en memoria RAM?",
+      "options": [
+        "La latencia de entrada-salida del almacenamiento",
+        "La necesidad de replicar los datos",
+        "El coste de añadir nodos al clúster",
+        "La falta de durabilidad de los datos"
+      ],
+      "answer": 0,
+      "explanation": "La RAM quita la latencia de entrada-salida y el tiempo de transferencia del disco. La durabilidad, en cambio, es justo lo que no aporta por sí misma.",
+      "source": "SBD UD2, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q020",
+      "type": "truefalse",
+      "prompt": "Un almacenamiento en memoria es buena opción cuando necesitas trabajar con grandes cantidades de datos.",
+      "answer": false,
+      "explanation": "Es uno de los casos en que no es adecuado, igual que el procesamiento por lotes o un presupuesto limitado. Ampliar la memoria obliga a añadir nodos completos y sale caro.",
+      "source": "SBD UD2, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q021",
+      "type": "choice",
+      "prompt": "Los nodos ya tienen toda la RAM que admite su placa base. ¿Cómo consigues más memoria en el sistema?",
+      "options": [
+        "Con escalado horizontal, añadiendo nodos",
+        "Con escalado vertical, ampliando la RAM de cada nodo",
+        "Activando RAID 0 en los nodos",
+        "Pasando los datos a HDFS"
+      ],
+      "answer": 0,
+      "explanation": "Si los nodos no admiten más RAM, solo queda añadir nodos. Por eso estas ampliaciones resultan costosas: cada vez hace falta un nodo completo.",
+      "source": "SBD UD2, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q022",
+      "type": "choice",
+      "prompt": "¿En cuál de estos casos es apropiado un almacenamiento en memoria?",
+      "options": [
+        "Analítica continua sobre datos en streaming",
+        "Procesamiento por lotes de un histórico enorme",
+        "Datos que deben persistir nada más llegar",
+        "Presupuesto limitado y previsión de crecer mucho"
+      ],
+      "answer": 0,
+      "explanation": "La analítica continua y el streaming son casos típicos de memoria. Los lotes, los grandes volúmenes, la persistencia inmediata y el presupuesto limitado son justo los casos en que no conviene.",
+      "source": "SBD UD2, apartado 1.2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q023",
+      "type": "choice",
+      "prompt": "¿En cuál de estos casos no es adecuado un almacenamiento en memoria?",
+      "options": [
+        "Procesamiento por lotes",
+        "Consultas interactivas",
+        "Visualizar datos en tiempo real",
+        "Algoritmos basados en grafos"
+      ],
+      "answer": 0,
+      "explanation": "El procesamiento por lotes es uno de los casos en que no conviene. Las consultas interactivas, la visualización en tiempo real y los algoritmos de grafos aparecen entre los casos apropiados.",
+      "source": "SBD UD2, apartado 1.2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q024",
+      "type": "truefalse",
+      "prompt": "Un almacenamiento en memoria es apropiado cuando el mismo conjunto de datos se usa a la vez para varias tareas.",
+      "answer": true,
+      "explanation": "Es uno de los casos que dan los apuntes, igual que acceder de forma iterativa al mismo conjunto sin cargarlo cada vez desde disco.",
+      "source": "SBD UD2, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q025",
+      "type": "choice",
+      "prompt": "¿Para qué datos se suele usar un almacenamiento distribuido en memoria?",
+      "options": [
+        "Datos de analítica copiados de un almacenamiento persistente",
+        "Datos originales que no se guardan en ningún otro sitio",
+        "Copias de seguridad de todo el clúster",
+        "Ficheros pequeños que no caben en HDFS"
+      ],
+      "answer": 0,
+      "explanation": "Como la memoria no da durabilidad, lo habitual es copiar en ella los datos que vas a analizar desde otro almacenamiento que sí persiste.",
+      "source": "SBD UD2, apartado 1.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q026",
+      "type": "choice",
+      "prompt": "HDFS es una versión de código abierto de ___.",
+      "options": [
+        "GFS, de Google",
+        "Amazon S3",
+        "BigTable, de Google",
+        "Azure Blob Storage"
+      ],
+      "answer": 0,
+      "explanation": "HDFS se basa en un artículo que Google publicó en 2003 explicando cómo funcionaba GFS. BigTable también es de Google, pero es la base de las bases de datos columnares.",
+      "source": "SBD UD2, apartado 1.3",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q027",
+      "type": "truefalse",
+      "prompt": "En HDFS es habitual guardar los datos según llegan, aunque todavía no sepas cómo los vas a interpretar.",
+      "answer": true,
+      "explanation": "Como HDFS es schema-on-read y sus nodos tienen un precio reducido, una estrategia muy común es guardar todo lo que pueda tener valor y decidir más adelante cómo interpretarlo.",
+      "source": "SBD UD2, apartado 1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q028",
+      "type": "choice",
+      "prompt": "¿Por qué se dice que HDFS es schema-on-read?",
+      "options": [
+        "Porque no obliga a que los datos cumplan un esquema fijado antes",
+        "Porque hay que definir el esquema antes de escribir",
+        "Porque solo admite ficheros JSON",
+        "Porque guarda el esquema en el Namenode"
+      ],
+      "answer": 0,
+      "explanation": "Como cualquier sistema de ficheros, HDFS guarda los datos sin exigir un esquema previo; si hay esquema, se aplica al leer. Definirlo antes de escribir es schema-on-write, lo de las relacionales.",
+      "source": "SBD UD2, apartado 1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q029",
+      "type": "choice",
+      "prompt": "¿Qué tamaño de bloque usa HDFS por defecto?",
+      "options": [
+        "128 MB",
+        "128 kB",
+        "64 kB",
+        "1 GB"
+      ],
+      "answer": 0,
+      "explanation": "Por defecto son 128 MB, aunque es configurable. Un bloque tan grande reduce las búsquedas en disco.",
+      "source": "SBD UD2, apartado 1.3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q030",
+      "type": "choice",
+      "prompt": "¿Para qué está optimizado HDFS?",
+      "options": [
+        "Para la velocidad de transferencia",
+        "Para la baja latencia",
+        "Para muchos ficheros pequeños",
+        "Para el análisis en tiempo real"
+      ],
+      "answer": 0,
+      "explanation": "Sus bloques grandes buscan leer a la velocidad de transferencia del disco, no responder rápido. Además, Hadoop se pensó para analítica por lotes y no en tiempo real.",
+      "source": "SBD UD2, apartado 1.3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q031",
+      "type": "choice",
+      "prompt": "Guardas en HDFS un fichero de 10 MB con bloques de 128 MB. ¿Qué pasa con el espacio?",
+      "options": [
+        "No se desperdicia: el bloque ocupa menos de 128 MB",
+        "Ocupa 128 MB igualmente",
+        "HDFS lo rechaza por ser menor que un bloque",
+        "Se junta con otros ficheros hasta llenar el bloque"
+      ],
+      "answer": 0,
+      "explanation": "Que el bloque sea de 128 MB no hace que un fichero más pequeño desperdicie espacio: el fichero local donde el nodo guarda el bloque puede ocupar menos.",
+      "source": "SBD UD2, apartado 1.3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q032",
+      "type": "choice",
+      "prompt": "¿Por qué HDFS prefiere pocos ficheros grandes a muchos ficheros pequeños?",
+      "options": [
+        "Porque el Namenode guarda el directorio en memoria",
+        "Porque los datanodes no guardan ficheros de menos de 128 MB",
+        "Porque cada fichero necesita su propio switch",
+        "Porque los ficheros pequeños no se pueden replicar"
+      ],
+      "answer": 0,
+      "explanation": "Para acceder más rápido, el directorio vive en la memoria del Namenode. Muchos ficheros pequeños necesitarían una RAM enorme en ese nodo.",
+      "source": "SBD UD2, apartado 1.3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q033",
+      "type": "truefalse",
+      "prompt": "En HDFS, un fichero puede ser más grande que la mayor unidad física de almacenamiento del clúster.",
+      "answer": true,
+      "explanation": "Cada fichero se reparte en bloques por el clúster, así que su tamaño no está limitado por ningún disco concreto.",
+      "source": "SBD UD2, apartado 1.3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q034",
+      "type": "choice",
+      "prompt": "¿Qué tiene en cuenta de verdad el rack awareness de HDFS?",
+      "options": [
+        "El switch al que se conecta cada nodo",
+        "El rack físico en el que está cada nodo",
+        "El disco en el que se guarda cada bloque",
+        "La memoria RAM libre de cada nodo"
+      ],
+      "answer": 0,
+      "explanation": "Guarda la topología de conexiones vía switch. Aunque nodos y racks suelen coincidir con los switch, lo que importa es el switch, para minimizar saltos y maximizar la localidad de los datos.",
+      "source": "SBD UD2, apartado 1.3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q035",
+      "type": "match",
+      "prompt": "Relaciona cada concepto de HDFS con su descripción.",
+      "pairs": [
+        [
+          "Namenode",
+          "Nodo que guarda el directorio en memoria"
+        ],
+        [
+          "Bloque",
+          "Fragmento en que se parte cada fichero"
+        ],
+        [
+          "Rack awareness",
+          "Conocer la topología de conexiones vía switch"
+        ],
+        [
+          "Commodity hardware",
+          "Tipo de nodos que no equivale a máquinas baratas"
+        ]
+      ],
+      "explanation": "El Namenode tiene el directorio en RAM, los ficheros se parten en bloques de 128 MB por defecto, el rack awareness usa los switch para repartir los trabajos y los nodos son commodity hardware.",
+      "source": "SBD UD2, apartados 1.3 y 1.3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q036",
+      "type": "choice",
+      "prompt": "¿Qué hace este comando?",
+      "code": "$ hadoop fs -copyFromLocal ventas.csv /datos",
+      "options": [
+        "Copia ventas.csv de tu disco local a /datos en HDFS",
+        "Copia /datos de HDFS a tu disco local",
+        "Mueve ventas.csv a /datos dentro de HDFS",
+        "Muestra el contenido de ventas.csv"
+      ],
+      "answer": 0,
+      "explanation": "copyFromLocal copia desde el sistema de ficheros local hacia HDFS. Para el camino contrario está copyToLocal, y para mover dentro de HDFS, -mv.",
+      "source": "SBD UD2, apartado 1.3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q037",
+      "type": "choice",
+      "prompt": "¿Qué imprime este comando?",
+      "code": "$ hadoop fs -tail /logs/app.log",
+      "options": [
+        "El último kB del fichero",
+        "El fichero completo",
+        "Las últimas 10 líneas del fichero",
+        "El tamaño del fichero"
+      ],
+      "answer": 0,
+      "explanation": "En HDFS, -tail imprime el último kB del fichero. Para verlo entero se usa -cat. Lo de las 10 líneas es la costumbre del tail de Linux, no lo que dicen los apuntes.",
+      "source": "SBD UD2, apartado 1.3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q038",
+      "type": "truefalse",
+      "prompt": "Para usar hadoop fs tienes que estar en el namenode; desde un datanode no funciona.",
+      "answer": false,
+      "explanation": "Puedes usar la línea de comandos en cualquier máquina con Hadoop que ejecute el servicio HDFS, da igual que sea namenode o datanode.",
+      "source": "SBD UD2, apartado 1.3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q039",
+      "type": "match",
+      "prompt": "Relaciona cada parámetro de hadoop fs con lo que hace.",
+      "pairs": [
+        [
+          "-copyToLocal",
+          "Copia de HDFS al sistema de ficheros local"
+        ],
+        [
+          "-cat",
+          "Imprime el fichero completo"
+        ],
+        [
+          "-rm -r",
+          "Borra un directorio de forma recursiva"
+        ],
+        [
+          "-ls",
+          "Lista ficheros, como ls -l"
+        ],
+        [
+          "-mv",
+          "Mueve un fichero dentro de HDFS"
+        ]
+      ],
+      "explanation": "Los parámetros imitan a los comandos de Unix/Linux: -ls como ls -l, -mv como mv y -rm como rm, con -r para borrar dentro de directorios.",
+      "source": "SBD UD2, apartado 1.3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q040",
+      "type": "order",
+      "prompt": "Ordena estos comandos para subir un fichero a una carpeta nueva de HDFS, comprobarlo y borrar la carpeta.",
+      "steps": [
+        "hadoop fs -mkdir /pruebas",
+        "hadoop fs -copyFromLocal datos.txt /pruebas",
+        "hadoop fs -cat /pruebas/datos.txt",
+        "hadoop fs -rm -r /pruebas"
+      ],
+      "explanation": "Primero creas la carpeta, luego copias el fichero desde local, después lo lees con -cat y al final borras la carpeta con su contenido usando -r.",
+      "source": "SBD UD2, apartado 1.3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q041",
+      "type": "choice",
+      "prompt": "¿Qué protocolo implementa Snakebite para acceder al Namenode?",
+      "options": [
+        "Hadoop RPC",
+        "HTTP REST",
+        "SSH",
+        "JDBC"
+      ],
+      "answer": 0,
+      "explanation": "Snakebite implementa Hadoop RPC, y así habla con el Namenode sin tener que llamar a hadoop fs ni a hdfs dfs.",
+      "source": "SBD UD2, apartado 1.3.3",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q042",
+      "type": "choice",
+      "prompt": "¿Qué hace este script con Snakebite?",
+      "code": "from snakebite.client import Client\n\nclient = Client('localhost', 9000)\nfor p in client.mkdir(['/datos/2024', '/salida'], create_parent=True):\n    print(p)",
+      "options": [
+        "Crea /datos/2024 y /salida, y también las carpetas padre que falten",
+        "Crea solo /salida, porque /datos no existe",
+        "Borra /datos/2024 y /salida",
+        "Copia /datos/2024 en /salida"
+      ],
+      "answer": 0,
+      "explanation": "mkdir crea los directorios de la lista, y create_parent=True hace que también cree los padres que no existan, como /datos.",
+      "source": "SBD UD2, apartado 1.3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q043",
+      "type": "choice",
+      "prompt": "¿Qué muestra este script?",
+      "code": "from snakebite.client import Client\n\nclient = Client('localhost', 9000)\nfor l in client.text(['/entrada/colores.txt']):\n    print(l)",
+      "options": [
+        "El contenido del fichero colores.txt",
+        "Los datos del directorio /entrada",
+        "La ruta local donde se copió el fichero",
+        "Los permisos del fichero colores.txt"
+      ],
+      "answer": 0,
+      "explanation": "text lee los ficheros de HDFS que le pasas, así que el script imprime su contenido. Para listar un directorio se usa ls y para copiar a local, copyToLocal.",
+      "source": "SBD UD2, apartado 1.3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q044",
+      "type": "choice",
+      "prompt": "¿Qué hace este script?",
+      "code": "from snakebite.client import Client\n\nclient = Client('localhost', 9000)\nfor p in client.delete(['/temporal', '/salida'], recurse=True):\n    print(p)",
+      "options": [
+        "Borra /temporal y /salida con todo su contenido",
+        "Borra solo los ficheros sueltos de /temporal y /salida",
+        "Mueve /temporal dentro de /salida",
+        "Copia /temporal y /salida al disco local"
+      ],
+      "answer": 0,
+      "explanation": "delete borra las rutas de la lista y recurse=True hace que el borrado entre en los directorios, igual que -rm -r en la línea de comandos.",
+      "source": "SBD UD2, apartado 1.3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q045",
+      "type": "order",
+      "prompt": "Ordena los pasos de un script de Snakebite que lista la raíz de HDFS.",
+      "steps": [
+        "Importar Client desde snakebite.client",
+        "Crear el cliente con Client('localhost', 9000)",
+        "Llamar a client.ls(['/'])",
+        "Recorrer los resultados con un for e imprimirlos"
+      ],
+      "explanation": "Primero importas la clase, luego te conectas al Namenode creando el cliente, después pides el listado y al final recorres lo que devuelve.",
+      "source": "SBD UD2, apartado 1.3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q046",
+      "type": "choice",
+      "prompt": "¿Qué te obliga a hacer una base de datos schema-on-write?",
+      "options": [
+        "Conocer el formato de los registros antes de escribirlos",
+        "Interpretar el esquema de cada documento al leerlo",
+        "Escribir documentos sin ningún esquema",
+        "Replicar los datos antes de escribirlos"
+      ],
+      "answer": 0,
+      "explanation": "Schema-on-write exige saber qué atributos y de qué tipos tendrán los registros antes de escribirlos, como pasa en las relacionales. Interpretar el esquema al leer es schema-on-read.",
+      "source": "SBD UD2, apartado 2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q047",
+      "type": "truefalse",
+      "prompt": "En una base de datos relacional no se puede modificar el esquema de una tabla una vez creada.",
+      "answer": false,
+      "explanation": "Se puede añadir, quitar o cambiar el esquema sobre la marcha. El problema es que en producción eso tiene riesgos y da quebraderos de cabeza.",
+      "source": "SBD UD2, apartado 2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q048",
+      "type": "choice",
+      "prompt": "¿Qué significa NoSQL?",
+      "options": [
+        "«No sólo SQL» o «no relacionales»",
+        "«Nunca SQL» o «sin consultas»",
+        "«Nuevo SQL» o «SQL distribuido»",
+        "«Nodos sin SQL» o «sin clúster»"
+      ],
+      "answer": 0,
+      "explanation": "Son bases de datos que se salen de la denominación de relacional. Se habla de «no sólo SQL» porque algunas sí usan lenguajes de tipo SQL.",
+      "source": "SBD UD2, apartado 2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q049",
+      "type": "truefalse",
+      "prompt": "Ninguna base de datos NoSQL puede usar un lenguaje de consulta de tipo SQL.",
+      "answer": false,
+      "explanation": "Por lo general no usan SQL, pero no es una regla absoluta: algunas usan lenguajes de tipo SQL.",
+      "source": "SBD UD2, apartado 2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q050",
+      "type": "choice",
+      "prompt": "Quieres guardar personas que pueden tener cientos de profesiones distintas, y no sabes de antemano qué atributos tendrá cada una. ¿Qué enfoque encaja mejor?",
+      "options": [
+        "Schema-on-read",
+        "Schema-on-write",
+        "Una tabla por cada profesión",
+        "Un esquema fijo con todos los atributos"
+      ],
+      "answer": 0,
+      "explanation": "Con schema-on-read escribes sin cumplir un esquema de tabla y lo interpretas al leer. Crear una tabla por profesión es justo el problema que plantea el caso práctico con las relacionales.",
+      "source": "SBD UD2, apartado 2",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q051",
+      "type": "match",
+      "prompt": "Relaciona cada concepto general de las bases de datos distribuidas con su definición.",
+      "pairs": [
+        [
+          "Sharding",
+          "Dividir los datos para repartirlos por el clúster"
+        ],
+        [
+          "Replicación",
+          "Hacer copias de los datos en distintos nodos"
+        ],
+        [
+          "Sharding con replicación",
+          "Combinar ambas para tener las ventajas de las dos"
+        ]
+      ],
+      "explanation": "El sharding parte los datos, la replicación los copia y se pueden usar las dos a la vez.",
+      "source": "SBD UD2, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q052",
+      "type": "truefalse",
+      "prompt": "El sharding y la replicación son técnicas exclusivas de las bases de datos NoSQL.",
+      "answer": false,
+      "explanation": "No son exclusivas de NoSQL: se usan en muchos otros sistemas. Y tampoco todas las NoSQL las tienen, aunque la mayoría sí.",
+      "source": "SBD UD2, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q053",
+      "type": "choice",
+      "prompt": "¿Cómo se llaman los subconjuntos en que el sharding divide un conjunto de datos?",
+      "options": [
+        "Shards",
+        "Réplicas",
+        "Bloques",
+        "Peers"
+      ],
+      "answer": 0,
+      "explanation": "El sharding parte los datos en shards que se reparten por los nodos. Las réplicas son copias, y los peers, los nodos de la replicación par a par.",
+      "source": "SBD UD2, apartado 2.1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q054",
+      "type": "choice",
+      "prompt": "¿Qué tolerancia a fallos da el sharding por sí solo?",
+      "options": [
+        "Parcial: si cae un nodo, solo queda afectada su parte de los datos",
+        "Total: los datos de un nodo caído siguen en otro",
+        "Ninguna: si cae un nodo, cae toda la base de datos",
+        "Total, siempre que haya un nodo maestro"
+      ],
+      "answer": 0,
+      "explanation": "Con sharding cada nodo tiene una parte distinta de los datos. Si uno queda inaccesible solo se ve afectada su parte; tener los datos en otro nodo es cosa de la replicación.",
+      "source": "SBD UD2, apartado 2.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q055",
+      "type": "choice",
+      "prompt": "¿Cuál es el mayor problema del sharding?",
+      "options": [
+        "Diseñar la estrategia para que los datos que se consultan juntos queden en el mismo shard",
+        "Que necesita un nodo maestro por cada shard",
+        "Que todos los nodos acaban guardando todos los datos",
+        "Que impide escalar en horizontal"
+      ],
+      "answer": 0,
+      "explanation": "La estrategia de sharding decide qué registro va a qué shard y hay que pensarla según cómo se consultarán los datos. Muchas veces es complicado y a veces imposible.",
+      "source": "SBD UD2, apartado 2.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q056",
+      "type": "order",
+      "prompt": "Ordena los pasos de una consulta en una base de datos con sharding.",
+      "steps": [
+        "Llega la consulta",
+        "Se accede a todos los nodos que puedan tener datos",
+        "Cada nodo devuelve su parte",
+        "Se fusionan las respuestas en la respuesta final"
+      ],
+      "explanation": "Como los datos están repartidos, hay que preguntar a todos los nodos que puedan tenerlos y fusionar lo que devuelven. Si solo responde uno, la fusión se puede saltar.",
+      "source": "SBD UD2, apartado 2.1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q057",
+      "type": "order",
+      "prompt": "Ordena qué pasa con una escritura en una replicación maestro-esclavo.",
+      "steps": [
+        "Llega una escritura: una inserción, una actualización o un borrado",
+        "La escritura se realiza en el nodo maestro",
+        "El cambio se replica a los nodos esclavo",
+        "Una lectura en un esclavo ya devuelve el dato nuevo"
+      ],
+      "explanation": "Todas las escrituras se hacen en el maestro y después se replican a los esclavos. Si lees en un esclavo antes de que le llegue la réplica, puedes recibir el dato antiguo.",
+      "source": "SBD UD2, apartado 2.1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q058",
+      "type": "choice",
+      "prompt": "Tu aplicación hace muchísimas lecturas y pocas escrituras, y no pasa nada si un dato llega algo tarde. ¿Qué replicación te recomiendan los apuntes?",
+      "options": [
+        "Maestro-esclavo",
+        "Par a par con gestión pesimista",
+        "Sharding sin replicación",
+        "Ninguna, la replicación no ayuda a las lecturas"
+      ],
+      "answer": 0,
+      "explanation": "Maestro-esclavo está indicada para lectura intensiva, porque la capacidad de lectura escala añadiendo esclavos. Que un dato tarde un poco en llegar a los esclavos aquí no importa.",
+      "source": "SBD UD2, apartado 2.1.2",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q059",
+      "type": "truefalse",
+      "prompt": "En la replicación maestro-esclavo, el maestro es un punto único de fallo.",
+      "answer": true,
+      "explanation": "Todas las escrituras dependen del único maestro. En par a par no pasa, porque no hay maestro.",
+      "source": "SBD UD2, apartado 2.1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q060",
+      "type": "choice",
+      "prompt": "¿Por qué maestro-esclavo no está indicada cuando necesitas lecturas consistentes?",
+      "options": [
+        "Porque puedes leer en un esclavo antes de que le llegue un dato ya escrito en el maestro",
+        "Porque el maestro no permite hacer lecturas",
+        "Porque los esclavos bloquean las escrituras del maestro",
+        "Porque cada esclavo guarda solo una parte de los datos"
+      ],
+      "answer": 0,
+      "explanation": "Las escrituras se replican después de hacerse en el maestro. Mientras tanto, un esclavo puede devolver un dato desfasado.",
+      "source": "SBD UD2, apartado 2.1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q061",
+      "type": "choice",
+      "prompt": "¿Qué ocurre en una replicación par a par con gestión optimista de la concurrencia?",
+      "options": [
+        "No hay bloqueos y puede haber inconsistencias mientras se propagan las escrituras",
+        "Se bloquea el registro hasta que todas las réplicas están al día",
+        "Las escrituras solo se hacen en un nodo maestro",
+        "La base de datos deja de estar disponible en cada escritura"
+      ],
+      "answer": 0,
+      "explanation": "La gestión optimista no usa bloqueos, así que siempre está disponible a cambio de inconsistencias temporales. Los bloqueos son cosa de la pesimista.",
+      "source": "SBD UD2, apartado 2.1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q062",
+      "type": "match",
+      "prompt": "Relaciona cada estrategia de replicación con su rasgo.",
+      "pairs": [
+        [
+          "Maestro-esclavo",
+          "Todas las escrituras pasan por un único nodo"
+        ],
+        [
+          "Par a par",
+          "Todos los nodos están al mismo nivel jerárquico"
+        ],
+        [
+          "Par a par pesimista",
+          "Usa bloqueos y pierde disponibilidad mientras duran"
+        ],
+        [
+          "Par a par optimista",
+          "Sin bloqueos y siempre disponible"
+        ]
+      ],
+      "explanation": "En maestro-esclavo manda el maestro; en par a par todos son iguales y la concurrencia se gestiona con bloqueos (pesimista) o sin ellos (optimista).",
+      "source": "SBD UD2, apartado 2.1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q063",
+      "type": "choice",
+      "prompt": "En un clúster con sharding y replicación maestro-esclavo, un nodo guarda el maestro del shard 1. ¿Qué es ese nodo?",
+      "options": [
+        "Un punto único de fallo para el shard 1",
+        "Un punto único de fallo para todos los shards",
+        "Nada especial, porque el shard 1 tiene réplicas",
+        "Un punto único de fallo solo para el shard 2"
+      ],
+      "answer": 0,
+      "explanation": "Cada shard tiene su propio maestro, y el nodo que lo contiene es punto único de fallo para ese shard, no para los demás. Las escrituras del shard 1 pasan por él.",
+      "source": "SBD UD2, apartado 2.1.3",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q064",
+      "type": "choice",
+      "prompt": "¿En qué formato guardan normalmente los documentos las bases de datos documentales?",
+      "options": [
+        "JSON",
+        "Tablas de filas y columnas",
+        "BLOB sin estructura",
+        "Nodos y relaciones"
+      ],
+      "answer": 0,
+      "explanation": "Guardan texto codificado normalmente en JSON, con una estructura libre. El BLOB es lo típico de las clave-valor y los nodos, de las de grafos.",
+      "source": "SBD UD2, apartado 2.2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q065",
+      "type": "choice",
+      "prompt": "En una base de datos documental, ¿qué cumple la función organizativa que tienen las tablas en una relacional?",
+      "options": [
+        "La colección",
+        "El shard",
+        "El documento",
+        "La clave"
+      ],
+      "answer": 0,
+      "explanation": "No hay tablas, pero sí colecciones, cada una con documentos de tipo parecido. El documento sería más bien el equivalente a un registro.",
+      "source": "SBD UD2, apartado 2.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q066",
+      "type": "truefalse",
+      "prompt": "Según los apuntes, MongoDB permite transacciones ACID que afectan a varios documentos a la vez.",
+      "answer": false,
+      "explanation": "Los apuntes dicen que MongoDB permite transacciones ACID cuando afectan a un único documento, no multidocumento. Ojo: el dato es antiguo y las versiones actuales sí admiten transacciones multidocumento, pero en el examen cuenta lo de los apuntes.",
+      "source": "SBD UD2, apartado 2.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q067",
+      "type": "choice",
+      "prompt": "¿Por qué una base de datos documental evita muchas veces el JOIN?",
+      "options": [
+        "Porque cada documento puede guardar información desnormalizada de la entidad",
+        "Porque usa SQL estándar para cruzar colecciones",
+        "Porque obliga a un esquema fijo en cada colección",
+        "Porque guarda los datos por columnas"
+      ],
+      "answer": 0,
+      "explanation": "Al poder meter en un documento distinta información sobre la misma entidad, no hace falta ir a buscarla a otro sitio con un JOIN.",
+      "source": "SBD UD2, apartado 2.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q068",
+      "type": "choice",
+      "prompt": "Necesitas cruzar datos de dos colecciones distintas de una base de datos documental. ¿Quién hace ese trabajo?",
+      "options": [
+        "La aplicación, con varios accesos y combinando los resultados",
+        "La base de datos, con un JOIN como en SQL",
+        "El índice que hayas creado en la colección",
+        "El maestro del shard donde están los datos"
+      ],
+      "answer": 0,
+      "explanation": "Sin JOIN, es la aplicación la que hace varios accesos y termina la operación con lo que recibe. Por eso hay que planificar bien qué se guarda en cada documento.",
+      "source": "SBD UD2, apartado 2.2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q069",
+      "type": "truefalse",
+      "prompt": "Como una base de datos documental es schema-on-read, no hace falta planificar qué se guarda en cada documento.",
+      "answer": false,
+      "explanation": "Los apuntes insisten en lo contrario: hay que planificar qué guardar en los documentos de cada colección pensando en las consultas más típicas.",
+      "source": "SBD UD2, apartado 2.2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q070",
+      "type": "choice",
+      "prompt": "En una base de datos clave-valor, ¿cómo accedes a un valor?",
+      "options": [
+        "Solo a través de su clave",
+        "Con consultas SQL sobre el valor",
+        "Con índices sobre partes del valor",
+        "Recorriendo relaciones entre nodos"
+      ],
+      "answer": 0,
+      "explanation": "Funcionan como una tabla hash: el valor se identifica y se accede únicamente por la clave. No hay indexación para buscar dentro de los valores.",
+      "source": "SBD UD2, apartado 2.2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q071",
+      "type": "choice",
+      "prompt": "¿Quién interpreta el contenido del valor en una base de datos clave-valor?",
+      "options": [
+        "La aplicación cliente que hace la lectura",
+        "La propia base de datos al guardarlo",
+        "El esquema definido en la colección",
+        "El nodo maestro del clúster"
+      ],
+      "answer": 0,
+      "explanation": "La base de datos es agnóstica respecto al valor, que suele ser un BLOB. Lo interpreta la aplicación que lo lee.",
+      "source": "SBD UD2, apartado 2.2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q072",
+      "type": "choice",
+      "prompt": "Quieres guardar imágenes y recuperarlas por su nombre de fichero, sin buscar nunca dentro de ellas. ¿Qué familia NoSQL encaja mejor?",
+      "options": [
+        "Clave-valor",
+        "Orientada a grafos",
+        "Columnar",
+        "Documental con JSON"
+      ],
+      "answer": 0,
+      "explanation": "Una clave-valor guarda un valor arbitrario, como los datos binarios de una imagen, y lo recupera por su clave. Los documentales guardan texto, normalmente JSON.",
+      "source": "SBD UD2, apartado 2.2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q073",
+      "type": "match",
+      "prompt": "Relaciona cada familia NoSQL con cómo guarda los datos.",
+      "pairs": [
+        [
+          "Documentales",
+          "Pares clave-documento, normalmente en JSON"
+        ],
+        [
+          "Clave-valor",
+          "Un valor arbitrario al que se accede por su clave"
+        ],
+        [
+          "Columnares",
+          "Por columnas en lugar de por filas"
+        ],
+        [
+          "Orientadas a grafo",
+          "Nodos y relaciones, ambos con propiedades"
+        ]
+      ],
+      "explanation": "Son las cuatro familias en las que caen casi todas las NoSQL, cada una pensada para un tipo de problema.",
+      "source": "SBD UD2, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q074",
+      "type": "choice",
+      "prompt": "¿En qué sistema de Google se inspiran las bases de datos columnares?",
+      "options": [
+        "BigTable",
+        "GFS",
+        "Google Cloud Storage",
+        "Snakebite"
+      ],
+      "answer": 0,
+      "explanation": "Las columnares se inspiran en BigTable. GFS es el sistema de ficheros en el que se basa HDFS.",
+      "source": "SBD UD2, apartado 2.2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q075",
+      "type": "choice",
+      "prompt": "Tienes esta tabla. ¿Cómo la guarda internamente una base de datos columnar?",
+      "code": "Id | Nombre | Ciudad\nC1 | Laura  | Cádiz\nC2 | Pedro  |\nC3 | Marta  | Jaén",
+      "options": [
+        "C1,C2,C3 / Laura,Pedro,Marta / Cádiz,,Jaén",
+        "C1,Laura,Cádiz / C2,Pedro, / C3,Marta,Jaén",
+        "C1,Laura / C2,Pedro / C3,Marta / Cádiz,Jaén",
+        "Laura,Pedro,Marta / C1,C2,C3 / Cádiz,Jaén"
+      ],
+      "answer": 0,
+      "explanation": "Una columnar guarda juntos los valores de cada columna: todos los ids, todos los nombres y todas las ciudades, dejando el hueco del valor vacío. La segunda opción es como lo guarda una relacional, por filas.",
+      "source": "SBD UD2, apartado 2.2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q076",
+      "type": "choice",
+      "prompt": "Un sistema OLAP consulta unas pocas columnas de millones de registros. ¿Qué familia NoSQL encaja mejor?",
+      "options": [
+        "Columnar",
+        "Clave-valor",
+        "Orientada a grafos",
+        "Documental"
+      ],
+      "answer": 0,
+      "explanation": "Las columnares leen solo las columnas que necesitan sin recorrer filas enteras, y los apuntes las dan como opción válida para OLAP.",
+      "source": "SBD UD2, apartado 2.2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q077",
+      "type": "truefalse",
+      "prompt": "Las bases de datos columnares son una buena opción para sistemas OLTP.",
+      "answer": false,
+      "explanation": "No son eficientes en los accesos por fila, y por eso no son buena decisión para OLTP. Donde encajan es en OLAP.",
+      "source": "SBD UD2, apartado 2.2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q078",
+      "type": "truefalse",
+      "prompt": "En una base de datos columnar, modificar una celda puede obligar a escanear una columna completa.",
+      "answer": true,
+      "explanation": "Por eso no son eficientes si vas añadiendo o cambiando datos sobre la marcha.",
+      "source": "SBD UD2, apartado 2.2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q079",
+      "type": "truefalse",
+      "prompt": "Los mecanismos de recorrido de grafos son ineficientes en problemas en los que no hay relaciones complejas.",
+      "answer": true,
+      "explanation": "Es uno de los inconvenientes que dan los apuntes. Las orientadas a grafos funcionan muy bien con relaciones complejas, como las redes sociales, pero sin ellas recorrer el grafo no sale a cuenta.",
+      "source": "SBD UD2, apartado 2.2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q080",
+      "type": "choice",
+      "prompt": "Quieres analizar deprisa una red social: quién conoce a quién y desde cuándo. ¿Qué familia NoSQL encaja mejor?",
+      "options": [
+        "Orientada a grafos",
+        "Columnar",
+        "Clave-valor",
+        "Documental"
+      ],
+      "answer": 0,
+      "explanation": "Las orientadas a grafos funcionan muy bien con relaciones complejas, y los apuntes ponen las redes sociales como ejemplo.",
+      "source": "SBD UD2, apartado 2.2.4",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q081",
+      "type": "choice",
+      "prompt": "¿Cuál es el principal límite de las bases de datos orientadas a grafos?",
+      "options": [
+        "El grafo más grande que puedes tratar debe caber en un único nodo",
+        "No pueden soportar transacciones ACID",
+        "Las relaciones no pueden tener propiedades",
+        "Solo guardan valores binarios por clave"
+      ],
+      "answer": 0,
+      "explanation": "Un grafo es difícil, y muchas veces imposible, de partir entre nodos del clúster. Las demás opciones son falsas: pueden soportar ACID y las relaciones sí tienen propiedades.",
+      "source": "SBD UD2, apartado 2.2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q082",
+      "type": "truefalse",
+      "prompt": "Las bases de datos orientadas a grafos pueden soportar transacciones ACID.",
+      "answer": true,
+      "explanation": "Es una de las ventajas que citan los apuntes, junto con lo bien que manejan las relaciones complejas.",
+      "source": "SBD UD2, apartado 2.2.4",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q083",
+      "type": "match",
+      "prompt": "Relaciona cada base de datos con su familia NoSQL.",
+      "pairs": [
+        [
+          "MongoDB",
+          "Documental"
+        ],
+        [
+          "Redis",
+          "Clave-valor"
+        ],
+        [
+          "Apache Cassandra",
+          "Columnar"
+        ],
+        [
+          "Neo4j",
+          "Orientada a grafos"
+        ]
+      ],
+      "explanation": "MongoDB y CouchDB son documentales; Redis y Memcached, clave-valor; BigTable, HBase y Cassandra, columnares; Neo4j y AllegroGraph, de grafos.",
+      "source": "SBD UD2, apartados 2.2.1 a 2.2.4",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q084",
+      "type": "choice",
+      "prompt": "¿Qué devuelve esta instrucción en mongosh?",
+      "code": "db.movies.countDocuments({ runtime: { $gt: 500 } })",
+      "options": [
+        "El número de películas que duran más de 500 minutos",
+        "La lista de películas que duran más de 500 minutos",
+        "La película que más dura de la colección",
+        "Las 500 primeras películas de la colección"
+      ],
+      "answer": 0,
+      "explanation": "countDocuments cuenta los documentos que cumplen el filtro y devuelve un número. Para ver las películas en sí usarías find con el mismo filtro.",
+      "source": "SBD UD2, apartado 3 (tarea con Atlas y mongosh)",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q085",
+      "type": "choice",
+      "prompt": "En esta consulta, ¿qué hace sort({ runtime: -1 })?",
+      "code": "db.movies.find({ runtime: { $gt: 500 } }, { title: 1, runtime: 1, _id: 0 }).sort({ runtime: -1 })",
+      "options": [
+        "Ordena las películas de la más larga a la más corta",
+        "Ordena las películas de la más corta a la más larga",
+        "Quita el campo runtime del resultado",
+        "Devuelve solo la película más larga"
+      ],
+      "answer": 0,
+      "explanation": "En sort, -1 ordena de mayor a menor y 1, de menor a mayor. Los campos que se muestran los decide el segundo argumento de find, la proyección.",
+      "source": "SBD UD2, apartado 3 (tarea con Atlas y mongosh)",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q086",
+      "type": "choice",
+      "prompt": "En esta consulta, ¿qué indica \"direccion.ciudad\"?",
+      "code": "db.clientes.find({ \"direccion.ciudad\": \"Jaén\" })",
+      "options": [
+        "El campo ciudad que está dentro del campo direccion",
+        "Una colección llamada direccion.ciudad",
+        "La base de datos direccion y su colección ciudad",
+        "Dos campos que tienen que valer Jaén"
+      ],
+      "answer": 0,
+      "explanation": "El punto sirve para entrar en un campo que está dentro de otro. La colección es clientes, la que va justo después de db.",
+      "source": "SBD UD2, apartado 3",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q087",
+      "type": "choice",
+      "prompt": "¿Qué indica el segundo argumento de find en esta consulta?",
+      "code": "db.movies.find({ cast: \"Brad Pitt\" }, { title: 1, _id: 0 })",
+      "options": [
+        "Que se muestre solo el título, sin el _id",
+        "Que se busquen películas cuyo título valga 1",
+        "Que se devuelva solo la primera película",
+        "Que se ordene por título y después por _id"
+      ],
+      "answer": 0,
+      "explanation": "Es la proyección: con 1 eliges los campos que se muestran y con 0 los quitas. El _id sale siempre, salvo que lo excluyas con _id: 0.",
+      "source": "SBD UD2, apartado 3 (tarea con Atlas y mongosh)",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q088",
+      "type": "match",
+      "prompt": "Relaciona cada operación de MongoDB con su letra de CRUD.",
+      "pairs": [
+        [
+          "Insert Documents",
+          "C, de create"
+        ],
+        [
+          "Query Documents",
+          "R, de read"
+        ],
+        [
+          "Update Documents",
+          "U, de update"
+        ],
+        [
+          "Delete Documents",
+          "D, de delete"
+        ]
+      ],
+      "explanation": "Insertar es crear, consultar es leer, y actualizar y borrar se corresponden con su propia letra.",
+      "source": "SBD UD2, apartado 3",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q089",
+      "type": "choice",
+      "prompt": "Estás programando una aplicación que usa MongoDB. Según los apuntes, ¿cómo trabajarás con la base de datos?",
+      "options": [
+        "Con la librería de MongoDB de tu lenguaje",
+        "Escribiendo a mano los comandos en el intérprete",
+        "Con consultas SQL estándar",
+        "Con el comando hadoop fs"
+      ],
+      "answer": 0,
+      "explanation": "Casi todos los lenguajes tienen al menos una librería para MongoDB, y si programas ese es el modo. El intérprete es útil para administrar y para aprender.",
+      "source": "SBD UD2, apartado 3",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q090",
+      "type": "truefalse",
+      "prompt": "El intérprete de comandos de MongoDB permite administrar la base de datos desde un terminal sin crear ningún programa.",
+      "answer": true,
+      "explanation": "Esa es su ventaja, y además es una forma sencilla de aprender a usar la base de datos.",
+      "source": "SBD UD2, apartado 3",
+      "difficulty": 1
+    },
+    {
+      "id": "sbd-ud02-q091",
+      "type": "choice",
+      "prompt": "Una asociación quiere guardar de cada niño información muy heterogénea (pruebas, tratamientos, actividades) y recuperarla toda junta por su identificador. ¿Qué encaja mejor?",
+      "options": [
+        "Una documental, como MongoDB",
+        "Una relacional, con una tabla por prueba",
+        "Una columnar, como Cassandra",
+        "Una de grafos, como Neo4j"
+      ],
+      "answer": 0,
+      "explanation": "Una documental guarda toda la información de cada niño en un único documento sin esquema previo. Con tablas tendrías que conocer de antemano todos los campos.",
+      "source": "SBD UD2, apartados 2.2.1 y 3",
+      "difficulty": 3
+    },
+    {
+      "id": "sbd-ud02-q092",
+      "type": "order",
+      "prompt": "Ordena los pasos de la práctica para crear y modificar un documento en una base de datos de pruebas.",
+      "steps": [
+        "Conectarte al clúster con mongosh",
+        "Cambiar a la base de datos pruebas con use",
+        "Insertar un documento con insertOne",
+        "Modificar ese documento con updateOne y $set"
+      ],
+      "explanation": "Sin conexión no tienes intérprete. El use va antes porque insertOne escribe en la base de datos en la que estás, y con updateOne solo puedes modificar un documento que ya exista.",
+      "source": "SBD UD2, apartado 3 (tarea con Atlas y mongosh)",
+      "difficulty": 2
+    },
+    {
+      "id": "sbd-ud02-q093",
+      "type": "truefalse",
+      "prompt": "En MongoDB, todos los documentos de una colección tienen que tener los mismos campos.",
+      "answer": false,
+      "explanation": "MongoDB es documental y schema-on-read: los documentos de una colección suelen ser de tipo parecido, pero su estructura puede ser heterogénea.",
+      "source": "SBD UD2, apartados 2.2.1 y 3",
+      "difficulty": 2
+    }
+  ]
+}
