@@ -71,6 +71,17 @@ function duplicateIds(ids) {
   return ids.filter((id) => seen.has(id) || !seen.add(id));
 }
 
+/** La buena se adivina si es la más larga con diferencia (más de 12 caracteres y un 35 % sobre la media de las otras). */
+function answerStandsOut(q) {
+  if (q.type !== 'choice' || !Array.isArray(q.options)) return false;
+  const lengths = q.options.map((o) => o.length);
+  const others = lengths.filter((_, i) => i !== q.answer);
+  const longest = Math.max(...others);
+  const mean = others.reduce((a, b) => a + b, 0) / others.length;
+  const right = lengths[q.answer];
+  return right > longest && right - longest >= 12 && right >= 1.35 * mean;
+}
+
 /** @returns {{errors: string[], warnings: string[]}} */
 export function validateUnit(unit, ref, { exists }) {
   const errors = [];
@@ -87,6 +98,7 @@ export function validateUnit(unit, ref, { exists }) {
 
   const practiced = new Set(unit.lessons.filter((l) => l.kind === 'practice').flatMap((l) => l.questionIds ?? []));
   const warnings = qIds.filter((id) => !practiced.has(id)).map((id) => `${id}: no está en ninguna práctica`);
+  for (const q of unit.questions) if (answerStandsOut(q)) warnings.push(`${q.id}: la opción buena se delata por ser mucho más larga`);
   return { errors, warnings };
 }
 

@@ -71,6 +71,14 @@ test('detecta textos repetidos en una pregunta de relacionar', () => {
   assert.ok(validateUnit(u, ref, opts).errors.some((e) => e.includes('repetid')));
 });
 
+test('avisa si la opción buena se delata por ser mucho más larga', () => {
+  const u = validUnit();
+  u.questions[0].options = ['Corta', 'La respuesta buena que es muchísimo más larga que todas las demás', 'Breve', 'Otra'];
+  const result = validateUnit(u, ref, opts);
+  assert.deepEqual(result.errors, []);
+  assert.ok(result.warnings.some((w) => w.includes(u.questions[0].id) && w.includes('larga')));
+});
+
 test('detecta un mapa conceptual que no existe', () => {
   const u = { ...validUnit(), conceptMap: { src: 'img/no.png', credit: 'Junta' } };
   const errors = validateUnit(u, ref, { exists: () => false }).errors;
