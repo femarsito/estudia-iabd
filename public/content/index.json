@@ -90,7 +90,8 @@
         {
           "id": "bda-ud01",
           "number": 1,
-          "title": "Introducción a Apache Hadoop"
+          "title": "Introducción a Apache Hadoop",
+          "file": "bda/ud01.json"
         },
         {
           "id": "bda-ud02",

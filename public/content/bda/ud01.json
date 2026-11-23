@@ -1,0 +1,1643 @@
+{
+  "id": "bda-ud01",
+  "moduleId": "bda",
+  "number": 1,
+  "title": "Introducción a Apache Hadoop",
+  "conceptMap": {
+    "src": "img/bda-ud01-mapa.png",
+    "credit": "Mapa conceptual de los apuntes de BDA UD1, Junta de Andalucía (CC BY-NC-SA)"
+  },
+  "lessons": [
+    {
+      "id": "bda-ud01-l01",
+      "kind": "read",
+      "title": "Motivación y origen",
+      "section": "1. Motivación y origen",
+      "cards": [
+        {
+          "title": "El problema de Apache Nutch",
+          "body": "En 2002, **Doug Cutting** y **Mike Cafarella** trabajan en **Apache Nutch**, un motor de búsqueda que quiere indexar **mil millones de páginas web**. Con su arquitectura costaría más de medio millón de euros en hardware y otro medio al año en mantenimiento. Necesitan **almacenar** muchísimos datos, **procesarlos** para crear los índices y que todo salga **barato**."
+        },
+        {
+          "title": "Los papers de Google",
+          "body": "- **Octubre de 2003**: Google publica **The Google File System** (GFS), cómo almacenar petabytes a bajo coste con un modelo de **almacenamiento distribuido**. Inspira el almacenamiento de Nutch.\n- **Diciembre de 2004**: publica **MapReduce: Simplified Data Processing on Large Clusters**, cómo procesar datos voluminosos con el paradigma **MapReduce**. Resuelve la generación de índices."
+        },
+        {
+          "title": "De Nutch a Hadoop",
+          "body": "Los papers explicaban la solución **a alto nivel**, sin código. Para dos personas el desarrollo era muy largo y Nutch no podía aprovecharlo del todo. En **2006**, Doug Cutting entra en **Yahoo!** para implementar GFS y MapReduce como **código libre**: los saca de Nutch, les da entidad propia y nace **Hadoop**."
+        },
+        {
+          "title": "Cómo creció",
+          "body": "- **2007**: versión beta en Yahoo!, probada con **más de 1.000 nodos**.\n- **Enero de 2008**: Yahoo! dona Hadoop a la **Apache Software Foundation** y pasa a ser proyecto **Top-Level**.\n- **2009**: Cutting se va a **Cloudera**, que quiere hacer de Hadoop un producto **empresarial**.\n- **Diciembre de 2011**: primera versión estable, la **1.0**."
+        },
+        {
+          "title": "El nombre",
+          "body": "Doug Cutting llamó Hadoop al proyecto por el **peluche de elefante de su hijo**: era fácil de pronunciar y de recordar, y tenía un valor emocional para él."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud01-l02",
+      "kind": "practice",
+      "title": "Motivación y origen",
+      "section": "1. Motivación y origen",
+      "questionIds": [
+        "bda-ud01-q001",
+        "bda-ud01-q002",
+        "bda-ud01-q003",
+        "bda-ud01-q004",
+        "bda-ud01-q005",
+        "bda-ud01-q006",
+        "bda-ud01-q007",
+        "bda-ud01-q008",
+        "bda-ud01-q009"
+      ]
+    },
+    {
+      "id": "bda-ud01-l03",
+      "kind": "read",
+      "title": "¿Qué es Apache Hadoop?",
+      "section": "2 y 2.1. ¿Qué es Apache Hadoop?",
+      "cards": [
+        {
+          "title": "Definición",
+          "body": "Hadoop es una **plataforma opensource** para **almacenar y procesar**, a **bajo coste**, **grandes volúmenes** de datos de **cualquier estructura**. Funciona en un entorno **distribuido, escalable y tolerante a fallos**, sobre **hardware commodity** y acercando el **procesamiento a los datos**."
+        },
+        {
+          "title": "Plataforma",
+          "body": "Es la **base para construir aplicaciones**, como una caja de herramientas: eliges la herramienta según el caso de uso. Abajo, **HDFS** almacena; encima, **YARN** procesa; y arriba van las aplicaciones. No es sencilla: tiene **muchos componentes** y se instala en **muchos servidores**. **MongoDB** y otras **NoSQL** no son plataformas: tienen **un único propósito**."
+        },
+        {
+          "title": "Opensource y coste",
+          "body": "Todo su código es libre: **no pagas licencias** del software. Implantarlo cuesta **órdenes de magnitud menos** (10 veces, 1.000 veces...) que las **bases de datos relacionales** o los **mainframe**. Hadoop **no fue la primera** plataforma para muchos datos: los **bancos** ya usaban **mainframe** en los 90. La gran diferencia es el **coste**."
+        },
+        {
+          "title": "Almacenar y procesar",
+          "body": "- **Almacenar**: guarda y recupera datos con su sistema de ficheros, **HDFS**.\n- **Procesar**: permite crear aplicaciones que procesan lo almacenado, tanto en **batch** como en **real-time**."
+        },
+        {
+          "title": "Volumen y estructura",
+          "body": "- **Volumen**: admite prácticamente cualquiera, desde **megabytes** hasta **petabytes**.\n- **Estructura**: puede almacenar y procesar datos **estructurados**, **semiestructurados** y **no estructurados**."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud01-l04",
+      "kind": "practice",
+      "title": "¿Qué es Apache Hadoop?",
+      "section": "2 y 2.1. ¿Qué es Apache Hadoop?",
+      "questionIds": [
+        "bda-ud01-q010",
+        "bda-ud01-q011",
+        "bda-ud01-q012",
+        "bda-ud01-q013",
+        "bda-ud01-q014",
+        "bda-ud01-q015",
+        "bda-ud01-q016",
+        "bda-ud01-q017",
+        "bda-ud01-q018"
+      ]
+    },
+    {
+      "id": "bda-ud01-l05",
+      "kind": "read",
+      "title": "Distribuido, escalable y tolerante a fallos",
+      "section": "2.1. ¿Qué es Apache Hadoop?",
+      "cards": [
+        {
+          "title": "Distribuido",
+          "body": "Hadoop usa **muchos servidores**, también llamados **nodos**, que trabajan juntos para almacenar o procesar los datos. En un **sistema centralizado**, en cambio, todo se hace en **un único servidor**."
+        },
+        {
+          "title": "Escalado horizontal",
+          "body": "Para crecer, Hadoop **añade más servidores del mismo tipo** (**escalado horizontal**) en vez de cambiar el servidor por otro mayor (**escalado vertical**).\n- En horizontal el coste es **lineal**: pasar de 1 PB a 2 PB cuesta el doble.\n- En vertical suele ser **exponencial**: de 1 TB a 2 TB puede costar 3 veces más."
+        },
+        {
+          "title": "Límite de crecimiento",
+          "body": "En horizontal, la capacidad máxima depende del número máximo de servidores: en Hadoop, unos **10.000 nodos**, y cada nodo puede guardar muchos terabytes. En vertical, el límite es el **servidor más grande que puedas comprar**."
+        },
+        {
+          "title": "Tolerante a fallos",
+          "body": "Si cae un servidor, el sistema **sigue funcionando** y **no se pierden datos**. Hace falta porque un sistema empresarial debe funcionar **24x7** y porque con tantos servidores algo se rompe cada día: con **1.000 servidores de 12 discos** que duran 3 años, caen unos **11 discos al día**."
+        },
+        {
+          "title": "Hardware commodity",
+          "body": "Hadoop **no necesita servidores específicos** con exigencias muy concretas. Ojo: eso **no** quiere decir que valgan los **portátiles reciclados** de una oficina."
+        },
+        {
+          "title": "Acercar el procesamiento a los datos",
+          "body": "Los sistemas tradicionales **separan almacenamiento y procesamiento**: antes de procesar hay que leer los datos y **llevarlos por la red** al sistema de cómputo. La red no llega al ancho de banda del disco y la CPU de una misma máquina, así que el **cuello de botella** es siempre la **red**."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud01-l06",
+      "kind": "practice",
+      "title": "Distribuido, escalable y tolerante a fallos",
+      "section": "2.1. ¿Qué es Apache Hadoop?",
+      "questionIds": [
+        "bda-ud01-q019",
+        "bda-ud01-q020",
+        "bda-ud01-q021",
+        "bda-ud01-q022",
+        "bda-ud01-q023",
+        "bda-ud01-q024",
+        "bda-ud01-q025",
+        "bda-ud01-q026",
+        "bda-ud01-q027"
+      ]
+    },
+    {
+      "id": "bda-ud01-l07",
+      "kind": "read",
+      "title": "Ecosistema Hadoop",
+      "section": "2.2. Ecosistema Hadoop y distribuciones",
+      "cards": [
+        {
+          "title": "Componentes core",
+          "body": "- **HDFS**: sistema de ficheros, la **capa de almacenamiento**. Organiza los datos en **espacios de nombres** (directorios, subdirectorios...).\n- **YARN**: **gestor de recursos**, la **capa de procesamiento**. Ejecuta aplicaciones sobre los datos de HDFS.\n- **MapReduce**: procesamiento masivo, que se usa **directamente** con su API o **indirectamente** con aplicaciones que lo usan por debajo."
+        },
+        {
+          "title": "El ecosistema",
+          "body": "Normalmente, «Hadoop» incluye también **componentes independientes** que se añaden para la **ingesta**, el acceso con **lenguajes estándar** o la **administración y monitorización**. Suelen ser **proyectos opensource de Apache**. No hace falta dominarlos todos: cada proyecto usa una parte. Los más usados son **Spark, Hive y Kafka**, además de **HDFS y YARN**."
+        },
+        {
+          "title": "SQL y scripting",
+          "body": "- **Hive**: accede a ficheros de HDFS estructurados o semiestructurados **como tablas**, con un lenguaje **similar a SQL**.\n- **Impala**: como Hive, pero con **más rendimiento** (respuestas más rápidas).\n- **Phoenix**: **interfaz SQL** sobre los datos de **HBase**.\n- **Pig**: define flujos de transformación o consulta con un lenguaje de **scripting**."
+        },
+        {
+          "title": "NoSQL e ingesta",
+          "body": "- **HBase**: NoSQL **columnar** con acceso aleatorio, atómico y **edición** de datos.\n- **Accumulo**: NoSQL con acceso **aleatorio y atómico**.\n- **Flume**: ingesta **streams** de sistemas real-time.\n- **Sqoop**: **importa o exporta** datos estructurados entre **bases relacionales** y Hadoop.\n- **Kafka**: **mensajería** que recoge eventos en tiempo real y permite procesarlos."
+        },
+        {
+          "title": "Procesamiento y orquestación",
+          "body": "- **Spark**: motor de procesamiento masivo **muy eficiente** (ingeniería de datos, machine learning, grafos). No suele asociarse a Hadoop, pero es su **mejor complemento**.\n- **Storm**: procesamiento real-time de eventos con **baja latencia**.\n- **Oozie**: define **flujos de trabajo** y su orquestación y planificación.\n- **ZooKeeper**: **sincroniza el estado** de los servicios distribuidos."
+        },
+        {
+          "title": "Análisis y gobierno",
+          "body": "- **Mahout**: librerías para crear y ejecutar modelos de **machine learning** con la potencia de Hadoop.\n- **Zeppelin**: aplicación web de **notebooks** para analizar, evaluar código y colaborar.\n- **Atlas**: **gobierno de datos** de Hadoop."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud01-l08",
+      "kind": "practice",
+      "title": "Ecosistema Hadoop",
+      "section": "2.2. Ecosistema Hadoop y distribuciones",
+      "questionIds": [
+        "bda-ud01-q028",
+        "bda-ud01-q029",
+        "bda-ud01-q030",
+        "bda-ud01-q031",
+        "bda-ud01-q032",
+        "bda-ud01-q033",
+        "bda-ud01-q034",
+        "bda-ud01-q035",
+        "bda-ud01-q036"
+      ]
+    },
+    {
+      "id": "bda-ud01-l09",
+      "kind": "read",
+      "title": "Distribuciones y Hadoop en la nube",
+      "section": "2.2. Ecosistema Hadoop y distribuciones",
+      "cards": [
+        {
+          "title": "Hadoop Vanilla",
+          "body": "Instalar Hadoop y sus componentes **por separado** se llama **Hadoop Vanilla** y es **muy complicado**: cada componente es un proyecto Apache independiente, con su propio **versionado**, **dependencias** (Hive depende de HDFS; Phoenix, de HBase), **roadmap** y **committers**. Por ejemplo, Phoenix puede pedir una versión de HBase y Hive otra distinta."
+        },
+        {
+          "title": "Resolver incidencias",
+          "body": "Aunque logres instalarlo todo, en **producción** surgen errores: un servidor sin espacio en disco, un trabajo que falla... Si la plataforma da soporte a la empresa hay que arreglarlo rápido, y cuesta porque hay que **buscar el fallo en muchos componentes**."
+        },
+        {
+          "title": "Distribuciones comerciales",
+          "body": "Reúnen en **un único paquete** casi todos los componentes, con las **dependencias resueltas**. Ofrecen:\n- un **instalador** de toda la plataforma;\n- **soporte 24x7** para las incidencias en producción;\n- **documentación más completa** que la de los proyectos Apache."
+        },
+        {
+          "title": "Cloudera, Hortonworks y MapR",
+          "body": "- **Cloudera** (**2009**): la **primera** y la de **más clientes**. Usa componentes Apache, a veces modificados, y añade algunos **propietarios** (Cloudera Manager, Cloudera Navigator).\n- **Hortonworks** (**2012**): componentes Apache **sin modificar**.\n- **MapR**: **reimplementó el core** con las mismas interfaces para rendir más."
+        },
+        {
+          "title": "Hoy, solo Cloudera",
+          "body": "En **octubre de 2018** se anunció la **fusión de Cloudera y Hortonworks**, efectiva en **2019**. Ese año **MapR** cerró por falta de fondos y vendió su portfolio a **HPE**. Hoy la **única distribución** es **Cloudera**, con lo relevante de Hortonworks. En la práctica basta con conocer el Hadoop **«estándar»**, porque las alternativas apenas difieren."
+        },
+        {
+          "title": "Hadoop en la nube",
+          "body": "**Hadoop-as-a-Service**: **Amazon EMR**, **Azure HDInsight** y **Google Dataproc**. Levantan infraestructuras **elásticas** en minutos, con **pago por uso** (unos **0,25-2 € por nodo y hora**).\n- Ventajas: aprovisionamiento de **meses a minutos**, **elasticidad** y sin inversión inicial.\n- Desventajas: **vendor lock-in**, soluciones **no estándar** y un coste difícil de prever."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud01-l10",
+      "kind": "practice",
+      "title": "Distribuciones y Hadoop en la nube",
+      "section": "2.2. Ecosistema Hadoop y distribuciones",
+      "questionIds": [
+        "bda-ud01-q037",
+        "bda-ud01-q038",
+        "bda-ud01-q039",
+        "bda-ud01-q040",
+        "bda-ud01-q041",
+        "bda-ud01-q042",
+        "bda-ud01-q043",
+        "bda-ud01-q044",
+        "bda-ud01-q045"
+      ]
+    },
+    {
+      "id": "bda-ud01-l11",
+      "kind": "read",
+      "title": "Arquitectura y tipos de nodos",
+      "section": "2.3. Arquitectura",
+      "cards": [
+        {
+          "title": "Clúster y nodo",
+          "body": "Hadoop se instala sobre un conjunto de servidores que trabajan juntos: ese conjunto es el **clúster** y cada servidor es un **nodo**. Para quien lo usa, todo actúa **como una sola máquina**: en **HDFS** ves directorios y ficheros sin saber en qué servidores están."
+        },
+        {
+          "title": "Tres tipos de nodos",
+          "body": "- **Worker**: hacen el trabajo; cada uno **guarda una parte** de los datos o **ejecuta una parte** del proceso.\n- **Master**: **controlan** a los workers: reparten datos y trabajo, vigilan que no estén caídos y **rebalancean** si uno falla.\n- **Edge** o **frontera**: hacen de **puente** con la red exterior y ofrecen las **APIs** del clúster."
+        },
+        {
+          "title": "Por qué hacen falta los edge",
+          "body": "Normalmente el clúster **no tiene conexión** con el resto de servidores de la empresa, así que **toda la comunicación desde fuera** pasa por los **nodos frontera**."
+        },
+        {
+          "title": "Tolerancia a fallos en los master",
+          "body": "Hadoop **supone que el hardware falla**. Lo habitual son **dos masters por servicio** (HDFS, YARN...) en modo **activo-pasivo**: el activo hace la operativa y el pasivo **copia** todo lo que hace. Si cae el activo, el **pasivo toma el control** y sigue hasta que se arregle el error."
+        },
+        {
+          "title": "Workers y edge ante fallos",
+          "body": "- **Almacenamiento**: cada dato tiene **varias réplicas** en nodos distintos.\n- **Procesamiento**: el master reparte las tareas y **consulta el estado** de los workers; si uno cae, **envía su fragmento a otro nodo**.\n- **Edge**: no suelen ser críticos, pero se montan los **servicios en varios nodos**."
+        },
+        {
+          "title": "Escalabilidad",
+          "body": "Puedes **añadir o quitar workers** para ganar o reducir capacidad. El **master** tiene la **lista de nodos activos** y **redistribuye la carga**. Añadir nodos es sencillo, pero suele exigir **rebalancear** para que los nuevos asuman trabajo o, si quitas nodos, para que los que quedan asuman el de los eliminados."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud01-l12",
+      "kind": "practice",
+      "title": "Arquitectura y tipos de nodos",
+      "section": "2.3. Arquitectura",
+      "questionIds": [
+        "bda-ud01-q046",
+        "bda-ud01-q047",
+        "bda-ud01-q048",
+        "bda-ud01-q049",
+        "bda-ud01-q050",
+        "bda-ud01-q051",
+        "bda-ud01-q052",
+        "bda-ud01-q053"
+      ]
+    },
+    {
+      "id": "bda-ud01-l13",
+      "kind": "read",
+      "title": "Hardware y coste de un clúster",
+      "section": "2.3. Arquitectura",
+      "cards": [
+        {
+          "title": "Hardware commodity",
+          "body": "No es **«hardware de andar por casa»**: es hardware **no específico**, sin requisitos exigentes de **disponibilidad o resiliencia**. Los **masters** y los **workers** tienen requisitos **distintos**."
+        },
+        {
+          "title": "Nodos master",
+          "body": "Más **resistentes**: ejecutan servicios **críticos**. Solo guardan datos de la **operativa del clúster**, así que piden **poco almacenamiento**. Cuanto mayor es el clúster, **más potentes**.\n- Disco: **2 o 4 discos en RAID** (1, 10 o 5), de 2 a 4 TB.\n- CPU: **2 CPU de 6-8 cores**.\n- RAM: **128 o 256 GB**."
+        },
+        {
+          "title": "Red y alimentación de los master",
+          "body": "- **Red**: elemento crítico, porque una red lenta es un **cuello de botella**. Lo habitual es **10 Gb/s en par duplicado**, hasta **20 Gb/s**; las redes **Infiniband** superan los **50 Gb/s**.\n- **Fuente de alimentación**: **redundante**, para asegurar el suministro."
+        },
+        {
+          "title": "Nodos worker",
+          "body": "Se asume que **fallan**: se invierte en **almacenar y procesar**, no en resiliencia.\n- Disco: **JBOD**, sin replicación (la hace **HDFS**); **10-12 discos de 3-4 TB**, tantos como cores.\n- CPU: gama media, **2 CPU de 6-8 cores**.\n- RAM: mínimo **64 GB**, lo normal **128 o 256 GB**.\n- Red: la de los masters, **10-20 Gb/s**.\n- Alimentación: no se invierte en **redundancia**."
+        },
+        {
+          "title": "Coste por nodo",
+          "body": "- **Master**: 2 discos de 2-3 TB en RAID, 2 CPU x 8 cores, 256 GB: **5.000-15.000 €**.\n- **Worker**: 12 discos de 2-3 TB en JBOD, misma CPU y RAM: **3.000-12.000 €**.\n- **Edge**: como el master: **5.000-10.000 €**.\n\nAdemás del **hardware** se paga **soporte** (**5.000-15.000 € por nodo y año**) y **consultoría**."
+        },
+        {
+          "title": "Un ejemplo de coste",
+          "body": "Un clúster de **50 workers, 4 masters y 2 edge** cuesta unos **430.000 €** de hardware y **350.000 € al año** de soporte, para unos **400 TB**. Una base de datos relacional tradicional podría pasar de **1 o 2 millones de euros al año** solo en **licencias**, y con un hardware más caro."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud01-l14",
+      "kind": "practice",
+      "title": "Hardware y coste de un clúster",
+      "section": "2.3. Arquitectura",
+      "questionIds": [
+        "bda-ud01-q054",
+        "bda-ud01-q055",
+        "bda-ud01-q056",
+        "bda-ud01-q057",
+        "bda-ud01-q058",
+        "bda-ud01-q059",
+        "bda-ud01-q060",
+        "bda-ud01-q061"
+      ]
+    },
+    {
+      "id": "bda-ud01-l15",
+      "kind": "read",
+      "title": "Por qué se usa Hadoop",
+      "section": "2.4. Beneficios, desventajas y dificultades",
+      "cards": [
+        {
+          "title": "No es la única opción",
+          "body": "Hadoop **no es la única tecnología** para Big Data, pero sí la que **más casos cubre**. Para un caso concreto suele haber algo mejor:\n- **tiempo real**: **Apache Cassandra**;\n- **cuadros de mando online**: bases **OLAP en memoria** o **SAP Hana**;\n- **transformación de datos**: herramientas de **ETL**;\n- **machine learning**: **R**."
+        },
+        {
+          "title": "Todo en la misma plataforma",
+          "body": "Aunque no sea la mejor en esos casos, es **suficientemente buena** en la mayoría y lo hace **todo en la misma plataforma**, sin una herramienta para cada caso. Por eso es la **plataforma más usada** en Big Data. Recuerda que es una **plataforma**, no una herramienta."
+        },
+        {
+          "title": "Frente a otras tecnologías",
+          "body": "- **MongoDB**: bien en casos **operacionales** y algún analítico, pero no en todos, y cuesta hacer **machine learning** con sus datos.\n- **SAP HANA**: operacionales y analíticos, pero **mucho más cara** y no cubre volúmenes muy altos.\n- **Relacional**: operacionales o analíticos, pero le cuestan los **no estructurados** y pasar de **50 TB**."
+        },
+        {
+          "title": "Sin esquema previo",
+          "body": "Hadoop guarda datos de cualquier tipo **sin definir antes su estructura**: es **schema-on-read** (**esquema en lectura**). Las relacionales son **schema-on-write**: describes la estructura antes de meter datos. Así guardas los datos sin tratar (**raw data**) y los procesas después, algo muy rápido cuando los formatos cambian a menudo."
+        },
+        {
+          "title": "Coste y escalabilidad",
+          "body": "- **Bajo coste**: hardware commodity y código opensource, **órdenes de magnitud** por debajo de las relacionales.\n- **Escalabilidad «ilimitada» y lineal**: el límite lo marca la capacidad del **master**, pero es muy alto: unos **10.000 nodos** por clúster, unos **50-100 PB**."
+        },
+        {
+          "title": "Enfoque distribuido",
+          "body": "Muchos nodos dan un rendimiento **excelente** con trabajos **complejos** o **mucho volumen**, pero **peor** con **pocos datos** o tareas **sencillas**, como consultar un **registro aislado**. Además, Hadoop ofrece **múltiples herramientas** para trabajar con los datos."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud01-l16",
+      "kind": "practice",
+      "title": "Por qué se usa Hadoop",
+      "section": "2.4. Beneficios, desventajas y dificultades",
+      "questionIds": [
+        "bda-ud01-q062",
+        "bda-ud01-q063",
+        "bda-ud01-q064",
+        "bda-ud01-q065",
+        "bda-ud01-q066",
+        "bda-ud01-q067",
+        "bda-ud01-q068",
+        "bda-ud01-q069"
+      ]
+    },
+    {
+      "id": "bda-ud01-l17",
+      "kind": "read",
+      "title": "Problemas y cuándo usar Hadoop",
+      "section": "2.4. Beneficios, desventajas y dificultades",
+      "cards": [
+        {
+          "title": "Perfiles escasos",
+          "body": "Hay **pocos profesionales** de Hadoop y la demanda supera a la oferta. Es uno de los factores que **más limitan** su uso:\n- suben los **costes**, por salarios más altos;\n- hay un riesgo alto de **rotación** de personal;\n- los **profesionales** consiguen mejores condiciones y aceleran su carrera."
+        },
+        {
+          "title": "Coste real e integración",
+          "body": "- Commodity no es reutilizar PCs y opensource no es **coste cero**: hay que **estimar bien** la adquisición y el mantenimiento.\n- Es una **nueva pieza**: los empleados tienen que **formarse**, y Hadoop **no reemplaza** las tecnologías existentes, las **complementa**, así que hay que **integrarlo**."
+        },
+        {
+          "title": "Problemas del enfoque distribuido",
+          "body": "- **Administración** más compleja (**N nodos x M componentes**).\n- **Consumo energético** y **espacio** en el CPD.\n- **Menor eficiencia** que un sistema centralizado con poco volumen o procesos sencillos.\n- **Madurez, seguridad y gobierno**: unos **10 años** de uso frente a las relacionales, que surgieron en los **70-80**."
+        },
+        {
+          "title": "Cuándo usar Hadoop",
+          "body": "- El **volumen** supera a los sistemas tradicionales (**no cabe en una máquina**).\n- Hay **variedad** de datos, diversos o que cambian a menudo.\n- Necesitas una **escalabilidad** que no dan los tradicionales y **no** hace falta mucha **transaccionalidad**.\n- Quieres **una plataforma** para muchos casos de uso."
+        },
+        {
+          "title": "Cuándo no usarlo",
+          "body": "- Los sistemas tradicionales ya cubren el caso y los formatos son **fijos**.\n- Hay requisitos de **transaccionalidad muy estrictos**, como las transferencias y pagos de un banco.\n- Solo necesitas resolver **un caso Big Data muy específico**."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud01-l18",
+      "kind": "practice",
+      "title": "Problemas y cuándo usar Hadoop",
+      "section": "2.4. Beneficios, desventajas y dificultades",
+      "questionIds": [
+        "bda-ud01-q070",
+        "bda-ud01-q071",
+        "bda-ud01-q072",
+        "bda-ud01-q073",
+        "bda-ud01-q074",
+        "bda-ud01-q075",
+        "bda-ud01-q076",
+        "bda-ud01-q077",
+        "bda-ud01-q078"
+      ]
+    },
+    {
+      "id": "bda-ud01-l19",
+      "kind": "pc",
+      "title": "Acceso al entorno Proxmox VE",
+      "section": "Entorno de prácticas del módulo: guía de acceso a Proxmox VE",
+      "steps": [
+        {
+          "where": "Navegador",
+          "text": "Abre la dirección de Proxmox VE que te ha dado el profesorado e inicia sesión con tu usuario del curso. No pongas tus credenciales en capturas ni en apuntes.",
+          "expected": "Entras en el entorno de trabajo y ves los recursos que tienes asignados: contenedores, máquinas virtuales y almacenamiento."
+        },
+        {
+          "where": "Proxmox VE",
+          "text": "La primera vez, cambia la contraseña inicial: pulsa tu nombre de usuario, arriba a la derecha, y elige **Contraseña**. Usa una que combine mayúsculas, minúsculas, números y, si puedes, caracteres especiales."
+        },
+        {
+          "where": "Proxmox VE",
+          "text": "En la **vista por servidor**, busca las dos plantillas que se usan como base: el contenedor **bda-hadoop-base** y la máquina virtual **BDA-Xubuntu**."
+        },
+        {
+          "where": "Proxmox VE",
+          "text": "Crea tu primer nodo para Hadoop: botón derecho sobre el contenedor **bda-hadoop-base**, **Clonar**, e indica el identificador, el nombre de host según la nomenclatura que te asignen y el conjunto de recursos.",
+          "expected": "El contenedor nuevo aparece entre tus recursos."
+        },
+        {
+          "where": "Proxmox VE",
+          "text": "Arranca el contenedor y abre su **consola** con el usuario de trabajo que indica la guía de acceso."
+        },
+        {
+          "where": "Proxmox VE",
+          "text": "Ponle una IP fija desde Proxmox, no desde los ficheros de Ubuntu: selecciona tu contenedor, entra en **Red**, elige la interfaz **net0** y pulsa **Editar**. Marca IPv4 **Estática** y escribe la dirección con su máscara, el puente y la puerta de enlace que correspondan a la red que te asignen en la tarea. Acepta, reinicia el contenedor desde Proxmox y vuelve a abrir su consola."
+        },
+        {
+          "where": "Consola del contenedor",
+          "text": "Comprueba la dirección IP del contenedor.",
+          "code": "ip a",
+          "expected": "En la interfaz eth0 aparece la dirección IPv4 que has configurado, con su máscara."
+        },
+        {
+          "where": "Consola del contenedor",
+          "text": "Comprueba la tabla de rutas.",
+          "code": "ip route",
+          "expected": "Sale una ruta hacia tu subred por la interfaz eth0."
+        },
+        {
+          "where": "Proxmox VE",
+          "text": "Para los siguientes nodos del clúster, clona en modo **Clon vinculado**: es más rápido y ocupa menos, porque reutiliza parte de la plantilla. No borres la plantilla mientras haya clones vinculados y, al arrancarlos, revisa en cada uno el nombre, la dirección, las claves SSH y el identificador de máquina."
+        },
+        {
+          "where": "Proxmox VE",
+          "text": "Para trabajar con entorno gráfico (navegador, capturas), clona la máquina virtual **BDA-Xubuntu** con tu nomenclatura, arráncala y, en **Consola**, elige **noVNC**.",
+          "expected": "Ves el escritorio de Xubuntu dentro del navegador."
+        },
+        {
+          "where": "Xubuntu",
+          "text": "Comprueba la IP de la máquina virtual. Si no es de tu red, ponle una IP estática dentro de tu red que acabe en **.200**, para que no choque con las de los contenedores del clúster."
+        },
+        {
+          "where": "Proxmox VE",
+          "text": "Al terminar, apaga los contenedores y las máquinas virtuales que no vayas a seguir usando antes de cerrar la sesión, para no ocupar recursos que usa el resto del alumnado."
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "bda-ud01-q001",
+      "type": "choice",
+      "prompt": "¿En qué proyecto trabajaban Doug Cutting y Mike Cafarella cuando surgió la idea de Hadoop?",
+      "options": [
+        "Apache Hive, un motor de consultas SQL",
+        "Google File System, un sistema de ficheros",
+        "Apache Nutch, un motor de búsqueda",
+        "Apache Spark, un motor de procesamiento"
+      ],
+      "answer": 2,
+      "explanation": "Trabajaban en Apache Nutch, un motor de búsqueda que quería indexar mil millones de páginas web. GFS era el sistema de almacenamiento de Google, que solo les sirvió de inspiración.",
+      "source": "BDA UD1, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q002",
+      "type": "choice",
+      "prompt": "¿Qué problema resolvía el paper que Google publicó en octubre de 2003?",
+      "options": [
+        "Cómo procesar datos voluminosos con MapReduce",
+        "Cómo almacenar petabytes a bajo coste de forma distribuida",
+        "Cómo indexar páginas web en tiempo real",
+        "Cómo replicar bases de datos relacionales"
+      ],
+      "answer": 1,
+      "explanation": "El paper de 2003 describía The Google File System, es decir, el almacenamiento distribuido. El procesamiento con MapReduce llegó en el paper de diciembre de 2004.",
+      "source": "BDA UD1, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q003",
+      "type": "choice",
+      "prompt": "Después de leer el paper de GFS, ¿qué le faltaba todavía a Apache Nutch?",
+      "options": [
+        "Una forma de procesar los datos para generar los índices",
+        "Un clúster de Yahoo! para probarlo con 1.000 nodos",
+        "Una licencia de código libre para poder publicarlo",
+        "Un sistema para almacenar el gran volumen de páginas"
+      ],
+      "answer": 0,
+      "explanation": "GFS inspiró la solución de almacenamiento, pero quedaba por resolver cómo procesar los datos para crear los índices. Eso lo resolvió el paper de MapReduce de 2004.",
+      "source": "BDA UD1, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q004",
+      "type": "choice",
+      "prompt": "¿Para qué se incorporó Doug Cutting a Yahoo! en 2006?",
+      "options": [
+        "Para crear la primera distribución comercial de Hadoop",
+        "Para vender Apache Nutch como producto comercial con soporte",
+        "Para usar los servidores de Google y copiar su implementación",
+        "Para implementar GFS y MapReduce como código libre con su equipo"
+      ],
+      "answer": 3,
+      "explanation": "Los papers no daban código y dos personas tardarían mucho en implementarlo. En Yahoo! tenía equipo y capacidad para hacerlo y ofrecerlo como código libre. El enfoque empresarial llegó con Cloudera, en 2009.",
+      "source": "BDA UD1, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q005",
+      "type": "choice",
+      "prompt": "¿Qué pasó con Hadoop en enero de 2008?",
+      "options": [
+        "Yahoo! lo donó a la Apache Software Foundation",
+        "Salió la primera versión estable, la 1.0",
+        "Se probó por primera vez con más de 1.000 nodos",
+        "Doug Cutting se marchó a Cloudera"
+      ],
+      "answer": 0,
+      "explanation": "En enero de 2008 Yahoo! lo donó a la Apache Software Foundation y muchas empresas empezaron a contribuir. La prueba con 1.000 nodos fue en 2007, lo de Cloudera en 2009 y la 1.0 en diciembre de 2011.",
+      "source": "BDA UD1, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q006",
+      "type": "truefalse",
+      "prompt": "La primera versión estable de Hadoop, la 1.0, se publicó en diciembre de 2011.",
+      "answer": true,
+      "explanation": "Antes hubo una beta en Yahoo! en 2007, pero la versión 1.0 estable no llegó hasta diciembre de 2011.",
+      "source": "BDA UD1, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q007",
+      "type": "truefalse",
+      "prompt": "Los papers de Google sobre GFS y MapReduce incluían el código con el que estaba implementada su solución.",
+      "answer": false,
+      "explanation": "Describían la solución a alto nivel, sin detalles de código. Por eso Cutting y Cafarella tuvieron que implementarla ellos y el desarrollo resultó tan complejo.",
+      "source": "BDA UD1, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q008",
+      "type": "order",
+      "prompt": "Ordena estos hechos del origen de Hadoop, del más antiguo al más reciente.",
+      "steps": [
+        "Google publica el paper de The Google File System",
+        "Google publica el paper de MapReduce",
+        "Doug Cutting se incorpora a Yahoo! y nace Hadoop",
+        "Yahoo! dona Hadoop a la Apache Software Foundation"
+      ],
+      "explanation": "GFS es de octubre de 2003, MapReduce de diciembre de 2004, la llegada de Cutting a Yahoo! de 2006 y la donación a Apache de enero de 2008.",
+      "source": "BDA UD1, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q009",
+      "type": "order",
+      "prompt": "Ordena estos hitos de Hadoop, del más antiguo al más reciente.",
+      "steps": [
+        "Versión beta probada en Yahoo! con más de 1.000 nodos",
+        "Hadoop pasa a ser proyecto Top-Level de Apache",
+        "Doug Cutting se incorpora a Cloudera",
+        "Sale la versión estable 1.0"
+      ],
+      "explanation": "La beta es de 2007, el paso a Apache de enero de 2008, la marcha de Cutting a Cloudera de 2009 y la versión 1.0 de diciembre de 2011.",
+      "source": "BDA UD1, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q010",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿por qué Hadoop se considera una plataforma y MongoDB no?",
+      "options": [
+        "Porque Hadoop es opensource y MongoDB es una solución comercial",
+        "Porque Hadoop funciona en un servidor y MongoDB necesita un clúster",
+        "Porque Hadoop guarda datos no estructurados y MongoDB solo estructurados",
+        "Porque Hadoop es la base para construir muchas aplicaciones y MongoDB tiene un único propósito"
+      ],
+      "answer": 3,
+      "explanation": "Una plataforma ofrece la base y un conjunto de herramientas para construir aplicaciones muy distintas. MongoDB y otras NoSQL ofrecen un tipo de funcionalidad con un único propósito.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q011",
+      "type": "choice",
+      "prompt": "¿Qué componente de Hadoop se encarga de almacenar y recuperar los datos?",
+      "options": [
+        "MapReduce",
+        "HDFS",
+        "Hive",
+        "YARN"
+      ],
+      "answer": 1,
+      "explanation": "HDFS es el sistema de ficheros, la capa de almacenamiento. YARN es la capa de procesamiento, MapReduce un sistema de procesamiento y Hive una herramienta de consulta.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q012",
+      "type": "choice",
+      "prompt": "¿De qué forma pueden procesar los datos las aplicaciones que se construyen sobre Hadoop?",
+      "options": [
+        "Solo en batch",
+        "Tanto en batch como en real-time",
+        "Solo en real-time",
+        "Solo con consultas SQL"
+      ],
+      "answer": 1,
+      "explanation": "Hadoop permite crear aplicaciones que procesan los datos del sistema de ficheros de las dos formas: batch y real-time.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q013",
+      "type": "choice",
+      "prompt": "Una empresa quiere guardar en la misma plataforma tablas de clientes, ficheros JSON de logs e imágenes de facturas escaneadas. ¿Encaja Hadoop?",
+      "options": [
+        "Solo si antes se define un esquema fijo para todos los ficheros",
+        "No, porque solo admite datos estructurados, como una base relacional",
+        "Solo para las tablas y los JSON, porque las imágenes no tienen estructura",
+        "Sí, porque admite datos estructurados, semiestructurados y no estructurados"
+      ],
+      "answer": 3,
+      "explanation": "Hadoop almacena y procesa cualquier tipo de dato: estructurado como las tablas, semiestructurado como los JSON y no estructurado como las imágenes. Tampoco te obliga a definir un esquema antes.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud01-q014",
+      "type": "choice",
+      "prompt": "¿Qué volúmenes de datos puede almacenar Hadoop según los apuntes?",
+      "options": [
+        "Desde megabytes hasta petabytes",
+        "Hasta un máximo de 50 terabytes",
+        "Solo a partir de varios terabytes",
+        "Solo de petabytes en adelante"
+      ],
+      "answer": 0,
+      "explanation": "Permite almacenar prácticamente cualquier volumen, de megabytes a petabytes. Los 50 TB son el punto a partir del cual le cuesta a una base relacional, no a Hadoop.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q015",
+      "type": "truefalse",
+      "prompt": "Hadoop es una plataforma sencilla porque todos sus componentes se instalan en un único servidor.",
+      "answer": false,
+      "explanation": "No es sencilla: tiene muchos componentes y se instala en muchos servidores que trabajan juntos.",
+      "source": "BDA UD1, apartado 2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q016",
+      "type": "truefalse",
+      "prompt": "Hadoop fue la primera plataforma capaz de almacenar y procesar grandes volúmenes de datos.",
+      "answer": false,
+      "explanation": "Ya había casos Big Data antes: los bancos usaban mainframe en los 90. Lo que distingue a Hadoop es que cuesta órdenes de magnitud menos.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q017",
+      "type": "match",
+      "prompt": "Relaciona cada palabra de la definición de Hadoop con lo que significa.",
+      "pairs": [
+        [
+          "Plataforma",
+          "Base sobre la que construir aplicaciones"
+        ],
+        [
+          "Opensource",
+          "Código libre, sin pagar licencias"
+        ],
+        [
+          "Almacenar",
+          "Guardar y recuperar datos con HDFS"
+        ],
+        [
+          "Estructura",
+          "Datos estructurados, semiestructurados o no estructurados"
+        ]
+      ],
+      "explanation": "Cada palabra de la definición describe una característica: es una plataforma, su código es libre, guarda los datos en HDFS y admite cualquier estructura.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q018",
+      "type": "order",
+      "prompt": "Ordena las capas del esquema de Hadoop, de abajo arriba.",
+      "steps": [
+        "HDFS (almacenamiento)",
+        "YARN (procesamiento)",
+        "Aplicaciones"
+      ],
+      "explanation": "Abajo está HDFS, que guarda los datos; encima, YARN, que los procesa; y arriba, las aplicaciones que se construyen sobre la plataforma.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q019",
+      "type": "choice",
+      "prompt": "¿Qué diferencia a un sistema distribuido como Hadoop de un sistema centralizado?",
+      "options": [
+        "En el distribuido los datos están en la nube; en el centralizado, en local",
+        "En el distribuido se crece cambiando el servidor por otro más grande",
+        "En el distribuido trabajan juntos muchos nodos; en el centralizado, uno solo",
+        "En el distribuido cada nodo trabaja por su cuenta, sin coordinarse con el resto"
+      ],
+      "answer": 2,
+      "explanation": "Hadoop se basa en muchos servidores o nodos que trabajan conjuntamente. En un sistema centralizado todo ocurre en un solo servidor.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q020",
+      "type": "choice",
+      "prompt": "Tu clúster Hadoop guarda 1 PB y necesitas llegar a 2 PB. Según los apuntes, ¿cuánto te costará, más o menos?",
+      "options": [
+        "Lo mismo que al principio, porque el software es opensource",
+        "Menos de la mitad, porque se reutilizan los nodos que ya hay",
+        "Unas tres veces el coste inicial, porque el coste es exponencial",
+        "El doble del coste inicial, porque el escalado horizontal es lineal"
+      ],
+      "answer": 3,
+      "explanation": "Al escalar en horizontal añades servidores del mismo tipo y el coste crece de forma lineal: el doble de capacidad, el doble de coste. Lo de tres veces es el ejemplo del escalado vertical.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud01-q021",
+      "type": "choice",
+      "prompt": "¿Qué limita el crecimiento de un sistema con escalado vertical?",
+      "options": [
+        "El ancho de banda de la red entre los nodos",
+        "El número máximo de nodos, unos 10.000",
+        "El tamaño máximo del servidor que se puede comprar",
+        "El número de discos que caben en el clúster"
+      ],
+      "answer": 2,
+      "explanation": "En vertical solo puedes cambiar el servidor por otro mayor, así que el techo es el servidor más grande que exista. Los 10.000 nodos son el límite del escalado horizontal de Hadoop.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q022",
+      "type": "choice",
+      "prompt": "¿En torno a cuántos nodos está el límite de crecimiento de Hadoop?",
+      "options": [
+        "1.000",
+        "12.000",
+        "10.000",
+        "100.000"
+      ],
+      "answer": 2,
+      "explanation": "Los apuntes sitúan el límite en unos 10.000 nodos. Los 1.000 son los nodos de la beta de Yahoo! y los 12.000, los discos del ejemplo de tolerancia a fallos.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q023",
+      "type": "choice",
+      "prompt": "Una plataforma Hadoop tiene 2.000 servidores con 12 discos cada uno y cada disco dura unos 3 años. Siguiendo el razonamiento de los apuntes, ¿qué esperas?",
+      "options": [
+        "Que se pierdan datos cada vez que se rompe un disco",
+        "Que se rompa un disco cada varios meses",
+        "Que se rompan unos 22 discos al día sin que se pierdan datos",
+        "Que se rompan unos 11 discos al día sin que se pierdan datos"
+      ],
+      "answer": 2,
+      "explanation": "Con 1.000 servidores y 12.000 discos salían unos 11 discos rotos al día; con el doble de discos, unos 22. Aun así, Hadoop garantiza que no se pierden datos y que las aplicaciones siguen funcionando.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud01-q024",
+      "type": "choice",
+      "prompt": "¿Dónde está el cuello de botella en los sistemas tradicionales de procesamiento masivo?",
+      "options": [
+        "En la memoria RAM del servidor",
+        "En la CPU de cada máquina",
+        "En la lectura del disco",
+        "En la red de comunicaciones"
+      ],
+      "answer": 3,
+      "explanation": "Como almacenamiento y procesamiento están separados, los datos viajan por la red, que tiene mucho menos ancho de banda que el disco y la CPU de una misma máquina.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q025",
+      "type": "truefalse",
+      "prompt": "Hardware commodity significa que puedes montar un clúster Hadoop con los portátiles reciclados de una oficina.",
+      "answer": false,
+      "explanation": "Significa que no hacen falta servidores específicos con exigencias muy concretas, pero siguen siendo servidores. Los apuntes avisan de que no vale con portátiles reciclados.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q026",
+      "type": "truefalse",
+      "prompt": "En el escalado horizontal, para crecer se sustituye el servidor por otro de mayor capacidad.",
+      "answer": false,
+      "explanation": "Eso es el escalado vertical. En el horizontal, el que usa Hadoop, se añaden más servidores del mismo tipo.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q027",
+      "type": "order",
+      "prompt": "Ordena lo que pasa en un sistema tradicional, con almacenamiento y procesamiento separados, para procesar los datos.",
+      "steps": [
+        "Se leen todos los datos del sistema de almacenamiento",
+        "Se transportan por la red de comunicaciones",
+        "Llegan al sistema de computación",
+        "Se procesan"
+      ],
+      "explanation": "Todo pasa por la red antes de procesarse, y por eso la red es el cuello de botella. Hadoop lo evita acercando el procesamiento a los datos.",
+      "source": "BDA UD1, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q028",
+      "type": "choice",
+      "prompt": "¿Qué hace YARN dentro de Hadoop?",
+      "options": [
+        "Almacena los datos en espacios de nombres",
+        "Sincroniza el estado de los servicios distribuidos",
+        "Gestiona los recursos para ejecutar aplicaciones",
+        "Importa datos desde bases de datos relacionales"
+      ],
+      "answer": 2,
+      "explanation": "YARN es el gestor de recursos, la capa de procesamiento. Guardar los datos es cosa de HDFS, importar desde relacionales es de Sqoop y sincronizar servicios, de ZooKeeper.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q029",
+      "type": "choice",
+      "prompt": "Necesitas traer cada noche a Hadoop las tablas de una base de datos relacional. ¿Qué componente usarías?",
+      "options": [
+        "Apache Sqoop",
+        "Apache Oozie",
+        "Apache Phoenix",
+        "Apache Flume"
+      ],
+      "answer": 0,
+      "explanation": "Sqoop importa y exporta datos estructurados entre bases relacionales y Hadoop. Flume ingesta streams de sistemas real-time, y Oozie planifica flujos de trabajo, pero no mueve datos desde una relacional.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud01-q030",
+      "type": "choice",
+      "prompt": "Tus analistas quieren lanzar consultas SQL sobre los datos que hay en HBase. ¿Qué componente les da esa capa?",
+      "options": [
+        "Apache Hive",
+        "Apache Accumulo",
+        "Apache Pig",
+        "Apache Phoenix"
+      ],
+      "answer": 3,
+      "explanation": "Phoenix es la capa que permite acceder a los datos de HBase con una interfaz SQL. Hive usa un lenguaje parecido a SQL, pero sobre ficheros de HDFS.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud01-q031",
+      "type": "choice",
+      "prompt": "¿En qué se diferencia Impala de Hive según los apuntes?",
+      "options": [
+        "Impala es una base de datos NoSQL y Hive un motor SQL",
+        "Impala usa un lenguaje de scripting y Hive uno similar a SQL",
+        "Tiene una función similar, pero con tiempos de respuesta menores",
+        "Impala trabaja con datos de HBase y Hive con ficheros de HDFS"
+      ],
+      "answer": 2,
+      "explanation": "Impala tiene una funcionalidad parecida a Hive, tratar los datos de HDFS con SQL, pero rinde más. El lenguaje de scripting es el de Pig.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q032",
+      "type": "choice",
+      "prompt": "Además de HDFS y YARN, ¿qué componentes son los más utilizados según los apuntes?",
+      "options": [
+        "Pig, Oozie y Mahout",
+        "HBase, Flume y Storm",
+        "Spark, Hive y Kafka",
+        "Zeppelin, Atlas y Accumulo"
+      ],
+      "answer": 2,
+      "explanation": "La recomendación de los apuntes destaca Spark, Hive y Kafka, junto a los componentes core HDFS y YARN.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q033",
+      "type": "truefalse",
+      "prompt": "Según los apuntes, Apache Spark no suele asociarse al ecosistema Hadoop, pero ha sido su mejor complemento en los últimos años.",
+      "answer": true,
+      "explanation": "Así lo dicen los apuntes: Spark es un motor de procesamiento masivo muy eficiente que complementa a Hadoop en ingeniería de datos, machine learning o grafos.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q034",
+      "type": "truefalse",
+      "prompt": "Para usar Hadoop en un proyecto hay que instalar y dominar todos los componentes del ecosistema.",
+      "answer": false,
+      "explanation": "Los proyectos suelen usar solo una pequeña parte de los componentes, según lo que necesiten.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q035",
+      "type": "match",
+      "prompt": "Relaciona cada componente con su función.",
+      "pairs": [
+        [
+          "Hive",
+          "Consultar ficheros de HDFS como tablas con un lenguaje similar a SQL"
+        ],
+        [
+          "Pig",
+          "Definir flujos de datos con un lenguaje de scripting"
+        ],
+        [
+          "Oozie",
+          "Definir, orquestar y planificar flujos de trabajo"
+        ],
+        [
+          "ZooKeeper",
+          "Sincronizar el estado de los servicios distribuidos"
+        ]
+      ],
+      "explanation": "Hive y Pig sirven para consultar y transformar datos; Oozie y ZooKeeper son herramientas de gestión: uno organiza los flujos de trabajo y el otro mantiene sincronizados los servicios.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q036",
+      "type": "match",
+      "prompt": "Relaciona cada componente con su función.",
+      "pairs": [
+        [
+          "Flume",
+          "Ingestar streams de sistemas real-time"
+        ],
+        [
+          "Kafka",
+          "Mensajería que recoge eventos en tiempo real"
+        ],
+        [
+          "Mahout",
+          "Librerías de machine learning sobre Hadoop"
+        ],
+        [
+          "Atlas",
+          "Gobierno de datos"
+        ],
+        [
+          "Zeppelin",
+          "Notebooks web para analizar y colaborar"
+        ]
+      ],
+      "explanation": "Flume y Kafka trabajan con datos en tiempo real, Mahout con modelos de machine learning, Atlas con el gobierno de datos y Zeppelin es el entorno de notebooks.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q037",
+      "type": "choice",
+      "prompt": "¿Qué es Hadoop Vanilla?",
+      "options": [
+        "El servicio de Hadoop en la nube de Amazon",
+        "La distribución comercial de Cloudera con soporte 24x7",
+        "La versión estable 1.0 de Hadoop",
+        "Instalar Hadoop y cada componente por separado"
+      ],
+      "answer": 3,
+      "explanation": "Se llama Hadoop Vanilla a instalar la plataforma y sus componentes cada uno por su lado, sin una distribución que lo empaquete.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q038",
+      "type": "choice",
+      "prompt": "¿Por qué es tan complicado instalar Hadoop Vanilla?",
+      "options": [
+        "Porque cada componente tiene sus propias versiones y dependencias",
+        "Porque los componentes no pueden convivir en el mismo clúster",
+        "Porque Hadoop solo se puede instalar en servidores muy específicos",
+        "Porque hay que pagar una licencia por cada componente"
+      ],
+      "answer": 0,
+      "explanation": "Cada componente tiene su versionado, su roadmap y sus dependencias: una versión de Phoenix puede pedir una versión de HBase y Hive otra. Encajarlas todas es lo difícil.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q039",
+      "type": "choice",
+      "prompt": "¿Qué ofrece una distribución comercial de Hadoop?",
+      "options": [
+        "Componentes nuevos que sustituyen a todos los de Apache",
+        "Un instalador, soporte 24x7 y documentación más completa",
+        "Código libre sin ningún coste de soporte",
+        "Infraestructura elástica con pago por nodo y hora"
+      ],
+      "answer": 1,
+      "explanation": "Las distribuciones empaquetan los componentes con las dependencias resueltas, simplifican la instalación, dan soporte 24x7 y mejor documentación. La elasticidad con pago por hora es lo propio de la nube.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q040",
+      "type": "choice",
+      "prompt": "¿Qué distribución incluía los componentes originales de Apache sin ninguna modificación?",
+      "options": [
+        "Cloudera",
+        "Amazon EMR",
+        "Hortonworks",
+        "MapR"
+      ],
+      "answer": 2,
+      "explanation": "Hortonworks usaba los componentes de Apache tal cual. Cloudera modificaba algunos y añadía otros propietarios, y MapR reimplementó el core.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q041",
+      "type": "choice",
+      "prompt": "Una empresa quiere probar Hadoop unas semanas sin comprar máquinas y pudiendo crecer o reducir la plataforma según la carga. ¿Qué opción encaja mejor?",
+      "options": [
+        "Un servicio Hadoop-as-a-Service en la nube, como Google Dataproc",
+        "Un clúster propio con escalado vertical",
+        "Una instalación Hadoop Vanilla en sus propios servidores",
+        "La distribución de Cloudera con soporte anual en su CPD"
+      ],
+      "answer": 0,
+      "explanation": "La nube se levanta en minutos, no exige inversión inicial y ofrece elasticidad y pago por uso. Una instalación propia obliga a comprar las máquinas y, con distribución, a contratar soporte.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud01-q042",
+      "type": "truefalse",
+      "prompt": "Tras la fusión con Hortonworks y el cierre de MapR, Cloudera es hoy la única distribución de Hadoop.",
+      "answer": true,
+      "explanation": "La fusión con Hortonworks se hizo efectiva en 2019 y ese mismo año MapR cesó su actividad, así que solo queda Cloudera.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q043",
+      "type": "truefalse",
+      "prompt": "Una ventaja de Hadoop en la nube es que sabes de antemano cuánto te va a costar.",
+      "answer": false,
+      "explanation": "Es al revés: el coste puede ser mucho más alto y es difícil conocerlo a priori, porque las fórmulas incluyen variables como el consumo de CPU.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q044",
+      "type": "match",
+      "prompt": "Relaciona cada concepto de Hadoop en la nube con su significado.",
+      "pairs": [
+        [
+          "Elasticidad",
+          "Aumentar o reducir la plataforma de forma sencilla"
+        ],
+        [
+          "Pago por uso",
+          "Pagar por los servidores y las horas que están levantados"
+        ],
+        [
+          "Vendor lock-in",
+          "Barrera alta para pasar a otro proveedor o a un Hadoop propio"
+        ],
+        [
+          "Time-to-market",
+          "Rapidez para lanzar nuevas soluciones"
+        ]
+      ],
+      "explanation": "Elasticidad, pago por uso y time-to-market son ventajas de la nube; el vendor lock-in es uno de sus inconvenientes, por ejemplo por el cargo por sacar los datos.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q045",
+      "type": "order",
+      "prompt": "Ordena estos hechos de las distribuciones de Hadoop, del más antiguo al más reciente.",
+      "steps": [
+        "Sale Cloudera, la primera distribución",
+        "Aparece Hortonworks",
+        "Se anuncia la fusión de Cloudera y Hortonworks",
+        "La fusión se hace efectiva"
+      ],
+      "explanation": "Cloudera salió en 2009, Hortonworks en 2012, la fusión se anunció en octubre de 2018 y se hizo efectiva durante 2019.",
+      "source": "BDA UD1, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q046",
+      "type": "choice",
+      "prompt": "¿Qué nodos de un clúster Hadoop guardan una parte de los datos o ejecutan una parte del trabajo?",
+      "options": [
+        "Los nodos worker",
+        "Los nodos edge",
+        "Los nodos master",
+        "Los nodos pasivos"
+      ],
+      "answer": 0,
+      "explanation": "Los workers hacen el trabajo real. Los masters los controlan y los edge hacen de puente con el exterior.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q047",
+      "type": "choice",
+      "prompt": "Un analista quiere lanzar una petición al clúster desde su ordenador, que está fuera del clúster. ¿Por dónde entra?",
+      "options": [
+        "Por un nodo edge, que hace de puente con la red exterior",
+        "Directamente por el worker que tiene los datos",
+        "Por el master pasivo, que está libre",
+        "Por cualquier nodo, porque todos están conectados a la red de la empresa"
+      ],
+      "answer": 0,
+      "explanation": "El clúster normalmente no está conectado al resto de la infraestructura, así que toda la comunicación desde fuera pasa por los nodos frontera, que además ofrecen las APIs.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud01-q048",
+      "type": "choice",
+      "prompt": "¿Cómo se consigue la tolerancia a fallos en el almacenamiento de los workers?",
+      "options": [
+        "Guardando los datos en los nodos edge",
+        "Teniendo un worker pasivo que copia al activo",
+        "Guardando varias réplicas de cada dato en nodos distintos",
+        "Montando los discos de cada worker en RAID"
+      ],
+      "answer": 2,
+      "explanation": "Hadoop duplica los datos en varios nodos: si uno se cae o se corrompe un disco, las otras réplicas siguen disponibles. El modelo activo-pasivo es el de los masters.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q049",
+      "type": "choice",
+      "prompt": "En mitad de un trabajo se cae un worker que estaba haciendo una subtarea. ¿Qué pasa?",
+      "options": [
+        "El trabajo entero se pierde y hay que lanzarlo de nuevo",
+        "El master envía ese fragmento de trabajo a otro nodo",
+        "Un nodo edge sustituye al worker caído",
+        "El master pasivo toma el control del worker caído"
+      ],
+      "answer": 1,
+      "explanation": "El master reparte las tareas y pregunta continuamente a los workers por su estado. Si uno cae, coge su fragmento de trabajo y se lo manda a otro nodo.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud01-q050",
+      "type": "truefalse",
+      "prompt": "Para quien usa HDFS desde fuera, el clúster se comporta como una sola máquina: ve directorios y ficheros sin saber en qué servidores están.",
+      "answer": true,
+      "explanation": "Aunque haya muchos servidores trabajando en paralelo, el usuario externo los ve como una sola máquina y no necesita conocer la infraestructura.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q051",
+      "type": "match",
+      "prompt": "Relaciona cada tipo de nodo con lo que hace.",
+      "pairs": [
+        [
+          "Worker",
+          "Guarda una parte de los datos o ejecuta una parte del trabajo"
+        ],
+        [
+          "Master",
+          "Controla a los workers y les reparte datos y tareas"
+        ],
+        [
+          "Edge",
+          "Hace de puente con la red exterior y ofrece APIs"
+        ]
+      ],
+      "explanation": "Los workers trabajan, los masters los controlan y los edge conectan el clúster con el exterior.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q052",
+      "type": "order",
+      "prompt": "Ordena lo que pasa cuando falla el master activo de un servicio.",
+      "steps": [
+        "El activo hace la operativa y el pasivo copia todo lo que hace",
+        "El master activo se cae",
+        "El pasivo toma el control con su copia exacta de los datos",
+        "El pasivo continúa el trabajo hasta que se subsana el error"
+      ],
+      "explanation": "En el modo activo-pasivo, el pasivo va copiando al activo. Por eso, cuando el activo cae, puede tomar el control y seguir trabajando.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q053",
+      "type": "order",
+      "prompt": "Ordena lo que pasa cuando amplías un clúster Hadoop con nuevos workers.",
+      "steps": [
+        "Se añaden nodos worker al clúster",
+        "El master los incluye en su lista de nodos activos",
+        "Se rebalancea la carga para que los nuevos nodos asuman trabajo"
+      ],
+      "explanation": "El master es quien conoce los nodos activos y redistribuye la carga. Tras añadir nodos suele hacer falta un rebalanceo para equilibrar el trabajo.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q054",
+      "type": "choice",
+      "prompt": "¿Qué configuración de disco suelen llevar los nodos worker?",
+      "options": [
+        "RAID 5, con paridad distribuida",
+        "RAID 1, con un disco espejo del otro",
+        "Un único disco de gran capacidad",
+        "JBOD, con cada disco independiente y sin replicación"
+      ],
+      "answer": 3,
+      "explanation": "Los workers usan JBOD: cada disco suma su capacidad y ninguno es espejo de otro. Los RAID son lo propio de los masters.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q055",
+      "type": "choice",
+      "prompt": "¿Por qué los discos de los workers se montan sin replicación?",
+      "options": [
+        "Porque la replicación de los datos ya la hace HDFS",
+        "Porque los discos en JBOD no fallan",
+        "Porque los workers no guardan datos generales",
+        "Porque los masters guardan una copia en su RAID"
+      ],
+      "answer": 0,
+      "explanation": "La replicación se hace a nivel de HDFS, copiando los datos en varios nodos, así que no hace falta duplicarla en los discos de cada worker. Además, se asume que los workers fallan.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q056",
+      "type": "choice",
+      "prompt": "¿Qué tipo de nodo suele llevar fuente de alimentación redundante?",
+      "options": [
+        "El master, porque ejecuta servicios críticos del clúster",
+        "El worker, porque guarda los datos y hace el procesamiento",
+        "El worker, porque es el que más falla",
+        "El edge, porque es el único conectado al exterior"
+      ],
+      "answer": 0,
+      "explanation": "Los masters deben ser más resistentes y llevan fuentes redundantes. En los workers se asume que fallan y se prefiere invertir en CPU y memoria.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q057",
+      "type": "choice",
+      "prompt": "Vas a montar un clúster con un gran número de workers. ¿Qué pasa con los masters?",
+      "options": [
+        "No cambian, porque su configuración no depende del tamaño del clúster",
+        "Tienen que ser muy potentes, porque deben controlar muchos workers",
+        "Pueden ser modestos, porque no guardan datos generales",
+        "Necesitan discos en JBOD para ganar capacidad"
+      ],
+      "answer": 1,
+      "explanation": "El tamaño del clúster marca las exigencias de los masters: con pocos workers bastan masters modestos, pero un clúster grande necesita masters muy potentes.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud01-q058",
+      "type": "choice",
+      "prompt": "¿Qué red es la habitual en los nodos master según los apuntes?",
+      "options": [
+        "10 Gb/s en par duplicado, hasta 20 Gb/s",
+        "100 Mb/s por cada nodo worker",
+        "1 Gb/s en un solo enlace",
+        "Infiniband de más de 50 Gb/s en todos los casos"
+      ],
+      "answer": 0,
+      "explanation": "Lo habitual son 10 Gb/s en par duplicado, que dan 20 Gb/s. Infiniband supera los 50 Gb/s, pero los apuntes la mencionan como red de alto rendimiento posible, no como la habitual.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q059",
+      "type": "choice",
+      "prompt": "En el ejemplo de los apuntes, un clúster de 50 workers, 4 masters y 2 edge, ¿cuánto cuesta el soporte cada año?",
+      "options": [
+        "Entre 1 y 2 millones de euros",
+        "Unos 430.000 €",
+        "Unos 350.000 €",
+        "Unos 15.000 €"
+      ],
+      "answer": 2,
+      "explanation": "El soporte cuesta unos 350.000 € al año. Los 430.000 € son el hardware, y los 1-2 millones, lo que pagaría al año en licencias una relacional tradicional.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q060",
+      "type": "truefalse",
+      "prompt": "En los nodos worker se suele invertir en elementos de resiliencia, como fuentes de alimentación dobles.",
+      "answer": false,
+      "explanation": "Se asume que los workers fallan, así que se invierte en almacenamiento y procesamiento. Los problemas se resuelven a demanda sin perder servicio.",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q061",
+      "type": "truefalse",
+      "prompt": "Hardware commodity se refiere a hardware no específico, sin requisitos exigentes de disponibilidad o resiliencia.",
+      "answer": true,
+      "explanation": "Es lo que dicen los apuntes, que avisan de que no hay que confundirlo con «hardware de andar por casa».",
+      "source": "BDA UD1, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q062",
+      "type": "choice",
+      "prompt": "¿Qué significa que Hadoop sea schema-on-read?",
+      "options": [
+        "Que el esquema de los datos se guarda en los nodos master",
+        "Que no hace falta definir la estructura de los datos antes de guardarlos",
+        "Que solo puede leer datos que tengan un esquema relacional",
+        "Que hay que definir con detalle la estructura antes de introducir datos"
+      ],
+      "answer": 1,
+      "explanation": "Con el esquema en lectura guardas los datos tal cual llegan y les das estructura al leerlos. Definir la estructura antes es lo que hacen las relacionales, que son schema-on-write.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q063",
+      "type": "choice",
+      "prompt": "Una empresa recibe datos de proveedores que cambian de formato cada pocas semanas. ¿Qué característica de Hadoop le ayuda más?",
+      "options": [
+        "El escalado horizontal, que permite añadir nodos del mismo tipo",
+        "El acceso aleatorio y atómico a los datos",
+        "El esquema en lectura, que permite guardar raw data y procesarlo después",
+        "La tolerancia a fallos de los masters en activo-pasivo"
+      ],
+      "answer": 2,
+      "explanation": "Como no hay que definir el esquema antes de guardar, los datos se almacenan sin tratar y se procesan luego. Eso da mucha rapidez en proyectos donde los datos cambian de estructura a menudo.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud01-q064",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿qué limitación tiene MongoDB frente a Hadoop?",
+      "options": [
+        "Su coste es mucho más alto que el de Hadoop",
+        "No cubre todos los analíticos y le cuesta el machine learning",
+        "Solo cubre casos de uso analíticos, no operacionales",
+        "No cubre casos con un volumen de más de 50 TB"
+      ],
+      "answer": 1,
+      "explanation": "MongoDB cubre bien los casos operacionales y algún analítico, pero no todos, y es difícil hacer machine learning con sus datos. El coste alto es lo de SAP HANA y los 50 TB, lo de las relacionales.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q065",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿qué inconveniente tiene SAP HANA frente a Hadoop?",
+      "options": [
+        "Solo cubre casos de uso operacionales, no analíticos",
+        "Su coste es muy superior y no cubre volúmenes de datos muy altos",
+        "Le cuesta trabajar con machine learning sobre sus datos",
+        "Le cuesta gestionar datos no estructurados"
+      ],
+      "answer": 1,
+      "explanation": "SAP HANA cubre bien casos operacionales y analíticos, pero cuesta mucho más que Hadoop y no llega a volúmenes muy elevados. El machine learning es el punto flojo de MongoDB, y los no estructurados, el de las relacionales.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q066",
+      "type": "choice",
+      "prompt": "¿Qué le cuesta a una base de datos relacional según los apuntes?",
+      "options": [
+        "Cubrir los casos de uso analíticos",
+        "Gestionar datos no estructurados y casos de más de 50 TB",
+        "Cubrir los casos de uso operacionales",
+        "Trabajar con datos estructurados en tablas"
+      ],
+      "answer": 1,
+      "explanation": "Una relacional cubre bien casos operacionales o analíticos, según cuál elijas, pero la gestión de no estructurados es compleja y su capacidad por encima de 50 TB es bastante limitada.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q067",
+      "type": "truefalse",
+      "prompt": "La escalabilidad de Hadoop se llama «ilimitada» porque no existe ningún límite en la cantidad de datos que puede gestionar.",
+      "answer": false,
+      "explanation": "El límite existe y lo marca la capacidad del master, pero es tan alto (unos 10.000 nodos, 50-100 PB) que se habla de escalabilidad «ilimitada».",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q068",
+      "type": "match",
+      "prompt": "Relaciona cada caso de uso con la solución que, según los apuntes, rinde mejor que Hadoop en él.",
+      "pairs": [
+        [
+          "Almacenamiento y acceso en tiempo real",
+          "Apache Cassandra"
+        ],
+        [
+          "Cuadros de mando con acceso online",
+          "Bases OLAP en memoria o SAP Hana"
+        ],
+        [
+          "Transformación de datos",
+          "Herramientas de ETL"
+        ],
+        [
+          "Machine learning",
+          "R"
+        ]
+      ],
+      "explanation": "En cada uno de esos casos hay una solución específica mejor, pero Hadoop es suficientemente buena en todos y los reúne en una plataforma.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q069",
+      "type": "order",
+      "prompt": "Ordena cómo trabaja Hadoop con datos nuevos gracias al esquema en lectura.",
+      "steps": [
+        "Llegan datos con cualquier formato",
+        "Se almacenan sin tratar, como raw data",
+        "Más tarde se procesan o se analizan"
+      ],
+      "explanation": "Primero se guardan los datos tal cual, sin definir su estructura, y el procesamiento o el análisis llega después.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q070",
+      "type": "choice",
+      "prompt": "Según los apuntes, ¿cuál es uno de los factores que más está limitando el uso de Hadoop en las organizaciones?",
+      "options": [
+        "La escasez de profesionales con conocimientos de Hadoop",
+        "El límite de 1.000 nodos por clúster",
+        "El precio de las licencias de Apache",
+        "Que no puede guardar datos no estructurados"
+      ],
+      "answer": 0,
+      "explanation": "Al ser tecnologías recientes hay pocos profesionales y la demanda supera a la oferta. Hadoop no tiene licencias, guarda cualquier tipo de dato y su límite ronda los 10.000 nodos.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q071",
+      "type": "choice",
+      "prompt": "¿Qué consecuencia tiene para las empresas que la demanda de perfiles Big Data supere a la oferta?",
+      "options": [
+        "Los profesionales tienen menos proyectos entre los que elegir",
+        "Las empresas dejan de tener que formar a sus empleados",
+        "Suben los costes por los salarios y hay un riesgo alto de rotación",
+        "Bajan los salarios porque hay mucha formación disponible"
+      ],
+      "answer": 2,
+      "explanation": "Los salarios son más altos y los profesionales reciben muchas ofertas, así que las empresas pagan más y sufren fuga de talento.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q072",
+      "type": "choice",
+      "prompt": "Un banco quiere usar Hadoop para gestionar sus transferencias y pagos diarios. ¿Qué le dirías según los apuntes?",
+      "options": [
+        "Que solo es buena opción si usa una distribución comercial",
+        "Que es la mejor opción, porque el volumen de un banco es muy grande",
+        "Que es buena opción si monta los masters en activo-pasivo",
+        "Que no es la mejor opción, porque exige transaccionalidad muy estricta"
+      ],
+      "answer": 3,
+      "explanation": "Cubrir la operativa de una empresa con requisitos de transaccionalidad muy estrictos, como las transferencias de un banco, es uno de los casos en que Hadoop no es a priori la mejor tecnología.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud01-q073",
+      "type": "choice",
+      "prompt": "Los datos de una empresa ya no caben en una sola máquina y además llegan en formatos que cambian a menudo. ¿Qué dicen los apuntes de este caso?",
+      "options": [
+        "Que debe seguir con un sistema tradicional porque los formatos cambian",
+        "Que Hadoop no encaja porque los datos no tienen un formato fijo",
+        "Que Hadoop encaja bien, por el volumen y por la variedad de los datos",
+        "Que le conviene un escalado vertical comprando un servidor mayor"
+      ],
+      "answer": 2,
+      "explanation": "Un volumen mayor que la capacidad de los sistemas tradicionales y una gran variedad de datos son dos de los casos en los que Hadoop encaja bien.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud01-q074",
+      "type": "choice",
+      "prompt": "¿Por qué es más compleja la administración de Hadoop que la de un sistema centralizado?",
+      "options": [
+        "Porque cada nodo necesita su propia licencia",
+        "Porque hay que gestionar N nodos por M componentes",
+        "Porque solo se puede administrar desde los nodos edge",
+        "Porque los nodos worker no se pueden reiniciar"
+      ],
+      "answer": 1,
+      "explanation": "El enfoque distribuido multiplica el trabajo: muchos nodos, cada uno con varios componentes. Ese es uno de sus problemas, junto al consumo energético y el espacio en el CPD.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q075",
+      "type": "choice",
+      "prompt": "¿Qué relación tiene Hadoop con las tecnologías que ya tiene una empresa?",
+      "options": [
+        "Funciona aislado y no necesita integrarse",
+        "Solo puede convivir con bases de datos relacionales",
+        "Las reemplaza por completo tras una migración",
+        "Las complementa, así que hay que integrarlo"
+      ],
+      "answer": 3,
+      "explanation": "Hadoop habitualmente no reemplaza lo que hay, sino que lo complementa. Integrarlo no es trivial y hay que diseñar bien su papel.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q076",
+      "type": "truefalse",
+      "prompt": "Que Hadoop sea opensource y use hardware commodity no significa que su coste sea nulo: hay que estimar bien la adquisición y el mantenimiento.",
+      "answer": true,
+      "explanation": "A menudo se le suponen costes más bajos que los reales. Una buena estimación evita tener que parar proyectos por falta de presupuesto.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud01-q077",
+      "type": "truefalse",
+      "prompt": "Hadoop tiene un nivel de madurez en seguridad y gobierno de datos comparable al de las bases de datos relacionales.",
+      "answer": false,
+      "explanation": "Hadoop lleva unos 10 años en las empresas y las relacionales surgieron en los 70-80. No es un problema bloqueante, pero hay que tenerlo en cuenta en casos críticos.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud01-q078",
+      "type": "match",
+      "prompt": "Relaciona cada problema del enfoque distribuido con su descripción.",
+      "pairs": [
+        [
+          "Administración",
+          "Gestionar N nodos por M componentes"
+        ],
+        [
+          "Consumo",
+          "Más gasto energético y espacio en el CPD"
+        ],
+        [
+          "Eficiencia",
+          "Peor que un sistema centralizado en casos de uso sencillos"
+        ],
+        [
+          "Madurez",
+          "Unos 10 años de uso frente a décadas de las relacionales"
+        ]
+      ],
+      "explanation": "Son los cuatro problemas que los apuntes atribuyen al enfoque distribuido de Hadoop.",
+      "source": "BDA UD1, apartado 2.4",
+      "difficulty": 2
+    }
+  ]
+}
