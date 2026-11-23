@@ -23,10 +23,12 @@ jobs:
         with:
           node-version: 24
           cache: npm
-      # Si falla, las últimas líneas salen como anotaciones, que se leen sin iniciar sesión.
+      # npm install y no npm ci: el lockfile hecho en Windows no trae los opcionales @emnapi/* que Linux necesita
+      # (fallo conocido de npm). Respeta las versiones del lock y solo añade lo que falta.
+      # Si falla, el error sale como anotación, que se lee sin iniciar sesión.
       - name: Instalar dependencias
         run: |
-          npm ci > npm-ci.log 2>&1 || { grep -m 12 -E 'npm (error|ERR)' npm-ci.log | sed 's/^/::error::/'; exit 1; }
+          npm install --no-audit --no-fund > npm-install.log 2>&1 || { grep -m 12 -E 'npm (error|ERR)' npm-install.log | sed 's/^/::error::/'; exit 1; }
       - run: npm run test:content
       - run: npm run validate
       - run: npx ng test --watch=false
