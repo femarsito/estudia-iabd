@@ -28,6 +28,8 @@ const NAV:{ path: string; label: string; icon: IconName }[] = [
       max-width: 780px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px;
       padding: var(--s4) 0 calc(var(--nav-h) + var(--s5) + env(safe-area-inset-bottom)) var(--s4);
     }
+    /* Sin regla de pestañas (todo menos Inicio): una sola columna con margen a ambos lados. */
+    .frame.solo { grid-template-columns: minmax(0, 1fr); padding-right: var(--s4); }
     main { min-width: 0; }
     main.swap { animation: hinge-swap var(--hinge); transform-origin: left center; }
     .alert { margin: 0 0 var(--s4); padding: var(--s3) var(--s4); border-radius: var(--radius); background: var(--ko-wash); color: var(--ink); font-weight: 600; }
@@ -47,18 +49,19 @@ const NAV:{ path: string; label: string; icon: IconName }[] = [
     @media (min-width: 900px) {
       .frame { max-width: 1180px; padding: var(--s6) var(--s6) var(--s6) calc(96px + var(--s6)); }
       /* En test, lección y demás páginas de lectura la hoja mide 760 px y la regla sigue pegada a su canto. */
-      .frame.narrow { max-width: calc(96px + 2 * var(--s6) + 760px + 50px); }
+      .frame.narrow { max-width: calc(96px + 2 * var(--s6) + 760px); }
+      .frame.solo { padding-right: var(--s6); }
       nav { inset: 0 auto 0 0; width: 96px; height: auto; grid-template-columns: 1fr; grid-auto-rows: 84px; align-content: start; padding-top: var(--s5); }
       app-tab-rail { top: var(--s6); }
     }
   `,
   template: `
-    <div class="frame" [class.narrow]="narrow()">
+    <div class="frame" [class.narrow]="narrow()" [class.solo]="narrow()">
       <main [class.swap]="swap()" (animationend)="swap.set(false)">
         @if (store.progress.loadError(); as error) { <p class="alert" role="alert">{{ error }}</p> }
         <router-outlet />
       </main>
-      <app-tab-rail />
+      @if (!narrow()) { <app-tab-rail /> }
     </div>
     <nav aria-label="Principal">
       @for (item of nav; track item.path) {
@@ -84,7 +87,7 @@ export class App {
     ),
     { initialValue: '/' },
   );
-  /** Solo Inicio usa la carpeta abierta a dos hojas; el resto, una sola hoja. */
+  /** Solo Inicio usa la carpeta abierta y la regla de pestañas; el resto, una sola hoja (Fernando, 2026-11-23: las pestañas en todas partes cansaban la vista). */
   protected readonly narrow = computed(() => !WIDE_PAGES.has(this.url().split('?')[0]));
 
   constructor() {

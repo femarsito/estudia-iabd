@@ -1,6 +1,8 @@
 export type ModuleId = 'bda' | 'mia' | 'pia' | 'saa' | 'sbd';
 
 export interface ContentIndex {
+  /** Fecha (YYYY-MM-DD) de la última actualización del contenido. */
+  updated?: string;
   modules: ModuleInfo[];
 }
 

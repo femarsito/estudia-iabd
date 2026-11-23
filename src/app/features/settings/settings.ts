@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { StudyStore } from '../../core/study.store';
 import { Settings as SettingsModel } from '../../core/models';
 import { localDay } from '../../core/dates';
 
-const APP_VERSION = '0.1.0';
+const APP_VERSION = '0.2.0';
 
 @Component({
   selector: 'app-settings',
@@ -64,7 +64,7 @@ const APP_VERSION = '0.1.0';
         <h2>Créditos</h2>
         <p>Los resúmenes y las preguntas salen de los apuntes del Curso de Especialización en Inteligencia Artificial y Big Data. Materiales desarrollados inicialmente por el Ministerio de Educación, Cultura y Deporte y actualizados por el profesorado de la Junta de Andalucía bajo licencia Creative Commons BY-NC-SA.</p>
         <p><a href="https://www.juntadeandalucia.es/educacion/gestionafp/documentacion/aviso_legal/aviso_legal_mjda/index.html" target="_blank" rel="noopener">Aviso legal de la Junta</a> · Contenido derivado bajo CC BY-NC-SA 4.0 · Código con licencia MIT</p>
-        <p>Estudia IABD {{ version }}</p>
+        <p>Estudia IABD {{ version }} · contenido del {{ content().updated }} · {{ content().units }} unidades · {{ content().questions }} preguntas</p>
       </div>
     </section>
   `,
@@ -79,6 +79,16 @@ export class Settings {
     { value: 'dark', label: 'Oscuro' },
   ];
   protected readonly version = APP_VERSION;
+  /** Para comprobar en el móvil si ya ha llegado lo último. */
+  protected readonly content = computed(() => {
+    const units = [...this.store.units().values()];
+    const date = this.store.index()?.updated ?? '';
+    return {
+      updated: date ? date.split('-').reverse().join('/') : '—',
+      units: units.length,
+      questions: units.reduce((n, u) => n + u.questions.length, 0),
+    };
+  });
   protected readonly message = signal<{ text: string; ko: boolean } | null>(null);
 
   protected set(s: Partial<SettingsModel>): void {

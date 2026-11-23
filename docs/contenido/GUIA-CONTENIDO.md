@@ -66,6 +66,7 @@ Que haya de las tres.
 
 ## Antes de entregar
 
-1. Ejecuta `npm run validate` y comprueba que sale 0.
-2. Revisa la mezcla de tipos y que todas las preguntas estén en alguna práctica.
-3. Pasa el contenido al agente revisor (`agente-revisor.md`) y aplica lo que diga.
+1. Pon el `file` de la unidad en `public/content/index.json` y actualiza `updated` con la fecha de hoy (sale en Ajustes del móvil para saber si ha llegado lo último).
+2. Ejecuta `npm run validate` y comprueba que sale 0.
+3. Revisa la mezcla de tipos y que todas las preguntas estén en alguna práctica.
+4. Pasa el contenido al agente revisor (`agente-revisor.md`) y aplica lo que diga.

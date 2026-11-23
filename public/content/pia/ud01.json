@@ -1,0 +1,2007 @@
+{
+  "id": "pia-ud01",
+  "moduleId": "pia",
+  "number": 1,
+  "title": "Introducción a la programación de Inteligencia Artificial",
+  "conceptMap": {
+    "src": "img/pia-ud01-mapa.png",
+    "credit": "Mapa conceptual de los apuntes de PIA UD1, Junta de Andalucía (CC BY-NC-SA)"
+  },
+  "lessons": [
+    {
+      "id": "pia-ud01-l01",
+      "kind": "read",
+      "title": "Programar y el buen programador",
+      "section": "1",
+      "cards": [
+        {
+          "title": "Qué es programar",
+          "body": "**Programar** es diseñar un **algoritmo** para resolver un problema y traducirlo a instrucciones que le dicen a la computadora cómo hacer una tarea. Un **algoritmo** es una **secuencia lógica de instrucciones** que resuelve un problema de forma **efectiva, eficiente y precisa** con los recursos disponibles."
+        },
+        {
+          "title": "Abstracción y lógica",
+          "body": "- **Capacidad de abstracción**: separar el problema de su contexto, dividirlo en problemas más básicos y encontrar similitudes con otros ya resueltos. Es **generalizar y reutilizar** ideas.\n- **Pensamiento lógico**: relacionar objetos reales y abstractos y llegar a conclusiones con principios y reglas para crear **algoritmos efectivos**."
+        },
+        {
+          "title": "Simplicidad, técnica y depuración",
+          "body": "- **Creatividad y simplicidad**: soluciones innovadoras y eficientes; **cuanto más simples, mejores**. Facilitan el mantenimiento y reducen errores y **acoplamiento**.\n- **Conocimientos técnicos**: lenguajes, estructuras de datos, algoritmos, entornos de desarrollo y **plataformas cloud**.\n- **Depurar errores**: aislarlos, identificarlos y corregirlos de forma **sistemática**."
+        },
+        {
+          "title": "Matemáticas",
+          "body": "Hacen falta fundamentos en tres áreas:\n- **Lógica**: reglas para ver si un argumento es válido.\n- **Álgebra**: estructuras numéricas; esencial para las operaciones del **aprendizaje automático**.\n- **Estadística**: organizar y analizar datos antes de aplicar técnicas avanzadas."
+        },
+        {
+          "title": "Trabajo en equipo",
+          "body": "Un buen programador colabora con otros desarrolladores, se comunica bien, sabe **defender sus propuestas** y **reconoce el talento** ajeno. Todo eso se articula con **software de control de versiones**."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud01-l02",
+      "kind": "practice",
+      "title": "Programar y el buen programador",
+      "section": "1",
+      "questionIds": [
+        "pia-ud01-q001",
+        "pia-ud01-q002",
+        "pia-ud01-q003",
+        "pia-ud01-q004",
+        "pia-ud01-q005",
+        "pia-ud01-q006"
+      ]
+    },
+    {
+      "id": "pia-ud01-l03",
+      "kind": "read",
+      "title": "Clasificación de los lenguajes",
+      "section": "1.1",
+      "cards": [
+        {
+          "title": "Qué es un lenguaje",
+          "body": "Un **lenguaje de programación** es un conjunto de **reglas y sintaxis** para comunicarse con una computadora y darle instrucciones. Los apuntes los clasifican por **seis criterios**: nivel de abstracción, modo de ejecución, paradigma, propósito, sistema de tipado y rigidez del tipado."
+        },
+        {
+          "title": "Nivel de abstracción",
+          "body": "- **Bajo nivel**: cerca del lenguaje máquina y **dependientes del hardware**. Ensamblador **MIPS** y **Motorola 68000**; los apuntes también incluyen **C y C++**.\n- **Alto nivel**: lejos del hardware y más fáciles de aprender. Desarrollo rápido **a costa de la eficiencia**. Python, Java, C# y JavaScript."
+        },
+        {
+          "title": "Modo de ejecución",
+          "body": "- **Compilados**: se traducen enteros a código máquina **antes** de ejecutarse; más rápidos. C, C++, Rust, Swift.\n- **Interpretados**: un intérprete los traduce y ejecuta **línea a línea**, sin ejecutable; más flexibles y portables. Python, R, PHP, Perl.\n- **Híbridos**: Java compila a **bytecode** que ejecuta la **JVM**."
+        },
+        {
+          "title": "Paradigma",
+          "body": "- **Imperativo**: **cómo** hacer las cosas paso a paso (C, Python, Java).\n- **Declarativo**: **qué** hacer, no cómo (Prolog; también SQL, HTML, CSS y XSLT).\n- **Orientado a objetos**: objetos con datos y métodos (Java, C++, Python).\n- **Orientado a eventos**: responde a acciones (JavaScript, Visual Basic).\n- **Multiparadigma**: Python, C++, JavaScript."
+        },
+        {
+          "title": "Propósito y elección",
+          "body": "- **Uso específico**: tareas concretas, como **R** (análisis de datos) o **HTML/CSS** (web).\n- **Uso general**: muchas aplicaciones, como Python, Java o C.\nElegir lenguaje depende de la **naturaleza del proyecto**, la **experiencia del equipo**, la **plataforma** donde se implanta y los **requisitos de eficiencia**."
+        },
+        {
+          "title": "Tipado",
+          "body": "- **Estático**: tipos comprobados **al compilar**; hay que declararlos. Más robusto (Java, C++).\n- **Dinámico**: tipos comprobados **al ejecutar**; una variable **puede cambiar de tipo** (Python, Ruby).\n- **Fuerte**: las conversiones se declaran **explícitamente** (Java, Python).\n- **Débil**: conversiones **implícitas** y automáticas (JavaScript, PHP)."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud01-l04",
+      "kind": "practice",
+      "title": "Clasificación de los lenguajes",
+      "section": "1.1",
+      "questionIds": [
+        "pia-ud01-q007",
+        "pia-ud01-q008",
+        "pia-ud01-q009",
+        "pia-ud01-q010",
+        "pia-ud01-q011",
+        "pia-ud01-q012",
+        "pia-ud01-q013",
+        "pia-ud01-q014",
+        "pia-ud01-q015"
+      ]
+    },
+    {
+      "id": "pia-ud01-l05",
+      "kind": "read",
+      "title": "Ciclo de desarrollo del software",
+      "section": "1.2",
+      "cards": [
+        {
+          "title": "Ocho fases",
+          "body": "Desarrollar software es crear aplicaciones con un **enfoque sistemático** para satisfacer **las necesidades de los usuarios** o las organizaciones. Las fases, en orden:\n- Definición del problema\n- Análisis de requisitos\n- Planificación del desarrollo\n- Diseño del software\n- Codificación\n- Depuración y pruebas\n- Despliegue\n- Mantenimiento"
+        },
+        {
+          "title": "Del problema al plan",
+          "body": "- **Definición**: identificar el problema con claridad; su marco y los **objetivos**.\n- **Análisis de requisitos**: un listado exhaustivo que es el **contrato entre cliente y desarrollador**; el cliente lo revisa y valida.\n- **Planificación**: tareas y sus **dependencias**, tiempos, perfiles y recursos. Se apoya en **PERT** y **Gantt**."
+        },
+        {
+          "title": "Diseño, código y después",
+          "body": "- **Diseño**: arquitectura, módulos, interfaz y relaciones entre componentes. Busca menos complejidad y **acoplamiento**, y más **reutilización**.\n- **Codificación**: escribir el código y conectar los componentes.\n- **Despliegue**: llevarlo a **producción** o a los usuarios.\n- **Mantenimiento**: actualizaciones, correcciones y mejoras tras el lanzamiento."
+        },
+        {
+          "title": "Tipos de pruebas",
+          "body": "- **Unitarias**: un elemento (clase, función) **aislado** del resto.\n- **Integración**: que **dos o más componentes** funcionen juntos.\n- **Sistema**: el sistema **completo**, en un entorno que simula producción.\n- **Rendimiento**: condiciones de **carga** reales.\n- **Seguridad**: penetración, vulnerabilidades y riesgos.\n- **Aceptación**: criterios del **cliente** o usuario final."
+        },
+        {
+          "title": "PERT, Gantt y documentación",
+          "body": "- **PERT**: modela tareas con **dependencias**; muestra las **tareas críticas** y los cuellos de botella.\n- **Gantt**: **barras horizontales** sobre un eje de tiempo, con inicio, fin y recursos.\n**Documentar** es comentar el código y describir el diseño. Facilita el **mantenimiento**, acorta desarrollos futuros y sube la calidad."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud01-l06",
+      "kind": "practice",
+      "title": "Ciclo de desarrollo del software",
+      "section": "1.2",
+      "questionIds": [
+        "pia-ud01-q016",
+        "pia-ud01-q017",
+        "pia-ud01-q018",
+        "pia-ud01-q019",
+        "pia-ud01-q020",
+        "pia-ud01-q021",
+        "pia-ud01-q022",
+        "pia-ud01-q023",
+        "pia-ud01-q024",
+        "pia-ud01-q025"
+      ]
+    },
+    {
+      "id": "pia-ud01-l07",
+      "kind": "read",
+      "title": "Machine Learning",
+      "section": "1.2.1",
+      "cards": [
+        {
+          "title": "Qué es el Machine Learning",
+          "body": "Los sistemas de IA hacen tareas que requerirían **inteligencia humana**: reconocer la voz, decidir, traducir o percibir imágenes. El **Machine Learning** o aprendizaje automático crea algoritmos para que las computadoras **aprendan de los datos** y hagan **predicciones o clasificaciones** con la **mínima intervención humana**."
+        },
+        {
+          "title": "Tres fases",
+          "body": "Una aplicación de IA pasa por **tres fases**, con **retroalimentación** entre ellas:\n- **Preparación de los datos**\n- **Entrenamiento y ajuste**\n- **Despliegue y monitorización**\nCuando los resultados no son los esperados, a menudo hay que **volver atrás** y revisar."
+        },
+        {
+          "title": "Preparación de los datos",
+          "body": "Datos para **entrenar, validar y probar**: relevantes, de calidad y suficientes. Cuatro tareas:\n- **Ingesta**: fuentes internas y externas; recopilar, estructurar y validar.\n- **Análisis y transformación**: estadísticas, valores perdidos, **sesgos y correlaciones**.\n- **Estudio del problema**: tipo de modelo (regresión, clasificación o agrupamiento) y algoritmo.\n- **Transformación y optimización** antes de entrenar."
+        },
+        {
+          "title": "Entrenar, ajustar y desplegar",
+          "body": "- **Entrenamiento**: con el algoritmo elegido y los **datos de entrenamiento**.\n- Se verifica con los **datos de validación**.\n- **Ajuste**: optimizar los **hiperparámetros**.\n- **Despliegue**: con seguridad, disponibilidad y rendimiento.\n- **Monitorización**: registrar la actividad del modelo (**log**)."
+        },
+        {
+          "title": "MLOps",
+          "body": "**MLOps** (Machine Learning Operations) es un conjunto de **buenas prácticas** para facilitar la implementación, el despliegue, la monitorización y el **mantenimiento continuo** de modelos en **producción**. Mejora la eficiencia, la escalabilidad, la calidad y la confiabilidad."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud01-l08",
+      "kind": "practice",
+      "title": "Machine Learning",
+      "section": "1.2.1",
+      "questionIds": [
+        "pia-ud01-q026",
+        "pia-ud01-q027",
+        "pia-ud01-q028",
+        "pia-ud01-q029",
+        "pia-ud01-q030",
+        "pia-ud01-q031",
+        "pia-ud01-q032",
+        "pia-ud01-q033",
+        "pia-ud01-q034"
+      ]
+    },
+    {
+      "id": "pia-ud01-l09",
+      "kind": "read",
+      "title": "Problemas típicos de la IA",
+      "section": "2",
+      "cards": [
+        {
+          "title": "Clasificar y predecir",
+          "body": "- **Clasificación y reconocimiento de patrones**: poner los datos en categorías. Spam, imágenes médicas, reconocimiento de voz en asistentes.\n- **Predicción y análisis de datos**: tendencias futuras a partir de datos históricos. Demanda, inventarios, **fraudes financieros**, desastres naturales."
+        },
+        {
+          "title": "Optimizar y recomendar",
+          "body": "- **Optimización y planificación**: soluciones óptimas a problemas complejos. **Rutas de entrega**, almacenamiento de mercancías, asignar recursos, horarios.\n- **Recomendación personalizada**: según preferencias y comportamiento. Películas, música, tiendas online, redes sociales."
+        },
+        {
+          "title": "Lenguaje y visión",
+          "body": "- **NLP** (procesamiento del lenguaje natural): comprender y generar texto. Traducción, resúmenes, **análisis de sentimientos**, extraer datos de documentos, **chatbots**.\n- **Visión por computadora**: imágenes y vídeos. Detección de objetos, **reconocimiento facial**, inspección de calidad, **conducción autónoma**."
+        },
+        {
+          "title": "Aprender y generar",
+          "body": "- **Aprendizaje automático**: modelos que aprenden de datos para tareas concretas. Diseñar **fármacos** con datos moleculares, materiales nuevos, robots que se adaptan.\n- **Generación de contenidos**: producciones digitales nuevas. Escenarios y personajes de videojuegos, música, historias, simuladores."
+        },
+        {
+          "title": "El caso de Envíos Rápidos",
+          "body": "Ana ve cuatro usos de la IA en su empresa de mensajería:\n- **Optimizar las rutas** de los repartidores.\n- Un **chatbot** de atención al cliente 24 horas.\n- **Predecir la demanda** por zonas y épocas.\n- **Detectar fraudes** en la entrega y el pago."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud01-l10",
+      "kind": "practice",
+      "title": "Problemas típicos de la IA",
+      "section": "2",
+      "questionIds": [
+        "pia-ud01-q035",
+        "pia-ud01-q036",
+        "pia-ud01-q037",
+        "pia-ud01-q038",
+        "pia-ud01-q039",
+        "pia-ud01-q040",
+        "pia-ud01-q041",
+        "pia-ud01-q042"
+      ]
+    },
+    {
+      "id": "pia-ud01-l11",
+      "kind": "read",
+      "title": "Lenguajes de programación para IA",
+      "section": "2.1",
+      "cards": [
+        {
+          "title": "Qué se le pide al lenguaje",
+          "body": "- **Simplicidad**: escribir y mantener el código.\n- **Prototipado rápido**: versiones operativas en fases tempranas.\n- **Legibilidad**: alto nivel de abstracción, cerca del lenguaje natural.\n- **Bibliotecas y frameworks**: reutilizar código.\n- **Comunidad** amplia: compartir soluciones."
+        },
+        {
+          "title": "Python y R",
+          "body": "- **Python**: el **lenguaje de referencia** para la IA por su sintaxis simple y legible y sus bibliotecas: **TensorFlow, Keras, PyTorch y Scikit-learn**.\n- **R**: **estadística y análisis de datos**. Muchos paquetes de análisis estadístico y **visualización**; útil para modelado predictivo y exploración de datos."
+        },
+        {
+          "title": "Java, C++ y Julia",
+          "body": "- **Java**: portable gracias a la **JVM** y el **bytecode**. Menos común en IA; sistemas **empresariales** y de gran escala. **Weka** y **Deeplearning4j**.\n- **C++**: **velocidad y eficiencia**; sistemas embebidos, señales y visión. **OpenCV** y TensorFlow.\n- **Julia**: el menos conocido; **cómputo científico**, sintaxis como Python y R y rendimiento como C++."
+        },
+        {
+          "title": "TIOBE y Stack Overflow",
+          "body": "- El **índice TIOBE** mide la **popularidad** de los lenguajes con los resultados de buscadores como Google, Baidu, Wikipedia o YouTube. Lo creó la empresa TIOBE, de **Eindhoven** (Países Bajos).\n- **Stack Overflow**: comunidad para resolver dudas técnicas que también sirve para la **promoción profesional**."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud01-l12",
+      "kind": "practice",
+      "title": "Lenguajes de programación para IA",
+      "section": "2.1",
+      "questionIds": [
+        "pia-ud01-q043",
+        "pia-ud01-q044",
+        "pia-ud01-q045",
+        "pia-ud01-q046",
+        "pia-ud01-q047",
+        "pia-ud01-q048",
+        "pia-ud01-q049"
+      ]
+    },
+    {
+      "id": "pia-ud01-l13",
+      "kind": "read",
+      "title": "Lenguajes de marcas en IA",
+      "section": "2.2",
+      "cards": [
+        {
+          "title": "Qué son",
+          "body": "Los **lenguajes de marcas** están formados por **etiquetas y reglas de uso**. A diferencia de los lenguajes de programación, **solo sirven para estructurar y organizar datos** que después se procesarán."
+        },
+        {
+          "title": "HTML",
+          "body": "**HTML** (HyperText Markup Language) es el estándar para hacer **páginas web**: define el contenido y cómo lo presenta el navegador. En IA sirve para diseñar la **interfaz de usuario** o como **fuente de datos** mediante **web scraping** para entrenar el modelo."
+        },
+        {
+          "title": "XML",
+          "body": "**XML** (Extensible Markup Language) es de propósito general: permite **definir etiquetas propias**. Sirve para **estructurar y compartir datos** entre sistemas. En IA intercambia datos con otros componentes y se usa en **ficheros de configuración**."
+        },
+        {
+          "title": "JSON",
+          "body": "**JSON** (JavaScript Object Notation) **no es un lenguaje de marcas** en sentido tradicional: es un formato **ligero** de intercambio de datos, basado en texto, con pares **«clave: valor»** y **listas ordenadas**. Las **APIs de IA** suelen devolver sus resultados en JSON, y se usa en **bases de datos no relacionales**."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud01-l14",
+      "kind": "practice",
+      "title": "Lenguajes de marcas en IA",
+      "section": "2.2",
+      "questionIds": [
+        "pia-ud01-q050",
+        "pia-ud01-q051",
+        "pia-ud01-q052",
+        "pia-ud01-q053",
+        "pia-ud01-q054",
+        "pia-ud01-q055",
+        "pia-ud01-q056"
+      ]
+    },
+    {
+      "id": "pia-ud01-l15",
+      "kind": "read",
+      "title": "La nube y las plataformas de IA",
+      "section": "2.3 y 2.4",
+      "cards": [
+        {
+          "title": "Qué es la nube",
+          "body": "Según el **NIST**, es un modelo de acceso **ubicuo, cómodo y a la carta** a recursos informáticos **compartidos y configurables** (redes, servidores, almacenamiento, aplicaciones y servicios) que se **aprovisionan y liberan rápido** con un **mínimo esfuerzo de gestión**."
+        },
+        {
+          "title": "Ventajas",
+          "body": "- **Bajo demanda y ahorro de costes**: recursos cuando hacen falta, sin mantener infraestructura; **pagas por consumo** (horas, tráfico, almacenamiento).\n- **Agilidad y elasticidad**: **escalar** según la carga y monitorizar para subir o bajar recursos.\n- **Facilidad para el despliegue**: herramientas que **automatizan** el paso de prototipo a producción."
+        },
+        {
+          "title": "Plataformas de IA",
+          "body": "Una **plataforma de IA** es un **ecosistema completo** de herramientas y servicios que facilita crear aplicaciones inteligentes y **oculta la complejidad** de la tarea. Nacen de las infraestructuras cloud. Las principales son **AWS, Google Cloud Platform, Microsoft Azure e IBM Watson**."
+        },
+        {
+          "title": "AWS y Google",
+          "body": "- **AWS**: **SageMaker** (modelos de ML), **Rekognition** (imágenes y vídeos), **Comprehend** (lenguaje natural), **Lex** (chatbots), **Polly** (síntesis de voz).\n- **Google**: **Cloud AI Platform** (ML), **AutoML** (modelos sin experiencia previa), **Cloud Vision** (imágenes), **Cloud Natural Language**, **Dialogflow** (chatbots)."
+        },
+        {
+          "title": "Azure e IBM",
+          "body": "- **Azure**: **Azure Machine Learning**, **Cognitive Services** (imágenes, voz y texto), **Azure Bot Service** (chatbots), **Azure Speech Services** (texto a voz y viceversa).\n- **IBM Watson**: **Watson Studio** (ML), **Watson Assistant** (chatbots), **Watson Discovery** (datos no estructurados)."
+        },
+        {
+          "title": "Cómo elegir plataforma",
+          "body": "Por orden de importancia:\n- Que dé una **solución** de IA acorde al proyecto.\n- Que el **coste** quepa en el presupuesto.\n- Que esté disponible en la **localización** del despliegue.\n- Que soporte los **lenguajes** necesarios."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud01-l16",
+      "kind": "practice",
+      "title": "La nube y las plataformas de IA",
+      "section": "2.3 y 2.4",
+      "questionIds": [
+        "pia-ud01-q057",
+        "pia-ud01-q058",
+        "pia-ud01-q059",
+        "pia-ud01-q060",
+        "pia-ud01-q061",
+        "pia-ud01-q062",
+        "pia-ud01-q063",
+        "pia-ud01-q064",
+        "pia-ud01-q065"
+      ]
+    },
+    {
+      "id": "pia-ud01-l17",
+      "kind": "read",
+      "title": "Perfiles profesionales y promoción",
+      "section": "3 y 3.1",
+      "cards": [
+        {
+          "title": "Científico de datos",
+          "body": "Recopila, **limpia, analiza y visualiza** datos para entrenar modelos y desarrolla algoritmos de ML. Se dedica a **investigar** algoritmos nuevos y optimizar los existentes. Necesita **álgebra lineal, cálculo numérico y estadística** en profundidad. Como la IA cambia muy deprisa, todos los perfiles necesitan **formación continua**."
+        },
+        {
+          "title": "Ingenieros de ML y de datos",
+          "body": "- **Ingeniero de ML / Analista de Datos / Experto en MLOps**: diseña, implementa, optimiza y **mantiene modelos** para aplicaciones prácticas; **aplica** herramientas existentes para apoyar decisiones.\n- **Ingeniero de Datos / Especialista en Big Data**: gestiona **grandes volúmenes de datos**, diseña arquitecturas escalables y crea **pipelines** que alimentan los modelos."
+        },
+        {
+          "title": "Otros perfiles",
+          "body": "- **Desarrollador de software de IA**: integra modelos en aplicaciones; programación y **trabajo en equipo**.\n- **Especialista en NLP**: comprender y generar **lenguaje natural**.\n- **Ingeniero de visión por computadora**: **imágenes y vídeos**, como el reconocimiento facial.\n- **Experto en ética de IA**: **sesgos algorítmicos**, privacidad e impacto social; filosofía moral y legislación."
+        },
+        {
+          "title": "Promoción profesional",
+          "body": "Iniciativas en el ecosistema de la IA:\n- **Plataformas especializadas**: LinkedIn, Stack Overflow, GitHub, Kaggle.\n- **Eventos y conferencias**: actualizarse y hacer contactos.\n- **Comunidad y colaboración**: foros, grupos, hackathones; relación **bidireccional**.\n- **Formación y divulgación**: talleres, cursos, tutoriales, artículos."
+        },
+        {
+          "title": "Hackathones y Kaggle",
+          "body": "Un **hackathon** es un evento en el que equipos trabajan **intensivamente** para resolver un reto, normalmente durante **pocos días**, de forma **presencial** y multidisciplinar. **Kaggle** es la alternativa para quien no puede ir: desafíos de ML con datos de empresas y un **catálogo de conjuntos de datos** para practicar."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud01-l18",
+      "kind": "practice",
+      "title": "Perfiles profesionales y promoción",
+      "section": "3 y 3.1",
+      "questionIds": [
+        "pia-ud01-q066",
+        "pia-ud01-q067",
+        "pia-ud01-q068",
+        "pia-ud01-q069",
+        "pia-ud01-q070",
+        "pia-ud01-q071",
+        "pia-ud01-q072",
+        "pia-ud01-q073",
+        "pia-ud01-q074"
+      ]
+    },
+    {
+      "id": "pia-ud01-l19",
+      "kind": "read",
+      "title": "Implicaciones de la IA",
+      "section": "4",
+      "cards": [
+        {
+          "title": "Implicaciones éticas",
+          "body": "- **Privacidad**: la IA recopila muchos datos de las personas.\n- **Transparencia**: sus algoritmos son complejos y cuesta entender cómo decide; plantea dudas de **responsabilidad y rendición de cuentas**.\n- **Seguridad**: puede usarse para **ataques** más sofisticados, como detectar vulnerabilidades y explotarlas."
+        },
+        {
+          "title": "Implicaciones legales",
+          "body": "- **Responsabilidad**: ¿quién responde si una IA daña a alguien, el fabricante, el usuario o el propio sistema?\n- **Propiedad intelectual**: ¿de quién es una obra creada por una IA?\n- **Privacidad**: las leyes actuales pueden **no bastar** y necesitar actualizarse."
+        },
+        {
+          "title": "Implicaciones sociales",
+          "body": "- **Automatización**: algunos trabajos pueden ser **reemplazados** por IA.\n- **Discriminación**: en contratación, vivienda o crédito, la IA puede **perpetuar prejuicios** y la desigualdad, y afectar a grupos marginados.\nAbordarlo puede pedir cambios en la legislación, la política y la educación."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud01-l20",
+      "kind": "practice",
+      "title": "Implicaciones de la IA",
+      "section": "4",
+      "questionIds": [
+        "pia-ud01-q075",
+        "pia-ud01-q076",
+        "pia-ud01-q077",
+        "pia-ud01-q078",
+        "pia-ud01-q079",
+        "pia-ud01-q080"
+      ]
+    },
+    {
+      "id": "pia-ud01-l21",
+      "kind": "read",
+      "title": "Marco normativo en España",
+      "section": "4.1",
+      "cards": [
+        {
+          "title": "LOPD-GDD",
+          "body": "La **Ley Orgánica 3/2018**, de Protección de Datos Personales y Garantía de los Derechos Digitales (**LOPD-GDD**), adapta el Derecho español al **Reglamento General de Protección de Datos**. Deroga la **LO 15/1999**, que sigue vigente para algunas actividades."
+        },
+        {
+          "title": "Carta y Ley 15/2022",
+          "body": "- **Carta de Derechos Digitales**: refuerza los derechos de la ciudadanía, da certidumbre ante la realidad digital y aumenta la **confianza** en las nuevas tecnologías.\n- **Ley 15/2022**, integral para la igualdad de trato y la no discriminación: la **primera regulación positiva del uso de la IA** por administraciones y empresas en España."
+        },
+        {
+          "title": "Estrategia Nacional de IA",
+          "body": "Dentro del **Plan España Digital 2026**, el **Eje Cuarto** trata la Economía del Dato e IA y su **Medida Catorce** propone un **marco normativo y ético** para desplegar una IA **fiable, explicable, transparente e inclusiva** que respete los derechos fundamentales."
+        },
+        {
+          "title": "Medidas del marco",
+          "body": "- **Sandbox Regulatorio** de IA, con la Comisión Europea: espacio para definir buenas prácticas.\n- **Agencia Nacional de Supervisión** de la IA.\n- Investigación y sensibilización: Plan de Protección para **Colectivos Vulnerables**.\n- **OBISAL**: Observatorio del impacto social y ético de los algoritmos.\n- **Sello de IA confiable**."
+        },
+        {
+          "title": "Compliance",
+          "body": "El **Compliance** son los procedimientos y prácticas de una empresa para **identificar y clasificar los riesgos operativos y legales** del desarrollo de software de IA, y los mecanismos internos para **prevenirlos, gestionarlos, controlarlos** y reaccionar ante ellos."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud01-l22",
+      "kind": "practice",
+      "title": "Marco normativo en España",
+      "section": "4.1",
+      "questionIds": [
+        "pia-ud01-q081",
+        "pia-ud01-q082",
+        "pia-ud01-q083",
+        "pia-ud01-q084",
+        "pia-ud01-q085",
+        "pia-ud01-q086",
+        "pia-ud01-q087"
+      ]
+    },
+    {
+      "id": "pia-ud01-l23",
+      "kind": "read",
+      "title": "Ley de IA de la UE",
+      "section": "4.2",
+      "cards": [
+        {
+          "title": "Qué es",
+          "body": "La **Ley de IA de la UE** es la **primera ley integral sobre IA del mundo**. Viene de la Resolución legislativa del Parlamento Europeo de **13 de marzo de 2024**. Busca una **IA fiable** que respete los derechos fundamentales, la seguridad y los principios éticos, y define **cuatro niveles de riesgo**."
+        },
+        {
+          "title": "Riesgo inaceptable",
+          "body": "Aplicaciones **prohibidas**, como:\n- **Categorización biométrica** por características sensibles y captura **indiscriminada** de imágenes faciales.\n- **Puntuación ciudadana**: vigilar el comportamiento, clasificar a las personas y darles premios o castigos.\n- IA que **manipule** el comportamiento o explote **vulnerabilidades**."
+        },
+        {
+          "title": "Alto riesgo: ámbitos",
+          "body": "Ejemplos de ámbitos:\n- **Infraestructuras críticas**.\n- **Formación** educativa o profesional.\n- Componentes de **seguridad** de productos.\n- **Empleo** y gestión de trabajadores.\n- Servicios esenciales, como la **calificación crediticia**.\n- **Justicia** y procesos democráticos."
+        },
+        {
+          "title": "Alto riesgo: obligaciones",
+          "body": "Antes de comercializarse necesitan: evaluación y **mitigación de riesgos**, **datos de alta calidad**, **registro de actividad** para la trazabilidad, **documentación** exhaustiva, información clara al usuario, **supervisión humana** y alta robustez, seguridad y precisión."
+        },
+        {
+          "title": "Riesgo limitado y mínimo",
+          "body": "- **Limitado**: riesgos por falta de **transparencia**. Un **chatbot** debe dejar claro que hablas con una máquina; el contenido de IA debe ser identificable y los textos de interés público y los **deepfakes**, etiquetados.\n- **Mínimo o nulo**: **uso libre**. Videojuegos con IA o **filtros de spam**; es la **mayoría** de sistemas en la UE."
+        },
+        {
+          "title": "Lo que cuenta el vídeo de RTVE",
+          "body": "El vídeo de RTVE incluido en la unidad añade:\n- Multas de hasta **35 millones de euros o el 7 %** del negocio anual.\n- **Dos años** de plazo para su completo desarrollo.\n- Datos biométricos en tiempo real solo en casos concretos y con **autorización judicial** previa."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud01-l24",
+      "kind": "practice",
+      "title": "Ley de IA de la UE",
+      "section": "4.2",
+      "questionIds": [
+        "pia-ud01-q088",
+        "pia-ud01-q089",
+        "pia-ud01-q090",
+        "pia-ud01-q091",
+        "pia-ud01-q092",
+        "pia-ud01-q093",
+        "pia-ud01-q094",
+        "pia-ud01-q095",
+        "pia-ud01-q096",
+        "pia-ud01-q097"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "type": "choice",
+      "prompt": "¿Qué es un algoritmo según los apuntes?",
+      "options": [
+        "Un conjunto de reglas y sintaxis que permite comunicarse con una computadora y darle órdenes",
+        "El código máquina que genera un compilador antes de que el programa se ejecute",
+        "El listado de requisitos que el cliente revisa y valida antes de empezar a programar",
+        "Una secuencia lógica de instrucciones que resuelve un problema de forma efectiva, eficiente y precisa"
+      ],
+      "answer": 3,
+      "explanation": "El algoritmo es la secuencia lógica de pasos que resuelve el problema. Las reglas y la sintaxis definen un lenguaje de programación, que es otra cosa.",
+      "source": "PIA UD1, apartado 1",
+      "difficulty": 1,
+      "id": "pia-ud01-q001"
+    },
+    {
+      "type": "choice",
+      "prompt": "Una programadora divide un problema en partes más básicas y aprovecha la solución de otro parecido que ya estaba resuelto. ¿Qué característica está usando?",
+      "options": [
+        "Capacidad de abstracción",
+        "Pensamiento lógico",
+        "Creatividad y simplicidad",
+        "Habilidad para depurar errores"
+      ],
+      "answer": 0,
+      "explanation": "Separar el problema de su contexto, dividirlo y reutilizar soluciones de problemas parecidos es la capacidad de abstracción. El pensamiento lógico va de llegar a conclusiones a partir de principios y reglas.",
+      "source": "PIA UD1, apartado 1",
+      "difficulty": 3,
+      "id": "pia-ud01-q002"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Según los apuntes, cuanto más simple es una solución, más fácil es mantenerla y menos acoplamiento hay entre componentes.",
+      "answer": true,
+      "explanation": "Es lo que dicen de la creatividad y la simplicidad: las soluciones simples se entienden y se mantienen mejor, y reducen errores y acoplamiento.",
+      "source": "PIA UD1, apartado 1",
+      "difficulty": 1,
+      "id": "pia-ud01-q003"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué rama de las matemáticas es esencial para las operaciones de las técnicas de aprendizaje automático, según los apuntes?",
+      "options": [
+        "La geometría",
+        "El álgebra",
+        "La lógica",
+        "La estadística"
+      ],
+      "answer": 1,
+      "explanation": "Los apuntes dicen que el álgebra trabaja con estructuras numéricas y es esencial para esas operaciones. La lógica valida argumentos y la estadística organiza y analiza datos.",
+      "source": "PIA UD1, apartado 1",
+      "difficulty": 2,
+      "id": "pia-ud01-q004"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada característica del buen programador con lo que significa.",
+      "pairs": [
+        [
+          "Pensamiento lógico",
+          "Llegar a conclusiones con principios y reglas"
+        ],
+        [
+          "Habilidad para depurar errores",
+          "Aislar, identificar y corregir fallos de forma sistemática"
+        ],
+        [
+          "Conocimientos técnicos",
+          "Dominar lenguajes, estructuras de datos y plataformas cloud"
+        ],
+        [
+          "Trabajo en equipo",
+          "Colaborar y defender propuestas con control de versiones"
+        ]
+      ],
+      "explanation": "Cada definición sale de la lista de características del apartado 1. La depuración no consiste en no fallar, sino en encontrar y corregir los fallos con método.",
+      "source": "PIA UD1, apartado 1",
+      "difficulty": 2,
+      "id": "pia-ud01-q005"
+    },
+    {
+      "type": "choice",
+      "prompt": "Según los apuntes, el trabajo en equipo de un programador se articula gracias a ___.",
+      "options": [
+        "las plataformas cloud de IA",
+        "las pruebas de integración",
+        "el software de control de versiones",
+        "los diagramas de Gantt"
+      ],
+      "answer": 2,
+      "explanation": "La característica completa se llama capacidad de trabajo en equipo y uso de software de control de versiones. Gantt sirve para planificar el calendario del proyecto.",
+      "source": "PIA UD1, apartado 1",
+      "difficulty": 1,
+      "id": "pia-ud01-q006"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué ejemplo de lenguaje de bajo nivel dan los apuntes?",
+      "options": [
+        "C#",
+        "JavaScript",
+        "Python",
+        "El ensamblador MIPS"
+      ],
+      "answer": 3,
+      "explanation": "MIPS y Motorola 68000 son ensambladores, muy cercanos al lenguaje máquina y dependientes del hardware. C#, JavaScript y Python aparecen como lenguajes de alto nivel.",
+      "source": "PIA UD1, apartado 1.1",
+      "difficulty": 1,
+      "id": "pia-ud01-q007"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Cómo se ejecuta un lenguaje interpretado?",
+      "options": [
+        "Un intérprete lo traduce y ejecuta línea a línea durante la ejecución",
+        "Se traduce entero a código máquina y se genera un ejecutable",
+        "Se compila a bytecode y luego lo ejecuta una máquina virtual",
+        "Se traduce a ensamblador y lo ejecuta directamente el hardware"
+      ],
+      "answer": 0,
+      "explanation": "En los interpretados no se genera un ejecutable: el intérprete lee y ejecuta el código fuente sobre la marcha. Compilar entero antes de ejecutar es lo propio de los compilados.",
+      "source": "PIA UD1, apartado 1.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q008"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Por qué ponen los apuntes Java como ejemplo de lenguaje híbrido?",
+      "options": [
+        "Porque sirve tanto para web como para análisis de datos",
+        "Porque compila a bytecode, que luego ejecuta la JVM",
+        "Porque admite programación imperativa y orientada a objetos",
+        "Porque tiene tipado estático y conversiones explícitas"
+      ],
+      "answer": 1,
+      "explanation": "Híbrido se refiere al modo de ejecución: mezcla compilación (a bytecode) e interpretación en la máquina virtual. Admitir varios paradigmas sería ser multiparadigma, que es otro criterio.",
+      "source": "PIA UD1, apartado 1.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q009"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada paradigma con su idea principal.",
+      "pairs": [
+        [
+          "Imperativo",
+          "Describe paso a paso cómo hacer las operaciones"
+        ],
+        [
+          "Declarativo",
+          "Especifica qué hay que hacer, no cómo"
+        ],
+        [
+          "Orientado a eventos",
+          "Responde a acciones del usuario o del sistema"
+        ],
+        [
+          "Orientado a objetos",
+          "Organiza el software en objetos con datos y métodos"
+        ]
+      ],
+      "explanation": "La clave para no confundir imperativo y declarativo es el «cómo» frente al «qué». Los eventos son acciones del usuario o del sistema a las que el programa responde.",
+      "source": "PIA UD1, apartado 1.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q010"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Cuál de estos lenguajes ponen los apuntes como ejemplo de paradigma declarativo?",
+      "options": [
+        "Visual Basic",
+        "Rust",
+        "Prolog",
+        "C"
+      ],
+      "answer": 2,
+      "explanation": "Prolog es el ejemplo de lenguaje declarativo, junto a SQL, HTML, CSS y XSLT, que no son lenguajes de programación propiamente dichos. C es imperativo y Visual Basic, orientado a eventos.",
+      "source": "PIA UD1, apartado 1.1",
+      "difficulty": 1,
+      "id": "pia-ud01-q011"
+    },
+    {
+      "type": "choice",
+      "prompt": "En este código la variable cambia de tipo durante la ejecución. ¿En cuál de estos lenguajes sería posible, según los apuntes?",
+      "code": "pedidos = 25\npedidos = \"veinticinco\"",
+      "options": [
+        "Java",
+        "C++",
+        "Python"
+      ],
+      "answer": 2,
+      "explanation": "Python es de tipado dinámico: los tipos se comprueban al ejecutar y una variable puede cambiar de tipo. Java y C++ son de tipado estático, con el tipo declarado y verificado al compilar.",
+      "source": "PIA UD1, apartado 1.1",
+      "difficulty": 3,
+      "id": "pia-ud01-q012"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Python es a la vez un lenguaje de tipado dinámico y de tipado fuerte.",
+      "answer": true,
+      "explanation": "Son dos criterios distintos. Dinámico dice cuándo se comprueban los tipos (al ejecutar) y fuerte, que las conversiones entre tipos hay que hacerlas de forma explícita.",
+      "source": "PIA UD1, apartado 1.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q013"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué caracteriza a un lenguaje de tipado débil?",
+      "options": [
+        "Permite conversiones implícitas y automáticas entre tipos",
+        "Comprueba los tipos solo durante la ejecución",
+        "Obliga a declarar todas las conversiones de forma explícita",
+        "Comprueba los tipos antes de ejecutar el programa"
+      ],
+      "answer": 0,
+      "explanation": "Débil o fuerte habla de lo estrictas que son las conversiones; el débil las hace solo. Comprobar los tipos al ejecutar es tipado dinámico, que es otro criterio.",
+      "source": "PIA UD1, apartado 1.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q014"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "En un lenguaje de tipado estático, los errores de tipo solo aparecen cuando el programa ya se está ejecutando.",
+      "answer": false,
+      "explanation": "Eso pasa en el tipado dinámico. En el estático los tipos se verifican al compilar, antes de ejecutar, y por eso los programas son más robustos.",
+      "source": "PIA UD1, apartado 1.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q015"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena las primeras fases del ciclo de desarrollo del software.",
+      "steps": [
+        "Definición del problema",
+        "Análisis de requisitos",
+        "Planificación del desarrollo",
+        "Diseño del software"
+      ],
+      "explanation": "Primero se entiende el problema, luego se documenta qué debe hacer el software, después se planifica el trabajo y por último se diseña la arquitectura.",
+      "source": "PIA UD1, apartado 1.2",
+      "difficulty": 1,
+      "id": "pia-ud01-q016"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena estas fases del ciclo de desarrollo, de la primera a la última.",
+      "steps": [
+        "Diseño del software",
+        "Codificación",
+        "Depuración y pruebas",
+        "Despliegue",
+        "Mantenimiento"
+      ],
+      "explanation": "Se programa lo diseñado, se prueba, se lleva a producción y, una vez lanzado, se mantiene con correcciones y mejoras.",
+      "source": "PIA UD1, apartado 1.2",
+      "difficulty": 2,
+      "id": "pia-ud01-q017"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿En qué fase se obtiene el listado de requisitos que hace de contrato entre el cliente y el desarrollador?",
+      "options": [
+        "Diseño del software",
+        "Análisis de requisitos",
+        "Definición del problema",
+        "Planificación del desarrollo"
+      ],
+      "answer": 1,
+      "explanation": "En el análisis de requisitos se documenta lo que debe hacer el software y el cliente lo revisa y valida. En la definición del problema solo se fijan el marco y los objetivos.",
+      "source": "PIA UD1, apartado 1.2",
+      "difficulty": 1,
+      "id": "pia-ud01-q018"
+    },
+    {
+      "type": "choice",
+      "prompt": "Un equipo estima cuánto durará cada tarea y qué perfiles profesionales va a necesitar. ¿En qué fase está?",
+      "options": [
+        "Diseño del software",
+        "Definición del problema",
+        "Planificación del desarrollo",
+        "Análisis de requisitos"
+      ],
+      "answer": 2,
+      "explanation": "Estimar tiempos e identificar perfiles y recursos es planificar. El análisis de requisitos define qué debe hacer el software, no cuánto se tardará.",
+      "source": "PIA UD1, apartado 1.2",
+      "difficulty": 3,
+      "id": "pia-ud01-q019"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada tipo de prueba con lo que comprueba.",
+      "pairs": [
+        [
+          "Unitarias",
+          "Un elemento aislado del resto del código"
+        ],
+        [
+          "Integración",
+          "Que dos o más componentes funcionen juntos"
+        ],
+        [
+          "Sistema",
+          "El sistema completo en un entorno que simula producción"
+        ],
+        [
+          "Aceptación",
+          "Los criterios del cliente o del usuario final"
+        ]
+      ],
+      "explanation": "La confusión típica es entre unitarias, integración y sistema: van de un elemento solo, a la comunicación entre componentes, al conjunto completo.",
+      "source": "PIA UD1, apartado 1.2",
+      "difficulty": 2,
+      "id": "pia-ud01-q020"
+    },
+    {
+      "type": "choice",
+      "prompt": "Una empresa somete su aplicación a pruebas de penetración y análisis de vulnerabilidades. ¿Qué tipo de pruebas está haciendo?",
+      "options": [
+        "Pruebas de rendimiento",
+        "Pruebas de sistema",
+        "Pruebas de aceptación",
+        "Pruebas de seguridad"
+      ],
+      "answer": 3,
+      "explanation": "Las pruebas de penetración y el análisis de vulnerabilidades son las técnicas que citan los apuntes para las pruebas de seguridad.",
+      "source": "PIA UD1, apartado 1.2",
+      "difficulty": 3,
+      "id": "pia-ud01-q021"
+    },
+    {
+      "type": "choice",
+      "prompt": "Quieres saber cómo responde tu aplicación cuando la usan muchísimas personas a la vez. ¿Qué pruebas haces?",
+      "options": [
+        "Pruebas de rendimiento",
+        "Pruebas de integración",
+        "Pruebas unitarias",
+        "Pruebas de aceptación"
+      ],
+      "answer": 0,
+      "explanation": "Las de rendimiento evalúan el sistema en condiciones de carga reales para garantizar estabilidad y eficiencia. Las de integración miran si los componentes se comunican bien.",
+      "source": "PIA UD1, apartado 1.2",
+      "difficulty": 3,
+      "id": "pia-ud01-q022"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Las pruebas unitarias comprueban que varios componentes del software se comunican bien entre sí.",
+      "answer": false,
+      "explanation": "Eso lo hacen las pruebas de integración. Las unitarias prueban un elemento, como una clase o una función, de forma independiente del resto.",
+      "source": "PIA UD1, apartado 1.2",
+      "difficulty": 2,
+      "id": "pia-ud01-q023"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué herramienta representa el calendario de un proyecto con barras horizontales sobre un eje de tiempo?",
+      "options": [
+        "El diagrama de arquitectura",
+        "El diagrama de Gantt",
+        "El diagrama de PERT",
+        "El listado de requisitos"
+      ],
+      "answer": 1,
+      "explanation": "Gantt muestra el calendario con barras, fechas de inicio y fin y recursos. PERT se centra en las dependencias entre tareas y en las tareas críticas.",
+      "source": "PIA UD1, apartado 1.2",
+      "difficulty": 1,
+      "id": "pia-ud01-q024"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿En qué fase se presta especial atención a reducir el acoplamiento y a poder reutilizar componentes?",
+      "options": [
+        "Mantenimiento",
+        "Depuración y pruebas",
+        "Diseño del software",
+        "Codificación"
+      ],
+      "answer": 2,
+      "explanation": "Al diseñar la arquitectura se busca reducir la complejidad y el acoplamiento y facilitar el mantenimiento y la reutilización. En la codificación se implementa ese diseño.",
+      "source": "PIA UD1, apartado 1.2",
+      "difficulty": 2,
+      "id": "pia-ud01-q025"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena las fases del desarrollo de una aplicación de IA.",
+      "steps": [
+        "Preparación de los datos",
+        "Entrenamiento y ajuste",
+        "Despliegue y monitorización"
+      ],
+      "explanation": "Sin datos preparados no se puede entrenar, y solo se despliega y vigila un modelo ya entrenado y ajustado.",
+      "source": "PIA UD1, apartado 1.2.1",
+      "difficulty": 1,
+      "id": "pia-ud01-q026"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena las tareas de la preparación de los datos.",
+      "steps": [
+        "Ingesta de datos",
+        "Análisis y transformación de los datos",
+        "Estudio de problemas de aprendizaje automático",
+        "Transformación y optimización de los datos"
+      ],
+      "explanation": "Primero se reúnen los datos, luego se analizan, después se decide el tipo de modelo y el algoritmo y por último se transforman para el entrenamiento.",
+      "source": "PIA UD1, apartado 1.2.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q027"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿En qué tarea de la preparación de los datos se identifican los posibles sesgos y las correlaciones?",
+      "options": [
+        "Ingesta de datos",
+        "Estudio de problemas de aprendizaje automático",
+        "Transformación y optimización de los datos",
+        "Análisis y transformación de los datos"
+      ],
+      "answer": 3,
+      "explanation": "Al analizar los datos se hacen estudios estadísticos, se tratan los valores perdidos y se buscan sesgos y correlaciones. La ingesta solo identifica fuentes y recopila los datos.",
+      "source": "PIA UD1, apartado 1.2.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q028"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿En qué tarea se decide si el problema es de regresión, de clasificación o de agrupamiento?",
+      "options": [
+        "Estudio de problemas de aprendizaje automático",
+        "Análisis y transformación de los datos",
+        "Ingesta de datos",
+        "Entrenamiento del modelo"
+      ],
+      "answer": 0,
+      "explanation": "En el estudio del problema se identifica el tipo de modelo, se elige el algoritmo y se preparan los datos para él.",
+      "source": "PIA UD1, apartado 1.2.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q029"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "En la ingesta de datos solo se tienen en cuenta las fuentes de datos internas de la empresa.",
+      "answer": false,
+      "explanation": "La ingesta identifica fuentes internas y externas, y además recopila, estructura y valida los datos.",
+      "source": "PIA UD1, apartado 1.2.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q030"
+    },
+    {
+      "type": "choice",
+      "prompt": "Después de entrenar el modelo, ¿con qué datos se comprueba que es adecuado para el problema?",
+      "options": [
+        "Con los datos de la ingesta sin procesar",
+        "Con los datos de validación",
+        "Con los datos de entrenamiento",
+        "Con los registros de la monitorización"
+      ],
+      "answer": 1,
+      "explanation": "El modelo se entrena con el conjunto de entrenamiento y su idoneidad se verifica con los datos de validación, que son distintos.",
+      "source": "PIA UD1, apartado 1.2.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q031"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué se optimiza en el ajuste del modelo?",
+      "options": [
+        "El tratamiento de los valores perdidos",
+        "La infraestructura de despliegue",
+        "Los hiperparámetros del entrenamiento",
+        "Las fuentes de datos internas"
+      ],
+      "answer": 2,
+      "explanation": "El ajuste busca los mejores resultados optimizando los hiperparámetros. Los valores perdidos se tratan antes, al preparar los datos.",
+      "source": "PIA UD1, apartado 1.2.1",
+      "difficulty": 1,
+      "id": "pia-ud01-q032"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué es MLOps?",
+      "options": [
+        "Un algoritmo de aprendizaje automático que agrupa los datos por similitud",
+        "Un servicio de Amazon Web Services para entrenar modelos de machine learning",
+        "La tarea de la preparación de datos en la que se eligen los algoritmos",
+        "Un conjunto de buenas prácticas para desplegar, monitorizar y mantener modelos en producción"
+      ],
+      "answer": 3,
+      "explanation": "MLOps no es un algoritmo ni un producto: son buenas prácticas para llevar y mantener modelos en producción con eficiencia y calidad.",
+      "source": "PIA UD1, apartado 1.2.1",
+      "difficulty": 1,
+      "id": "pia-ud01-q033"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena lo que se hace en la fase de entrenamiento y ajuste.",
+      "steps": [
+        "Entrenar el modelo con los datos de entrenamiento",
+        "Verificar su idoneidad con los datos de validación",
+        "Optimizar los hiperparámetros"
+      ],
+      "explanation": "Se entrena con el algoritmo elegido, se comprueba con validación y, por último, se ajustan los hiperparámetros.",
+      "source": "PIA UD1, apartado 1.2.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q034"
+    },
+    {
+      "type": "choice",
+      "prompt": "Una tienda online quiere sugerir a cada cliente productos según lo que ha comprado antes. ¿Qué tipo de problema es?",
+      "options": [
+        "Recomendación personalizada",
+        "Predicción y análisis de datos",
+        "Clasificación y reconocimiento de patrones",
+        "Generación de contenidos"
+      ],
+      "answer": 0,
+      "explanation": "Sugerir productos según las preferencias y el comportamiento del usuario es recomendación personalizada. Los apuntes citan justo los productos de tiendas en línea.",
+      "source": "PIA UD1, apartado 2",
+      "difficulty": 3,
+      "id": "pia-ud01-q035"
+    },
+    {
+      "type": "choice",
+      "prompt": "Una empresa logística quiere repartir sus camiones entre los almacenes para mover las mercancías con el menor coste. ¿Qué tipo de problema es?",
+      "options": [
+        "Visión por computadora",
+        "Optimización y planificación",
+        "Predicción y análisis de datos",
+        "Recomendación personalizada"
+      ],
+      "answer": 1,
+      "explanation": "Buscar la mejor distribución de mercancías y recursos es optimización y planificación. Que se hable de costes no lo convierte en predicción: no se anticipa nada, se busca la mejor solución.",
+      "source": "PIA UD1, apartado 2",
+      "difficulty": 3,
+      "id": "pia-ud01-q036"
+    },
+    {
+      "type": "choice",
+      "prompt": "Un sistema lee las reseñas de los clientes para saber si están satisfechos. ¿En qué tipo de problema encaja?",
+      "options": [
+        "Visión por computadora",
+        "Optimización y planificación",
+        "Procesamiento del Lenguaje Natural",
+        "Recomendación personalizada"
+      ],
+      "answer": 2,
+      "explanation": "El análisis de sentimientos y la evaluación de la satisfacción del cliente son ejemplos de NLP en los apuntes: el sistema tiene que entender texto escrito por personas.",
+      "source": "PIA UD1, apartado 2",
+      "difficulty": 3,
+      "id": "pia-ud01-q037"
+    },
+    {
+      "type": "choice",
+      "prompt": "Un filtro que separa los correos de spam de los normales es un ejemplo de...",
+      "options": [
+        "Predicción y análisis de datos",
+        "Optimización y planificación",
+        "Generación de contenidos",
+        "Clasificación y reconocimiento de patrones"
+      ],
+      "answer": 3,
+      "explanation": "El filtro coloca cada correo en una categoría, spam o normal. La detección de spam es el primer ejemplo de clasificación que dan los apuntes.",
+      "source": "PIA UD1, apartado 2",
+      "difficulty": 2,
+      "id": "pia-ud01-q038"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Según los apuntes, la detección de fraudes financieros es un ejemplo de predicción y análisis de datos.",
+      "answer": true,
+      "explanation": "Aparece en esa categoría junto a la gestión de inventarios y la predicción de la demanda: se usan datos históricos para anticipar comportamientos.",
+      "source": "PIA UD1, apartado 2",
+      "difficulty": 2,
+      "id": "pia-ud01-q039"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada tipo de problema con un ejemplo de los apuntes.",
+      "pairs": [
+        [
+          "Visión por computadora",
+          "Conducción autónoma"
+        ],
+        [
+          "Aprendizaje automático",
+          "Diseño de fármacos con datos moleculares"
+        ],
+        [
+          "Generación de contenidos",
+          "Personajes de videojuegos"
+        ],
+        [
+          "Recomendación personalizada",
+          "Sugerencias de películas y música"
+        ]
+      ],
+      "explanation": "Cada ejemplo sale de la lista de ocho problemas típicos. Los fármacos aparecen en aprendizaje automático, no en predicción.",
+      "source": "PIA UD1, apartado 2",
+      "difficulty": 2,
+      "id": "pia-ud01-q040"
+    },
+    {
+      "type": "choice",
+      "prompt": "Una fábrica usa cámaras con IA para detectar piezas defectuosas en la cadena de montaje. ¿Qué tipo de problema es?",
+      "options": [
+        "Visión por computadora",
+        "Generación de contenidos",
+        "Recomendación personalizada",
+        "Predicción y análisis de datos"
+      ],
+      "answer": 0,
+      "explanation": "Interpretar imágenes para la inspección automatizada de calidad es visión por computadora.",
+      "source": "PIA UD1, apartado 2",
+      "difficulty": 3,
+      "id": "pia-ud01-q041"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Predecir cuántos envíos habrá en cada zona según la época del año es un problema de optimización y planificación.",
+      "answer": false,
+      "explanation": "Anticipar la demanda a partir de datos anteriores es predicción y análisis de datos. Optimización sería, por ejemplo, decidir las rutas de reparto.",
+      "source": "PIA UD1, apartado 2",
+      "difficulty": 3,
+      "id": "pia-ud01-q042"
+    },
+    {
+      "type": "choice",
+      "prompt": "Un grupo de investigación quiere explorar datos y hacer modelado predictivo con muchas herramientas estadísticas y de visualización. ¿Qué lenguaje encaja mejor según los apuntes?",
+      "options": [
+        "Julia",
+        "R",
+        "Java",
+        "C++"
+      ],
+      "answer": 1,
+      "explanation": "R destaca por sus paquetes de análisis estadístico y visualización, y los apuntes lo señalan para modelado predictivo y exploración de datos. Java se usa más en sistemas empresariales.",
+      "source": "PIA UD1, apartado 2.1",
+      "difficulty": 3,
+      "id": "pia-ud01-q043"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada lenguaje con las bibliotecas o paquetes que citan los apuntes.",
+      "pairs": [
+        [
+          "Python",
+          "Keras y PyTorch"
+        ],
+        [
+          "Java",
+          "Weka y Deeplearning4j"
+        ],
+        [
+          "C++",
+          "OpenCV"
+        ],
+        [
+          "R",
+          "Paquetes de análisis estadístico"
+        ]
+      ],
+      "explanation": "TensorFlow aparece en Python y en C++, por eso no está en las parejas. Weka y Deeplearning4j son las de Java.",
+      "source": "PIA UD1, apartado 2.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q044"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué lenguaje es portable gracias a su máquina virtual y al bytecode?",
+      "options": [
+        "Julia",
+        "R",
+        "Java",
+        "C++"
+      ],
+      "answer": 2,
+      "explanation": "El código Java se convierte en bytecode, que se ejecuta en cualquier equipo con la JVM. Por eso se usa en sistemas empresariales de gran escala.",
+      "source": "PIA UD1, apartado 2.1",
+      "difficulty": 1,
+      "id": "pia-ud01-q045"
+    },
+    {
+      "type": "choice",
+      "prompt": "Necesitas una IA para un sistema embebido en el que lo más importante es la velocidad. ¿Qué lenguaje recomiendan los apuntes?",
+      "options": [
+        "Python",
+        "R",
+        "Java",
+        "C++"
+      ],
+      "answer": 3,
+      "explanation": "C++ es conocido por su velocidad y eficiencia, y los apuntes lo sitúan en sistemas embebidos, procesamiento de señales y visión por computadora.",
+      "source": "PIA UD1, apartado 2.1",
+      "difficulty": 3,
+      "id": "pia-ud01-q046"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Julia tiene una sintaxis parecida a la de Python y R y un rendimiento comparable al de C++.",
+      "answer": true,
+      "explanation": "Así lo describen los apuntes: un lenguaje para cómputo científico y numérico que une una sintaxis sencilla con un rendimiento alto.",
+      "source": "PIA UD1, apartado 2.1",
+      "difficulty": 1,
+      "id": "pia-ud01-q047"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué mide el índice TIOBE?",
+      "options": [
+        "La popularidad de los lenguajes de programación",
+        "La velocidad de ejecución de cada lenguaje",
+        "El número de bibliotecas de IA de cada lenguaje",
+        "La calidad de las respuestas de Stack Overflow"
+      ],
+      "answer": 0,
+      "explanation": "TIOBE calcula la popularidad a partir del número de resultados en buscadores para consultas con el nombre de cada lenguaje.",
+      "source": "PIA UD1, apartado 2.1",
+      "difficulty": 1,
+      "id": "pia-ud01-q048"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Para desarrollar IA conviene un lenguaje de bajo nivel de abstracción, porque así el código es más legible.",
+      "answer": false,
+      "explanation": "Es al revés: la legibilidad viene de un alto nivel de abstracción, cercano a la lógica humana y al lenguaje natural.",
+      "source": "PIA UD1, apartado 2.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q049"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿En qué formato están estos datos?",
+      "code": "{\"pedido\": 1042, \"estado\": \"en reparto\", \"paradas\": [\"Sevilla\", \"Córdoba\"]}",
+      "options": [
+        "CSS",
+        "JSON",
+        "XML",
+        "HTML"
+      ],
+      "answer": 1,
+      "explanation": "Hay pares clave: valor entre llaves y una lista ordenada entre corchetes, que es la estructura de JSON. XML y HTML usarían etiquetas entre < y >.",
+      "source": "PIA UD1, apartado 2.2",
+      "difficulty": 3,
+      "id": "pia-ud01-q050"
+    },
+    {
+      "type": "choice",
+      "prompt": "Estos datos usan etiquetas que ha inventado quien los escribió. ¿Qué lenguaje lo permite?",
+      "code": "<envio>\n  <destino>Málaga</destino>\n  <peso>2.5</peso>\n</envio>",
+      "options": [
+        "JSON",
+        "CSS",
+        "XML",
+        "HTML"
+      ],
+      "answer": 2,
+      "explanation": "XML es de propósito general y permite definir etiquetas propias para estructurar y compartir datos. HTML tiene etiquetas fijas pensadas para páginas web, y JSON no usa etiquetas.",
+      "source": "PIA UD1, apartado 2.2",
+      "difficulty": 3,
+      "id": "pia-ud01-q051"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "JSON es un lenguaje de marcas en el sentido tradicional, igual que HTML o XML.",
+      "answer": false,
+      "explanation": "Los apuntes lo estudian junto a ellos, pero aclaran que no lo es: es un formato ligero de intercambio de datos basado en texto.",
+      "source": "PIA UD1, apartado 2.2",
+      "difficulty": 2,
+      "id": "pia-ud01-q052"
+    },
+    {
+      "type": "choice",
+      "prompt": "Una API de IA te devuelve el resultado de una predicción. Según los apuntes, ¿en qué formato suele llegar?",
+      "options": [
+        "HTML",
+        "XML",
+        "CSS",
+        "JSON"
+      ],
+      "answer": 3,
+      "explanation": "Los apuntes dicen que las APIs de inteligencia artificial suelen dar los resultados en JSON. XML se menciona más para ficheros de configuración.",
+      "source": "PIA UD1, apartado 2.2",
+      "difficulty": 2,
+      "id": "pia-ud01-q053"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Para qué se usa HTML en el desarrollo de una IA, según los apuntes?",
+      "options": [
+        "Para diseñar la interfaz o sacar datos de webs con web scraping",
+        "Para escribir los ficheros de configuración del sistema",
+        "Para construir bases de datos no relacionales",
+        "Para definir etiquetas propias que compartan otros sistemas"
+      ],
+      "answer": 0,
+      "explanation": "HTML sirve para la interfaz de usuario o como fuente de datos con web scraping. Los ficheros de configuración son cosa de XML y las bases de datos no relacionales, de JSON.",
+      "source": "PIA UD1, apartado 2.2",
+      "difficulty": 2,
+      "id": "pia-ud01-q054"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada lenguaje con uno de sus usos en IA.",
+      "pairs": [
+        [
+          "HTML",
+          "Interfaz de usuario y web scraping"
+        ],
+        [
+          "XML",
+          "Ficheros de configuración del sistema"
+        ],
+        [
+          "JSON",
+          "Bases de datos no relacionales"
+        ]
+      ],
+      "explanation": "Los tres estructuran datos, pero los apuntes les dan papeles distintos: HTML presenta, XML configura y comparte, y JSON intercambia y almacena.",
+      "source": "PIA UD1, apartado 2.2",
+      "difficulty": 2,
+      "id": "pia-ud01-q055"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "A diferencia de los lenguajes de programación, los lenguajes de marcas solo sirven para estructurar y organizar datos.",
+      "answer": true,
+      "explanation": "Es la diferencia que marcan los apuntes: las etiquetas organizan los datos para procesarlos después, pero no dan instrucciones a la computadora.",
+      "source": "PIA UD1, apartado 2.2",
+      "difficulty": 1,
+      "id": "pia-ud01-q056"
+    },
+    {
+      "type": "choice",
+      "prompt": "Monitorizas la carga de tu aplicación y amplías o reduces los recursos contratados según lo que haga falta en cada momento. ¿Qué ventaja de la nube estás aprovechando?",
+      "options": [
+        "Prototipado rápido",
+        "Agilidad y elasticidad",
+        "Facilidad para el despliegue",
+        "Supervisión humana"
+      ],
+      "answer": 1,
+      "explanation": "Escalar los recursos en función de la carga del sistema es la agilidad y elasticidad. La facilidad para el despliegue se refiere a pasar un prototipo a producción.",
+      "source": "PIA UD1, apartado 2.3",
+      "difficulty": 3,
+      "id": "pia-ud01-q057"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada servicio de AWS con su uso.",
+      "pairs": [
+        [
+          "SageMaker",
+          "Desarrollo de modelos de machine learning"
+        ],
+        [
+          "Rekognition",
+          "Análisis de imágenes y vídeos"
+        ],
+        [
+          "Comprehend",
+          "Procesamiento de lenguaje natural"
+        ],
+        [
+          "Lex",
+          "Creación de chatbots"
+        ],
+        [
+          "Polly",
+          "Síntesis de voz"
+        ]
+      ],
+      "explanation": "Son los cinco servicios de AWS que destacan los apuntes. Rekognition es el que más se confunde con servicios de imagen de otras plataformas.",
+      "source": "PIA UD1, apartado 2.4",
+      "difficulty": 2,
+      "id": "pia-ud01-q058"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué servicio de Google Cloud permite crear modelos personalizados sin experiencia previa en machine learning?",
+      "options": [
+        "Cloud Vision",
+        "Cloud Natural Language",
+        "AutoML",
+        "Dialogflow"
+      ],
+      "answer": 2,
+      "explanation": "AutoML está pensado para crear modelos personalizados sin saber ML. Dialogflow es para chatbots y Cloud Vision, para analizar imágenes.",
+      "source": "PIA UD1, apartado 2.4",
+      "difficulty": 1,
+      "id": "pia-ud01-q059"
+    },
+    {
+      "type": "choice",
+      "prompt": "Tu empresa trabaja con Microsoft Azure y quiere montar un chatbot. ¿Qué servicio usa?",
+      "options": [
+        "Azure Speech Services",
+        "Cognitive Services",
+        "Azure Machine Learning",
+        "Azure Bot Service"
+      ],
+      "answer": 3,
+      "explanation": "Azure Bot Service es el de crear chatbots. Speech Services convierte texto a voz y viceversa, y Cognitive Services analiza imágenes, voz y texto.",
+      "source": "PIA UD1, apartado 2.4",
+      "difficulty": 3,
+      "id": "pia-ud01-q060"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada plataforma con su servicio para crear chatbots.",
+      "pairs": [
+        [
+          "Amazon Web Services",
+          "Lex"
+        ],
+        [
+          "Google Cloud Platform",
+          "Dialogflow"
+        ],
+        [
+          "Microsoft Azure",
+          "Azure Bot Service"
+        ],
+        [
+          "IBM Watson",
+          "Watson Assistant"
+        ]
+      ],
+      "explanation": "Las cuatro plataformas tienen servicio de chatbots y cada una lo llama de una forma. Watson Assistant es el de IBM.",
+      "source": "PIA UD1, apartado 2.4",
+      "difficulty": 2,
+      "id": "pia-ud01-q061"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué servicio de IBM sirve para buscar y analizar datos no estructurados?",
+      "options": [
+        "Watson Studio",
+        "Watson Assistant",
+        "Watson Discovery"
+      ],
+      "answer": 2,
+      "explanation": "Watson Discovery busca y analiza datos no estructurados. Studio es para desarrollar y entrenar modelos y Assistant, para chatbots.",
+      "source": "PIA UD1, apartado 2.4",
+      "difficulty": 1,
+      "id": "pia-ud01-q062"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena por importancia lo que hay que valorar al escoger una plataforma de IA.",
+      "steps": [
+        "Que ofrezca una solución acorde a las necesidades del proyecto",
+        "Que el coste quepa en el presupuesto",
+        "Que esté disponible en la localización del despliegue",
+        "Que soporte los lenguajes de programación necesarios"
+      ],
+      "explanation": "Lo primero es que la plataforma resuelva lo que necesita el proyecto. Después vienen el coste, la localización y, al final, los lenguajes.",
+      "source": "PIA UD1, apartado 2.4",
+      "difficulty": 2,
+      "id": "pia-ud01-q063"
+    },
+    {
+      "type": "choice",
+      "prompt": "Tu empresa trabaja con Google Cloud y necesita analizar imágenes. ¿Qué servicio elige?",
+      "options": [
+        "Cloud Natural Language",
+        "Google Cloud Vision",
+        "Dialogflow",
+        "Rekognition"
+      ],
+      "answer": 1,
+      "explanation": "Cloud Vision es el servicio de Google para imágenes. Rekognition hace lo mismo, pero es de AWS.",
+      "source": "PIA UD1, apartado 2.4",
+      "difficulty": 3,
+      "id": "pia-ud01-q064"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Según los apuntes, el coste del servicio es lo más importante al escoger una plataforma de IA.",
+      "answer": false,
+      "explanation": "El coste es el segundo criterio. Lo primero es que la plataforma ofrezca una solución de IA acorde a las necesidades del proyecto.",
+      "source": "PIA UD1, apartado 2.4",
+      "difficulty": 2,
+      "id": "pia-ud01-q065"
+    },
+    {
+      "type": "choice",
+      "prompt": "Una empresa necesita a alguien que diseñe arquitecturas de datos escalables y cree pipelines para alimentar sus modelos. ¿Qué perfil busca?",
+      "options": [
+        "Experto en Ética de IA",
+        "Especialista en NLP",
+        "Ingeniero de Datos o Especialista en Big Data",
+        "Científico de datos"
+      ],
+      "answer": 2,
+      "explanation": "Gestionar grandes volúmenes de datos, diseñar arquitecturas escalables y desarrollar pipelines es lo que hace el Ingeniero de Datos o Especialista en Big Data.",
+      "source": "PIA UD1, apartado 3",
+      "difficulty": 3,
+      "id": "pia-ud01-q066"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada perfil con una de sus tareas.",
+      "pairs": [
+        [
+          "Científico de datos",
+          "Investigar algoritmos nuevos"
+        ],
+        [
+          "Especialista en NLP",
+          "Traducción automática y generación de texto"
+        ],
+        [
+          "Ingeniero de Visión por Computadora",
+          "Reconocimiento facial y detección de objetos"
+        ],
+        [
+          "Experto en Ética de IA",
+          "Mitigar sesgos algorítmicos"
+        ]
+      ],
+      "explanation": "Cada perfil se reconoce por el tipo de datos o problema con el que trabaja: texto para NLP, imágenes para visión y sesgos y privacidad para ética.",
+      "source": "PIA UD1, apartado 3",
+      "difficulty": 2,
+      "id": "pia-ud01-q067"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué conocimientos necesita en profundidad un científico de datos?",
+      "options": [
+        "Filosofía moral, legislación y privacidad",
+        "Bases de datos y procesamiento distribuido",
+        "Algoritmos de tratamiento de imágenes",
+        "Álgebra lineal, cálculo numérico y estadística"
+      ],
+      "answer": 3,
+      "explanation": "Al dedicarse a investigar y optimizar algoritmos, necesita una base matemática fuerte. Las bases de datos y el procesamiento distribuido son del Ingeniero de Datos.",
+      "source": "PIA UD1, apartado 3",
+      "difficulty": 2,
+      "id": "pia-ud01-q068"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "El Ingeniero de Machine Learning aplica desarrollos y herramientas ya existentes a un problema para obtener información útil en la toma de decisiones.",
+      "answer": true,
+      "explanation": "Así lo describen los apuntes. La investigación de algoritmos nuevos, en cambio, se asigna al científico de datos.",
+      "source": "PIA UD1, apartado 3",
+      "difficulty": 2,
+      "id": "pia-ud01-q069"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué perfil necesita conocimientos de filosofía moral, legislación y detección de sesgos?",
+      "options": [
+        "Experto en Ética de IA",
+        "Científico de datos",
+        "Desarrollador de Software de IA",
+        "Especialista en NLP"
+      ],
+      "answer": 0,
+      "explanation": "El experto en ética aborda los desafíos éticos y sociales: sesgos algorítmicos, privacidad de los datos e impacto social.",
+      "source": "PIA UD1, apartado 3",
+      "difficulty": 1,
+      "id": "pia-ud01-q070"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué es un hackathon?",
+      "options": [
+        "Un curso de formación continua sobre inteligencia artificial",
+        "Un evento en el que equipos resuelven un reto de forma intensiva en pocos días",
+        "Una plataforma online con conjuntos de datos para practicar machine learning",
+        "Un foro en el que los desarrolladores resuelven dudas técnicas"
+      ],
+      "answer": 1,
+      "explanation": "Los hackathones son eventos, normalmente presenciales y multidisciplinares. La plataforma online con datasets es Kaggle y el foro de dudas, Stack Overflow.",
+      "source": "PIA UD1, apartado 3.1",
+      "difficulty": 1,
+      "id": "pia-ud01-q071"
+    },
+    {
+      "type": "choice",
+      "prompt": "Organizas un taller sobre IA y publicas tutoriales en tu blog. ¿Qué iniciativa de promoción profesional estás siguiendo?",
+      "options": [
+        "Eventos y conferencias",
+        "Plataformas especializadas",
+        "Formación y divulgación",
+        "Comunidad y colaboración"
+      ],
+      "answer": 2,
+      "explanation": "Organizar talleres y crear recursos educativos como tutoriales o artículos es formación y divulgación. Asistir a eventos para hacer contactos sería otra iniciativa.",
+      "source": "PIA UD1, apartado 3.1",
+      "difficulty": 3,
+      "id": "pia-ud01-q072"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Según los apuntes, para promocionarse en una comunidad basta con aprender de los demás, sin necesidad de aportar nada.",
+      "answer": false,
+      "explanation": "Los apuntes insisten en intentar establecer una relación bidireccional: compartir ideas, colaborar y aprender unos de otros.",
+      "source": "PIA UD1, apartado 3.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q073"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué perfil integra modelos de IA en sistemas que ya existen y necesita gran capacidad de trabajo en equipo?",
+      "options": [
+        "Ingeniero de Datos",
+        "Científico de datos",
+        "Experto en Ética de IA",
+        "Desarrollador de Software de IA"
+      ],
+      "answer": 3,
+      "explanation": "El desarrollador de software de IA implementa la IA en aplicaciones, integra modelos en sistemas existentes y optimiza el rendimiento.",
+      "source": "PIA UD1, apartado 3",
+      "difficulty": 2,
+      "id": "pia-ud01-q074"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada preocupación con su tipo de implicación.",
+      "pairs": [
+        [
+          "Transparencia de los algoritmos",
+          "Implicación ética"
+        ],
+        [
+          "Propiedad intelectual",
+          "Implicación legal"
+        ],
+        [
+          "Automatización de trabajos",
+          "Implicación social"
+        ]
+      ],
+      "explanation": "Los apuntes agrupan las preocupaciones en tres bloques. La transparencia es ética, la propiedad intelectual es legal y la automatización es social.",
+      "source": "PIA UD1, apartado 4",
+      "difficulty": 2,
+      "id": "pia-ud01-q075"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué pregunta plantea la responsabilidad como implicación legal de la IA?",
+      "options": [
+        "Quién responde cuando una decisión de la IA daña a alguien",
+        "Cómo llega la IA a las decisiones que toma",
+        "Qué trabajos pueden reemplazar los sistemas de IA",
+        "Cómo se protegen los sistemas frente a ataques"
+      ],
+      "answer": 0,
+      "explanation": "La responsabilidad legal se pregunta si responde el fabricante, el usuario o el propio sistema. Entender cómo decide la IA es la transparencia, que es ética.",
+      "source": "PIA UD1, apartado 4",
+      "difficulty": 2,
+      "id": "pia-ud01-q076"
+    },
+    {
+      "type": "choice",
+      "prompt": "Un banco usa una IA para conceder créditos y acaba rechazando casi siempre a un grupo marginado. ¿Qué preocupación social refleja?",
+      "options": [
+        "La seguridad",
+        "La discriminación",
+        "La automatización",
+        "La propiedad intelectual"
+      ],
+      "answer": 1,
+      "explanation": "El crédito es uno de los ejemplos de discriminación de los apuntes: la IA puede perpetuar prejuicios y la desigualdad en decisiones importantes.",
+      "source": "PIA UD1, apartado 4",
+      "difficulty": 3,
+      "id": "pia-ud01-q077"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "La seguridad aparece en los apuntes como preocupación ética, porque la IA puede usarse para detectar vulnerabilidades y explotarlas.",
+      "answer": true,
+      "explanation": "Está en las implicaciones éticas: la IA puede mejorar la seguridad, pero también servir para crear ataques más sofisticados.",
+      "source": "PIA UD1, apartado 4",
+      "difficulty": 2,
+      "id": "pia-ud01-q078"
+    },
+    {
+      "type": "choice",
+      "prompt": "Una IA crea una obra de arte y no está claro quién es su propietario. ¿Qué tipo de implicación es?",
+      "options": [
+        "Social",
+        "Técnica",
+        "Legal",
+        "Ética"
+      ],
+      "answer": 2,
+      "explanation": "La propiedad intelectual es una implicación legal: hay que decidir si la obra es del fabricante, del usuario o del sistema.",
+      "source": "PIA UD1, apartado 4",
+      "difficulty": 3,
+      "id": "pia-ud01-q079"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿En qué tipo de implicación sitúan los apuntes la privacidad?",
+      "options": [
+        "Solo en la ética",
+        "Solo en la social",
+        "Solo en la legal",
+        "En la ética y en la legal"
+      ],
+      "answer": 3,
+      "explanation": "La privacidad aparece dos veces: como preocupación ética por el uso de los datos y como problema legal porque las leyes pueden quedarse cortas.",
+      "source": "PIA UD1, apartado 4",
+      "difficulty": 2,
+      "id": "pia-ud01-q080"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué norma contiene la primera regulación positiva del uso de la IA por las administraciones públicas y las empresas en España?",
+      "options": [
+        "La Ley 15/2022, integral para la igualdad de trato",
+        "La Ley Orgánica 3/2018 de Protección de Datos",
+        "La Carta de Derechos Digitales",
+        "La Ley Orgánica 15/1999 de Protección de Datos"
+      ],
+      "answer": 0,
+      "explanation": "Los apuntes atribuyen esa primera regulación a la Ley 15/2022. La LO 3/2018 adapta el Derecho español al RGPD.",
+      "source": "PIA UD1, apartado 4.1",
+      "difficulty": 1,
+      "id": "pia-ud01-q081"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué hace la Ley Orgánica 3/2018 (LOPD-GDD)?",
+      "options": [
+        "Prohíbe los sistemas de puntuación ciudadana",
+        "Adapta el Derecho español al Reglamento General de Protección de Datos",
+        "Clasifica los sistemas de IA en cuatro niveles de riesgo",
+        "Crea la Agencia Nacional de Supervisión de la IA"
+      ],
+      "answer": 1,
+      "explanation": "Su objetivo es adaptar el Derecho interno al RGPD. Los niveles de riesgo y la prohibición de la puntuación ciudadana vienen de la Ley de IA de la UE.",
+      "source": "PIA UD1, apartado 4.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q082"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "La LOPD-GDD deroga la Ley Orgánica 15/1999, aunque esta sigue vigente para regular ciertas actividades.",
+      "answer": true,
+      "explanation": "Los apuntes lo dicen así: la deroga, pero se mantiene vigente para algunas actividades.",
+      "source": "PIA UD1, apartado 4.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q083"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada iniciativa con lo que aporta.",
+      "pairs": [
+        [
+          "OBISAL",
+          "Observatorio del impacto social y ético de los algoritmos"
+        ],
+        [
+          "Sandbox Regulatorio de IA",
+          "Espacio para definir buenas prácticas con la Comisión Europea"
+        ],
+        [
+          "Carta de Derechos Digitales",
+          "Refuerza los derechos de la ciudadanía en lo digital"
+        ],
+        [
+          "LOPD-GDD",
+          "Adapta el Derecho español al RGPD"
+        ]
+      ],
+      "explanation": "OBISAL y el Sandbox son medidas del marco normativo y ético de la Estrategia Nacional. La Carta y la LOPD-GDD son normas e iniciativas aparte.",
+      "source": "PIA UD1, apartado 4.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q084"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Dónde se encuadra la Medida Catorce, que propone un marco normativo y ético para la IA?",
+      "options": [
+        "En la Carta de Derechos Digitales",
+        "En la Ley de IA de la Unión Europea",
+        "En el Eje Cuarto del Plan España Digital 2026",
+        "En la Ley 15/2022 de igualdad de trato"
+      ],
+      "answer": 2,
+      "explanation": "Forma parte de la Estrategia Nacional de IA, dentro del Plan España Digital 2026, cuyo Eje Cuarto trata la Economía del Dato e IA.",
+      "source": "PIA UD1, apartado 4.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q085"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué es el Compliance en el desarrollo de software de IA?",
+      "options": [
+        "El registro de la actividad de un modelo mediante logs",
+        "La evaluación de conformidad que hacen las autoridades europeas",
+        "Las buenas prácticas para desplegar modelos en producción",
+        "Las prácticas de una empresa para identificar y prevenir riesgos operativos y legales"
+      ],
+      "answer": 3,
+      "explanation": "El Compliance identifica y clasifica riesgos operativos y legales y crea mecanismos para prevenirlos y gestionarlos. Las buenas prácticas de despliegue son MLOps.",
+      "source": "PIA UD1, apartado 4.1",
+      "difficulty": 2,
+      "id": "pia-ud01-q086"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Cómo quiere que sea la IA el marco normativo y ético español?",
+      "options": [
+        "Fiable, explicable, transparente e inclusiva",
+        "Rápida, barata, escalable y elástica",
+        "Autónoma, precisa, eficiente y privada",
+        "Legible, simple, portable y abierta"
+      ],
+      "answer": 0,
+      "explanation": "Son los cuatro rasgos que cita la Medida Catorce, junto al respeto de los derechos fundamentales de la ciudadanía.",
+      "source": "PIA UD1, apartado 4.1",
+      "difficulty": 1,
+      "id": "pia-ud01-q087"
+    },
+    {
+      "type": "order",
+      "prompt": "Ordena los niveles de riesgo de la Ley de IA de la UE, del más grave al más leve.",
+      "steps": [
+        "Riesgo inaceptable",
+        "Alto riesgo",
+        "Riesgo limitado",
+        "Riesgo mínimo o nulo"
+      ],
+      "explanation": "El inaceptable está prohibido, el alto tiene obligaciones estrictas, el limitado solo exige transparencia y el mínimo es de uso libre.",
+      "source": "PIA UD1, apartado 4.2",
+      "difficulty": 1,
+      "id": "pia-ud01-q088"
+    },
+    {
+      "type": "choice",
+      "prompt": "Un ayuntamiento quiere una IA que vigile el comportamiento de los vecinos y les quite ayudas a quienes se porten mal. ¿Cómo la clasifica la Ley de IA?",
+      "options": [
+        "Riesgo mínimo",
+        "Riesgo inaceptable",
+        "Alto riesgo",
+        "Riesgo limitado"
+      ],
+      "answer": 1,
+      "explanation": "Registrar el comportamiento, clasificar a las personas y aplicar penalizaciones o recompensas es un sistema de puntuación ciudadana, y está prohibido.",
+      "source": "PIA UD1, apartado 4.2",
+      "difficulty": 3,
+      "id": "pia-ud01-q089"
+    },
+    {
+      "type": "choice",
+      "prompt": "Una universidad usa una IA para decidir qué candidatos acceden a un curso. ¿Qué nivel de riesgo tiene?",
+      "options": [
+        "Riesgo limitado",
+        "Riesgo mínimo",
+        "Alto riesgo",
+        "Riesgo inaceptable"
+      ],
+      "answer": 2,
+      "explanation": "La formación educativa, que puede decidir el acceso a la educación, es un ámbito de alto riesgo: se permite, pero con obligaciones estrictas.",
+      "source": "PIA UD1, apartado 4.2",
+      "difficulty": 3,
+      "id": "pia-ud01-q090"
+    },
+    {
+      "type": "choice",
+      "prompt": "Un videojuego usa IA para controlar a los enemigos. ¿Qué nivel de riesgo le corresponde?",
+      "options": [
+        "Riesgo limitado",
+        "Alto riesgo",
+        "Riesgo inaceptable",
+        "Riesgo mínimo o nulo"
+      ],
+      "answer": 3,
+      "explanation": "Los videojuegos habilitados para IA son el ejemplo de riesgo mínimo de los apuntes, y su uso es libre.",
+      "source": "PIA UD1, apartado 4.2",
+      "difficulty": 3,
+      "id": "pia-ud01-q091"
+    },
+    {
+      "type": "choice",
+      "prompt": "Una web de noticias publica textos generados por IA sobre asuntos de interés público. ¿Qué exige la Ley de IA?",
+      "options": [
+        "Etiquetarlos como generados artificialmente",
+        "Retirarlos, porque es una aplicación prohibida",
+        "Pedir una autorización judicial previa",
+        "Nada, porque es una IA de riesgo mínimo"
+      ],
+      "answer": 0,
+      "explanation": "Es una obligación de transparencia del riesgo limitado: el texto que informa al público sobre asuntos de interés público debe etiquetarse como generado artificialmente.",
+      "source": "PIA UD1, apartado 4.2",
+      "difficulty": 3,
+      "id": "pia-ud01-q092"
+    },
+    {
+      "type": "match",
+      "prompt": "Relaciona cada nivel de riesgo con un ejemplo.",
+      "pairs": [
+        [
+          "Riesgo inaceptable",
+          "Puntuación ciudadana"
+        ],
+        [
+          "Alto riesgo",
+          "Calificación crediticia"
+        ],
+        [
+          "Riesgo limitado",
+          "Chatbot de atención al cliente"
+        ],
+        [
+          "Riesgo mínimo o nulo",
+          "Filtro de spam"
+        ]
+      ],
+      "explanation": "Para clasificar, pregúntate qué hace el sistema: puntuar personas está prohibido, decidir sobre crédito es alto riesgo, un chatbot solo tiene que avisar y un filtro de spam es inocuo.",
+      "source": "PIA UD1, apartado 4.2",
+      "difficulty": 2,
+      "id": "pia-ud01-q093"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "La mayoría de los sistemas de IA que se usan hoy en la UE son de alto riesgo.",
+      "answer": false,
+      "explanation": "Es al revés: la gran mayoría entra en la categoría de riesgo mínimo o nulo, de uso libre.",
+      "source": "PIA UD1, apartado 4.2",
+      "difficulty": 2,
+      "id": "pia-ud01-q094"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué obligación tienen los sistemas de alto riesgo para asegurar la trazabilidad de sus resultados?",
+      "options": [
+        "Pedir una autorización judicial antes de usarse",
+        "Llevar un registro detallado de su actividad",
+        "Avisar al usuario de que habla con una máquina",
+        "Conseguir el Sello de IA confiable"
+      ],
+      "answer": 1,
+      "explanation": "El registro detallado de la actividad sirve para la trazabilidad. Avisar de que se habla con una máquina es una obligación del riesgo limitado.",
+      "source": "PIA UD1, apartado 4.2",
+      "difficulty": 2,
+      "id": "pia-ud01-q095"
+    },
+    {
+      "type": "choice",
+      "prompt": "¿Qué sanción máxima menciona el vídeo de RTVE incluido en la unidad?",
+      "options": [
+        "35 millones de euros o el 3 % del negocio anual",
+        "20 millones de euros o el 4 % del negocio anual",
+        "35 millones de euros o el 7 % del negocio anual",
+        "7 millones de euros o el 35 % del negocio anual"
+      ],
+      "answer": 2,
+      "explanation": "El vídeo habla de multas de hasta 35 millones de euros o del 7 % del negocio anual.",
+      "source": "PIA UD1, apartado 4.2",
+      "difficulty": 1,
+      "id": "pia-ud01-q096"
+    },
+    {
+      "type": "truefalse",
+      "prompt": "Según el vídeo de RTVE, la recogida de datos biométricos en tiempo real se permitirá solo en casos concretos y con autorización judicial previa.",
+      "answer": true,
+      "explanation": "Fue la principal discusión de la ley. Se permite para prevenir amenazas como el terrorismo o el tráfico de personas, siempre con autorización judicial.",
+      "source": "PIA UD1, apartado 4.2",
+      "difficulty": 2,
+      "id": "pia-ud01-q097"
+    }
+  ]
+}
