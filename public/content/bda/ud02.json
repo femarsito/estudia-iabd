@@ -1,0 +1,2008 @@
+{
+  "id": "bda-ud02",
+  "moduleId": "bda",
+  "number": 2,
+  "title": "Almacenamiento y procesamiento en Hadoop",
+  "lessons": [
+    {
+      "id": "bda-ud02-l01",
+      "kind": "read",
+      "title": "Qué es HDFS",
+      "section": "1 y 1.1. HDFS: introducción",
+      "cards": [
+        {
+          "title": "El core de Hadoop",
+          "body": "Es la base sobre la que se construyen todas las herramientas:\n- **HDFS**, la capa de **almacenamiento**.\n- **YARN**, el **gestor de los procesos** que se ejecutan en el clúster.\n- **MapReduce**, un **modelo de programación** para tareas de procesamiento de datos."
+        },
+        {
+          "title": "Sistema de ficheros distribuido",
+          "body": "**HDFS** (Hadoop Distributed File System) se ejecuta sobre **varios nodos** que trabajan juntos, pero ofrece una interfaz como si hubiera **un único servidor**. Para el usuario, el modelo distribuido es **transparente**. Se inspiró en el paper de Google **Google File System**."
+        },
+        {
+          "title": "Hardware commodity y ficheros grandes",
+          "body": "No necesita servidores específicos ni caros (**hardware commodity**), así que tiene que sobreponerse a los fallos. Está optimizado para **ficheros de gran tamaño** y lecturas o escrituras **masivas**: cubre la **analítica masiva**, no las operaciones del día a día de la empresa."
+        },
+        {
+          "title": "Escala y varios clientes",
+          "body": "**Escala horizontalmente** hasta petabytes y miles de nodos: basta con **añadir servidores**. Admite **múltiples clientes** con acceso concurrente, algo que otros sistemas masivos, como los de **cinta**, no permiten o hacen con mucho peor rendimiento."
+        },
+        {
+          "title": "Tipos de datos y write-once",
+          "body": "No pone **ninguna restricción** al tipo de datos: estructurados, semiestructurados o sin estructura, como imágenes o vídeos. Sigue la orientación **write-once, read many**: un fichero escrito **no se modifica**, pero se puede leer muchas veces."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l02",
+      "kind": "practice",
+      "title": "Qué es HDFS",
+      "section": "1 y 1.1. HDFS: introducción",
+      "questionIds": [
+        "bda-ud02-q001",
+        "bda-ud02-q002",
+        "bda-ud02-q003",
+        "bda-ud02-q004",
+        "bda-ud02-q005",
+        "bda-ud02-q006",
+        "bda-ud02-q007",
+        "bda-ud02-q008"
+      ]
+    },
+    {
+      "id": "bda-ud02-l03",
+      "kind": "read",
+      "title": "Ficheros, permisos y bloques",
+      "section": "1.1. Introducción",
+      "cards": [
+        {
+          "title": "Directorios y nombres",
+          "body": "Como en un PC, los ficheros se guardan en **directorios** que se pueden anidar. Los nombres **distinguen mayúsculas y minúsculas**, como en Unix y Linux y a diferencia de Windows: `video.mov` y `viDEO.mov` son ficheros distintos."
+        },
+        {
+          "title": "Metadatos",
+          "body": "Para cada fichero, HDFS guarda **metadatos**: la **fecha**, el **tamaño**, el **propietario** y su **grupo**, y los **permisos** de los usuarios. Se ven, por ejemplo, al listar un directorio con `hadoop fs -ls`."
+        },
+        {
+          "title": "Permisos",
+          "body": "Usa el mismo sistema que **Unix**:\n- **r**: leer sin modificar.\n- **w**: modificar; en un directorio, añadir o borrar ficheros.\n- **x**: ejecutar.\n\nSe dan al **propietario**, a su **grupo** y al **resto**. `rw-r--r--` es lectura y escritura para el propietario y solo lectura para los demás."
+        },
+        {
+          "title": "Bloques de 128 MB",
+          "body": "HDFS divide los ficheros en **bloques** de **128 MB por defecto**. En el sistema operativo de un PC suelen ser de **512 bytes o 4 KB**, unas **50.000 veces** más pequeños. Un fichero de 512 MB ocupa **4 bloques**."
+        },
+        {
+          "title": "Unidad mínima de lectura",
+          "body": "El bloque es la **unidad mínima de lectura**: aunque el fichero ocupe 1 KB, se leen o escriben 128 MB. Con ficheros enormes hay que buscar **muchos menos bloques**. Por eso Hadoop va bien con **ficheros grandes** y lecturas masivas, y mal con **operaciones pequeñas**."
+        },
+        {
+          "title": "Replicación",
+          "body": "Los bloques se guardan en **nodos distintos** y cada uno se **copia en varios nodos**. El número de copias es el **factor de replicación**, **3 por defecto**. Si cae un nodo o se corrompe un disco quedan otras copias: así se logra la **tolerancia a fallos**. Se configura por **fichero o directorio**."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l04",
+      "kind": "practice",
+      "title": "Ficheros, permisos y bloques",
+      "section": "1.1. Introducción",
+      "questionIds": [
+        "bda-ud02-q009",
+        "bda-ud02-q010",
+        "bda-ud02-q011",
+        "bda-ud02-q012",
+        "bda-ud02-q013",
+        "bda-ud02-q014",
+        "bda-ud02-q015",
+        "bda-ud02-q016"
+      ]
+    },
+    {
+      "id": "bda-ud02-l05",
+      "kind": "read",
+      "title": "Arquitectura de HDFS",
+      "section": "1.2. Arquitectura",
+      "cards": [
+        {
+          "title": "Namenode",
+          "body": "Es el **maestro**. Guarda la **metainformación**: árbol de directorios, datos de cada fichero (tamaño, fecha, propietario, permisos), **factor de replicación**, **bloques** de cada fichero y **en qué nodo** está cada bloque. La guarda en **disco**, por durabilidad, y en **memoria**, por rendimiento."
+        },
+        {
+          "title": "Namenode, punto único de fallo",
+          "body": "**Coordina** todas las lecturas y escrituras y vigila los Datanodes. Es el **punto único de fallo**: si cae, se pierde todo el sistema de archivos. Por eso usa hardware más **resiliente** (fuentes dobles, discos en **RAID 1, 10 o 5**) y se hacen copias de seguridad frecuentes."
+        },
+        {
+          "title": "Secondary Namenode",
+          "body": "Toma **puntos de control** de los metadatos del Namenode. **No es un nodo de respaldo**: si cae el Namenode, no toma el control. Su único objetivo es **reducir el tiempo de arranque** del Namenode. Suele ir en **otra máquina**, con hardware como el del Namenode."
+        },
+        {
+          "title": "FsImage y EditLog",
+          "body": "- **FsImage**: instantánea de los metadatos que se hace cada cierto tiempo.\n- **EditLog**: registro de los cambios en los metadatos; se borra con cada nueva FsImage.\n\nAl arrancar, el Namenode **añade los cambios de EditLog a FsImage** y recupera el estado del sistema de archivos."
+        },
+        {
+          "title": "Datanode",
+          "body": "Va en los **nodos worker** y **almacena y lee los bloques**. **Solo conoce sus bloques**: no sabe de qué fichero son ni dónde está el resto. Envía al Namenode la **lista de sus bloques** (al principio, cada hora) y guarda un **checksum** por bloque para detectar si está corrupto."
+        },
+        {
+          "title": "Latido y hardware",
+          "body": "El Datanode manda un **latido** (heartbeat) al Namenode cada **3 segundos**. Si en **10 minutos** no llega ninguno, el Namenode lo da por caído y programa **nuevas réplicas** de sus bloques en otros Datanodes. Los Datanodes usan hardware sencillo con **muchos discos**."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l06",
+      "kind": "practice",
+      "title": "Arquitectura de HDFS",
+      "section": "1.2. Arquitectura",
+      "questionIds": [
+        "bda-ud02-q017",
+        "bda-ud02-q018",
+        "bda-ud02-q019",
+        "bda-ud02-q020",
+        "bda-ud02-q021",
+        "bda-ud02-q022",
+        "bda-ud02-q023",
+        "bda-ud02-q024"
+      ]
+    },
+    {
+      "id": "bda-ud02-l07",
+      "kind": "read",
+      "title": "Lectura y escritura en HDFS",
+      "section": "1.3. Funcionamiento (lectura y escritura)",
+      "cards": [
+        {
+          "title": "Datos inmutables",
+          "body": "Los datos escritos en HDFS **no se pueden modificar**: solo se **añade** contenido. Si en un fichero de 256 MB cambias un carácter, HDFS **crea un bloque nuevo** con el cambio, lo escribe entero y **borra el anterior**. Por eso rinde mal con operaciones sencillas sobre registros aleatorios."
+        },
+        {
+          "title": "Lectura",
+          "body": "- El cliente pregunta al **Namenode** qué bloques forman el fichero y qué Datanodes los tienen.\n- El Namenode devuelve la lista con los Datanodes de cada bloque **ordenados por distancia** al cliente.\n- El cliente pide **cada bloque directamente** a un Datanode que lo tiene."
+        },
+        {
+          "title": "El Namenode no toca los datos",
+          "body": "Al leer y al escribir, el Namenode solo resuelve **dónde está cada bloque**. Los datos van **directamente entre el cliente y los Datanodes**. Así el Namenode **no es cuello de botella** y puede atender muchas peticiones en paralelo."
+        },
+        {
+          "title": "Escritura: preparación",
+          "body": "- El cliente pide al Namenode **crear el fichero**, con su nombre y su ruta.\n- El Namenode **verifica** los permisos, si el fichero ya existe, etc., y responde **OK o KO**.\n- El cliente **genera los bloques** con una librería de HDFS."
+        },
+        {
+          "title": "Escritura: cada bloque",
+          "body": "- El cliente pregunta al Namenode **en qué Datanodes** escribir el bloque.\n- Lo escribe en el **primer Datanode** de la lista.\n- Ese Datanode pasa la copia al **siguiente** de la cadena. Cuando todos tienen su réplica, el cliente recibe un **OK** y sigue con el siguiente bloque."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l08",
+      "kind": "read",
+      "title": "Factor de replicación y capacidad",
+      "section": "1.3. Funcionamiento (Para saber más: replicación)",
+      "cards": [
+        {
+          "title": "Capacidad bruta",
+          "body": "Es la **suma de todos los discos** de los Datanodes. Ejemplo: **20 nodos** con 12 discos de 3 TB cada uno dan **36 TB por nodo** y **720 TB** en total."
+        },
+        {
+          "title": "Capacidad real",
+          "body": "Con **factor 3**, cada fichero ocupa **el triple**: los 720 TB se quedan en **240 TB**. Además se reserva un **30 o 40 %** para datos parciales de las aplicaciones, logs, etc. Ese clúster se queda en unos **150 TB** reales."
+        },
+        {
+          "title": "Factor alto",
+          "body": "- **Mejora** la tolerancia a fallos.\n- **Lecturas más rápidas**: hay más Datanodes de donde leer cada bloque.\n- **Escrituras más lentas**: cada bloque se guarda en más Datanodes.\n- **Menos capacidad** total del clúster."
+        },
+        {
+          "title": "Factor bajo",
+          "body": "- **Más riesgo** de perder datos si se corrompen los Datanodes de un bloque.\n- **Lecturas más lentas**: pocos Datanodes tienen el bloque y pueden estar ocupados.\n- **Escrituras más rápidas**.\n- **Más capacidad** o, mejor dicho, se reduce menos."
+        },
+        {
+          "title": "Qué factor elegir",
+          "body": "- **Datos temporales** no críticos, que quizá no se lean nunca: factor **bajo, 1 o 2**.\n- **Datos críticos** y muy leídos, como una tabla maestra: factor **alto**, incluso una copia por Datanode si ocupa poco.\n- **Resto** de ficheros: el factor **por defecto**."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l09",
+      "kind": "practice",
+      "title": "Lectura, escritura y replicación",
+      "section": "1.3. Funcionamiento (lectura y escritura)",
+      "questionIds": [
+        "bda-ud02-q025",
+        "bda-ud02-q026",
+        "bda-ud02-q027",
+        "bda-ud02-q028",
+        "bda-ud02-q029",
+        "bda-ud02-q030",
+        "bda-ud02-q031",
+        "bda-ud02-q032",
+        "bda-ud02-q033"
+      ]
+    },
+    {
+      "id": "bda-ud02-l10",
+      "kind": "read",
+      "title": "Uso de HDFS",
+      "section": "1.4. Uso",
+      "cards": [
+        {
+          "title": "Operaciones e interfaces",
+          "body": "HDFS admite operaciones como las de **Unix**: leer, escribir y borrar ficheros; crear, listar y borrar directorios; y gestionar **usuarios, grupos y permisos**. Se usan desde la **línea de comandos**, que cubre casi todas las operaciones, o desde otras interfaces."
+        },
+        {
+          "title": "Otras interfaces",
+          "body": "- **API de Java**: HDFS está escrito en Java de forma nativa.\n- **WebHDFS**: API REST por **HTTP** para otros lenguajes; rinde menos, no sirve para operaciones masivas.\n- **NFS Gateway**: monta HDFS en un cliente local con NFSv3.\n- **libhdfs**: librería en **C**, con buen rendimiento pero sin toda la funcionalidad del API Java."
+        },
+        {
+          "title": "NFS Gateway",
+          "body": "Con HDFS montado puedes usar utilidades de Unix como `ls` y `cat` y librerías **POSIX** desde cualquier lenguaje. **Añadir** datos a un archivo funciona, pero **modificarlo no**, porque HDFS solo puede añadir."
+        },
+        {
+          "title": "hadoop fs",
+          "body": "Se abre una consola en un nodo con los demonios de Hadoop, normalmente el **Namenode**. `hadoop fs` da todas las funciones de HDFS; solo, muestra la **lista de opciones**. Lo que hace va contra **HDFS**, no contra el disco de la máquina del terminal, que suele ser la **máquina frontera**."
+        },
+        {
+          "title": "Comandos básicos",
+          "body": "- `-mkdir`: crea directorios.\n- `-ls`: lista un directorio; con `-R`, también los subdirectorios.\n- `-put`: copia del disco local a HDFS, como `-copyFromLocal`.\n- `-get`: copia de HDFS al disco local, como `-copyToLocal`.\n- `-cat`: muestra el contenido de un fichero."
+        },
+        {
+          "title": "Más comandos",
+          "body": "- `-cp`: copia dentro de HDFS; el original se queda.\n- `-mv`: mueve; el fichero **desaparece** del origen.\n- `-rm`: borra; con `-R`, de forma recursiva.\n- `-setrep`: cambia el **factor de replicación** de un fichero o directorio.\n\nPara subir un fichero, se copia primero a la **máquina frontera** y luego se usa `-put`."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l11",
+      "kind": "pc",
+      "title": "Comandos de HDFS en la consola",
+      "section": "1.4. Uso (cliente de línea de comandos)",
+      "steps": [
+        {
+          "where": "Terminal",
+          "text": "Abre una consola en la máquina frontera de tu clúster Hadoop o en un nodo con los demonios de Hadoop. Usa tu propio acceso y no saques credenciales ni direcciones en las capturas."
+        },
+        {
+          "where": "Terminal",
+          "text": "Escribe el comando sin nada más para ver las opciones disponibles.",
+          "code": "hadoop fs",
+          "expected": "Sale la ayuda de uso con la lista de opciones (-cat, -cp, -get, -ls, -mkdir, -put, -rm, -setrep…) y las opciones genéricas."
+        },
+        {
+          "where": "Terminal",
+          "text": "Crea un directorio de trabajo en HDFS y, dentro, un subdirectorio.",
+          "code": "hadoop fs -mkdir /tmp/pruebas\nhadoop fs -mkdir /tmp/pruebas/datos",
+          "expected": "Si todo va bien no muestra nada; lo comprobarás en el paso siguiente."
+        },
+        {
+          "where": "Terminal",
+          "text": "Lista /tmp y después lista /tmp/pruebas de forma recursiva.",
+          "code": "hadoop fs -ls /tmp\nhadoop fs -ls -R /tmp/pruebas",
+          "expected": "Una línea por elemento con permisos, propietario, grupo, tamaño, fecha y ruta. En el listado recursivo aparece /tmp/pruebas/datos."
+        },
+        {
+          "where": "Terminal",
+          "text": "Busca un fichero de texto pequeño en el disco local de la máquina en la que estás (aquí, prueba.txt) y súbelo a HDFS. Después lista el directorio.",
+          "code": "hadoop fs -put prueba.txt /tmp/pruebas\nhadoop fs -ls /tmp/pruebas",
+          "expected": "En el listado aparecen prueba.txt y el directorio datos."
+        },
+        {
+          "where": "Terminal",
+          "text": "Muestra el contenido del fichero que acabas de subir.",
+          "code": "hadoop fs -cat /tmp/pruebas/prueba.txt",
+          "expected": "Sale en pantalla el texto de tu fichero."
+        },
+        {
+          "where": "Terminal",
+          "text": "Copia el fichero al subdirectorio datos, dentro de HDFS, y lista todo de forma recursiva.",
+          "code": "hadoop fs -cp /tmp/pruebas/prueba.txt /tmp/pruebas/datos\nhadoop fs -ls -R /tmp/pruebas",
+          "expected": "prueba.txt aparece en /tmp/pruebas y en /tmp/pruebas/datos, porque -cp deja el original donde estaba."
+        },
+        {
+          "where": "Terminal",
+          "text": "Cambia el factor de replicación de la copia.",
+          "code": "hadoop fs -setrep 2 /tmp/pruebas/datos/prueba.txt",
+          "expected": "Hadoop responde con una línea que confirma el nuevo factor de replicación y la ruta del fichero."
+        },
+        {
+          "where": "Terminal",
+          "text": "Descarga la copia de HDFS al disco local de la máquina en la que estás.",
+          "code": "hadoop fs -get /tmp/pruebas/datos/prueba.txt copia.txt",
+          "expected": "En el directorio local donde estás aparece copia.txt con el mismo contenido."
+        },
+        {
+          "where": "Terminal",
+          "text": "Borra de forma recursiva el directorio de pruebas y comprueba que ya no está.",
+          "code": "hadoop fs -rm -R /tmp/pruebas\nhadoop fs -ls /tmp",
+          "expected": "Hadoop confirma el borrado y en el listado de /tmp ya no aparece pruebas."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l12",
+      "kind": "practice",
+      "title": "Uso de HDFS",
+      "section": "1.4. Uso",
+      "questionIds": [
+        "bda-ud02-q034",
+        "bda-ud02-q035",
+        "bda-ud02-q036",
+        "bda-ud02-q037",
+        "bda-ud02-q038",
+        "bda-ud02-q039",
+        "bda-ud02-q040",
+        "bda-ud02-q041",
+        "bda-ud02-q042",
+        "bda-ud02-q043"
+      ]
+    },
+    {
+      "id": "bda-ud02-l13",
+      "kind": "read",
+      "title": "YARN: introducción",
+      "section": "2 y 2.1. YARN: introducción",
+      "cards": [
+        {
+          "title": "Qué es YARN",
+          "body": "**Yet Another Resource Negotiator**: un **gestor de recursos**. Si HDFS es el disco de Hadoop, YARN hace de **sistema operativo**: controla las aplicaciones que se ejecutan. Es la base de todas las aplicaciones de procesamiento o análisis de datos."
+        },
+        {
+          "title": "Un matiz",
+          "body": "Decir que YARN es el **sistema operativo de Hadoop** tiene lógica, pero **no es del todo correcto**: el sistema operativo de tu ordenador, además de coordinar las aplicaciones, **integra la gestión del almacenamiento**."
+        },
+        {
+          "title": "Problemas antes de YARN",
+          "body": "Al principio todo se procesaba con **MapReduce**, y había problemas:\n- **Restringía** el tipo de aplicaciones; era difícil, por ejemplo, el **tiempo real**.\n- Era **poco eficiente** y las respuestas rápidas no eran viables.\n- La **concurrencia** estaba mal resuelta: un trabajo hacía esperar al resto."
+        },
+        {
+          "title": "Hadoop 2",
+          "body": "YARN llegó en la **versión 2 de Hadoop** para **independizar el almacenamiento del procesamiento**, abrir Hadoop a **cualquier tipo de aplicación** (MapReduce, Spark, Tez…) y que trabajen **varios usuarios**. Divide la computación en un **gestor de procesos** y las **aplicaciones**."
+        },
+        {
+          "title": "Tareas de YARN",
+          "body": "- Ofrece un **API** mucho menos estricto que MapReduce.\n- **Ejecuta** las aplicaciones en varios nodos con su CPU y memoria.\n- **Sincroniza** las ejecuciones con prioridades que configura el **administrador**.\n- **Monitoriza** y relanza el trabajo si falla un nodo.\n- **Gestiona** los recursos del clúster."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l14",
+      "kind": "practice",
+      "title": "YARN: introducción",
+      "section": "2 y 2.1. YARN: introducción",
+      "questionIds": [
+        "bda-ud02-q044",
+        "bda-ud02-q045",
+        "bda-ud02-q046",
+        "bda-ud02-q047",
+        "bda-ud02-q048",
+        "bda-ud02-q049",
+        "bda-ud02-q050",
+        "bda-ud02-q051"
+      ]
+    },
+    {
+      "id": "bda-ud02-l15",
+      "kind": "read",
+      "title": "Contenedores de YARN",
+      "section": "2.2. Arquitectura (contenedores)",
+      "cards": [
+        {
+          "title": "Contenedor",
+          "body": "Es la **unidad mínima de recursos** de ejecución: una cantidad fija de **memoria**, **núcleos** y otros recursos (disco, red). Por ejemplo, 4 GB y 1 núcleo. **Cada tarea** va en su **propio contenedor**; al terminar, el contenedor se elimina y sus recursos pasan a otras tareas."
+        },
+        {
+          "title": "Tamaño",
+          "body": "Por defecto, un contenedor tiene **8 GB** de memoria, pero se puede cambiar. En nodos con **poca memoria** y trabajos sencillos se **reduce**; en nodos potentes con tareas complejas se **amplía**, por ejemplo a **16 GB**."
+        },
+        {
+          "title": "Asignación",
+          "body": "Al iniciar un trabajo, YARN asigna contenedores a cada tarea según la **demanda** de la aplicación (se puede indicar cuántos necesita) y los **disponibles**. Si hay menos de los pedidos, aplica las **reglas de prioridad**."
+        },
+        {
+          "title": "Límite de tareas",
+          "body": "Las tareas a la vez dependen del **número de contenedores**. **20 nodos** con 256 GB de RAM y 12 cores dan **5 TB de RAM y 240 cores**. Con contenedores de **32 GB** caben **160**: como mucho, **160 tareas concurrentes**."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l16",
+      "kind": "read",
+      "title": "Servicios de YARN",
+      "section": "2.2. Arquitectura (servicios)",
+      "cards": [
+        {
+          "title": "Maestro y workers",
+          "body": "Como HDFS, YARN tiene un **maestro**, el **ResourceManager**, que coordina y controla la ejecución, y **nodos worker** con un **NodeManager**, que vigila las tareas y los contenedores de su nodo."
+        },
+        {
+          "title": "ResourceManager",
+          "body": "Equivale al **Namenode** de HDFS. Recibe a los clientes, **asigna recursos** según prioridades, **distribuye** la aplicación por los workers, **detecta caídas** para relanzar tareas en otro nodo y **libera** los recursos al acabar. Tiene dos componentes: **ApplicationsManager** y **Scheduler**."
+        },
+        {
+          "title": "ApplicationsManager y Scheduler",
+          "body": "- **ApplicationsManager**: recibe las peticiones, distribuye las aplicaciones, asigna recursos, coordina y monitoriza, solventa fallos y libera recursos.\n- **Scheduler**: asigna **prioridades** y decide qué recursos o contenedores tendrá cada aplicación."
+        },
+        {
+          "title": "Algoritmos del Scheduler",
+          "body": "- **Capacity**: **colas** con un conjunto de recursos cada una, por ejemplo una por tipo de aplicación. Es el **más habitual**.\n- **Fair**: todas las aplicaciones obtienen, **en promedio**, una parte **igual** de recursos a lo largo del tiempo.\n- **FIFO**: manda el **orden de llegada**; las demás esperan."
+        },
+        {
+          "title": "NodeManager",
+          "body": "Va en **cada worker**. Informa al ResourceManager del **consumo** de CPU y memoria y de que **sigue activo**, supervisa los **contenedores**, termina tareas **bloqueadas**, guarda un **log en HDFS** y **lanza los ApplicationMaster**. Si cae uno, el ResourceManager lleva el trabajo a otros nodos."
+        },
+        {
+          "title": "ApplicationMaster",
+          "body": "Hay **uno por aplicación** y **negocia** con el ResourceManager los recursos de sus tareas. Va en un **worker** para que el maestro no sea **cuello de botella**. A diferencia del ResourceManager y los NodeManager, **termina** cuando acaba su aplicación."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l17",
+      "kind": "practice",
+      "title": "Arquitectura de YARN",
+      "section": "2.2. Arquitectura",
+      "questionIds": [
+        "bda-ud02-q052",
+        "bda-ud02-q053",
+        "bda-ud02-q054",
+        "bda-ud02-q055",
+        "bda-ud02-q056",
+        "bda-ud02-q057",
+        "bda-ud02-q058",
+        "bda-ud02-q059",
+        "bda-ud02-q060",
+        "bda-ud02-q061"
+      ]
+    },
+    {
+      "id": "bda-ud02-l18",
+      "kind": "read",
+      "title": "Funcionamiento de YARN",
+      "section": "2.3. Funcionamiento",
+      "cards": [
+        {
+          "title": "Lanzar una aplicación",
+          "body": "- El **cliente** pide al **ResourceManager** ejecutar una aplicación y le envía el **código** y unos **parámetros** con los recursos que necesita.\n- El **ApplicationsManager**, tras consultar al **Scheduler**, pide a un **NodeManager** un contenedor para el **ApplicationMaster**.\n- El **NodeManager** crea el contenedor y lo arranca."
+        },
+        {
+          "title": "Durante la ejecución",
+          "body": "- El **ApplicationMaster** pide al ApplicationsManager los **contenedores** que necesite.\n- Controla los contenedores con las tareas e informa del **estado** al ResourceManager.\n- El **NodeManager** informa al ResourceManager del **consumo** de recursos y de que el nodo **sigue activo**."
+        },
+        {
+          "title": "Maestros con poco trabajo",
+          "body": "En YARN y en HDFS, los **nodos maestros** hacen las **mínimas operaciones** posibles por tarea. Si no, la capacidad de **escalar** se reduciría mucho: el límite del sistema sería lo que aguante el nodo maestro."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l19",
+      "kind": "practice",
+      "title": "Funcionamiento de YARN",
+      "section": "2.3. Funcionamiento",
+      "questionIds": [
+        "bda-ud02-q062",
+        "bda-ud02-q063",
+        "bda-ud02-q064",
+        "bda-ud02-q065",
+        "bda-ud02-q066",
+        "bda-ud02-q067",
+        "bda-ud02-q068",
+        "bda-ud02-q069"
+      ]
+    },
+    {
+      "id": "bda-ud02-l20",
+      "kind": "read",
+      "title": "MapReduce: introducción",
+      "section": "3 y 3.1. MapReduce: introducción",
+      "cards": [
+        {
+          "title": "Qué es",
+          "body": "Un **framework** para escribir aplicaciones que procesan **grandes cantidades de datos** en **paralelo**, en **clústeres** de **hardware commodity**, de forma **confiable** y **tolerante a fallos**. Se inspiró en un paper de **Google**; **Doug Cutting y Mike Cafarella** lo implementaron en Hadoop."
+        },
+        {
+          "title": "Framework",
+          "body": "El desarrollador escribe una función **map** y una **reduce**; el framework se ocupa de **paralelizar**, monitorizar y **recuperarse de errores**, que suele ser el **90 %** del esfuerzo. El framework **invoca el código del usuario**, y no al revés; en eso se parece a la mayoría de **frameworks web**."
+        },
+        {
+          "title": "Divide y Vencerás",
+          "body": "Sigue la filosofía **Divide y Vencerás (DYV)**: divide los datos de entrada en **fragmentos pequeños**, los procesa **por separado y en paralelo** y va **agrupando** los resultados parciales. Eso facilita la escalabilidad y la tolerancia a fallos."
+        },
+        {
+          "title": "Clúster y hardware",
+          "body": "Cada pieza se ejecuta en una **máquina distinta** del clúster, y **YARN** se ocupa de los recursos y los nodos. Puede usar **más de mil nodos**: el paradigma no limita el número de servidores. Usa los **mismos servidores** de la plataforma Hadoop."
+        },
+        {
+          "title": "La apisonadora",
+          "body": "Es **confiable**: un trabajo da siempre el **mismo resultado**. Si falla un nodo, **reprocesa su tarea** en otro. Es **lenta pero segura**: otros frameworks son más rápidos usando **memoria**, pero fallan más. Por eso los procesos pesados de **ventana nocturna** se confían a MapReduce."
+        },
+        {
+          "title": "Hoy en día",
+          "body": "Se usa **cada vez menos**, pero conviene entenderlo: su modelo aparece en otras herramientas y algunas, como **Hive**, ejecutan **MapReduce por debajo** de sus consultas SQL. Está escrito en **Java**, pero con **Hadoop Streaming** o **Hadoop Pipes** se programa en C++, Python o shell."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l21",
+      "kind": "practice",
+      "title": "MapReduce: introducción",
+      "section": "3 y 3.1. MapReduce: introducción",
+      "questionIds": [
+        "bda-ud02-q070",
+        "bda-ud02-q071",
+        "bda-ud02-q072",
+        "bda-ud02-q073",
+        "bda-ud02-q074",
+        "bda-ud02-q075",
+        "bda-ud02-q076",
+        "bda-ud02-q077"
+      ]
+    },
+    {
+      "id": "bda-ud02-l22",
+      "kind": "read",
+      "title": "Funcionamiento de MapReduce",
+      "section": "3.2. Funcionamiento",
+      "cards": [
+        {
+          "title": "Cinco etapas",
+          "body": "Un trabajo pasa en orden por:\n- **Envío** del trabajo, aceptación y distribución en el clúster.\n- Fase **map**.\n- Fase **shuffle**.\n- Fase **order**: la ordenación por clave, que en el ejemplo se llama **sort**.\n- Fase **reduce**.\n\nEl programador **solo suele programar map y reduce**; el resto lo hace MapReduce según la configuración."
+        },
+        {
+          "title": "El ejemplo",
+          "body": "Un fichero de unos **25 TB** guarda cotizaciones de bolsa, una por línea: `fecha;empresa;valor actual;valor anterior`. Se quiere saber **cuántas veces ha subido** cada empresa. Leerlo de forma secuencial con un contador llevaría **días**, así que se usa MapReduce."
+        },
+        {
+          "title": "InputFormat y map",
+          "body": "YARN recibe el trabajo y lanza la aplicación. El **InputFormat** parte el fichero de entrada en **fragmentos**. Por cada fragmento se crea una **tarea map**, que va **en paralelo** en distintos nodos. Map lee cada línea y emite `[empresa, 1]` si el valor actual supera al anterior."
+        },
+        {
+          "title": "Shuffle y sort",
+          "body": "Después, de forma **automática y transparente**, las fases **shuffle y sort** toman los resultados parciales, los **ordenan por la clave** (aquí, el nombre de la empresa) y **juntan** todos los valores de cada empresa."
+        },
+        {
+          "title": "Reduce",
+          "body": "La lista ordenada se divide en **particiones** con la **misma clave** y cada una va a la función **reduce**, que **suma** los valores y emite `[empresa, número de subidas]`. Al final, MapReduce **une** los resultados de todas las reduce en la salida."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l23",
+      "kind": "practice",
+      "title": "Funcionamiento de MapReduce",
+      "section": "3.2. Funcionamiento",
+      "questionIds": [
+        "bda-ud02-q078",
+        "bda-ud02-q079",
+        "bda-ud02-q080",
+        "bda-ud02-q081",
+        "bda-ud02-q082",
+        "bda-ud02-q083",
+        "bda-ud02-q084",
+        "bda-ud02-q085"
+      ]
+    },
+    {
+      "id": "bda-ud02-l24",
+      "kind": "read",
+      "title": "Uso de MapReduce",
+      "section": "3.3. Uso",
+      "cards": [
+        {
+          "title": "Mapper",
+          "body": "Se suele programar en **Java** con el API de MapReduce. La clase que hereda de **Mapper** tiene un método `map` que MapReduce llama **una vez por línea**. En el ejemplo, parte la línea con `split(\";\")`, compara las cotizaciones y emite `[empresa, 1]` si sube."
+        },
+        {
+          "title": "Reducer",
+          "body": "La clase que hereda de **Reducer** tiene un método `reduce` que se llama **una vez por empresa**, con **todos los valores** que generó map para ella. Solo tiene que **sumarlos** y emitir `[empresa, suma]`."
+        },
+        {
+          "title": "main",
+          "body": "La función **main** crea el trabajo (`Job`) y lo **configura**: qué clase hace de Mapper (`setMapperClass`), cuál de Reducer (`setReducerClass`), los tipos de salida y las rutas de **entrada y salida**. Dividir el fichero, juntar resultados y controlar la ejecución queda en manos de MapReduce."
+        },
+        {
+          "title": "Empaquetar y lanzar",
+          "body": "El código se empaqueta en un **.jar** y se lanza desde el **nodo frontera** con `hadoop jar`. Los parámetros van en este orden:\n- el fichero **.jar**;\n- la clase con el método **main**;\n- la ruta del fichero de **entrada**;\n- la ruta de **salida**."
+        },
+        {
+          "title": "En paralelo",
+          "body": "Tanto el **Mapper** como el **Reducer** se ejecutan **en paralelo** en distintos nodos del clúster. Lo importante es **diseñar bien** cómo dividir el problema en map y reduce, sin preocuparse de los detalles de la ejecución."
+        }
+      ]
+    },
+    {
+      "id": "bda-ud02-l25",
+      "kind": "practice",
+      "title": "Uso de MapReduce",
+      "section": "3.3. Uso",
+      "questionIds": [
+        "bda-ud02-q087",
+        "bda-ud02-q088",
+        "bda-ud02-q089",
+        "bda-ud02-q090",
+        "bda-ud02-q091",
+        "bda-ud02-q092",
+        "bda-ud02-q093",
+        "bda-ud02-q094",
+        "bda-ud02-q095",
+        "bda-ud02-q096"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "bda-ud02-q001",
+      "type": "choice",
+      "prompt": "En el esquema del core de Hadoop, ¿qué capa queda justo debajo de las aplicaciones, sean de MapReduce o de otro modelo?",
+      "options": [
+        "YARN, la capa de procesamiento",
+        "HDFS, la capa de almacenamiento",
+        "MapReduce, el modelo de programación",
+        "El Namenode, el maestro de HDFS"
+      ],
+      "answer": 0,
+      "explanation": "En el esquema, las aplicaciones se apoyan en YARN, la capa de procesamiento, y YARN a su vez en HDFS, la de almacenamiento. MapReduce es uno de los modelos con los que se escriben las aplicaciones.",
+      "source": "BDA UD2, introducción de la unidad",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q002",
+      "type": "truefalse",
+      "prompt": "Para usar HDFS, tienes que saber en qué nodo está guardado cada fichero.",
+      "answer": false,
+      "explanation": "Para quien usa HDFS el modelo distribuido es transparente: ve una interfaz como si hubiera un único servidor detrás.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q003",
+      "type": "choice",
+      "prompt": "Una empresa quiere usar HDFS para registrar cada venta de su tienda online según ocurre, con muchas escrituras pequeñas. ¿Qué le dirías?",
+      "options": [
+        "Que HDFS se pensó para analítica masiva, no para eso",
+        "Que es ideal, porque HDFS se optimiza para registros pequeños",
+        "Que solo funciona si usa hardware específico y caro",
+        "Que HDFS no admite datos estructurados como ventas"
+      ],
+      "answer": 0,
+      "explanation": "HDFS cubre la analítica masiva con ficheros grandes, no las operaciones del día a día de la empresa. Funciona con hardware commodity y admite cualquier tipo de datos.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q004",
+      "type": "truefalse",
+      "prompt": "HDFS escala de forma horizontal: para crecer, se añaden más servidores al clúster.",
+      "answer": true,
+      "explanation": "La escalabilidad de HDFS se consigue añadiendo servidores, y llega a petabytes y miles de nodos.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q005",
+      "type": "choice",
+      "prompt": "¿Qué significa la orientación «write-once, read many» de HDFS?",
+      "options": [
+        "Un fichero escrito no se modifica, pero se lee muchas veces",
+        "Cada fichero se escribe una vez en cada nodo del clúster",
+        "Solo un cliente puede leer el fichero cada vez",
+        "Un fichero se borra después de leerlo varias veces"
+      ],
+      "answer": 0,
+      "explanation": "Se escribe una vez y se lee muchas: HDFS asume que un fichero ya escrito no se va a modificar. No tiene nada que ver con el número de clientes, que pueden ser muchos.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q006",
+      "type": "truefalse",
+      "prompt": "HDFS necesita servidores específicos y costosos para funcionar bien.",
+      "answer": false,
+      "explanation": "Está diseñado para hardware commodity. Por eso tiene que poder sobreponerse a los fallos de los servidores o de partes de ellos.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q007",
+      "type": "choice",
+      "prompt": "¿Por qué es importante que HDFS admita múltiples clientes concurrentes?",
+      "options": [
+        "Porque otros sistemas masivos no lo permiten o van peor",
+        "Porque así cada cliente tiene su propio Namenode",
+        "Porque permite modificar ficheros a la vez",
+        "Porque reduce el número de réplicas de cada bloque"
+      ],
+      "answer": 0,
+      "explanation": "Hay sistemas de almacenamiento masivo, como los de cinta, que no permiten varios clientes a la vez o pierden mucho rendimiento si lo hacen.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q008",
+      "type": "match",
+      "prompt": "Relaciona cada pieza del core de Hadoop con su función.",
+      "pairs": [
+        [
+          "HDFS",
+          "Capa de almacenamiento"
+        ],
+        [
+          "YARN",
+          "Gestor de los procesos del clúster"
+        ],
+        [
+          "MapReduce",
+          "Modelo de programación para procesar datos"
+        ]
+      ],
+      "explanation": "HDFS guarda los datos, YARN gestiona los procesos que se ejecutan en el clúster y MapReduce es el modelo para programar el procesamiento.",
+      "source": "BDA UD2, introducción de la unidad",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q009",
+      "type": "choice",
+      "prompt": "¿Qué indica el número 2950156 en esta línea del listado?",
+      "options": [
+        "El tamaño del fichero",
+        "La fecha de modificación en segundos",
+        "El identificador del propietario",
+        "Los permisos en formato numérico"
+      ],
+      "answer": 0,
+      "code": "$ hadoop fs -ls /datos\n-rw-r--r--   1 alumno analistas    2950156 2022-06-14 14:31 /datos/ventas.csv",
+      "explanation": "En el listado aparecen los permisos, el propietario y su grupo, el tamaño, la fecha y la ruta. El número que va justo antes de la fecha es el tamaño.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q010",
+      "type": "choice",
+      "prompt": "Según sus permisos, ¿qué puede hacer con este fichero un usuario que no es el propietario ni está en su grupo?",
+      "options": [
+        "Solo leerlo",
+        "Leerlo y modificarlo",
+        "Leerlo, modificarlo y ejecutarlo",
+        "Nada, no tiene ningún permiso"
+      ],
+      "answer": 0,
+      "code": "-rw-r--r--   1 alumno analistas     201220 2022-06-14 14:27 /datos/canvas.png",
+      "explanation": "En rw-r--r-- el primer trío es del propietario (lectura y escritura), el segundo del grupo y el tercero del resto, que solo tiene lectura (r).",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q011",
+      "type": "truefalse",
+      "prompt": "En HDFS, «Informe.csv» e «informe.csv» son el mismo fichero.",
+      "answer": false,
+      "explanation": "HDFS distingue entre mayúsculas y minúsculas, como Unix y Linux. Es Windows el que no las distingue.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q012",
+      "type": "choice",
+      "prompt": "¿Qué tamaño de bloque usa HDFS por defecto?",
+      "options": [
+        "128 MB",
+        "4 KB",
+        "512 bytes",
+        "512 MB"
+      ],
+      "answer": 0,
+      "explanation": "El bloque de HDFS es de 128 MB por defecto. Los 512 bytes o 4 KB son los tamaños habituales en el sistema operativo de un PC.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q013",
+      "type": "choice",
+      "prompt": "Guardas en HDFS un fichero de 1.024 MB con la configuración por defecto. ¿En cuántos bloques se divide?",
+      "options": [
+        "8",
+        "4",
+        "3",
+        "24"
+      ],
+      "answer": 0,
+      "explanation": "Con bloques de 128 MB, 1.024 / 128 = 8 bloques. Cada uno tendrá luego sus réplicas, pero eso no cambia el número de bloques del fichero.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q014",
+      "type": "choice",
+      "prompt": "¿Por qué HDFS rinde mal con operaciones pequeñas?",
+      "options": [
+        "Porque el bloque de 128 MB es la unidad mínima de lectura",
+        "Porque cada lectura pasa los datos por el Namenode",
+        "Porque los bloques se guardan todos en el mismo nodo",
+        "Porque solo admite un cliente conectado a la vez"
+      ],
+      "answer": 0,
+      "explanation": "Aunque el fichero ocupe 1 KB, hay que leer o escribir el bloque entero. Esa es la razón de que Hadoop esté pensado para ficheros grandes y lecturas masivas.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q015",
+      "type": "truefalse",
+      "prompt": "Los bloques de un mismo fichero tienen que estar guardados en el mismo nodo.",
+      "answer": false,
+      "explanation": "Los bloques se reparten entre nodos distintos y no hace falta que los de un mismo fichero coincidan. Además, cada bloque se replica en varios nodos.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q016",
+      "type": "match",
+      "prompt": "Relaciona cada permiso de HDFS con lo que permite.",
+      "pairs": [
+        [
+          "r",
+          "Leer sin poder modificar"
+        ],
+        [
+          "w",
+          "Modificar; en un directorio, añadir o borrar ficheros"
+        ],
+        [
+          "x",
+          "Ejecutar el fichero"
+        ]
+      ],
+      "explanation": "HDFS usa el sistema de permisos de Unix: lectura, escritura y ejecución, para el propietario, su grupo y el resto.",
+      "source": "BDA UD2, apartado 1.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q017",
+      "type": "truefalse",
+      "prompt": "Si cae el Namenode, el Secondary Namenode toma el control y sigue dando servicio.",
+      "answer": false,
+      "explanation": "El Secondary Namenode no es un nodo de respaldo. Guarda FsImage y EditLog para que el Namenode arranque antes.",
+      "source": "BDA UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q018",
+      "type": "choice",
+      "prompt": "¿Cuál es el objetivo del Secondary Namenode?",
+      "options": [
+        "Reducir el tiempo de arranque del Namenode",
+        "Sustituir al Namenode cuando este se cae",
+        "Almacenar las réplicas de los bloques",
+        "Repartir las lecturas entre los Datanodes"
+      ],
+      "answer": 0,
+      "explanation": "Su único objetivo es reducir el tiempo de arranque del Namenode, por ejemplo tras una caída. No lo sustituye ni guarda bloques.",
+      "source": "BDA UD2, apartado 1.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q019",
+      "type": "choice",
+      "prompt": "¿Qué contiene el EditLog?",
+      "options": [
+        "Un registro de cambios en los metadatos",
+        "Una instantánea completa de los metadatos",
+        "Los checksums de todos los bloques",
+        "La lista de bloques de cada Datanode"
+      ],
+      "answer": 0,
+      "explanation": "EditLog registra los cambios en los metadatos y se borra con cada nueva FsImage. La instantánea completa es FsImage.",
+      "source": "BDA UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q020",
+      "type": "choice",
+      "prompt": "Un Datanode deja de enviar latidos. ¿Cuándo lo considera fuera de servicio el Namenode?",
+      "options": [
+        "Tras 10 minutos sin latidos",
+        "Tras 3 segundos sin latidos",
+        "Tras una hora sin latidos",
+        "Tras tres latidos perdidos"
+      ],
+      "answer": 0,
+      "explanation": "El latido se envía cada 3 segundos, pero el Namenode espera 10 minutos sin recibir ninguno antes de dar el Datanode por caído y programar nuevas réplicas.",
+      "source": "BDA UD2, apartado 1.2",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q021",
+      "type": "choice",
+      "prompt": "¿Para qué guarda el Datanode un checksum de cada bloque?",
+      "options": [
+        "Para detectar si el bloque está corrupto",
+        "Para saber a qué fichero pertenece el bloque",
+        "Para avisar al Namenode de que sigue activo",
+        "Para cifrar el contenido del bloque"
+      ],
+      "answer": 0,
+      "explanation": "Al leer el bloque se recalcula el checksum; si no coincide con el guardado al crearlo, el bloque está corrupto. El aviso de que sigue activo es el latido.",
+      "source": "BDA UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q022",
+      "type": "truefalse",
+      "prompt": "Un Datanode sabe a qué fichero pertenece cada bloque que guarda.",
+      "answer": false,
+      "explanation": "El Datanode solo conoce los bloques que contiene. Qué fichero forman y dónde está el resto solo lo sabe el Namenode.",
+      "source": "BDA UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q023",
+      "type": "match",
+      "prompt": "Relaciona cada nodo de HDFS con su función.",
+      "pairs": [
+        [
+          "Namenode",
+          "Guarda los metadatos y coordina lecturas y escrituras"
+        ],
+        [
+          "Secondary Namenode",
+          "Guarda FsImage y EditLog para acelerar el arranque"
+        ],
+        [
+          "Datanode",
+          "Almacena y lee los bloques de los ficheros"
+        ]
+      ],
+      "explanation": "El Namenode es el maestro, el Secondary Namenode ayuda a que arranque antes y los Datanodes, en los workers, guardan los bloques.",
+      "source": "BDA UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q024",
+      "type": "choice",
+      "prompt": "¿Qué hardware se recomienda para el Namenode?",
+      "options": [
+        "Más resiliente, con fuentes dobles y discos en RAID",
+        "El mismo que los Datanodes, con muchos discos",
+        "Hardware commodity sin ninguna redundancia",
+        "Servidores sin discos, porque todo va en memoria"
+      ],
+      "answer": 0,
+      "explanation": "El Namenode es el punto único de fallo, así que se usa hardware más resiliente: fuentes de alimentación dobles y discos en RAID 1, 10 o 5.",
+      "source": "BDA UD2, apartado 1.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q025",
+      "type": "order",
+      "prompt": "Ordena los pasos de la lectura de un fichero en HDFS.",
+      "steps": [
+        "El cliente pide al Namenode los bloques del fichero y su ubicación",
+        "El Namenode devuelve los Datanodes de cada bloque ordenados por distancia",
+        "El cliente pide cada bloque directamente a un Datanode que lo tiene"
+      ],
+      "explanation": "Primero se pregunta al Namenode, que contesta con la lista ordenada por proximidad, y después el cliente lee cada bloque directamente de los Datanodes.",
+      "source": "BDA UD2, apartado 1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q026",
+      "type": "order",
+      "prompt": "Ordena los pasos de la escritura de un fichero en HDFS.",
+      "steps": [
+        "El cliente pide al Namenode crear el fichero",
+        "El Namenode verifica permisos y existencia y responde OK",
+        "El cliente genera los bloques con una librería de HDFS",
+        "El cliente pregunta al Namenode en qué Datanodes escribir el bloque",
+        "El cliente escribe el bloque en el primer Datanode",
+        "El primer Datanode pasa la copia al siguiente de la cadena"
+      ],
+      "explanation": "Tras el OK del Namenode el cliente parte el fichero en bloques y, para cada uno, pregunta dónde escribirlo. Escribe en el primer Datanode y este se encarga de la réplica en el siguiente.",
+      "source": "BDA UD2, apartado 1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q027",
+      "type": "truefalse",
+      "prompt": "Al leer un fichero de HDFS, los datos de los bloques pasan por el Namenode antes de llegar al cliente.",
+      "answer": false,
+      "explanation": "El Namenode solo devuelve la lista de bloques y su ubicación. El cliente se comunica directamente con los Datanodes, y así el Namenode no es cuello de botella.",
+      "source": "BDA UD2, apartado 1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q028",
+      "type": "choice",
+      "prompt": "Cambias un carácter de un fichero de 256 MB guardado en HDFS. ¿Qué hace HDFS?",
+      "options": [
+        "Crea un bloque nuevo con el cambio y borra el anterior",
+        "Modifica ese carácter dentro del bloque existente",
+        "Rechaza el cambio porque el fichero es de solo lectura",
+        "Reescribe todos los bloques del fichero desde cero"
+      ],
+      "answer": 0,
+      "explanation": "Los datos de HDFS son inmutables: no se modifica el bloque, sino que se escribe uno nuevo completo con el cambio y se borra el anterior.",
+      "source": "BDA UD2, apartado 1.3",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q029",
+      "type": "choice",
+      "prompt": "Al escribir un bloque, ¿quién se encarga de crear su segunda réplica?",
+      "options": [
+        "El primer Datanode, que pasa la copia al siguiente",
+        "El cliente, que escribe a la vez en todos los Datanodes",
+        "El Namenode, que copia el bloque tras recibirlo",
+        "El Secondary Namenode, a partir del EditLog"
+      ],
+      "answer": 0,
+      "explanation": "El cliente solo escribe en el primer Datanode, y este se comunica con el siguiente de la cadena para la réplica. El Namenode nunca recibe los datos.",
+      "source": "BDA UD2, apartado 1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q030",
+      "type": "choice",
+      "prompt": "Un clúster tiene 300 TB de capacidad bruta y todos los ficheros usan factor de replicación 3. ¿Cuántos datos caben antes de restar la reserva?",
+      "options": [
+        "100 TB",
+        "300 TB",
+        "900 TB",
+        "200 TB"
+      ],
+      "answer": 0,
+      "explanation": "Con factor 3 cada fichero ocupa el triple, así que la capacidad útil es 300 / 3 = 100 TB. Después aún habría que reservar un 30 o 40 % para datos parciales y logs.",
+      "source": "BDA UD2, apartado 1.3",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q031",
+      "type": "choice",
+      "prompt": "¿Qué efecto tiene subir el factor de replicación de un fichero?",
+      "options": [
+        "Lecturas más rápidas y escrituras más lentas",
+        "Lecturas más lentas y escrituras más rápidas",
+        "Más capacidad libre y menos tolerancia a fallos",
+        "Ningún efecto en el rendimiento, solo en el espacio"
+      ],
+      "answer": 0,
+      "explanation": "Con más réplicas hay más Datanodes de donde leer, pero cada escritura tiene que guardar el bloque en más sitios. Además gasta más espacio y mejora la tolerancia a fallos.",
+      "source": "BDA UD2, apartado 1.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q032",
+      "type": "truefalse",
+      "prompt": "Al calcular la capacidad real de un clúster hay que reservar un 30 o 40 % para datos parciales de las aplicaciones, logs, etc.",
+      "answer": true,
+      "explanation": "Por eso el clúster del ejemplo, con 240 TB tras la replicación, se queda en unos 150 TB reales.",
+      "source": "BDA UD2, apartado 1.3",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q033",
+      "type": "choice",
+      "prompt": "Tienes una tabla maestra pequeña que se consulta muchísimo y no se puede perder. ¿Qué factor de replicación le conviene?",
+      "options": [
+        "Alto, incluso una copia por Datanode",
+        "Bajo, 1 o 2, porque ocupa poco",
+        "El de por defecto, sin cambiarlo",
+        "Factor 1, para escribirla más rápido"
+      ],
+      "answer": 0,
+      "explanation": "Para datos críticos y muy leídos se usa un factor alto, incluso una copia por Datanode si ocupa poco. El factor bajo es para datos temporales no críticos.",
+      "source": "BDA UD2, apartado 1.3",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q034",
+      "type": "choice",
+      "prompt": "¿Qué hace este comando?",
+      "options": [
+        "Sube informe.csv del disco local a /datos/ventas",
+        "Copia informe.csv de HDFS al disco local",
+        "Mueve informe.csv dentro de HDFS a /datos/ventas",
+        "Muestra el contenido de informe.csv"
+      ],
+      "answer": 0,
+      "code": "$ hadoop fs -put informe.csv /datos/ventas",
+      "explanation": "-put copia del sistema de archivos local a HDFS, igual que -copyFromLocal. Para el camino contrario está -get.",
+      "source": "BDA UD2, apartado 1.4",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q035",
+      "type": "choice",
+      "prompt": "¿Qué diferencia hay entre estos dos comandos?",
+      "options": [
+        "Con -cp el original se queda; con -mv desaparece del origen",
+        "Con -cp copia al disco local; con -mv, dentro de HDFS",
+        "Los dos hacen lo mismo; -mv es otro nombre de -cp",
+        "Con -mv cambia el factor de replicación del fichero"
+      ],
+      "answer": 0,
+      "code": "$ hadoop fs -cp /datos/a.csv /backup\n$ hadoop fs -mv /datos/a.csv /backup",
+      "explanation": "Los dos trabajan dentro de HDFS. -cp deja una copia en el destino y mantiene el original; -mv lo mueve, así que desaparece de la ruta de origen.",
+      "source": "BDA UD2, apartado 1.4",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q036",
+      "type": "choice",
+      "prompt": "¿Qué hace este comando?",
+      "options": [
+        "Cambia a 5 el factor de replicación del fichero",
+        "Divide el fichero en 5 bloques de 128 MB",
+        "Copia el fichero en 5 directorios de HDFS",
+        "Reparte el fichero entre 5 Datanodes fijos"
+      ],
+      "answer": 0,
+      "code": "$ hadoop fs -setrep 5 /datos/maestra.csv",
+      "explanation": "-setrep modifica el factor de replicación de un fichero o directorio concreto. El valor por defecto es 3.",
+      "source": "BDA UD2, apartado 1.4",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q037",
+      "type": "choice",
+      "prompt": "Quieres ver también el contenido de los subdirectorios de /tmp. ¿Qué comando usas?",
+      "options": [
+        "hadoop fs -ls -R /tmp",
+        "hadoop fs -ls /tmp",
+        "hadoop fs -cat -R /tmp",
+        "hadoop fs -mkdir -R /tmp"
+      ],
+      "answer": 0,
+      "explanation": "La opción -R de -ls hace un listado recursivo. Sin -R solo ves lo que hay directamente en /tmp, y -cat muestra el contenido de ficheros, no de directorios.",
+      "source": "BDA UD2, apartado 1.4",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q038",
+      "type": "truefalse",
+      "prompt": "Si ejecutas hadoop fs -ls en la máquina frontera, ves los ficheros del disco local de esa máquina.",
+      "answer": false,
+      "explanation": "hadoop fs trabaja sobre HDFS, que es distinto del sistema de ficheros de la máquina donde tienes el terminal.",
+      "source": "BDA UD2, apartado 1.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q039",
+      "type": "choice",
+      "prompt": "¿Por qué no conviene usar WebHDFS para operaciones masivas?",
+      "options": [
+        "Porque al ir sobre HTTP rinde menos que el API Java",
+        "Porque solo permite leer ficheros, no escribirlos",
+        "Porque solo funciona desde programas escritos en C",
+        "Porque obliga a montar HDFS con NFSv3 en el cliente"
+      ],
+      "answer": 0,
+      "explanation": "WebHDFS es un API REST sobre HTTP pensado para otros lenguajes. Usar HTTP como capa de transporte le da peor rendimiento que el API de Java.",
+      "source": "BDA UD2, apartado 1.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q040",
+      "type": "match",
+      "prompt": "Relaciona cada interfaz de HDFS con su descripción.",
+      "pairs": [
+        [
+          "API de Java",
+          "Interfaz nativa, porque HDFS está escrito en Java"
+        ],
+        [
+          "WebHDFS",
+          "API REST por HTTP para otros lenguajes"
+        ],
+        [
+          "NFS Gateway",
+          "Montar HDFS en un cliente local con NFSv3"
+        ],
+        [
+          "libhdfs",
+          "Librería en C sin toda la funcionalidad"
+        ]
+      ],
+      "explanation": "Además de la línea de comandos, HDFS ofrece el API de Java, WebHDFS, el NFS Gateway y la librería libhdfs.",
+      "source": "BDA UD2, apartado 1.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q041",
+      "type": "truefalse",
+      "prompt": "Con HDFS montado mediante NFS Gateway puedes añadir datos a un archivo, pero no modificarlo.",
+      "answer": true,
+      "explanation": "HDFS solo puede añadir datos a un archivo, así que por NFS las modificaciones no funcionan.",
+      "source": "BDA UD2, apartado 1.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q042",
+      "type": "order",
+      "prompt": "Ordena los pasos habituales para subir a HDFS un fichero que tienes en tu ordenador.",
+      "steps": [
+        "Copiar el fichero al disco de la máquina frontera",
+        "Subirlo a HDFS con hadoop fs -put",
+        "Comprobar con hadoop fs -ls que ya está en HDFS"
+      ],
+      "explanation": "Lo habitual es copiarlo primero a la máquina frontera y después subirlo con put. Un listado de HDFS confirma que ha llegado.",
+      "source": "BDA UD2, apartado 1.4",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q043",
+      "type": "match",
+      "prompt": "Relaciona cada opción de hadoop fs con lo que hace.",
+      "pairs": [
+        [
+          "-mkdir",
+          "Crear un directorio"
+        ],
+        [
+          "-cat",
+          "Mostrar el contenido de un fichero"
+        ],
+        [
+          "-rm",
+          "Borrar un fichero"
+        ],
+        [
+          "-setrep",
+          "Cambiar el factor de replicación"
+        ]
+      ],
+      "explanation": "Son operaciones parecidas a las de Unix, salvo -setrep, que es propia de HDFS por la replicación de bloques.",
+      "source": "BDA UD2, apartado 1.4",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q044",
+      "type": "choice",
+      "prompt": "¿Qué significa YARN?",
+      "options": [
+        "Yet Another Resource Negotiator",
+        "Yet Another Replication Node",
+        "Yarn Application Resource Network",
+        "Yet Another Runtime for Nodes"
+      ],
+      "answer": 0,
+      "explanation": "YARN es el acrónimo de Yet Another Resource Negotiator: un gestor de recursos.",
+      "source": "BDA UD2, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q045",
+      "type": "truefalse",
+      "prompt": "YARN se introdujo en la versión 2 de Hadoop.",
+      "answer": true,
+      "explanation": "Antes, MapReduce era el único motor de computación. YARN llegó en Hadoop 2 para abrir la plataforma a otras aplicaciones.",
+      "source": "BDA UD2, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q046",
+      "type": "choice",
+      "prompt": "¿Qué problema tenía Hadoop cuando MapReduce era el único motor de computación?",
+      "options": [
+        "Un trabajo lanzado hacía esperar a los demás",
+        "No podía guardar ficheros mayores de 128 MB",
+        "Solo funcionaba con datos estructurados",
+        "Los datos pasaban siempre por el Namenode"
+      ],
+      "answer": 0,
+      "explanation": "La concurrencia estaba mal resuelta: cuando alguien lanzaba un trabajo MapReduce, el resto tenía que esperar a que terminara.",
+      "source": "BDA UD2, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q047",
+      "type": "choice",
+      "prompt": "¿Cuál era el objetivo principal de YARN?",
+      "options": [
+        "Independizar el almacenamiento del procesamiento",
+        "Sustituir a HDFS como capa de almacenamiento",
+        "Hacer de MapReduce el único motor de cómputo",
+        "Eliminar el Namenode como punto único de fallo"
+      ],
+      "answer": 0,
+      "explanation": "YARN separa el procesamiento del almacenamiento para que cualquier aplicación pueda trabajar con los datos de HDFS y para que varios usuarios usen la plataforma.",
+      "source": "BDA UD2, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q048",
+      "type": "truefalse",
+      "prompt": "Decir que YARN es el sistema operativo de Hadoop es del todo exacto, porque también gestiona el almacenamiento.",
+      "answer": false,
+      "explanation": "La comparación tiene lógica, pero no es del todo correcta: un sistema operativo integra la gestión del almacenamiento y YARN no, de eso se ocupa HDFS.",
+      "source": "BDA UD2, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q049",
+      "type": "choice",
+      "prompt": "¿Quién configura las políticas de prioridad que YARN aplica entre aplicaciones?",
+      "options": [
+        "El administrador de YARN",
+        "Cada aplicación al arrancar",
+        "El Namenode de HDFS",
+        "El usuario que lanza el trabajo"
+      ],
+      "answer": 0,
+      "explanation": "YARN decide prioridades y recursos cuando las aplicaciones compiten, pero esas políticas las configura el administrador.",
+      "source": "BDA UD2, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q050",
+      "type": "choice",
+      "prompt": "Durante la ejecución de una aplicación falla uno de los nodos. ¿Qué hace YARN?",
+      "options": [
+        "Vuelve a lanzar el trabajo",
+        "Detiene la aplicación y avisa al administrador",
+        "Espera a que el nodo vuelva para seguir",
+        "Pide al Namenode que reconstruya el nodo"
+      ],
+      "answer": 0,
+      "explanation": "YARN monitoriza las aplicaciones y, si una falla por la caída de un nodo, vuelve a lanzar el trabajo. Así garantiza la tolerancia a fallos.",
+      "source": "BDA UD2, apartado 2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q051",
+      "type": "truefalse",
+      "prompt": "El API de YARN impone a las aplicaciones cómo deben procesar los datos, igual que MapReduce.",
+      "answer": false,
+      "explanation": "Es justo al contrario: el API de YARN es mucho menos estricto y no impone cómo hacer el procesamiento. Sus operaciones son del tipo ejecutar, pedir recursos o parar una aplicación.",
+      "source": "BDA UD2, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q052",
+      "type": "choice",
+      "prompt": "¿Qué es un contenedor en YARN?",
+      "options": [
+        "La unidad mínima de recursos para ejecutar una tarea",
+        "Un fichero de HDFS con el código de la aplicación",
+        "Un nodo worker reservado para una sola aplicación",
+        "La cola del Scheduler donde esperan las tareas"
+      ],
+      "answer": 0,
+      "explanation": "Un contenedor representa una cantidad concreta de memoria, núcleos y otros recursos. Cada tarea de una aplicación YARN se ejecuta en su propio contenedor.",
+      "source": "BDA UD2, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q053",
+      "type": "choice",
+      "prompt": "¿Qué memoria tiene un contenedor de YARN por defecto?",
+      "options": [
+        "8 GB",
+        "4 GB",
+        "16 GB",
+        "32 GB"
+      ],
+      "answer": 0,
+      "explanation": "Por defecto son 8 GB. Los 4 GB y los 16 GB aparecen como ejemplos de tamaños que se pueden configurar según los nodos y las tareas.",
+      "source": "BDA UD2, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q054",
+      "type": "choice",
+      "prompt": "Un clúster tiene 10 nodos con 128 GB de RAM cada uno, todo asignado a YARN, y contenedores de 16 GB. ¿Cuántas tareas puede ejecutar a la vez como máximo?",
+      "options": [
+        "80",
+        "8",
+        "160",
+        "1.280"
+      ],
+      "answer": 0,
+      "explanation": "Hay 10 × 128 = 1.280 GB de RAM y cada contenedor usa 16 GB, así que caben 80 contenedores. Como cada tarea va en un contenedor, son 80 tareas concurrentes.",
+      "source": "BDA UD2, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q055",
+      "type": "match",
+      "prompt": "Relaciona cada algoritmo del Scheduler con cómo reparte los recursos.",
+      "pairs": [
+        [
+          "Capacity Scheduler",
+          "Colas con un conjunto de recursos cada una"
+        ],
+        [
+          "Fair Scheduler",
+          "En promedio, una parte igual para cada aplicación"
+        ],
+        [
+          "FIFO Scheduler",
+          "La primera aplicación lanzada toma los recursos"
+        ]
+      ],
+      "explanation": "Capacity trabaja con colas y es el más habitual, Fair busca que todas reciban lo mismo a lo largo del tiempo y FIFO sigue el orden de llegada.",
+      "source": "BDA UD2, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q056",
+      "type": "choice",
+      "prompt": "Quieres una cola con prioridad alta para los servicios críticos y otra con pocos recursos para los data scientist. ¿Qué algoritmo del Scheduler usas?",
+      "options": [
+        "Capacity Scheduler",
+        "Fair Scheduler",
+        "FIFO Scheduler",
+        "ApplicationsManager"
+      ],
+      "answer": 0,
+      "explanation": "Capacity Scheduler define colas, cada una con sus recursos y su prioridad. Es el más habitual, con una cola por tipo de aplicación.",
+      "source": "BDA UD2, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q057",
+      "type": "choice",
+      "prompt": "¿Cuáles son los dos componentes principales del ResourceManager?",
+      "options": [
+        "ApplicationsManager y Scheduler",
+        "NodeManager y ApplicationMaster",
+        "Namenode y Secondary Namenode",
+        "Scheduler y NodeManager"
+      ],
+      "answer": 0,
+      "explanation": "El ResourceManager tiene dos componentes: el ApplicationsManager, que recibe las peticiones y distribuye las aplicaciones, y el Scheduler, que asigna prioridades y recursos. Los NodeManager y los ApplicationMaster van en los workers.",
+      "source": "BDA UD2, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q058",
+      "type": "truefalse",
+      "prompt": "Hay un ApplicationMaster por cada aplicación y termina cuando la aplicación acaba.",
+      "answer": true,
+      "explanation": "El ResourceManager y los NodeManager están siempre en marcha, pero el ApplicationMaster es específico de su aplicación.",
+      "source": "BDA UD2, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q059",
+      "type": "choice",
+      "prompt": "¿Por qué el ApplicationMaster se ejecuta en un nodo worker y no en el maestro?",
+      "options": [
+        "Para que el ResourceManager no sea un cuello de botella",
+        "Porque el maestro no tiene memoria para contenedores",
+        "Porque el ApplicationMaster guarda los bloques de HDFS",
+        "Para que el NodeManager no tenga que vigilar tareas"
+      ],
+      "answer": 0,
+      "explanation": "Si todos los ApplicationMaster fueran en el maestro junto al ResourceManager, este no podría escalar ni lanzar muchas aplicaciones a la vez.",
+      "source": "BDA UD2, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q060",
+      "type": "match",
+      "prompt": "Relaciona cada servicio de YARN con su función.",
+      "pairs": [
+        [
+          "ResourceManager",
+          "Maestro que coordina la ejecución de las tareas"
+        ],
+        [
+          "NodeManager",
+          "Vigila tareas y contenedores en cada worker"
+        ],
+        [
+          "ApplicationMaster",
+          "Negocia los recursos de una sola aplicación"
+        ],
+        [
+          "Scheduler",
+          "Asigna prioridades y recursos a las aplicaciones"
+        ]
+      ],
+      "explanation": "El ResourceManager es el maestro y el Scheduler, uno de sus componentes. En los workers están los NodeManager y, por cada aplicación, un ApplicationMaster.",
+      "source": "BDA UD2, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q061",
+      "type": "truefalse",
+      "prompt": "Si cae un NodeManager, el ResourceManager redirige la ejecución de las aplicaciones al resto de nodos activos.",
+      "answer": true,
+      "explanation": "Los NodeManager, igual que los Datanodes, son tolerantes a fallos: el ResourceManager detecta la caída y mueve el trabajo.",
+      "source": "BDA UD2, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q062",
+      "type": "order",
+      "prompt": "Ordena la secuencia de ejecución de una aplicación en YARN.",
+      "steps": [
+        "El cliente pide al ResourceManager ejecutar la aplicación",
+        "El ApplicationsManager pide a un NodeManager un contenedor para el ApplicationMaster",
+        "El NodeManager crea el contenedor y lo arranca",
+        "El ApplicationMaster solicita los contenedores que necesita la aplicación",
+        "El ApplicationMaster controla las tareas e informa del estado"
+      ],
+      "explanation": "Todo empieza en el ResourceManager. Después se crea el contenedor del ApplicationMaster, y es este quien pide los demás contenedores y controla las tareas.",
+      "source": "BDA UD2, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q063",
+      "type": "choice",
+      "prompt": "¿Qué envía el cliente al ResourceManager cuando pide ejecutar una aplicación?",
+      "options": [
+        "El ejecutable y parámetros sobre los recursos",
+        "Solo el nombre de la cola del Scheduler",
+        "Los bloques de datos que va a procesar",
+        "La lista de Datanodes donde están los datos"
+      ],
+      "answer": 0,
+      "explanation": "En la llamada, el cliente envía el código o ejecutable de la aplicación y unos parámetros sobre los recursos que necesita. Los datos no viajan con la petición.",
+      "source": "BDA UD2, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q064",
+      "type": "choice",
+      "prompt": "¿Con quién comprueba el ApplicationsManager la disponibilidad de recursos y la prioridad?",
+      "options": [
+        "Con el Scheduler",
+        "Con el NodeManager",
+        "Con el Namenode",
+        "Con el ApplicationMaster"
+      ],
+      "answer": 0,
+      "explanation": "El ApplicationsManager consulta al Scheduler, el otro componente del ResourceManager, antes de pedir el contenedor del ApplicationMaster.",
+      "source": "BDA UD2, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q065",
+      "type": "truefalse",
+      "prompt": "El ApplicationMaster se ejecuta dentro de un contenedor que crea un NodeManager.",
+      "answer": true,
+      "explanation": "El ApplicationsManager pide a un NodeManager que cree el contenedor y el NodeManager lo crea y arranca con el ApplicationMaster dentro.",
+      "source": "BDA UD2, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q066",
+      "type": "choice",
+      "prompt": "¿Quién informa al ResourceManager de que un nodo sigue activo?",
+      "options": [
+        "El NodeManager de ese nodo",
+        "El ApplicationMaster de cada aplicación",
+        "El Scheduler del ResourceManager",
+        "El cliente que lanzó la aplicación"
+      ],
+      "answer": 0,
+      "explanation": "Cada NodeManager informa al ResourceManager del consumo de recursos y le notifica que el nodo está activo.",
+      "source": "BDA UD2, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q067",
+      "type": "choice",
+      "prompt": "¿Por qué en Hadoop se intenta que los nodos maestros hagan pocas operaciones por tarea?",
+      "options": [
+        "Para no limitar la capacidad de escalar del clúster",
+        "Para que los maestros puedan guardar más bloques",
+        "Para ahorrar licencias en los nodos maestros",
+        "Para que los clientes no necesiten conexión de red"
+      ],
+      "answer": 0,
+      "explanation": "Si cada tarea cargara mucho al maestro, el límite del sistema sería lo que aguanta ese nodo y apenas se podría escalar.",
+      "source": "BDA UD2, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q068",
+      "type": "truefalse",
+      "prompt": "El cliente que lanza la aplicación es quien pide los contenedores para sus tareas.",
+      "answer": false,
+      "explanation": "El cliente solo habla con el ResourceManager al principio. Los contenedores de las tareas los solicita el ApplicationMaster al ApplicationsManager.",
+      "source": "BDA UD2, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q069",
+      "type": "choice",
+      "prompt": "Durante la ejecución, ¿a quién va notificando el ApplicationMaster el estado de las tareas?",
+      "options": [
+        "Al ResourceManager",
+        "Al cliente que lanzó la aplicación",
+        "Al NodeManager de su nodo",
+        "Al Namenode de HDFS"
+      ],
+      "answer": 0,
+      "explanation": "El ApplicationMaster controla los contenedores donde se ejecutan las tareas y va notificando el estado de la ejecución al ResourceManager. El NodeManager también informa al ResourceManager, pero del consumo de recursos del nodo.",
+      "source": "BDA UD2, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q070",
+      "type": "truefalse",
+      "prompt": "En MapReduce, el código del desarrollador llama al framework para que paralelice el trabajo.",
+      "answer": false,
+      "explanation": "Es al revés: el framework invoca el código del usuario, como pasa en muchos frameworks web. El desarrollador solo escribe la lógica.",
+      "source": "BDA UD2, apartado 3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q071",
+      "type": "choice",
+      "prompt": "¿Qué parte del esfuerzo de un proceso masivo suele llevarse la monitorización, el control de errores y la concurrencia?",
+      "options": [
+        "Alrededor del 90 %",
+        "Alrededor del 10 %",
+        "Alrededor del 50 %",
+        "Alrededor del 30 %"
+      ],
+      "answer": 0,
+      "explanation": "Según los apuntes, esas operaciones suelen suponer el 90 % del esfuerzo, y de ellas se encarga el framework para que el desarrollador se centre en la lógica.",
+      "source": "BDA UD2, apartado 3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q072",
+      "type": "choice",
+      "prompt": "¿En qué consiste la aproximación Divide y Vencerás de MapReduce?",
+      "options": [
+        "Partir los datos en fragmentos, procesarlos aparte y agrupar",
+        "Dividir el clúster en un nodo maestro y varios workers",
+        "Repartir cada bloque en tres réplicas para no perderlo",
+        "Separar el almacenamiento en HDFS del cómputo en YARN"
+      ],
+      "answer": 0,
+      "explanation": "Se divide la entrada en fragmentos pequeños, cada uno se procesa por separado y los resultados parciales se van agrupando hasta la solución final.",
+      "source": "BDA UD2, apartado 3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q073",
+      "type": "choice",
+      "prompt": "Tienes un proceso pesado que se ejecuta de noche y no necesita acabar rápido, pero sí terminar bien. ¿Por qué encaja MapReduce?",
+      "options": [
+        "Porque es lento pero da más garantía de acabar bien",
+        "Porque es el framework más rápido al usar la memoria",
+        "Porque solo funciona en ventanas de tiempo nocturnas",
+        "Porque no necesita ningún nodo del clúster Hadoop"
+      ],
+      "answer": 0,
+      "explanation": "Es la apisonadora: lenta pero segura. Los frameworks que usan memoria van más rápido, pero tienen más fallos.",
+      "source": "BDA UD2, apartado 3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q074",
+      "type": "truefalse",
+      "prompt": "MapReduce necesita servidores específicos, distintos de los de la plataforma Hadoop.",
+      "answer": false,
+      "explanation": "MapReduce funciona sobre hardware commodity y, de hecho, emplea los mismos servidores de la plataforma Hadoop.",
+      "source": "BDA UD2, apartado 3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q075",
+      "type": "choice",
+      "prompt": "¿Qué permite programar MapReduce en lenguajes como Python o C++?",
+      "options": [
+        "Hadoop Streaming o Hadoop Pipes",
+        "El API REST de WebHDFS",
+        "La librería libhdfs",
+        "El Fair Scheduler de YARN"
+      ],
+      "answer": 0,
+      "explanation": "MapReduce está implementado en Java, pero Hadoop Streaming y Hadoop Pipes permiten escribir los programas en C++, Python o shell.",
+      "source": "BDA UD2, apartado 3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q076",
+      "type": "choice",
+      "prompt": "¿Por qué sigue siendo útil entender MapReduce aunque se use cada vez menos?",
+      "options": [
+        "Porque herramientas como Hive lo ejecutan por debajo",
+        "Porque es el único motor que admite YARN",
+        "Porque HDFS no funciona sin trabajos MapReduce",
+        "Porque es más rápido que los frameworks en memoria"
+      ],
+      "answer": 0,
+      "explanation": "Hive ofrece consultas SQL, pero por debajo ejecuta MapReduce, así que entenderlo ayuda a depurar. Además, su modelo se usa en otras herramientas.",
+      "source": "BDA UD2, apartado 3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q077",
+      "type": "match",
+      "prompt": "Relaciona cada término de la definición de MapReduce con su significado.",
+      "pairs": [
+        [
+          "Framework",
+          "Se ocupa de paralelizar, monitorizar y recuperarse de errores"
+        ],
+        [
+          "Divide y Vencerás",
+          "Partir el problema en fragmentos y combinar las soluciones"
+        ],
+        [
+          "Paralelo",
+          "Cada parte pequeña se ejecuta a la vez que las demás"
+        ],
+        [
+          "Hardware commodity",
+          "Usa los mismos servidores de la plataforma Hadoop"
+        ]
+      ],
+      "explanation": "Son las piezas de la definición: un framework que procesa grandes datos en paralelo, en clústeres de hardware commodity y tolerante a fallos.",
+      "source": "BDA UD2, apartado 3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q078",
+      "type": "order",
+      "prompt": "Ordena las cinco etapas de un trabajo de MapReduce.",
+      "steps": [
+        "Envío del trabajo, aceptación y distribución en el clúster",
+        "Fase map",
+        "Fase shuffle",
+        "Fase order",
+        "Fase reduce"
+      ],
+      "explanation": "Es el orden de la lista de los apuntes: envío y distribución, map, shuffle, order y reduce. La fase order es la ordenación por clave que el ejemplo nombra como sort, justo después de shuffle.",
+      "source": "BDA UD2, apartado 3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q079",
+      "type": "choice",
+      "prompt": "¿Qué componente divide el fichero de entrada en fragmentos para procesarlos en paralelo?",
+      "options": [
+        "InputFormat",
+        "Reducer",
+        "Scheduler",
+        "Namenode"
+      ],
+      "answer": 0,
+      "explanation": "El InputFormat decide cómo partir el fichero de entrada. Por cada fragmento se crea después una tarea map.",
+      "source": "BDA UD2, apartado 3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q080",
+      "type": "choice",
+      "prompt": "En el ejemplo de las cotizaciones, ¿qué emite map para esta línea?",
+      "options": [
+        "TELEFONICA, 1",
+        "Nada, porque ha bajado",
+        "TELEFONICA, 14,31",
+        "TELEFONICA, 0"
+      ],
+      "answer": 0,
+      "code": "21/12/2020 10:10:56;TELEFONICA;14,31;14,29",
+      "explanation": "El valor actual (14,31) es mayor que el anterior (14,29), así que la cotización ha subido y map emite el par empresa y 1.",
+      "source": "BDA UD2, apartado 3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q081",
+      "type": "choice",
+      "prompt": "En el mismo ejemplo, ¿qué emite map para esta línea?",
+      "options": [
+        "No emite ningún par",
+        "Emite APPLE, 1",
+        "Emite APPLE, 0",
+        "Emite APPLE, -1"
+      ],
+      "answer": 0,
+      "code": "19/06/2022 11:54:22;APPLE;111,25;114,89",
+      "explanation": "El valor actual (111,25) es menor que el anterior (114,89). Map solo emite un par cuando la cotización sube; si baja, no suma nada.",
+      "source": "BDA UD2, apartado 3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q082",
+      "type": "choice",
+      "prompt": "¿Qué hacen las fases shuffle y sort?",
+      "options": [
+        "Ordenan los resultados de map por clave y los juntan",
+        "Dividen el fichero de entrada en fragmentos",
+        "Suman los valores de cada empresa",
+        "Unen las salidas de reduce en el resultado final"
+      ],
+      "answer": 0,
+      "explanation": "Toman los resultados parciales de map, los ordenan por la clave y juntan los valores de cada una. Se ejecutan de forma automática y transparente.",
+      "source": "BDA UD2, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q083",
+      "type": "truefalse",
+      "prompt": "En el ejemplo de las cotizaciones, la clave por la que se ordenan los resultados parciales es el nombre de la empresa.",
+      "answer": true,
+      "explanation": "Map emite pares con el nombre de la empresa como clave, y shuffle y sort ordenan y agrupan por ese nombre.",
+      "source": "BDA UD2, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q084",
+      "type": "choice",
+      "prompt": "¿Qué recibe cada función reduce en el ejemplo de las cotizaciones?",
+      "options": [
+        "Una partición con los valores de una misma empresa",
+        "Un fragmento del fichero de entrada sin ordenar",
+        "Todas las líneas del fichero con la misma fecha",
+        "El resultado final con todas las empresas"
+      ],
+      "answer": 0,
+      "explanation": "La lista ordenada se divide en particiones con la misma clave. Cada reduce recibe los valores ya ordenados y unidos de una empresa y los suma.",
+      "source": "BDA UD2, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q085",
+      "type": "match",
+      "prompt": "Relaciona cada pieza de MapReduce con lo que hace en el ejemplo.",
+      "pairs": [
+        [
+          "InputFormat",
+          "Parte la entrada en fragmentos"
+        ],
+        [
+          "map",
+          "Emite un par parcial por cada subida"
+        ],
+        [
+          "shuffle y sort",
+          "Ordena por clave y junta los valores"
+        ],
+        [
+          "reduce",
+          "Suma los valores de cada empresa"
+        ]
+      ],
+      "explanation": "El InputFormat reparte la entrada, map genera los pares, shuffle y sort los agrupan por empresa y reduce calcula el total de cada una.",
+      "source": "BDA UD2, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q087",
+      "type": "choice",
+      "prompt": "¿Qué hace este fragmento del método map?",
+      "options": [
+        "Emite (empresa, 1) solo si la cotización sube",
+        "Suma las subidas de cada empresa y emite el total",
+        "Emite (empresa, 1) por cada línea, suba o baje",
+        "Ordena las líneas por el nombre de la empresa"
+      ],
+      "answer": 0,
+      "code": "String[] datos = value.toString().split(\";\");\nfloat actual = Float.parseFloat(datos[2]);\nfloat anterior = Float.parseFloat(datos[3]);\nString empresa = datos[1];\nif (actual > anterior)\n    context.write(new Text(empresa), new IntWritable(1));",
+      "explanation": "Separa la línea por los punto y coma, toma la empresa y los dos valores y solo escribe un par cuando el actual es mayor. Sumar es trabajo del Reducer.",
+      "source": "BDA UD2, apartado 3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q088",
+      "type": "choice",
+      "prompt": "¿Qué valor tiene datos[1] después de ejecutar este código?",
+      "options": [
+        "SANTANDER",
+        "20/01/2021 11:54:34",
+        "4,54",
+        "4,49"
+      ],
+      "answer": 0,
+      "code": "// linea = \"20/01/2021 11:54:34;SANTANDER;4,54;4,49\"\nString[] datos = linea.split(\";\");",
+      "explanation": "split(\";\") separa la línea en fecha y hora, empresa, valor actual y valor anterior. Los índices empiezan en 0, así que datos[1] es la empresa.",
+      "source": "BDA UD2, apartado 3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q089",
+      "type": "choice",
+      "prompt": "A este método reduce le llegan, para la clave SANTANDER, los valores 1, 1 y 1. ¿Qué emite?",
+      "options": [
+        "SANTANDER, 3",
+        "SANTANDER, 1",
+        "SANTANDER, 1 tres veces",
+        "3, SANTANDER"
+      ],
+      "answer": 0,
+      "code": "public void reduce(Text key, Iterable<IntWritable> values, Context context)\n        throws IOException, InterruptedException {\n    int sum = 0;\n    for (IntWritable val : values) {\n        sum += val.get();\n    }\n    result.set(sum);\n    context.write(key, result);\n}",
+      "explanation": "El bucle suma todos los valores de la clave y al final escribe un único par con la clave y la suma.",
+      "source": "BDA UD2, apartado 3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q090",
+      "type": "choice",
+      "prompt": "¿Qué configuran estas líneas de main?",
+      "options": [
+        "Las clases de map y reduce y las rutas de entrada y salida",
+        "El tamaño de bloque y el factor de replicación",
+        "La cola del Scheduler y el tamaño de los contenedores",
+        "El número de fragmentos y de tareas map en paralelo"
+      ],
+      "answer": 0,
+      "code": "job.setMapperClass(IncreaseQuotationFilterMapper.class);\njob.setReducerClass(IntSumReducer.class);\nFileInputFormat.addInputPath(job, new Path(args[0]));\nFileOutputFormat.setOutputPath(job, new Path(args[1]));",
+      "explanation": "main crea el trabajo y le dice qué clase hace de Mapper, cuál de Reducer y de dónde leer y dónde escribir. Cómo partir la entrada lo decide MapReduce.",
+      "source": "BDA UD2, apartado 3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q091",
+      "type": "choice",
+      "prompt": "¿Qué indica AnalizadorVentas en este comando?",
+      "options": [
+        "La clase que contiene el método main",
+        "El nombre del fichero .jar",
+        "La ruta del fichero de entrada",
+        "La cola de YARN donde se ejecuta"
+      ],
+      "answer": 0,
+      "code": "$ hadoop jar analisis-ventas.jar AnalizadorVentas /datos/ventas/entrada /datos/ventas/salida",
+      "explanation": "Tras hadoop jar va el fichero .jar, después la clase con la configuración (el método main) y luego las rutas de entrada y de salida.",
+      "source": "BDA UD2, apartado 3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "bda-ud02-q092",
+      "type": "order",
+      "prompt": "Ordena los parámetros del comando con el que se lanza un trabajo MapReduce empaquetado.",
+      "steps": [
+        "hadoop jar",
+        "El fichero .jar con la aplicación",
+        "La clase con el método main",
+        "La ruta del fichero de entrada",
+        "La ruta de salida"
+      ],
+      "explanation": "Primero el comando hadoop jar y el fichero .jar; luego la clase con main y, por último, las rutas de entrada y de salida.",
+      "source": "BDA UD2, apartado 3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q093",
+      "type": "truefalse",
+      "prompt": "El método map del Mapper se invoca una vez por cada empresa del fichero.",
+      "answer": false,
+      "explanation": "map se invoca una vez por cada línea del fichero. El que se invoca una vez por empresa es reduce.",
+      "source": "BDA UD2, apartado 3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "bda-ud02-q094",
+      "type": "choice",
+      "prompt": "¿Desde qué máquina se lanza el .jar con hadoop jar en el ejemplo de los apuntes?",
+      "options": [
+        "Desde el nodo frontera",
+        "Desde cada Datanode",
+        "Desde el Secondary Namenode",
+        "Desde el ApplicationMaster"
+      ],
+      "answer": 0,
+      "explanation": "Una vez empaquetado el código, el trabajo se lanza ejecutando hadoop jar en el nodo frontera.",
+      "source": "BDA UD2, apartado 3.3",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q095",
+      "type": "order",
+      "prompt": "Ordena los pasos para llevar el ejemplo de las cotizaciones al clúster.",
+      "steps": [
+        "Programar el Mapper y el Reducer en Java",
+        "Empaquetar el código en un fichero .jar",
+        "Lanzarlo en el clúster con hadoop jar"
+      ],
+      "explanation": "Primero se escribe el código, luego se empaqueta en un .jar y por último se lanza desde el nodo frontera.",
+      "source": "BDA UD2, apartado 3.3",
+      "difficulty": 1
+    },
+    {
+      "id": "bda-ud02-q096",
+      "type": "truefalse",
+      "prompt": "Tanto el Mapper como el Reducer se ejecutan en paralelo en distintos nodos del clúster.",
+      "answer": true,
+      "explanation": "MapReduce reparte la ejecución de los dos por los nodos del clúster; el programador solo se ocupa del diseño y la lógica.",
+      "source": "BDA UD2, apartado 3.3",
+      "difficulty": 2
+    }
+  ]
+}

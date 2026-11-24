@@ -96,7 +96,8 @@
         {
           "id": "bda-ud02",
           "number": 2,
-          "title": "Almacenamiento y procesamiento en Hadoop"
+          "title": "Almacenamiento y procesamiento en Hadoop",
+          "file": "bda/ud02.json"
         }
       ]
     }
