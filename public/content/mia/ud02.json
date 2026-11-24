@@ -696,7 +696,7 @@
       "type": "choice",
       "prompt": "¿Por qué los entornos estáticos son fáciles de manejar?",
       "options": [
-        "El agente no tiene que seguir observando mientras decide",
+        "No hay que seguir observando mientras se decide",
         "Tienen siempre un número finito de estados",
         "En ellos solo puede haber un agente",
         "Cada acción da siempre el mismo resultado"
@@ -806,10 +806,10 @@
       "type": "choice",
       "prompt": "¿Qué necesita un programa agente si su acción depende de percepciones pasadas?",
       "options": [
-        "Añadir más sensores físicos",
-        "Guardar el histórico de percepciones en memoria",
-        "Una función de utilidad",
-        "Un entorno determinista"
+        "Añadir más sensores físicos al agente",
+        "Guardar en memoria las percepciones pasadas",
+        "Una función de utilidad más precisa",
+        "Un entorno determinista y estático"
       ],
       "answer": 1,
       "explanation": "El programa solo recibe lo que pasa en el momento actual. Para usar percepciones pasadas tiene que haberlas guardado para poder revisarlas.",
@@ -993,9 +993,9 @@
       "code": "estado_nuevo = f(estado_anterior, acción)",
       "options": [
         "El modelado del efecto de las acciones",
-        "El modelo de sensor",
-        "La función de utilidad",
-        "El objetivo del sistema"
+        "El modelo de sensor del agente",
+        "La función de utilidad del agente",
+        "El objetivo final del sistema"
       ],
       "answer": 0,
       "explanation": "Asocia a cada par (estado, acción) el cambio de estado que produce. El objetivo, en cambio, es el estado final deseado.",
@@ -1107,10 +1107,10 @@
       "type": "choice",
       "prompt": "¿Cuáles son los tres conceptos clave de las técnicas basadas en reglas?",
       "options": [
-        "Sensores, actuadores y entorno",
+        "Sensores, actuadores y modelo interno del entorno",
         "Reglas de producción, base de conocimiento y motor de inferencia",
-        "Dominio, problema y planificador",
-        "Fuzzificación, reglas y defuzzificación"
+        "Dominio, problema y planificador independiente",
+        "Fuzzificación, base de reglas difusas y defuzzificación"
       ],
       "answer": 1,
       "explanation": "Las reglas IF-THEN se guardan en la base de conocimiento y el motor de inferencia las aplica a los datos.",
@@ -1308,9 +1308,9 @@
       "type": "choice",
       "prompt": "¿Qué son los Modelos Gráficos Probabilísticos (PGM)?",
       "options": [
-        "Un subtipo de modelos de grafos con principios probabilísticos",
-        "Un tipo de red neuronal convolucional",
-        "Un método para reducir la dimensionalidad",
+        "Un subtipo de modelo de grafos basado en la probabilidad",
+        "Un tipo de red neuronal convolucional para imágenes",
+        "Un método para reducir la dimensionalidad de los datos",
         "Una matriz de confusión con probabilidades"
       ],
       "answer": 0,
@@ -1424,10 +1424,10 @@
       "type": "choice",
       "prompt": "¿Qué dos problemas vienen a resolver los lenguajes PDDL?",
       "options": [
-        "Los entornos dinámicos y multiagente",
+        "Los entornos dinámicos y los sistemas multiagente",
         "El acoplamiento al dominio y un espacio de estados enorme",
         "La falta de sensores y los efectos inciertos",
-        "El sobreajuste y la falta de datos"
+        "El sobreajuste del modelo y la falta de datos"
       ],
       "answer": 1,
       "explanation": "Plantear el proceso de resolución a mano acopla el agente al dominio y obliga a representar un espacio de estados muy grande. PDDL nace para evitarlo.",
@@ -1630,10 +1630,10 @@
       "type": "choice",
       "prompt": "¿Cómo se interpreta la proposición atómica difusa «V es PG»?",
       "options": [
-        "Comprobando si V es mayor que PG",
+        "Comprobando si el valor de V es mayor que PG",
         "Por la probabilidad de que V valga PG",
-        "Por la pertenencia de la velocidad al conjunto PG",
-        "Con la tabla de verdad de V y PG"
+        "Por el grado en que V pertenece al conjunto PG",
+        "Con la tabla de verdad clásica de V y PG"
       ],
       "answer": 2,
       "explanation": "La interpretación es μPG(v): el grado en que un valor v de la velocidad pertenece al conjunto difuso PG. No es una comparación ni una probabilidad.",
@@ -1745,8 +1745,8 @@
       "options": [
         "Un valor fijo por encima de 100 km/h",
         "La probabilidad de superar el límite",
-        "Un conjunto difuso dentro del rango de la velocidad",
-        "El consecuente de la regla"
+        "Un conjunto difuso del rango de la velocidad",
+        "El consecuente que se activa con la regla"
       ],
       "answer": 2,
       "explanation": "En la regla difusa, el rango de la velocidad se cubre con conjuntos difusos como lenta, media y rápida. Un umbral fijo como «> 100» es propio de la regla clásica.",

@@ -685,8 +685,8 @@
       "options": [
         "La mejora de rendimiento que da añadir nodos a un clúster",
         "El precio al que se puede vender un dataset a otra empresa",
-        "La cantidad de datos nuevos que se generan cada minuto",
-        "La diferencia entre decidir con la sabiduría de los datos y decidir sin ellos"
+        "La cantidad de datos nuevos que genera una empresa cada minuto",
+        "La diferencia entre decidir con la sabiduría de los datos y sin ella"
       ],
       "answer": 3,
       "explanation": "Se compara el resultado de actuar según la sabiduría de los datos con el que tendrías sin tenerlos en cuenta. Esa diferencia es el valor añadido.",
@@ -967,9 +967,9 @@
       "prompt": "¿Dónde puede estar guardado un dataset?",
       "options": [
         "Solo en ficheros JSON o XML con su esquema",
-        "Solo en ficheros de texto plano como CSV",
+        "Solo en ficheros de texto plano como CSV o TXT",
         "Solo en tablas de bases de datos relacionales",
-        "En ficheros de texto plano, en tablas o en ficheros multimedia"
+        "En texto plano, en tablas o en ficheros multimedia"
       ],
       "answer": 3,
       "explanation": "Un dataset es una colección de datos relacionados y puede estar en cualquiera de esos formatos. Lo que lo define es la relación entre los datos, no cómo se guardan.",

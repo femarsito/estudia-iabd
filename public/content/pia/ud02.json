@@ -1437,8 +1437,8 @@
       "type": "choice",
       "prompt": "Al imprimir un vector largo con print(), una línea empieza por [18]. ¿Qué indica?",
       "options": [
-        "Que el vector tiene 18 elementos",
-        "Que el primer valor de esa línea es el elemento 18",
+        "Que el vector tiene 18 elementos en total",
+        "Que su primer valor es el elemento 18",
         "Que esa línea tiene 18 elementos",
         "Que es la línea 18 de la salida"
       ],

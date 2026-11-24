@@ -1304,7 +1304,7 @@
       "type": "choice",
       "prompt": "¿Cuál de estos es un algoritmo de inteligencia de enjambre?",
       "options": [
-        "Optimización por colonias de hormigas",
+        "Colonias de hormigas",
         "Búsqueda en anchura",
         "Algoritmo A*",
         "Agrupamiento k-means"

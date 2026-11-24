@@ -1170,9 +1170,9 @@
       "type": "choice",
       "prompt": "¿Cuál de estos es un inconveniente de los árboles de decisión según los apuntes?",
       "options": [
-        "Son costosos de construir",
-        "Son lentos de ejecutar",
-        "Exigen mucho preprocesamiento",
+        "Son costosos de construir con muchos datos",
+        "Son lentos al clasificar casos nuevos",
+        "Exigen mucho preprocesamiento de los datos",
         "Los árboles muy profundos tienden a sobreaprender"
       ],
       "answer": 3,

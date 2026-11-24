@@ -520,9 +520,9 @@
       "prompt": "¿Qué problema resolvía el paper que Google publicó en octubre de 2003?",
       "options": [
         "Cómo procesar datos voluminosos con MapReduce",
-        "Cómo almacenar petabytes a bajo coste de forma distribuida",
-        "Cómo indexar páginas web en tiempo real",
-        "Cómo replicar bases de datos relacionales"
+        "Cómo almacenar petabytes de forma distribuida y barata",
+        "Cómo indexar las páginas web en tiempo real",
+        "Cómo replicar bases de datos relacionales entre centros"
       ],
       "answer": 1,
       "explanation": "El paper de 2003 describía The Google File System, es decir, el almacenamiento distribuido. El procesamiento con MapReduce llegó en el paper de diciembre de 2004.",
@@ -628,7 +628,7 @@
         "Porque Hadoop es opensource y MongoDB es una solución comercial",
         "Porque Hadoop funciona en un servidor y MongoDB necesita un clúster",
         "Porque Hadoop guarda datos no estructurados y MongoDB solo estructurados",
-        "Porque Hadoop es la base para construir muchas aplicaciones y MongoDB tiene un único propósito"
+        "Porque Hadoop es la base de muchas aplicaciones y MongoDB tiene un solo propósito"
       ],
       "answer": 3,
       "explanation": "Una plataforma ofrece la base y un conjunto de herramientas para construir aplicaciones muy distintas. MongoDB y otras NoSQL ofrecen un tipo de funcionalidad con un único propósito.",
@@ -1191,9 +1191,9 @@
       "type": "choice",
       "prompt": "¿Cómo se consigue la tolerancia a fallos en el almacenamiento de los workers?",
       "options": [
-        "Guardando los datos en los nodos edge",
+        "Guardando una copia de los datos en los nodos edge",
         "Teniendo un worker pasivo que copia al activo",
-        "Guardando varias réplicas de cada dato en nodos distintos",
+        "Guardando réplicas de cada dato en nodos distintos",
         "Montando los discos de cada worker en RAID"
       ],
       "answer": 2,
@@ -1279,10 +1279,10 @@
       "type": "choice",
       "prompt": "¿Qué configuración de disco suelen llevar los nodos worker?",
       "options": [
-        "RAID 5, con paridad distribuida",
+        "RAID 5, con la paridad distribuida entre discos",
         "RAID 1, con un disco espejo del otro",
         "Un único disco de gran capacidad",
-        "JBOD, con cada disco independiente y sin replicación"
+        "JBOD, discos independientes sin replicación"
       ],
       "answer": 3,
       "explanation": "Los workers usan JBOD: cada disco suma su capacidad y ninguno es espejo de otro. Los RAID son lo propio de los masters.",
@@ -1448,7 +1448,7 @@
       "prompt": "¿Qué le cuesta a una base de datos relacional según los apuntes?",
       "options": [
         "Cubrir los casos de uso analíticos",
-        "Gestionar datos no estructurados y casos de más de 50 TB",
+        "Gestionar datos no estructurados y más de 50 TB",
         "Cubrir los casos de uso operacionales",
         "Trabajar con datos estructurados en tablas"
       ],
@@ -1510,8 +1510,8 @@
       "type": "choice",
       "prompt": "Según los apuntes, ¿cuál es uno de los factores que más está limitando el uso de Hadoop en las organizaciones?",
       "options": [
-        "La escasez de profesionales con conocimientos de Hadoop",
-        "El límite de 1.000 nodos por clúster",
+        "La escasez de profesionales que conozcan Hadoop",
+        "El límite de 1.000 nodos que admite cada clúster",
         "El precio de las licencias de Apache",
         "Que no puede guardar datos no estructurados"
       ],

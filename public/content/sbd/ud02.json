@@ -691,9 +691,9 @@
       "prompt": "¿Cómo consigue un sistema de ficheros distribuido guardar un fichero más grande que el disco de cualquier nodo?",
       "options": [
         "Lo divide en bloques que reparte por el clúster",
-        "Lo comprime antes de guardarlo",
-        "Lo guarda en un nodo con RAID 0",
-        "Lo mantiene en la memoria RAM"
+        "Lo comprime hasta que quepa en un solo disco",
+        "Lo guarda entero en un nodo con discos en RAID 0",
+        "Lo mantiene en la memoria RAM de un nodo"
       ],
       "answer": 0,
       "explanation": "El fichero no se guarda entero: se parte en bloques que se reparten por los nodos. Por eso el tamaño del fichero no depende del disco de un solo nodo.",
@@ -820,9 +820,9 @@
       "prompt": "¿Qué problema elimina tener los datos en memoria RAM?",
       "options": [
         "La latencia de entrada-salida del almacenamiento",
-        "La necesidad de replicar los datos",
-        "El coste de añadir nodos al clúster",
-        "La falta de durabilidad de los datos"
+        "La necesidad de replicar los datos entre nodos",
+        "El coste de añadir más nodos al clúster",
+        "La falta de durabilidad de los datos guardados"
       ],
       "answer": 0,
       "explanation": "La RAM quita la latencia de entrada-salida y el tiempo de transferencia del disco. La durabilidad, en cambio, es justo lo que no aporta por sí misma.",
@@ -936,10 +936,10 @@
       "type": "choice",
       "prompt": "¿Por qué se dice que HDFS es schema-on-read?",
       "options": [
-        "Porque no obliga a que los datos cumplan un esquema fijado antes",
+        "Porque no exige que los datos sigan un esquema previo",
         "Porque hay que definir el esquema antes de escribir",
-        "Porque solo admite ficheros JSON",
-        "Porque guarda el esquema en el Namenode"
+        "Porque solo admite ficheros JSON con su esquema",
+        "Porque guarda el esquema de cada fichero en el Namenode"
       ],
       "answer": 0,
       "explanation": "Como cualquier sistema de ficheros, HDFS guarda los datos sin exigir un esquema previo; si hay esquema, se aplica al leer. Definirlo antes de escribir es schema-on-write, lo de las relacionales.",
@@ -1162,10 +1162,10 @@
       "prompt": "¿Qué hace este script con Snakebite?",
       "code": "from snakebite.client import Client\n\nclient = Client('localhost', 9000)\nfor p in client.mkdir(['/datos/2024', '/salida'], create_parent=True):\n    print(p)",
       "options": [
-        "Crea /datos/2024 y /salida, y también las carpetas padre que falten",
-        "Crea solo /salida, porque /datos no existe",
-        "Borra /datos/2024 y /salida",
-        "Copia /datos/2024 en /salida"
+        "Crea /datos/2024 y /salida, y las carpetas padre que falten",
+        "Crea solo /salida, porque /datos no existe todavía",
+        "Borra /datos/2024 y /salida si ya existen",
+        "Copia el contenido de /datos/2024 en /salida"
       ],
       "answer": 0,
       "explanation": "mkdir crea los directorios de la lista, y create_parent=True hace que también cree los padres que no existan, como /datos.",
@@ -1332,10 +1332,10 @@
       "type": "choice",
       "prompt": "¿Qué tolerancia a fallos da el sharding por sí solo?",
       "options": [
-        "Parcial: si cae un nodo, solo queda afectada su parte de los datos",
+        "Parcial: si cae un nodo, solo se ve afectada su parte",
         "Total: los datos de un nodo caído siguen en otro",
         "Ninguna: si cae un nodo, cae toda la base de datos",
-        "Total, siempre que haya un nodo maestro"
+        "Total, siempre que haya un nodo maestro que coordine"
       ],
       "answer": 0,
       "explanation": "Con sharding cada nodo tiene una parte distinta de los datos. Si uno queda inaccesible solo se ve afectada su parte; tener los datos en otro nodo es cosa de la replicación.",
@@ -1347,10 +1347,10 @@
       "type": "choice",
       "prompt": "¿Cuál es el mayor problema del sharding?",
       "options": [
-        "Diseñar la estrategia para que los datos que se consultan juntos queden en el mismo shard",
-        "Que necesita un nodo maestro por cada shard",
-        "Que todos los nodos acaban guardando todos los datos",
-        "Que impide escalar en horizontal"
+        "Diseñar el reparto para que lo que se consulta junto vaya al mismo shard",
+        "Que necesita un nodo maestro distinto por cada shard que haya",
+        "Que todos los nodos acaban guardando una copia de todos los datos",
+        "Que impide escalar en horizontal al añadir más nodos"
       ],
       "answer": 0,
       "explanation": "La estrategia de sharding decide qué registro va a qué shard y hay que pensarla según cómo se consultarán los datos. Muchas veces es complicado y a veces imposible.",
@@ -1414,10 +1414,10 @@
       "type": "choice",
       "prompt": "¿Por qué maestro-esclavo no está indicada cuando necesitas lecturas consistentes?",
       "options": [
-        "Porque puedes leer en un esclavo antes de que le llegue un dato ya escrito en el maestro",
-        "Porque el maestro no permite hacer lecturas",
+        "Porque un esclavo puede no tener aún un dato ya escrito en el maestro",
+        "Porque el maestro no permite hacer lecturas a los clientes",
         "Porque los esclavos bloquean las escrituras del maestro",
-        "Porque cada esclavo guarda solo una parte de los datos"
+        "Porque cada esclavo guarda solo una parte distinta de los datos"
       ],
       "answer": 0,
       "explanation": "Las escrituras se replican después de hacerse en el maestro. Mientras tanto, un esclavo puede devolver un dato desfasado.",
@@ -1429,9 +1429,9 @@
       "type": "choice",
       "prompt": "¿Qué ocurre en una replicación par a par con gestión optimista de la concurrencia?",
       "options": [
-        "No hay bloqueos y puede haber inconsistencias mientras se propagan las escrituras",
+        "No hay bloqueos, pero puede haber inconsistencias mientras se propagan",
         "Se bloquea el registro hasta que todas las réplicas están al día",
-        "Las escrituras solo se hacen en un nodo maestro",
+        "Las escrituras solo se pueden hacer en un nodo maestro",
         "La base de datos deja de estar disponible en cada escritura"
       ],
       "answer": 0,
@@ -1524,10 +1524,10 @@
       "type": "choice",
       "prompt": "¿Por qué una base de datos documental evita muchas veces el JOIN?",
       "options": [
-        "Porque cada documento puede guardar información desnormalizada de la entidad",
-        "Porque usa SQL estándar para cruzar colecciones",
+        "Porque cada documento puede guardar datos desnormalizados",
+        "Porque usa SQL estándar para cruzar las colecciones",
         "Porque obliga a un esquema fijo en cada colección",
-        "Porque guarda los datos por columnas"
+        "Porque guarda los datos por columnas y no por filas"
       ],
       "answer": 0,
       "explanation": "Al poder meter en un documento distinta información sobre la misma entidad, no hace falta ir a buscarla a otro sitio con un JOIN.",
@@ -1539,10 +1539,10 @@
       "type": "choice",
       "prompt": "Necesitas cruzar datos de dos colecciones distintas de una base de datos documental. ¿Quién hace ese trabajo?",
       "options": [
-        "La aplicación, con varios accesos y combinando los resultados",
-        "La base de datos, con un JOIN como en SQL",
-        "El índice que hayas creado en la colección",
-        "El maestro del shard donde están los datos"
+        "La aplicación, haciendo varios accesos y combinándolos",
+        "La base de datos, con un JOIN como el de SQL",
+        "El índice que hayas creado sobre las dos colecciones",
+        "El nodo maestro del shard donde están los datos"
       ],
       "answer": 0,
       "explanation": "Sin JOIN, es la aplicación la que hace varios accesos y termina la operación con lo que recibe. Por eso hay que planificar bien qué se guarda en cada documento.",
@@ -1722,10 +1722,10 @@
       "type": "choice",
       "prompt": "¿Cuál es el principal límite de las bases de datos orientadas a grafos?",
       "options": [
-        "El grafo más grande que puedes tratar debe caber en un único nodo",
-        "No pueden soportar transacciones ACID",
-        "Las relaciones no pueden tener propiedades",
-        "Solo guardan valores binarios por clave"
+        "El grafo más grande que puedes tratar debe caber en un nodo",
+        "No pueden soportar transacciones ACID en ningún caso",
+        "Las relaciones entre nodos no pueden tener propiedades",
+        "Solo guardan valores binarios asociados a una clave"
       ],
       "answer": 0,
       "explanation": "Un grafo es difícil, y muchas veces imposible, de partir entre nodos del clúster. Las demás opciones son falsas: pueden soportar ACID y las relaciones sí tienen propiedades.",

@@ -1092,7 +1092,7 @@
       "type": "choice",
       "prompt": "Un filtro que separa los correos de spam de los normales es un ejemplo de...",
       "options": [
-        "Predicción y análisis de datos",
+        "Predicción y análisis de datos históricos",
         "Optimización y planificación",
         "Generación de contenidos",
         "Clasificación y reconocimiento de patrones"
@@ -1528,7 +1528,7 @@
       "options": [
         "Experto en Ética de IA",
         "Especialista en NLP",
-        "Ingeniero de Datos o Especialista en Big Data",
+        "Ingeniero de Datos",
         "Científico de datos"
       ],
       "answer": 2,
@@ -1767,7 +1767,7 @@
       "prompt": "¿Qué hace la Ley Orgánica 3/2018 (LOPD-GDD)?",
       "options": [
         "Prohíbe los sistemas de puntuación ciudadana",
-        "Adapta el Derecho español al Reglamento General de Protección de Datos",
+        "Adapta el Derecho español al reglamento europeo RGPD",
         "Clasifica los sistemas de IA en cuatro niveles de riesgo",
         "Crea la Agencia Nacional de Supervisión de la IA"
       ],
@@ -1831,10 +1831,10 @@
       "type": "choice",
       "prompt": "¿Qué es el Compliance en el desarrollo de software de IA?",
       "options": [
-        "El registro de la actividad de un modelo mediante logs",
+        "El registro de la actividad de un modelo en producción mediante logs",
         "La evaluación de conformidad que hacen las autoridades europeas",
         "Las buenas prácticas para desplegar modelos en producción",
-        "Las prácticas de una empresa para identificar y prevenir riesgos operativos y legales"
+        "Las prácticas para identificar y prevenir riesgos operativos y legales"
       ],
       "answer": 3,
       "explanation": "El Compliance identifica y clasifica riesgos operativos y legales y crea mecanismos para prevenirlos y gestionarlos. Las buenas prácticas de despliegue son MLOps.",
