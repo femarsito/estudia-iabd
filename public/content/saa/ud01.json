@@ -493,7 +493,7 @@
         },
         {
           "where": "Colab",
-          "text": "Prepara 100 precios de coche entre 20.000 y 30.000 euros y pon uno a un millón.",
+          "text": "Prepara 100 precios de coche entre 20.000 y 30.000 euros y pon uno a un millón. Ojo: el comentario de los apuntes dice «entre 20.000 y 40.000», pero multiplicar por 10.000 da hasta 30.000; para llegar a 40.000 habría que multiplicar por 20.000.",
           "code": "datos = 20000 + np.random.rand(100) * 10000\ndatos[10] = 1000000\nprint(\"La media es:\", np.mean(datos))",
           "expected": "Una media de unos 34.500 euros, inflada por el coche del millón."
         },

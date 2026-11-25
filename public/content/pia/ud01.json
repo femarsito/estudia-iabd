@@ -332,7 +332,7 @@
         },
         {
           "title": "AWS y Google",
-          "body": "- **AWS**: **SageMaker** (modelos de ML), **Rekognition** (imágenes y vídeos), **Comprehend** (lenguaje natural), **Lex** (chatbots), **Polly** (síntesis de voz).\n- **Google**: **Cloud AI Platform** (ML), **AutoML** (modelos sin experiencia previa), **Cloud Vision** (imágenes), **Cloud Natural Language**, **Dialogflow** (chatbots)."
+          "body": "- **AWS**: **SageMaker** (modelos de ML), **Rekognition** (imágenes y vídeos), **Comprehend** (lenguaje natural), **Lex** (chatbots), **Polly** (síntesis de voz).\n- **Google**: **Cloud AI Platform** (ML), **AutoML** (modelos sin experiencia previa), **Cloud Vision** (imágenes), **Cloud Natural Language**, **Dialogflow** (chatbots).\n\nDesde 2024 Google agrupa estos servicios en **Vertex AI**, su plataforma unificada de IA y ML. Lo aclaró el profesor en la fe de erratas: los apuntes aún no lo recogen."
         },
         {
           "title": "Azure e IBM",
@@ -495,7 +495,7 @@
         },
         {
           "title": "Riesgo inaceptable",
-          "body": "Aplicaciones **prohibidas**, como:\n- **Categorización biométrica** por características sensibles y captura **indiscriminada** de imágenes faciales.\n- **Puntuación ciudadana**: vigilar el comportamiento, clasificar a las personas y darles premios o castigos.\n- IA que **manipule** el comportamiento o explote **vulnerabilidades**."
+          "body": "Aplicaciones **prohibidas**, como:\n- **Categorización biométrica** por características sensibles y captura **indiscriminada** de imágenes faciales.\n- **Puntuación ciudadana**: vigilar el comportamiento, clasificar a las personas y darles premios o castigos.\n- IA que **manipule** el comportamiento o explote **vulnerabilidades**.\n\nCaso resuelto por el profesor en el foro: una IA que selecciona personal con el CV **y su comportamiento en redes sociales** es de **riesgo inaceptable**, porque usa datos sociales fuera de su contexto para puntuar a personas. Filtrar solo por el CV sería **alto riesgo**."
         },
         {
           "title": "Alto riesgo: ámbitos",
@@ -1423,7 +1423,7 @@
         "Dialogflow"
       ],
       "answer": 2,
-      "explanation": "AutoML está pensado para crear modelos personalizados sin saber ML. Dialogflow es para chatbots y Cloud Vision, para analizar imágenes.",
+      "explanation": "AutoML está pensado para crear modelos personalizados sin saber ML. Dialogflow es para chatbots y Cloud Vision, para analizar imágenes. Hoy Google agrupa estos servicios en Vertex AI.",
       "source": "PIA UD1, apartado 2.4",
       "difficulty": 1,
       "id": "pia-ud01-q059"
