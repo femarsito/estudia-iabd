@@ -1,0 +1,2439 @@
+{
+  "id": "pia-ud03",
+  "moduleId": "pia",
+  "number": 3,
+  "title": "Desarrollo de Aplicaciones Inteligentes con Python",
+  "lessons": [
+    {
+      "id": "pia-ud03-l01",
+      "kind": "read",
+      "title": "Jupyter y Google Colab",
+      "section": "1",
+      "cards": [
+        {
+          "title": "El Proyecto Jupyter",
+          "body": "Iniciativa de **software libre** con herramientas interactivas para análisis de datos, computación científica e IA. Nació en **2014** como evolución de **IPython**. Su nombre viene de **Julia, Python y R**, aunque hoy admite muchos más lenguajes gracias a sus **kernels**."
+        },
+        {
+          "title": "Jupyter Notebook",
+          "body": "Aplicación web para crear documentos con celdas de **código**, texto en **Markdown**, imágenes, gráficos y ecuaciones. Encaja en el **prototipado**: ejecutas fragmentos sueltos, documentas paso a paso y ves el resultado al momento. Para estudiar es como un cuaderno de papel que además ejecuta código."
+        },
+        {
+          "title": "Dónde se usa",
+          "body": "Hace de front-end en algunas plataformas cloud de aprendizaje automático como **AWS** y **Azure**, y en **Kaggle** hay un gran repositorio de cuadernos. Para instalarlo en tu equipo con todos los paquetes de ML se recomienda la distribución **Anaconda**, con un navegador para gestionar entornos, paquetes y aplicaciones."
+        },
+        {
+          "title": "Google Colab",
+          "body": "**Google Colaboratory** es un entorno **en la nube** para ejecutar y compartir código Python: en esencia, un Jupyter Notebook gratuito y en línea, **sin instalación ni configuración**. Da acceso gratuito a **GPU y TPU**, el hardware que acelera el entrenamiento de modelos."
+        },
+        {
+          "title": "Colab y Google Drive",
+          "body": "Está integrado con **Google Drive**: guardas y compartes cuadernos, colaboras en tiempo real y entras desde cualquier dispositivo. Puedes montar carpetas de Drive, conectarte a hojas de cálculo o bases de datos e importar datasets de **Kaggle** o **GitHub**."
+        },
+        {
+          "title": "Límites de Colab",
+          "body": "La versión gratuita limita el tiempo de ejecución (normalmente **12 horas**), puede desconectarse tras un rato de **inactividad** y no garantiza los recursos. **Colab Pro**, de pago, da prioridad a mejores GPU y más tiempo de ejecución."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l02",
+      "kind": "read",
+      "title": "Python para la IA",
+      "section": "2",
+      "cards": [
+        {
+          "title": "Qué es Python",
+          "body": "Un lenguaje de **alto nivel**, **multiparadigma** y de **propósito general**, muy usado en ciencia de datos e IA. Su sintaxis **sencilla y legible** da código claro y conciso, fácil de aprender y de mantener."
+        },
+        {
+          "title": "Interpretado",
+          "body": "Python es **interpretado**: el código se ejecuta **sin compilación previa**. Así pruebas y cambias programas rápido, algo clave en el **prototipado**, muy habitual en proyectos de IA."
+        },
+        {
+          "title": "Su ecosistema",
+          "body": "Tiene una biblioteca estándar amplia y miles de paquetes que se instalan con **pip**:\n- análisis de datos: **Pandas**, **NumPy**;\n- visualización: **Matplotlib**, **Seaborn**;\n- aprendizaje automático: **Scikit-learn**, **TensorFlow**;\n- imágenes: **OpenCV**.\nAdemás es **portable** y se integra con otros lenguajes."
+        },
+        {
+          "title": "Python en el curso",
+          "body": "En la UD1 viste una descripción de **Julia, Python y R**; la UD2 se centró en **R** y esta unidad es la de **Python**. Julia queda fuera del curso, de momento."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l03",
+      "kind": "practice",
+      "title": "Entornos y Python",
+      "section": "1 y 2",
+      "questionIds": [
+        "pia-ud03-q001",
+        "pia-ud03-q002",
+        "pia-ud03-q003",
+        "pia-ud03-q004",
+        "pia-ud03-q005",
+        "pia-ud03-q006",
+        "pia-ud03-q007",
+        "pia-ud03-q008",
+        "pia-ud03-q009"
+      ]
+    },
+    {
+      "id": "pia-ud03-l04",
+      "kind": "read",
+      "title": "Variables, tipos y operadores",
+      "section": "2.1",
+      "cards": [
+        {
+          "title": "Tipado dinámico y fuerte",
+          "body": "**Dinámico**: no declaras el tipo; se decide **en tiempo de ejecución** según el valor que asignas con `=`. **Fuerte**: no puedes operar con tipos incompatibles **sin convertir antes**. Aunque no lo declares, el tipo importa."
+        },
+        {
+          "title": "Nombres de variables",
+          "body": "- Letras, números y `_`, sin espacios ni símbolos como `&`, `$` o `*`.\n- **Distinguen mayúsculas y minúsculas**.\n- **No pueden empezar por número**.\n- No pueden coincidir con palabras clave."
+        },
+        {
+          "title": "Tipos básicos",
+          "body": "`int` 42, `float` 3.14, `str` \"texto\", `bool` True/False, `list` [1, 2, 3] (ordenada y modificable), `tuple` (1, 2, 3) (inmutable), `dict` {\"a\": 1} (clave-valor) y `set` {1, 2, 3} (sin duplicados). **`type()`** te dice el tipo; **`str()`**, **`int()`** y **`float()`** lo cambian."
+        },
+        {
+          "title": "Operadores",
+          "body": "- `/` **división flotante**: 5 / 2 da 2.5.\n- `//` **división entera**: 5 // 2 da 2.\n- `%` **módulo**: 5 % 2 da 1.\n- `**` **potencia**: 2 ** 3 da 8.\nComparación: `==`, `!=`, `>`, `<`, `>=`, `<=`. Lógicos: `and`, `or`, `not`. Los comentarios empiezan por `#`."
+        },
+        {
+          "title": "Varias variables a la vez",
+          "body": "- Asignación múltiple: `a, b, c = \"perro\", \"gato\", \"conejo\"`.\n- El mismo valor a varias: `a = b = c = \"perro\"`.\n- **Desempaquetado**: `a, b, c = lista` reparte los elementos de una lista o tupla."
+        },
+        {
+          "title": "Booleanos y None",
+          "body": "`bool()` da **True** casi siempre; da **False** con los **valores vacíos**, con **`None`** y con **0**. `None` es el **único valor de NoneType** y significa ausencia de valor, como `null` en Java. Compáralo con **`is`**, no con `==`."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l05",
+      "kind": "pc",
+      "title": "En Colab: variables y operadores",
+      "section": "2.1",
+      "steps": [
+        {
+          "where": "Google Colab",
+          "text": "Abre Google Colab, crea un cuaderno nuevo y escribe esto en una celda de código. Ejecútala: el valor se ve igual, pero el tipo cambia.",
+          "code": "n = float(3)\nprint(\"Tipo:\", type(n), \"Valor:\", n)\nn = str(n)\nprint(\"Tipo:\", type(n), \"Valor:\", n)",
+          "expected": "Tipo: <class 'float'> Valor: 3.0\nTipo: <class 'str'> Valor: 3.0"
+        },
+        {
+          "where": "Google Colab",
+          "text": "En otra celda, repite el análisis de Ana con los repartidores de Envíos Rápidos.",
+          "code": "# Datos de partida\nentregas_juan = 35\nentregas_lucas = 42\nobjetivo_diario = 40\n\njuan_cumple = entregas_juan >= objetivo_diario\nlucas_cumple = entregas_lucas >= objetivo_diario\nmedia_entregas = (entregas_juan + entregas_lucas) / 2\n\nprint(\"Media de entregas:\", media_entregas)\nprint(\"¿Ambos cumplen?\", juan_cumple and lucas_cumple)\nprint(\"¿Alguno cumple?\", juan_cumple or lucas_cumple)",
+          "expected": "Media de entregas: 38.5\n¿Ambos cumplen? False\n¿Alguno cumple? True"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Comprueba el tipado fuerte: intenta sumar un número y un texto. La celda falla.",
+          "code": "print(5 + \"hola\")",
+          "expected": "TypeError: unsupported operand type(s) for +: 'int' and 'str'"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Arréglalo convirtiendo el número a cadena antes de unirlo.",
+          "code": "print(str(5) + \"hola\")",
+          "expected": "5hola"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Prueba qué valores se convierten en False y cómo se comprueba None.",
+          "code": "print(bool(\"Hola\"), bool(\"\"), bool(None), bool(0))\nresultado = None\nprint(type(resultado), resultado is None)",
+          "expected": "True False False False\n<class 'NoneType'> True"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Añade una celda de texto encima de cada celda de código y explica con tus palabras qué hace. Así el cuaderno te sirve de apuntes."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l06",
+      "kind": "practice",
+      "title": "Variables, tipos y operadores",
+      "section": "2.1",
+      "questionIds": [
+        "pia-ud03-q010",
+        "pia-ud03-q011",
+        "pia-ud03-q012",
+        "pia-ud03-q013",
+        "pia-ud03-q014",
+        "pia-ud03-q015",
+        "pia-ud03-q016",
+        "pia-ud03-q017",
+        "pia-ud03-q018"
+      ]
+    },
+    {
+      "id": "pia-ud03-l07",
+      "kind": "read",
+      "title": "Cadenas y formato",
+      "section": "2.2",
+      "cards": [
+        {
+          "title": "Crear cadenas",
+          "body": "Entre comillas **dobles o simples**, o con `str()`. Si dentro usas el mismo tipo de comilla que el delimitador, ponle delante el **escape `\\`**: `\"Una \\\"cadena\\\"\"`. Con **tres comillas** (dobles o simples) la cadena puede ocupar **varias líneas**."
+        },
+        {
+          "title": "Indexar y trocear",
+          "body": "Se cuenta **desde 0** y el final del rango **no se incluye**. Con `cadena = \"Esta es una bonita frase.\"`:\n- `cadena[5]` da `e`;\n- `cadena[12:18]` da `bonita`;\n- `cadena[8:]` va desde el 8 hasta el final;\n- los **negativos cuentan desde el final**: `cadena[-6:-1]` da `frase`."
+        },
+        {
+          "title": "Métodos (I)",
+          "body": "- `upper()` y `lower()`: mayúsculas y minúsculas.\n- `title()`: inicial de cada palabra en mayúscula.\n- `strip()`: quita los espacios del **principio y del final**.\n- `count(s)`: cuántas veces aparece `s`.\n- `find(s)`: **posición de la primera** aparición.\n**`dir()`** lista todos los métodos de un tipo."
+        },
+        {
+          "title": "Métodos (II)",
+          "body": "- `isalpha()` / `isdigit()`: True si todo son letras / cifras.\n- `split(sep)`: devuelve una **lista**; sin separador, corta por espacios.\n- `replace(origen, destino, n)`: devuelve una **cadena nueva** con n sustituciones.\n- **`len()`**: longitud de la cadena."
+        },
+        {
+          "title": "Concatenar y formatear",
+          "body": "`+` concatena: `\"Hola\" + \" \" + \"Mundo\"`. Con una **f-string** metes variables y das formato: `f\"{c:.2f}\"` muestra **2 decimales**. Con **`.format()`**: `\"aparece {numero} veces\".format(numero=5)`. También puedes pasar varias partes a `print()` separadas por comas."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l08",
+      "kind": "pc",
+      "title": "En Colab: cadenas",
+      "section": "2.2",
+      "steps": [
+        {
+          "where": "Google Colab",
+          "text": "Crea una cadena de dos líneas con triple comilla y comillas dentro. Las comillas dobles interiores llevan delante la barra invertida `\\`.",
+          "code": "cadena = \"\"\"Esto es una \\\"cadena\\\" en\ndos líneas y con 'comillas'. \"\"\"\nprint(cadena)",
+          "expected": "Esto es una \"cadena\" en\ndos líneas y con 'comillas'."
+        },
+        {
+          "where": "Google Colab",
+          "text": "Trocea una frase. Fíjate en que el final del rango no se incluye.",
+          "code": "cadena = \"Esta es una bonita frase.\"\nprint(\"Solo el caracter 5 :\", cadena[5])\nprint(\"Del caracter 12 al 18 :\", cadena[12:18])\nprint(\"A partir del caracter 8 :\", cadena[8:])\nprint(\"Del 1 al 5 desde el final:\", cadena[-6:-1])\nprint(\"Quitando tres por los extremos:\", cadena[3:-3])",
+          "expected": "Solo el caracter 5 : e\nDel caracter 12 al 18 : bonita\nA partir del caracter 8 : una bonita frase.\nDel 1 al 5 desde el final: frase\nQuitando tres por los extremos: a es una bonita fra"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Prueba los métodos sobre una cadena con mayúsculas mezcladas y espacios en los extremos.",
+          "code": "cadena = \" EstO Es UnA cAdEnA Un pOcO rArA. \"\nprint(cadena.upper())\nprint(cadena.title())\nprint(cadena.strip())\nprint(cadena.replace(\" \", \"-\", 5))\nprint(cadena.split())",
+          "expected": " ESTO ES UNA CADENA UN POCO RARA. \n Esto Es Una Cadena Un Poco Rara. \nEstO Es UnA cAdEnA Un pOcO rArA.\n-EstO-Es-UnA-cAdEnA-Un pOcO rArA. \n['EstO', 'Es', 'UnA', 'cAdEnA', 'Un', 'pOcO', 'rArA.']"
+        },
+        {
+          "where": "Google Colab",
+          "text": "En la misma celda o en otra (la variable `cadena` sigue viva), formatea números y cuenta letras.",
+          "code": "a = 5.5\nb = 67.123\nc = a + b\nprint(f\"Si sumamos {a:.1f} y {b:.1f} nos dará {c:.2f}\")\nprint(\"La letra 'A' aparece {numero} veces.\".format(numero=cadena.count(\"A\")))",
+          "expected": "Si sumamos 5.5 y 67.1 nos dará 72.62\nLa letra 'A' aparece 5 veces."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l09",
+      "kind": "practice",
+      "title": "Cadenas y formato",
+      "section": "2.2",
+      "questionIds": [
+        "pia-ud03-q019",
+        "pia-ud03-q020",
+        "pia-ud03-q021",
+        "pia-ud03-q022",
+        "pia-ud03-q023",
+        "pia-ud03-q024",
+        "pia-ud03-q025",
+        "pia-ud03-q026"
+      ]
+    },
+    {
+      "id": "pia-ud03-l10",
+      "kind": "read",
+      "title": "Listas y tuplas",
+      "section": "2.3",
+      "cards": [
+        {
+          "title": "Las cuatro colecciones",
+          "body": "- **list**: ordenada, modificable y con duplicados.\n- **tuple**: ordenada, **inmutable** y con duplicados.\n- **set**: **sin orden ni índice** y **sin duplicados**.\n- **dict**: ordenado y modificable, sin duplicados.\nSe crean con `[]`, `()`, `{}` y `{clave: valor}`, o con `list()`, `tuple()`, `set()` y `dict()`."
+        },
+        {
+          "title": "Recorrer una lista",
+          "body": "`\"Paco\" in nombres` dice si un elemento está. `for i in range(len(nombres)):` recorre por índice. Accedes o cambias por posición y con rangos, como en las cadenas: `apellidos[1]`, `apellidos[-3:]`. Con `print(x, end=\", \")` cambias el salto de línea por una coma."
+        },
+        {
+          "title": "Métodos de listas",
+          "body": "- `append(x)`: al final. `insert(pos, x)`: en una posición, el resto se **desplaza a la derecha**.\n- `extend(lista)` o `+`: unir listas.\n- `remove(x)`: por valor. `pop(pos)`: por posición; **sin posición, el último**.\n- `sort()`: ordena; **`reverse=True`** para descendente, `key=len` por longitud.\n- `reverse()`, `clear()`, `index()`, `count()`, `len()`."
+        },
+        {
+          "title": "Copiar una lista",
+          "body": "`lista1 = apellidos` **no copia**: las dos variables apuntan a la **misma lista**, y lo que borres en una se ve en la otra. Para una copia independiente usa **`copy()`**: `lista2 = apellidos.copy()`."
+        },
+        {
+          "title": "Tuplas",
+          "body": "No puedes añadir, quitar ni cambiar elementos: `nombres[0] = \"Luis\"` da error. Para cambiar uno, **pásala a lista, modifícala y vuelve a tupla**. Sí puedes operar: **`+`** une dos tuplas y **`* 2`** la duplica. Métodos: `count()` e `index()`."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l11",
+      "kind": "practice",
+      "title": "Listas y tuplas",
+      "section": "2.3",
+      "questionIds": [
+        "pia-ud03-q027",
+        "pia-ud03-q028",
+        "pia-ud03-q029",
+        "pia-ud03-q030",
+        "pia-ud03-q031",
+        "pia-ud03-q032",
+        "pia-ud03-q033",
+        "pia-ud03-q034",
+        "pia-ud03-q035"
+      ]
+    },
+    {
+      "id": "pia-ud03-l12",
+      "kind": "read",
+      "title": "Conjuntos y diccionarios",
+      "section": "2.3",
+      "cards": [
+        {
+          "title": "Conjuntos",
+          "body": "`{\"manzana\", \"pera\"}` o `set(...)`. **Sin orden ni índice**: no puedes pedir una posición.\n- `add(x)`: añade uno.\n- `update(...)`: añade otro conjunto, lista, tupla o diccionario.\n- `discard(x)`: quita uno.\n- `pop()`: saca uno que **parece aleatorio**, porque depende de la disposición interna.\n- `clear()` y `len()`."
+        },
+        {
+          "title": "Operaciones entre conjuntos",
+          "body": "- `union`: todos los elementos de los dos.\n- `intersection`: los que están **en ambos**.\n- `difference`: los del primero que **no están** en el segundo.\n- `symmetric_difference`: todos **menos los comunes**, es decir, **unión menos intersección**."
+        },
+        {
+          "title": "Diccionarios",
+          "body": "Parejas clave-valor: `{\"marca\": \"Audi\"}` o `dict(marca=\"Audi\")`. Son ordenados **desde Python 3.7** y modificables. `envio[\"estado\"] = \"Entregado\"` añade o cambia; `update({...})` mezcla otro diccionario; `pop(clave)` borra la clave y devuelve su valor."
+        },
+        {
+          "title": "Leer un diccionario",
+          "body": "**`get(clave, valor_def)`** devuelve el valor o, si la clave no existe, el valor por defecto, **sin dar error**. `keys()`, `values()` e `items()` devuelven vistas de claves, valores y tuplas (clave, valor): `for clave, valor in envio.items():`."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l13",
+      "kind": "pc",
+      "title": "En Colab: colecciones",
+      "section": "2.3",
+      "steps": [
+        {
+          "where": "Google Colab",
+          "text": "Comprueba la diferencia entre `=` y `copy()` al borrar de la lista original.",
+          "code": "apellidos = [\"López\", \"Rodríguez\", \"González\"]\nlista1 = apellidos\nlista2 = apellidos.copy()\napellidos.pop(1)\nprint(lista1)\nprint(lista2)",
+          "expected": "['López', 'González']\n['López', 'Rodríguez', 'González']"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Cambia el primer elemento de una tupla pasando por una lista.",
+          "code": "nombres = (\"Francisco\", \"Fran\", \"Paco\")\nnombres = list(nombres)\nnombres[0] = \"Luis\"\nnombres = tuple(nombres)\nprint(nombres)",
+          "expected": "('Luis', 'Fran', 'Paco')"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Opera con dos conjuntos.",
+          "code": "frutas = {\"manzana\", \"pera\", \"tomate\"}\nverduras = {\"pimiento\", \"zanahoria\", \"tomate\"}\nprint(\"Unión:\", frutas.union(verduras))\nprint(\"Intersección:\", frutas.intersection(verduras))\nprint(\"Diferencia:\", frutas.difference(verduras))\nprint(\"Diferencia simétrica:\", frutas.symmetric_difference(verduras))",
+          "expected": "El orden dentro de las llaves puede cambiar de una ejecución a otra. La unión tiene los 5 elementos, la intersección es {'tomate'}, la diferencia tiene manzana y pera, y la diferencia simétrica tiene los 4 que no son tomate."
+        },
+        {
+          "where": "Google Colab",
+          "text": "Lee, recorre y modifica un diccionario.",
+          "code": "envio = {\"id\": 123, \"cliente\": \"Ana\", \"estado\": \"En proceso\"}\nprint(envio.get(\"direccion\", \"No disponible\"))\nfor clave, valor in envio.items():\n    print(clave, \"->\", valor)\nenvio[\"estado\"] = \"Entregado\"\nenvio.update({\"fecha\": \"2025-05-12\"})\nenvio.pop(\"id\")\nprint(envio)",
+          "expected": "No disponible\nid -> 123\ncliente -> Ana\nestado -> En proceso\n{'cliente': 'Ana', 'estado': 'Entregado', 'fecha': '2025-05-12'}"
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l14",
+      "kind": "practice",
+      "title": "Conjuntos y diccionarios",
+      "section": "2.3",
+      "questionIds": [
+        "pia-ud03-q036",
+        "pia-ud03-q037",
+        "pia-ud03-q038",
+        "pia-ud03-q039",
+        "pia-ud03-q040",
+        "pia-ud03-q041",
+        "pia-ud03-q042",
+        "pia-ud03-q043"
+      ]
+    },
+    {
+      "id": "pia-ud03-l15",
+      "kind": "read",
+      "title": "Control de flujo",
+      "section": "2.4",
+      "cards": [
+        {
+          "title": "Bloques por sangría",
+          "body": "Python **no usa llaves**: la **indentación** marca qué está dentro de cada bloque. Si sangras un `print` al nivel del bloque `else`, pasa a formar parte del `else`. Las condiciones van **sin paréntesis**."
+        },
+        {
+          "title": "if, elif y else",
+          "body": "Con `elif` encadenas comparaciones y se ejecuta **el primer bloque cuya condición se cumple**; si ninguna se cumple, el `else`. Puedes **anidar** un `if` dentro de otro. Forma corta: `print(\"Menor\") if a < 18 else print(\"Mayor\")`."
+        },
+        {
+          "title": "pass y end",
+          "body": "Un bloque **no puede quedar vacío**: daría error. Si lo necesitas vacío, escribe **`pass`**. `print(x, end=\" \")` cambia el salto de línea del final por lo que indiques, y el siguiente texto sale en la misma línea."
+        },
+        {
+          "title": "while",
+          "body": "Repite el cuerpo **mientras se cumpla la condición**; no se sabe de antemano cuántas vueltas dará. **`break`** lo detiene. Para avanzar el contador: `i += 1`."
+        },
+        {
+          "title": "for",
+          "body": "Para un número de vueltas **conocido** o un conjunto de datos definido. `for x in lista:` itera **directamente sobre los objetos**. `range(0, 10)` da del 0 al 9. **`continue`** detiene la vuelta actual y **`break`**, el bucle entero."
+        },
+        {
+          "title": "else en los bucles",
+          "body": "El `else` de un bucle se ejecuta si termina **con normalidad, sin `break`**. Por eso solo tiene sentido si dentro hay un `break`. Existe en `for` y `while`; **en C y Java no existe**."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l16",
+      "kind": "pc",
+      "title": "En Colab: if y bucles",
+      "section": "2.4",
+      "steps": [
+        {
+          "where": "Google Colab",
+          "text": "Indica si un número es par, impar o cero. Después cambia `x` por 7 y por 0 y vuelve a ejecutar.",
+          "code": "x = 20\nif x == 0:\n    print(\"cero\")\nelif x % 2 == 0:\n    print(\"par\")\nelse:\n    print(\"impar\")",
+          "expected": "par (con 7 sale impar y con 0, cero)"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Muestra los números menores que uno dado, separados por comas y sin coma al final.",
+          "code": "x = 10\ni = 0\nwhile i < x:\n    print(i, end=\", \") if i < x - 1 else print(i)\n    i += 1",
+          "expected": "0, 1, 2, 3, 4, 5, 6, 7, 8, 9"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Prueba continue, break y el else del for. Luego cambia el \"Hass\" del if por un nombre que no esté en la lista: el bucle acabará sin break y saldrá «Todo fue bien!».",
+          "code": "escuderia = [\"Alpine\", \"Aston Martin\", \"Ferrari\", \"Hass\", \"McLaren\"]\nfor x in escuderia:\n    if x == \"Aston Martin\": continue\n    print(x, end=\" \")\n    if x == \"Hass\": break\nelse:\n    print(\"Todo fue bien!\")",
+          "expected": "Alpine Ferrari Hass (el else no se ejecuta porque el bucle terminó con break)"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Une dos listas sin repetir elementos y sin usar set().",
+          "code": "nombres = [\"Francisco\", \"Paco\", \"Francisco\", \"Kiko\"]\napellidos = [\"López\", \"Francisco\", \"Pérez\"]\nnueva = []\nfor x in apellidos + nombres:\n    print(x + \" está repetido\") if x in nueva else nueva.append(x)\nprint(nueva)",
+          "expected": "Francisco está repetido\nFrancisco está repetido\n['López', 'Francisco', 'Pérez', 'Paco', 'Kiko']"
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l17",
+      "kind": "practice",
+      "title": "Control de flujo",
+      "section": "2.4",
+      "questionIds": [
+        "pia-ud03-q044",
+        "pia-ud03-q045",
+        "pia-ud03-q046",
+        "pia-ud03-q047",
+        "pia-ud03-q048",
+        "pia-ud03-q049",
+        "pia-ud03-q050",
+        "pia-ud03-q051",
+        "pia-ud03-q052",
+        "pia-ud03-q053"
+      ]
+    },
+    {
+      "id": "pia-ud03-l18",
+      "kind": "read",
+      "title": "Funciones",
+      "section": "2.5",
+      "cards": [
+        {
+          "title": "Definir una función",
+          "body": "`def nombre(parametros):` y el resultado sale con **`return`**. Recibe datos por parámetro y devuelve resultados. Salvo que sea su objetivo, una función **no debería mostrar mensajes** por pantalla, o al menos tenerlos controlados."
+        },
+        {
+          "title": "Ámbito de las variables",
+          "body": "Lo definido **fuera** de una función es **global**; lo de dentro, **local**. Para declarar una global desde dentro se usa **`global`**. Si dentro creas una variable con el mismo nombre que una global, se usa la local y la global **no cambia**."
+        },
+        {
+          "title": "Argumentos",
+          "body": "Puedes dar **valores por defecto**: `def saludame(nombre=\"Jon\", apellido=\"Nieve\")`; si no pasas ese argumento, se usa el de por defecto. Y puedes **nombrarlos** para pasarlos en cualquier orden: `saludame(apellido=\"López\", nombre=\"Miguel\")`."
+        },
+        {
+          "title": "Parámetros indeterminados",
+          "body": "- Pasar una colección y recorrerla.\n- **`*tupla`**: recibe una **tupla**; los argumentos van **por posición**.\n- **`**datos`**: recibe un **diccionario**; los argumentos van **por nombre**.\nAl llamar, `suma(*lista)` desempaqueta una colección."
+        },
+        {
+          "title": "Varias salidas y recursividad",
+          "body": "`return (a+b, a-b)` devuelve una **tupla** que puedes desempaquetar: `s, r = opera(5, 10)`. También puedes devolver un **diccionario**. Una función **recursiva** se llama a sí misma: `factorial(5)` da **120**."
+        },
+        {
+          "title": "Generadoras, lambda y docstring",
+          "body": "Una **generadora** usa **`yield`** y produce los valores **bajo demanda**, sin guardarlos todos en memoria. Una **lambda** es una función **anónima** de **una sola expresión**. El **docstring** va entre triple comilla justo bajo el `def` (guía **PEP 257**) y se consulta con **`help()`**."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l19",
+      "kind": "pc",
+      "title": "En Colab: funciones",
+      "section": "2.5",
+      "steps": [
+        {
+          "where": "Google Colab",
+          "text": "Convierte en función el buscador de primos del cuaderno de control de flujo: recibe el intervalo y cuántos primos buscar.",
+          "code": "def BuscaPrimos(x, y, nPrimos):\n    # Si x es mayor que y, se intercambian\n    if x > y:\n        z = x\n        x = y\n        y = z\n    print(f\"Buscando los {nPrimos} primeros números primos en el intervalo [{x},{y}]\")\n    h = x\n    cont = 0\n    while h <= y:\n        j = 2\n        primo = 1\n        while j < h:\n            if h % j == 0:\n                primo = 0\n                break\n            j += 1\n        if primo == 1:\n            print(h, end=\" \")\n            cont += 1\n            if cont == nPrimos:\n                break\n        h += 1\n\nBuscaPrimos(40, 100, 3)",
+          "expected": "Buscando los 3 primeros números primos en el intervalo [40,100]\n41 43 47"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Prueba los valores por defecto y los argumentos con nombre.",
+          "code": "def saludame(nombre=\"Jon\", apellido=\"Nieve\", tratamiento=\"Lord\"):\n    print(f\"Hola {tratamiento} {nombre} {apellido}\")\n\nsaludame(apellido=\"López\", nombre=\"Miguel\")\nsaludame(apellido=\"Son\")\nsaludame(tratamiento=\"Sr\")",
+          "expected": "Hola Lord Miguel López\nHola Lord Jon Son\nHola Sr Jon Nieve"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Recibe un número indeterminado de argumentos, primero como tupla y después como diccionario.",
+          "code": "def suma(*tupla):\n    total = 0\n    for i in tupla:\n        total = total + i\n    return total\n\ndef mostrar(**datos):\n    for x, y in datos.items():\n        print(x, \":\", y)\n\nprint(suma(5, 7, 9, 23, 68, 1, 8))\nmostrar(codCliente=\"2341\", nombre=\"Pedro\")",
+          "expected": "121\ncodCliente : 2341\nnombre : Pedro"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Crea una función generadora y usa lambda con map() y sorted().",
+          "code": "def contar_hasta(n):\n    for i in range(1, n + 1):\n        yield i\n\nfor numero in contar_hasta(3):\n    print(numero)\n\nprint(list(map(lambda x: x**2, [1, 2, 3, 4])))\nprint(sorted([\"Ana\", \"Carlos\", \"Bea\"], key=lambda x: len(x)))",
+          "expected": "1\n2\n3\n[1, 4, 9, 16]\n['Ana', 'Bea', 'Carlos']"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Documenta una función con un docstring y consúltalo con help().",
+          "code": "def saludar(nombre):\n    \"\"\"\n    Función que recibe un nombre y devuelve un saludo personalizado.\n\n    Parámetros:\n    nombre (str): El nombre de la persona a saludar.\n    \"\"\"\n    return f\"Hola, {nombre}!\"\n\nprint(saludar(\"Sonia\"))\nhelp(saludar)",
+          "expected": "Hola, Sonia! y después la ayuda: «Help on function saludar in module __main__:», la cabecera saludar(nombre) y el texto del docstring."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l20",
+      "kind": "practice",
+      "title": "Funciones",
+      "section": "2.5",
+      "questionIds": [
+        "pia-ud03-q054",
+        "pia-ud03-q055",
+        "pia-ud03-q056",
+        "pia-ud03-q057",
+        "pia-ud03-q058",
+        "pia-ud03-q059",
+        "pia-ud03-q060",
+        "pia-ud03-q061",
+        "pia-ud03-q062",
+        "pia-ud03-q063"
+      ]
+    },
+    {
+      "id": "pia-ud03-l21",
+      "kind": "read",
+      "title": "Librerías para la IA",
+      "section": "3",
+      "cards": [
+        {
+          "title": "El reto de Ana",
+          "body": "Su equipo de Envíos Rápidos ya conoce lo básico de Python. Para optimizar rutas, predecir retrasos o analizar pedidos no basta con escribir código: hay que aprovechar las **librerías especializadas**."
+        },
+        {
+          "title": "Qué necesitan",
+          "body": "- Manejar grandes volúmenes de pedidos, tiempos y rutas: **cálculo numérico** y **datos estructurados**.\n- Detectar patrones y comunicar resultados: **visualización**.\n- Futuros proyectos de automatización: **procesamiento de imágenes** y **visión artificial**."
+        },
+        {
+          "title": "Las librerías",
+          "body": "La primera toma de contacto es con **NumPy**, **Pandas**, **Matplotlib**, **Seaborn** y **OpenCV**. Son la base para el aprendizaje automático, la visión artificial y el análisis de datos que vienen después."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l22",
+      "kind": "read",
+      "title": "NumPy",
+      "section": "3.1",
+      "cards": [
+        {
+          "title": "Qué es NumPy",
+          "body": "El paquete más básico pero potente para la **computación científica** y la manipulación de datos. Otras librerías, como **Pandas**, lo usan. En Colab viene **preinstalado**; si no, `pip install numpy`. Se importa con **`import numpy as np`**."
+        },
+        {
+          "title": "Crear arrays",
+          "body": "- `np.array()` convierte listas, tuplas o listas anidadas; la **dimensión depende de la entrada**.\n- `np.arange(0, 10, 2)` da `[0 2 4 6 8]`, como `range()`.\n- `np.zeros((2, 3))` y `np.ones(4)` rellenan con ceros o unos.\n- `np.linspace(0, 1, 5)`: 5 valores equiespaciados **incluyendo los dos extremos**."
+        },
+        {
+          "title": "Indexar",
+          "body": "- `m[1, 2]`: fila 1, columna 2, **contando desde 0**.\n- `m[1, :]`: una fila; `m[:, 0]`: una columna.\n- `m[0:2, 1:3]`: una submatriz.\n- **Indexación booleana**: `m[m > 50]` filtra los valores que cumplen la condición."
+        },
+        {
+          "title": "Atributos y cambios",
+          "body": "**`shape`** (tupla con las dimensiones), **`size`** (total de elementos) y **`dtype`** (tipo). `concatenate`, `append`, `insert`, `reshape`, `flatten` y `astype` **devuelven un array nuevo** que hay que recoger: no cambian el original. Sin `axis`, `append` e `insert` dan un resultado **en 1D**."
+        },
+        {
+          "title": "Estadística por ejes",
+          "body": "`min`, `max`, `sum`, `prod`, `mean`, `std`, `var` y `cumsum` resumen los datos. Con el parámetro `axis`:\n- **`axis=None`**: global;\n- **`axis=0`**: por **columnas**;\n- **`axis=1`**: por **filas**."
+        },
+        {
+          "title": "Matrices y ficheros",
+          "body": "`np.asmatrix()` convierte un array 2D en matriz para usar `.T` (traspuesta), `.diagonal()` o `np.linalg.det()` (determinante). Ficheros: **`np.savetxt()`** guarda, **`np.loadtxt()`** carga y **`np.genfromtxt()`** carga **tratando los valores vacíos**."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l23",
+      "kind": "pc",
+      "title": "En Colab: NumPy",
+      "section": "3.1",
+      "steps": [
+        {
+          "where": "Google Colab",
+          "text": "Importa NumPy y crea arrays de varias formas. En Colab ya está instalado.",
+          "code": "import numpy as np\nprint(np.array([[1, 2], [3, 4]]))\nprint(np.arange(0, 10, 2))\nprint(np.zeros((2, 3)))\nprint(np.ones(4))\nprint(np.linspace(0, 1, 5))",
+          "expected": "[[1 2]\n [3 4]]\n[0 2 4 6 8]\n[[0. 0. 0.]\n [0. 0. 0.]]\n[1. 1. 1. 1.]\n[0.   0.25 0.5  0.75 1.  ]"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Accede a elementos, filas, columnas y submatrices, y filtra con una condición.",
+          "code": "matriz = np.array([[10, 20, 30],\n                   [40, 50, 60],\n                   [70, 80, 90]])\nprint(matriz[1, 2])\nprint(matriz[1, :])\nprint(matriz[:, 0])\nprint(matriz[0:2, 1:3])\nprint(matriz[matriz > 50])",
+          "expected": "60\n[40 50 60]\n[10 40 70]\n[[20 30]\n [50 60]]\n[60 70 80 90]"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Mira los atributos y cambia la forma. La última línea demuestra que `a` no ha cambiado.",
+          "code": "a = np.array([[1, 2, 3], [4, 5, 6]])\nprint(a.shape, a.size, a.dtype)\nf = a.reshape(3, 2)\nprint(f)\nprint(f.flatten())\nprint(a.shape)",
+          "expected": "(2, 3) 6 int64\n[[1 2]\n [3 4]\n [5 6]]\n[1 2 3 4 5 6]\n(2, 3)"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Calcula estadísticas globales, por columnas y por filas.",
+          "code": "datos = np.array([[10, 20, 30],\n                  [15, 25, 35],\n                  [12, 22, 32]])\nprint(datos.sum(), datos.sum(axis=0), datos.mean(axis=1))\nprint(datos.cumsum())",
+          "expected": "201 [37 67 97] [20. 25. 22.]\n[ 10  30  60  75 100 135 147 169 201]"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Guarda un array en un fichero de texto y vuelve a cargarlo. Abre el panel Archivos de Colab y busca datos.txt.",
+          "code": "datos = np.array([[1, 2], [3, 4]])\nnp.savetxt('datos.txt', datos, fmt='%d')\ncargado = np.loadtxt('datos.txt')\nprint(cargado)",
+          "expected": "[[1. 2.]\n [3. 4.]]"
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l24",
+      "kind": "practice",
+      "title": "Librerías y NumPy",
+      "section": "3 y 3.1",
+      "questionIds": [
+        "pia-ud03-q064",
+        "pia-ud03-q065",
+        "pia-ud03-q066",
+        "pia-ud03-q067",
+        "pia-ud03-q068",
+        "pia-ud03-q069",
+        "pia-ud03-q070",
+        "pia-ud03-q071",
+        "pia-ud03-q072"
+      ]
+    },
+    {
+      "id": "pia-ud03-l25",
+      "kind": "read",
+      "title": "Matplotlib",
+      "section": "3.2",
+      "cards": [
+        {
+          "title": "Qué es Matplotlib",
+          "body": "Librería **open source** para visualizaciones **estáticas, animadas e interactivas**. Viene preinstalada en Colab; si no, `pip install matplotlib`. Su módulo más usado es **pyplot**, con una interfaz al estilo de **MATLAB**: **`import matplotlib.pyplot as plt`**."
+        },
+        {
+          "title": "El primer gráfico",
+          "body": "`plt.plot(x, y)` dibuja la línea; `plt.title()`, `plt.xlabel()` y `plt.ylabel()` ponen los textos y **`plt.show()`** la muestra. Con códigos cortos cambias el estilo: `'ro--'` es **rojo, círculos y línea discontinua**. `plt.plot(x, s, x, c)` dibuja dos series en la misma figura."
+        },
+        {
+          "title": "Tipos de gráfico",
+          "body": "- **`plt.bar()`**: barras, para **datos categóricos** o comparar grupos.\n- **`plt.scatter()`**: dispersión, la **relación entre dos variables numéricas**.\n- **`plt.hist()`**: histograma, la **distribución** agrupada en intervalos (**bins**).\n- **`plt.pie()`**: pastel, la **proporción** de cada parte en el total."
+        },
+        {
+          "title": "Subgráficos y guardar",
+          "body": "`fig, axs = plt.subplots(1, 2, figsize=(10, 4))` crea dos gráficos en una figura; dibujas en `axs[0]` y `axs[1]` y titulas con `set_title()`. `plt.tight_layout()` los ajusta. **`plt.savefig(\"grafico.png\")`** guarda en **PNG, PDF o SVG**."
+        },
+        {
+          "title": "Seaborn y Pandas",
+          "body": "**Seaborn** está construido **sobre Matplotlib** y hace gráficos estadísticos más elaborados con **menos código**. `plt.style.use('seaborn-v0_8-darkgrid')` aplica un estilo predefinido. Pandas también dibuja con Matplotlib por debajo: `dataframe.plot.bar(rot=0)`."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l26",
+      "kind": "pc",
+      "title": "En Colab: Matplotlib",
+      "section": "3.2",
+      "steps": [
+        {
+          "where": "Google Colab",
+          "text": "Dibuja un gráfico de líneas con título y nombres de ejes.",
+          "code": "import matplotlib.pyplot as plt\n\nx = [1, 2, 3, 4, 5]\ny = [10, 20, 25, 25, 35]\nplt.plot(x, y)\nplt.title(\"Gráfico de líneas sencillo\")\nplt.xlabel(\"Eje X\")\nplt.ylabel(\"Eje Y\")\nplt.show()",
+          "expected": "Una línea que sube de 10 a 35, con un tramo plano entre x = 3 y x = 4, el título arriba y los ejes rotulados."
+        },
+        {
+          "where": "Google Colab",
+          "text": "Cambia el estilo con un código corto y dibuja dos funciones en la misma figura.",
+          "code": "import numpy as np\n\nplt.plot(x, y, 'ro--')\nplt.title(\"Estilo Personalizado\")\nplt.show()\n\nt = np.linspace(0, 10, 100)\nplt.plot(t, np.sin(t), t, np.cos(t))\nplt.title(\"Seno y Coseno\")\nplt.show()",
+          "expected": "Primero la misma línea en rojo, con círculos y discontinua. Después dos ondas de colores distintos en la misma gráfica."
+        },
+        {
+          "where": "Google Colab",
+          "text": "Dibuja un gráfico de barras y un histograma.",
+          "code": "categorias = ['A', 'B', 'C', 'D']\nvalores = [23, 45, 12, 36]\nplt.bar(categorias, valores, color='skyblue', edgecolor='black')\nplt.title(\"Gráfico de barras\")\nplt.show()\n\ndatos = np.random.randn(1000)\nplt.hist(datos, bins=30, color='orange', edgecolor='black')\nplt.title(\"Histograma de datos aleatorios\")\nplt.show()",
+          "expected": "Cuatro barras, con B como la más alta, y un histograma de 30 intervalos con los valores concentrados alrededor de 0. Los datos son aleatorios, así que el histograma cambia un poco en cada ejecución."
+        },
+        {
+          "where": "Google Colab",
+          "text": "Pon dos gráficos en una figura y guárdala como imagen. Luego búscala en el panel Archivos de Colab.",
+          "code": "fig, axs = plt.subplots(1, 2, figsize=(10, 4))\naxs[0].plot(x, y)\naxs[0].set_title(\"Gráfico 1\")\naxs[1].bar(x, y)\naxs[1].set_title(\"Gráfico 2\")\nplt.tight_layout()\nplt.savefig(\"subgraficos.png\")\nplt.show()",
+          "expected": "Una línea a la izquierda y barras a la derecha, y el fichero subgraficos.png en Archivos."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l27",
+      "kind": "practice",
+      "title": "Matplotlib",
+      "section": "3.2",
+      "questionIds": [
+        "pia-ud03-q073",
+        "pia-ud03-q074",
+        "pia-ud03-q075",
+        "pia-ud03-q076",
+        "pia-ud03-q077",
+        "pia-ud03-q078",
+        "pia-ud03-q079",
+        "pia-ud03-q080",
+        "pia-ud03-q081"
+      ]
+    },
+    {
+      "id": "pia-ud03-l28",
+      "kind": "read",
+      "title": "Pandas",
+      "section": "3.3",
+      "cards": [
+        {
+          "title": "Series y DataFrames",
+          "body": "Un **DataFrame** es una tabla **bidimensional** que admite **distintos tipos**: las columnas son **variables**, las filas **muestras** y las celdas **observaciones**. Una **Serie** es **unidimensional**, con etiquetas y **un solo tipo**. Se instala con `pip install pandas` y se importa como `pd`."
+        },
+        {
+          "title": "Crear, leer y guardar",
+          "body": "Creas DataFrames desde listas, **diccionarios**, arrays de NumPy o ficheros. Lee y guarda CSV, Excel o JSON, por ejemplo con **`pd.read_csv()`** y **`df.to_csv()`**. En Colab, si la última línea de la celda es solo `df`, la tabla sale **interactiva**."
+        },
+        {
+          "title": "loc e iloc",
+          "body": "**`loc`** accede por **etiquetas**: una, una lista, un rango o una condición. `df.loc['b']`, `df.loc[:, 'Nombre']`, `df.loc[df['Edad'] > 25]`. **`iloc`** accede por **posición**, desde 0: `df.iloc[2, 1]`. `.values[0]` saca el primer valor de una Serie."
+        },
+        {
+          "title": "Estadística y grupos",
+          "body": "`mean()`, `sum()` y **`describe()`**, que da el recuento, la media, la desviación, el mínimo, los cuartiles y el máximo. **`groupby('Departamento')['Salario'].mean()`** agrupa por una columna y calcula la media de cada grupo."
+        },
+        {
+          "title": "Columnas, filas y orden",
+          "body": "- Columna nueva: `df['Ciudad'] = [...]`; quitarla: `df.drop('Departamento', axis=1)`.\n- Filas: añadir o cambiar con `loc`; borrar con `drop(index=[2, 5])` (**axis=0 por defecto**).\n- **`reset_index(drop=True)`** rehace el índice.\n- **`sort_values('Salario', ascending=False)`** ordena de mayor a menor."
+        },
+        {
+          "title": "Unir y dibujar",
+          "body": "- **`merge`**: une por **columnas comunes** (inner, left, right u outer).\n- **`join`**: une por el **índice**.\n- **`concat`**: **apila** por filas o columnas, sin emparejar claves.\nDonde falta un dato aparece **NaN**. `df.plot()` dibuja con Matplotlib por debajo."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l29",
+      "kind": "pc",
+      "title": "En Colab: Pandas",
+      "section": "3.3",
+      "steps": [
+        {
+          "where": "Google Colab",
+          "text": "Crea un DataFrame desde un diccionario, guárdalo en CSV y vuelve a cargarlo. La última línea es solo el nombre, para que la tabla salga interactiva.",
+          "code": "import pandas as pd\n\ndata = {'Producto': ['A', 'B', 'C'], 'Precio': [100, 200, 150]}\ndf = pd.DataFrame(data)\ndf.to_csv('salida.csv', index=False)\ndf_read = pd.read_csv('salida.csv')\ndf_read",
+          "expected": "Una tabla interactiva con tres filas (A 100, B 200 y C 150) y el fichero salida.csv en el panel Archivos."
+        },
+        {
+          "where": "Google Colab",
+          "text": "Accede por etiqueta, por posición y con una condición.",
+          "code": "df = pd.DataFrame({\n    'Nombre': ['Ana', 'Luis', 'Carlos'],\n    'Edad': [23, 35, 29],\n    'Ciudad': ['Madrid', 'Sevilla', 'Valencia']\n}, index=['a', 'b', 'c'])\nprint(df.loc['a', 'Ciudad'])\nprint(df.iloc[2, 1])\nprint(df.loc[df['Edad'] > 25])",
+          "expected": "Madrid, después 29 y, por último, una tabla con las filas b (Luis, 35, Sevilla) y c (Carlos, 29, Valencia)."
+        },
+        {
+          "where": "Google Colab",
+          "text": "Calcula la media de salarios y la media por departamento.",
+          "code": "df = pd.DataFrame({\n    'Empleado': ['Ana', 'Luis', 'Carlos', 'Marta', 'Elena', 'Pedro'],\n    'Departamento': ['Ventas', 'Ventas', 'IT', 'IT', 'IT', 'Ventas'],\n    'Salario': [3000, 3200, 4000, 4200, 4100, 3100]\n})\nprint(df['Salario'].mean())\nprint(df.groupby('Departamento')['Salario'].mean())",
+          "expected": "3600.0 y después la Serie agrupada: IT 4100.0 y Ventas 3100.0, con Name: Salario, dtype: float64."
+        },
+        {
+          "where": "Google Colab",
+          "text": "Quita una columna y dos filas, rehaz el índice y ordena por salario.",
+          "code": "df = df.drop('Departamento', axis=1)\ndf = df.drop(index=[2, 5])\ndf = df.reset_index(drop=True)\nprint(df.sort_values('Salario', ascending=False))",
+          "expected": "Marta 4200, Elena 4100, Luis 3200 y Ana 3000, con los índices 2, 3, 1 y 0 que les dio reset_index()."
+        },
+        {
+          "where": "Google Colab",
+          "text": "Une dos DataFrames por el índice con join outer.",
+          "code": "df1 = pd.DataFrame({'Nombre': ['Ana', 'Luis', 'Carlos']}, index=[1, 2, 3])\ndf2 = pd.DataFrame({'Ventas': [100, 150, 200]}, index=[2, 3, 4])\nprint(df1.join(df2, how='outer'))",
+          "expected": "Cuatro filas, de la 1 a la 4: Ana con ventas NaN, Luis 100.0, Carlos 150.0 y la fila 4 con nombre NaN y 200.0."
+        },
+        {
+          "where": "Google Colab",
+          "text": "Dibuja ventas y objetivo en el mismo gráfico.",
+          "code": "import matplotlib.pyplot as plt\n\ndf = pd.DataFrame({\n    'Mes': ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],\n    'Ventas': [2000, 2200, 2500, 2300, 2700],\n    'Objetivo': [2100, 2100, 2400, 2400, 2600]\n})\ndf.set_index('Mes', inplace=True)\nax = df['Ventas'].plot(kind='bar', color='skyblue', label='Ventas', figsize=(8, 5))\ndf['Objetivo'].plot(kind='line', color='red', marker='o', label='Objetivo', ax=ax)\nplt.title('Ventas Mensuales vs Objetivo')\nplt.legend()\nplt.show()",
+          "expected": "Cinco barras azules, una por mes, y encima una línea roja con puntos para el objetivo, con título y leyenda."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l30",
+      "kind": "practice",
+      "title": "Pandas",
+      "section": "3.3",
+      "questionIds": [
+        "pia-ud03-q082",
+        "pia-ud03-q083",
+        "pia-ud03-q084",
+        "pia-ud03-q085",
+        "pia-ud03-q086",
+        "pia-ud03-q087",
+        "pia-ud03-q088",
+        "pia-ud03-q089",
+        "pia-ud03-q090",
+        "pia-ud03-q091"
+      ]
+    },
+    {
+      "id": "pia-ud03-l31",
+      "kind": "read",
+      "title": "OpenCV",
+      "section": "3.4",
+      "cards": [
+        {
+          "title": "Qué es OpenCV",
+          "body": "Una librería para el **procesamiento de imágenes**, aunque hace mucho más. Los apuntes la instalan en Colab con **`!pip install opencv-python`** y la importan como **`cv2`**, junto a NumPy, `urllib.request` y Matplotlib."
+        },
+        {
+          "title": "El caso",
+          "body": "Hay que pasar una imagen a un modelo que distingue **perros y gatos**. Para eso: **cargarla, escalarla, pasarla a escala de grises y guardarla**. Además se marca una **zona de interés**."
+        },
+        {
+          "title": "Cargar y mostrar",
+          "body": "El cuaderno descarga los bytes con `urllib.request.urlopen()`, los pasa a un array de NumPy y los decodifica con **`cv2.imdecode()`**. Antes de mostrarla con `plt.imshow()` la convierte con **`cv2.cvtColor(img, cv2.COLOR_BGR2RGB)`**. `plt.axis('off')` quita los ejes."
+        },
+        {
+          "title": "Escalar y pasar a grises",
+          "body": "**`cv2.resize(img, (100, 100))`** la deja en 100x100: su `shape` pasa a **(100, 100, 3)**. Con **`cv2.COLOR_RGB2GRAY`** queda en grises y **pierde una dimensión**: **(100, 100)**. Para verla: `plt.imshow(img_gray, cmap='gray')`."
+        },
+        {
+          "title": "Guardar y marcar",
+          "body": "**`cv2.imwrite('imagen_grises.png', ...)`** la guarda en el entorno y **`cv2.imread()`** la vuelve a cargar. **`cv2.rectangle(imagen, inicio, fin, (0,0,255), 1)`** dibuja un marco entre dos esquinas. En Colab se enseña con `cv2_imshow` de `google.colab.patches`."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l32",
+      "kind": "pc",
+      "title": "En Colab: OpenCV",
+      "section": "3.4",
+      "steps": [
+        {
+          "where": "Google Colab",
+          "text": "Instala OpenCV e importa las librerías. Si ya estaba instalada, pip lo dice y no hace nada más.",
+          "code": "!pip install opencv-python\n\nimport cv2\nimport numpy as np\nfrom matplotlib import pyplot as plt",
+          "expected": "Requirement already satisfied: opencv-python... (o la instalación, si no estaba)"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Para no depender de un enlace externo, aquí la imagen se genera con NumPy: un fondo negro de 300x400 con un rectángulo de color. El cuaderno original la descarga de Wikipedia con urllib.",
+          "code": "img = np.zeros((300, 400, 3), dtype=np.uint8)\nimg[50:250, 100:300] = (255, 200, 0)\nplt.imshow(img)\nplt.title('Imagen original')\nplt.axis('off')\nplt.show()\nprint('Dimensiones originales:', img.shape)",
+          "expected": "Un rectángulo de color sobre fondo negro y, debajo, Dimensiones originales: (300, 400, 3)"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Escálala a 100x100 y pásala a escala de grises. Fíjate en cómo cambia shape.",
+          "code": "img_resized = cv2.resize(img, (100, 100))\nimg_gray = cv2.cvtColor(img_resized, cv2.COLOR_RGB2GRAY)\nplt.imshow(img_gray, cmap='gray')\nplt.title('Escala de grises')\nplt.axis('off')\nplt.show()\nprint('Dimensiones redimensionadas:', img_resized.shape)\nprint('Dimensiones en escala de grises:', img_gray.shape)",
+          "expected": "La imagen en grises y:\nDimensiones redimensionadas: (100, 100, 3)\nDimensiones en escala de grises: (100, 100)"
+        },
+        {
+          "where": "Google Colab",
+          "text": "Guarda la imagen procesada en el entorno.",
+          "code": "cv2.imwrite('imagen_grises.png', cv2.cvtColor(img_gray, cv2.COLOR_GRAY2BGR))\nprint('Imagen guardada como imagen_grises.png')",
+          "expected": "Imagen guardada como imagen_grises.png, y el fichero aparece en el panel Archivos."
+        },
+        {
+          "where": "Google Colab",
+          "text": "Crea la función que marca una zona de interés y muestra el resultado con cv2_imshow.",
+          "code": "def dibujar_marco(nombre_imagen, inicio, fin):\n    imagen = cv2.imread(nombre_imagen, cv2.IMREAD_UNCHANGED)\n    imagen = cv2.rectangle(imagen, inicio, fin, (0, 0, 255), 1)\n    nueva_imagen = nombre_imagen.split(\".\")[0] + \"_marco.\" + nombre_imagen.split(\".\")[1]\n    print(\"A partir de la imagen:\", nombre_imagen)\n    print(\"Se generará la imagen con un cuadrado en:\", nueva_imagen)\n    cv2.imwrite(nueva_imagen, imagen)\n    return nueva_imagen\n\nfrom google.colab.patches import cv2_imshow\ncv2_imshow(cv2.imread(dibujar_marco(\"imagen_grises.png\", (30, 10), (80, 50)), cv2.IMREAD_UNCHANGED))",
+          "expected": "A partir de la imagen: imagen_grises.png\nSe generará la imagen con un cuadrado en: imagen_grises_marco.png\ny la imagen de 100x100 con el marco dibujado."
+        }
+      ]
+    },
+    {
+      "id": "pia-ud03-l33",
+      "kind": "practice",
+      "title": "OpenCV",
+      "section": "3.4",
+      "questionIds": [
+        "pia-ud03-q092",
+        "pia-ud03-q093",
+        "pia-ud03-q094",
+        "pia-ud03-q095",
+        "pia-ud03-q096",
+        "pia-ud03-q097",
+        "pia-ud03-q098",
+        "pia-ud03-q099"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "pia-ud03-q001",
+      "type": "choice",
+      "prompt": "¿De qué proyecto es una evolución Jupyter?",
+      "options": [
+        "IPython",
+        "Anaconda",
+        "RStudio",
+        "Kaggle"
+      ],
+      "answer": 0,
+      "explanation": "Jupyter nació en 2014 a partir de IPython. Anaconda es una distribución que lo incluye y Kaggle, una comunidad con muchos cuadernos.",
+      "source": "PIA UD3, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q002",
+      "type": "choice",
+      "prompt": "¿Qué tres lenguajes dan nombre a Jupyter?",
+      "options": [
+        "Julia, Python y R",
+        "Java, Python y Ruby",
+        "JavaScript, Python y R",
+        "Julia, Perl y Ruby"
+      ],
+      "answer": 0,
+      "explanation": "Ju-Pyt-R: Julia, Python y R, tres lenguajes muy usados en ciencia de datos.",
+      "source": "PIA UD3, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q003",
+      "type": "truefalse",
+      "prompt": "Hoy Jupyter solo puede ejecutar código en Julia, Python y R.",
+      "answer": false,
+      "explanation": "Su nombre viene de esos tres lenguajes, pero su sistema de kernels extensible le permite trabajar con muchos más.",
+      "source": "PIA UD3, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q004",
+      "type": "choice",
+      "prompt": "Quieres Jupyter Notebook en tu equipo con todos los paquetes de aprendizaje automático ya integrados. ¿Qué recomiendan los apuntes?",
+      "options": [
+        "Instalar la distribución Anaconda",
+        "Instalar solo IPython con pip",
+        "Descargar cuadernos de Kaggle",
+        "Contratar Colab Pro en Drive"
+      ],
+      "answer": 0,
+      "explanation": "Anaconda trae todo integrado y un navegador para gestionar entornos, paquetes y aplicaciones. Colab Pro es la versión de pago de Colab, que no se instala en local.",
+      "source": "PIA UD3, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q005",
+      "type": "match",
+      "prompt": "Relaciona cada herramienta con su descripción.",
+      "pairs": [
+        [
+          "Jupyter Notebook",
+          "Aplicación web de cuadernos con celdas"
+        ],
+        [
+          "Google Colab",
+          "Jupyter gratuito en la nube"
+        ],
+        [
+          "Anaconda",
+          "Distribución con paquetes y gestor de entornos"
+        ],
+        [
+          "Kaggle",
+          "Comunidad con un gran repositorio de cuadernos"
+        ],
+        [
+          "Colab Pro",
+          "Versión de pago con mejores GPU"
+        ]
+      ],
+      "explanation": "Colab es, en esencia, un Jupyter Notebook en línea. Anaconda sirve para tenerlo en local con todo instalado y Colab Pro amplía los recursos de Colab.",
+      "source": "PIA UD3, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q006",
+      "type": "choice",
+      "prompt": "Entrenas una red neuronal profunda y tu portátil tarda mucho. ¿Qué ventaja de Colab te ayuda?",
+      "options": [
+        "Acceso gratuito a GPU y TPU",
+        "Ejecución sin límite de tiempo",
+        "Recursos garantizados siempre",
+        "Compila el código antes de usarlo"
+      ],
+      "answer": 0,
+      "explanation": "Las GPU y TPU aceleran el entrenamiento de modelos. La versión gratuita sí tiene límites: unas 12 horas por ejecución y recursos no garantizados.",
+      "source": "PIA UD3, apartado 1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q007",
+      "type": "choice",
+      "prompt": "¿Cuánto dura normalmente, como máximo, una ejecución en la versión gratuita de Colab?",
+      "options": [
+        "12 horas",
+        "24 horas",
+        "6 horas",
+        "48 horas"
+      ],
+      "answer": 0,
+      "explanation": "El límite habitual es de 12 horas, y además la conexión se puede cortar si dejas el cuaderno inactivo.",
+      "source": "PIA UD3, apartado 1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q008",
+      "type": "choice",
+      "prompt": "¿Qué significa que Python sea un lenguaje interpretado?",
+      "options": [
+        "Que se ejecuta sin compilarlo antes",
+        "Que se traduce a Java al ejecutarse",
+        "Que solo funciona dentro de Jupyter",
+        "Que hay que declarar cada tipo"
+      ],
+      "answer": 0,
+      "explanation": "El intérprete ejecuta el código directamente, sin un paso previo de compilación. Por eso es tan cómodo para prototipar.",
+      "source": "PIA UD3, apartado 2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q009",
+      "type": "match",
+      "prompt": "Relaciona cada herramienta del ecosistema de Python con su uso.",
+      "pairs": [
+        [
+          "Pandas y NumPy",
+          "Análisis de datos"
+        ],
+        [
+          "Matplotlib y Seaborn",
+          "Visualización"
+        ],
+        [
+          "Scikit-learn y TensorFlow",
+          "Aprendizaje automático"
+        ],
+        [
+          "OpenCV",
+          "Procesamiento de imágenes"
+        ],
+        [
+          "pip",
+          "Gestión de paquetes"
+        ]
+      ],
+      "explanation": "pip es el gestor que instala el resto. OpenCV es la de imágenes y Scikit-learn y TensorFlow, las de aprendizaje automático.",
+      "source": "PIA UD3, apartado 2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q010",
+      "type": "choice",
+      "prompt": "Python decide el tipo de una variable al ejecutar el código, según el valor que le asignas. ¿Cómo se llama esto?",
+      "options": [
+        "Tipado dinámico",
+        "Tipado fuerte",
+        "Tipado estático",
+        "Tipado débil"
+      ],
+      "answer": 0,
+      "explanation": "Dinámico se refiere a cuándo se decide el tipo: en ejecución. Fuerte es otra cosa: que no se mezclan tipos incompatibles sin convertir.",
+      "source": "PIA UD3, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q011",
+      "type": "truefalse",
+      "prompt": "Como Python tiene tipado dinámico, puedes sumar un número y una cadena sin convertir ninguno.",
+      "answer": false,
+      "explanation": "El tipado también es fuerte: para operar con tipos incompatibles necesitas una conversión explícita, por ejemplo con str().",
+      "source": "PIA UD3, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q012",
+      "type": "choice",
+      "prompt": "¿Cuál de estos nombres de variable no es válido?",
+      "options": [
+        "2entregas",
+        "entregas_2",
+        "_entregas",
+        "Entregas"
+      ],
+      "answer": 0,
+      "explanation": "Un nombre no puede empezar por número. El guion bajo y las mayúsculas sí están permitidos.",
+      "source": "PIA UD3, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q013",
+      "type": "truefalse",
+      "prompt": "En Python, `media` y `Media` son la misma variable.",
+      "answer": false,
+      "explanation": "Los nombres distinguen mayúsculas y minúsculas, así que son dos variables distintas.",
+      "source": "PIA UD3, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q014",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "print(5 // 2, 5 % 2, 2 ** 3)",
+      "options": [
+        "2 1 8",
+        "2.5 1 6",
+        "2 1 6",
+        "2.5 0 8"
+      ],
+      "answer": 0,
+      "explanation": "// es la división entera (2), % el resto (1) y ** la potencia (8). La trampa es confundir ** con la multiplicación.",
+      "source": "PIA UD3, apartado 2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q015",
+      "type": "match",
+      "prompt": "Relaciona cada operador con lo que hace.",
+      "pairs": [
+        [
+          "/",
+          "División flotante"
+        ],
+        [
+          "//",
+          "División entera"
+        ],
+        [
+          "%",
+          "Módulo (resto)"
+        ],
+        [
+          "**",
+          "Potencia"
+        ],
+        [
+          "!=",
+          "Distinto de"
+        ]
+      ],
+      "explanation": "5 / 2 da 2.5 y 5 // 2 da 2. % devuelve el resto de la división y ** eleva a una potencia.",
+      "source": "PIA UD3, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q016",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "entregas_juan = 35\nentregas_lucas = 42\nobjetivo = 40\njuan = entregas_juan >= objetivo\nlucas = entregas_lucas >= objetivo\nprint(juan and lucas, juan or lucas)",
+      "options": [
+        "False True",
+        "True True",
+        "False False",
+        "True False"
+      ],
+      "answer": 0,
+      "explanation": "Juan no llega (35 < 40) y Lucas sí (42 >= 40). and pide que se cumplan las dos y or, que se cumpla al menos una.",
+      "source": "PIA UD3, apartado 2.1",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q017",
+      "type": "choice",
+      "prompt": "¿Cuál de estas conversiones a booleano da True?",
+      "options": [
+        "bool(\"Hola\")",
+        "bool(\"\")",
+        "bool(None)",
+        "bool(0)"
+      ],
+      "answer": 0,
+      "explanation": "Casi todo es True al convertirlo. Solo dan False los valores vacíos, None y el número 0.",
+      "source": "PIA UD3, apartado 2.1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q018",
+      "type": "choice",
+      "prompt": "¿Con qué operador recomiendan los apuntes comparar una variable con None?",
+      "options": [
+        "is",
+        "==",
+        "=",
+        "!="
+      ],
+      "answer": 0,
+      "explanation": "La comparación con None debe hacerse con is. = es asignación, no comparación.",
+      "source": "PIA UD3, apartado 2.1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q019",
+      "type": "choice",
+      "prompt": "Delimitas una cadena con comillas dobles y quieres meter dentro otras comillas dobles. ¿Qué pones delante de las interiores?",
+      "options": [
+        "La barra invertida \\",
+        "Otra comilla doble",
+        "El símbolo #",
+        "El símbolo %"
+      ],
+      "answer": 0,
+      "explanation": "La barra invertida es el símbolo de escape. Si usas comillas distintas a las del delimitador, no hace falta.",
+      "source": "PIA UD3, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q020",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "cadena = \"Esta es una bonita frase.\"\nprint(cadena[12:18])",
+      "options": [
+        "bonita",
+        "a bonit",
+        "onita",
+        "bonita f"
+      ],
+      "answer": 0,
+      "explanation": "Se cuenta desde 0 y el índice final no se incluye: del 12 al 17 están las letras de bonita.",
+      "source": "PIA UD3, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q021",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "cadena = \"Esta es una bonita frase.\"\nprint(cadena[-6:-1])",
+      "options": [
+        "frase",
+        "frase.",
+        "a frase",
+        "rase."
+      ],
+      "answer": 0,
+      "explanation": "Los índices negativos cuentan desde el final: -1 es el punto, que queda fuera porque el final del rango no se incluye.",
+      "source": "PIA UD3, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q022",
+      "type": "match",
+      "prompt": "Relaciona cada método de cadena con lo que hace.",
+      "pairs": [
+        [
+          "upper()",
+          "Pasa todo a mayúsculas"
+        ],
+        [
+          "title()",
+          "Pone en mayúscula la inicial de cada palabra"
+        ],
+        [
+          "strip()",
+          "Quita los espacios de los extremos"
+        ],
+        [
+          "find()",
+          "Da la posición de la primera aparición"
+        ],
+        [
+          "count()",
+          "Cuenta las apariciones de una secuencia"
+        ]
+      ],
+      "explanation": "find() devuelve una posición y count() un número de veces. strip() solo toca el principio y el final, no los espacios de en medio.",
+      "source": "PIA UD3, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q023",
+      "type": "choice",
+      "prompt": "¿Qué devuelve el método split()?",
+      "options": [
+        "Una lista de cadenas",
+        "Una tupla de caracteres",
+        "Un diccionario de palabras",
+        "El número de palabras"
+      ],
+      "answer": 0,
+      "explanation": "split() corta la cadena por el separador y devuelve una lista con los trozos. Sin separador, corta por los espacios.",
+      "source": "PIA UD3, apartado 2.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q024",
+      "type": "truefalse",
+      "prompt": "replace() cambia la cadena original y no devuelve nada.",
+      "answer": false,
+      "explanation": "replace() devuelve una cadena nueva con las sustituciones. Si quieres conservarla, guárdala en una variable, como cadena2 en el cuaderno.",
+      "source": "PIA UD3, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q025",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "print(\"23\".isdigit(), \"23\".isalpha())",
+      "options": [
+        "True False",
+        "False True",
+        "True True",
+        "False False"
+      ],
+      "answer": 0,
+      "explanation": "\"23\" solo tiene cifras, así que isdigit() da True. No tiene letras, así que isalpha() da False.",
+      "source": "PIA UD3, apartado 2.2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q026",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "a = 5.5\nb = 67.123\nc = a + b\nprint(f\"{a:.1f} y {b:.1f} dan {c:.2f}\")",
+      "options": [
+        "5.5 y 67.1 dan 72.62",
+        "5.5 y 67.123 dan 72.623",
+        "5.50 y 67.12 dan 72.6",
+        "5 y 67 dan 72.62"
+      ],
+      "answer": 0,
+      "explanation": ":.1f deja un decimal y :.2f, dos. Sin formato, print mostraría 67.123 y 72.623.",
+      "source": "PIA UD3, apartado 2.2",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q027",
+      "type": "match",
+      "prompt": "Relaciona cada colección con sus propiedades.",
+      "pairs": [
+        [
+          "list",
+          "Ordenada, modificable y con duplicados"
+        ],
+        [
+          "tuple",
+          "Ordenada e inmutable"
+        ],
+        [
+          "set",
+          "Sin orden, sin índice y sin duplicados"
+        ],
+        [
+          "dict",
+          "Parejas clave-valor"
+        ]
+      ],
+      "explanation": "Lista y tupla se parecen, pero la tupla no se puede modificar. El conjunto es el único sin índice.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q028",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "apellidos = [\"López\", \"Pérez\", \"Gil\"]\napellidos.insert(1, \"Montero\")\nprint(apellidos)",
+      "options": [
+        "['López', 'Montero', 'Pérez', 'Gil']",
+        "['Montero', 'López', 'Pérez', 'Gil']",
+        "['López', 'Pérez', 'Gil', 'Montero']",
+        "['López', 'Montero', 'Gil']"
+      ],
+      "answer": 0,
+      "explanation": "insert(1, x) mete el elemento en la posición 1 (la segunda) y desplaza el resto a la derecha, sin borrar nada.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q029",
+      "type": "truefalse",
+      "prompt": "pop() sin indicar posición elimina el último elemento de la lista.",
+      "answer": true,
+      "explanation": "Si no le pasas posición, pop() quita el último. remove(), en cambio, borra por valor.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q030",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "original = [\"López\", \"Rodríguez\", \"González\"]\ncopia = original\noriginal.pop(1)\nprint(copia)",
+      "options": [
+        "['López', 'González']",
+        "['López', 'Rodríguez', 'González']",
+        "['Rodríguez']",
+        "Un error: copia no existe"
+      ],
+      "answer": 0,
+      "explanation": "copia = original no crea otra lista: las dos variables apuntan a la misma. Para que no le afecte el pop() habría que usar copy().",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q031",
+      "type": "choice",
+      "prompt": "Quieres ordenar una lista de mayor a menor con sort(). ¿Qué parámetro le pasas?",
+      "options": [
+        "reverse=True",
+        "key=len",
+        "ascending=False",
+        "order='desc'"
+      ],
+      "answer": 0,
+      "explanation": "reverse=True da el orden descendente. ascending=False es de sort_values() en Pandas, no de las listas.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q032",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "nombres = [\"Ana\", \"Carlos\", \"Bea\", \"Lu\"]\nnombres.sort(key=len)\nprint(nombres)",
+      "options": [
+        "['Lu', 'Ana', 'Bea', 'Carlos']",
+        "['Ana', 'Bea', 'Carlos', 'Lu']",
+        "['Carlos', 'Ana', 'Bea', 'Lu']",
+        "['Ana', 'Bea', 'Lu', 'Carlos']"
+      ],
+      "answer": 0,
+      "explanation": "key=len ordena por longitud, de menor a mayor: Lu (2), Ana y Bea (3) y Carlos (6).",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q033",
+      "type": "truefalse",
+      "prompt": "En una tupla puedes cambiar un elemento con nombres[0] = \"Luis\".",
+      "answer": false,
+      "explanation": "Las tuplas son inmutables y esa línea da error. Hay que pasarla a lista, cambiarla y volver a tupla.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q034",
+      "type": "order",
+      "prompt": "Ordena los pasos para cambiar un elemento de una tupla.",
+      "steps": [
+        "Convertir la tupla en lista con list()",
+        "Cambiar el elemento en la lista",
+        "Volver a convertirla en tupla con tuple()"
+      ],
+      "explanation": "La tupla no se puede tocar, así que se trabaja sobre una lista y al final se recupera la estructura de tupla.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q035",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "nombres = (\"Paco\", \"Fran\", \"Paco\", \"Kiko\")\nprint(nombres.index(\"Paco\"), nombres.count(\"Paco\"))",
+      "options": [
+        "0 2",
+        "2 0",
+        "0 1",
+        "2 2"
+      ],
+      "answer": 0,
+      "explanation": "index() da la posición de la primera aparición (0) y count() cuántas veces aparece (2).",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q036",
+      "type": "truefalse",
+      "prompt": "Puedes leer el segundo elemento de un conjunto con frutas[1].",
+      "answer": false,
+      "explanation": "Los conjuntos no están indexados, así que no se accede por posición. Sí puedes recorrerlos o preguntar con in.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q037",
+      "type": "choice",
+      "prompt": "Llamas a pop() sobre un conjunto. ¿Qué elemento sale?",
+      "options": [
+        "Uno que depende de su disposición interna",
+        "Siempre el último que añadiste",
+        "Siempre el primero por orden alfabético",
+        "El que indiques entre los paréntesis"
+      ],
+      "answer": 0,
+      "explanation": "Como el conjunto no tiene orden, el elemento extraído depende de cómo se guarda por dentro y parece aleatorio.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q038",
+      "type": "match",
+      "prompt": "Relaciona cada operación entre conjuntos con su resultado.",
+      "pairs": [
+        [
+          "union",
+          "Todos los elementos de ambos"
+        ],
+        [
+          "intersection",
+          "Solo los que están en los dos"
+        ],
+        [
+          "difference",
+          "Los del primero que no están en el segundo"
+        ],
+        [
+          "symmetric_difference",
+          "Todos menos los comunes"
+        ]
+      ],
+      "explanation": "La diferencia simétrica es la unión menos la intersección. difference solo mira lo que sobra del primer conjunto.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q039",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "frutas = {\"manzana\", \"pera\", \"tomate\"}\nverduras = {\"pimiento\", \"zanahoria\", \"tomate\"}\nprint(frutas.intersection(verduras))",
+      "options": [
+        "{'tomate'}",
+        "{'manzana', 'pera'}",
+        "{'pimiento', 'zanahoria'}",
+        "set()"
+      ],
+      "answer": 0,
+      "explanation": "La intersección se queda con lo que está en los dos conjuntos, y el único elemento común es tomate.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q040",
+      "type": "truefalse",
+      "prompt": "Desde Python 3.7 los diccionarios son colecciones ordenadas.",
+      "answer": true,
+      "explanation": "Es lo que indican los apuntes. Además son modificables y no admiten duplicados.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q041",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "envio = {\"id\": 123, \"cliente\": \"Ana\"}\nprint(envio.get(\"direccion\", \"No disponible\"))",
+      "options": [
+        "No disponible",
+        "None",
+        "Un error KeyError",
+        "direccion"
+      ],
+      "answer": 0,
+      "explanation": "get() devuelve el segundo argumento cuando la clave no existe. Por eso evita errores al leer claves que pueden faltar.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q042",
+      "type": "choice",
+      "prompt": "¿Qué devuelve items() en un diccionario?",
+      "options": [
+        "Una vista de tuplas (clave, valor)",
+        "Una lista solo con las claves",
+        "Una lista solo con los valores",
+        "El número de parejas que guarda"
+      ],
+      "answer": 0,
+      "explanation": "items() da las parejas como tuplas, por eso puedes escribir for clave, valor in d.items(). Las claves solas salen con keys() y los valores con values().",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q043",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "envio = {\"id\": 123, \"estado\": \"En proceso\"}\nenvio[\"estado\"] = \"Entregado\"\nenvio.update({\"fecha\": \"2025-05-12\"})\nenvio.pop(\"id\")\nprint(envio)",
+      "options": [
+        "{'estado': 'Entregado', 'fecha': '2025-05-12'}",
+        "{'id': 123, 'estado': 'Entregado', 'fecha': '2025-05-12'}",
+        "{'estado': 'En proceso', 'fecha': '2025-05-12'}",
+        "{'estado': 'Entregado'}"
+      ],
+      "answer": 0,
+      "explanation": "La asignación cambia el estado, update() añade la fecha y pop('id') quita el id.",
+      "source": "PIA UD3, apartado 2.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q044",
+      "type": "choice",
+      "prompt": "¿Qué marca en Python las instrucciones que forman un bloque?",
+      "options": [
+        "La indentación",
+        "Las llaves { }",
+        "Los paréntesis",
+        "El punto y coma"
+      ],
+      "answer": 0,
+      "explanation": "En Python el sangrado es obligatorio y define los bloques. Las llaves son las de Java, C o C#.",
+      "source": "PIA UD3, apartado 2.4",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q045",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "a = 70\nif a >= 18 and a < 65:\n    print(\"Estás en edad laboral.\")\nelif a < 18 and a > 0:\n    print(\"Aún no puedes trabajar.\")\nelif a >= 65:\n    print(\"Ya puedes jubilarte.\")\nelse:\n    print(\"No me creo que tengas\", a, \"años.\")",
+      "options": [
+        "Ya puedes jubilarte.",
+        "Estás en edad laboral.",
+        "Aún no puedes trabajar.",
+        "No me creo que tengas 70 años."
+      ],
+      "answer": 0,
+      "explanation": "70 no cumple la primera condición ni la segunda, pero sí la de a >= 65, y ese es el primer bloque que se cumple.",
+      "source": "PIA UD3, apartado 2.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q046",
+      "type": "order",
+      "prompt": "Ordena cómo evalúa Python un if con dos elif y un else.",
+      "steps": [
+        "Comprueba la condición del if",
+        "Si no se cumple, comprueba el primer elif",
+        "Si tampoco, comprueba el segundo elif",
+        "Si ninguna se cumple, ejecuta el else"
+      ],
+      "explanation": "Las condiciones se miran de arriba abajo y se ejecuta solo el primer bloque que se cumple. El else queda para cuando no se cumple ninguna.",
+      "source": "PIA UD3, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q047",
+      "type": "truefalse",
+      "prompt": "Puedes dejar vacío el bloque de un if sin escribir nada dentro.",
+      "answer": false,
+      "explanation": "Un bloque vacío da error. Si de verdad lo quieres vacío, escribe pass.",
+      "source": "PIA UD3, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q048",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "i = 1\nwhile i < 6:\n    print(i, end=\" \")\n    i += 1\n    if i > 4: break",
+      "options": [
+        "1 2 3 4",
+        "1 2 3 4 5",
+        "1 2 3",
+        "2 3 4 5"
+      ],
+      "answer": 0,
+      "explanation": "Tras imprimir el 4, i pasa a 5 y se cumple i > 4, así que break corta el bucle antes de imprimir el 5.",
+      "source": "PIA UD3, apartado 2.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q049",
+      "type": "match",
+      "prompt": "Relaciona cada sentencia con lo que hace.",
+      "pairs": [
+        [
+          "continue",
+          "Detiene solo la vuelta actual"
+        ],
+        [
+          "break",
+          "Sale del bucle"
+        ],
+        [
+          "else en un bucle",
+          "Se ejecuta si el bucle acaba sin break"
+        ],
+        [
+          "pass",
+          "Deja un bloque vacío sin error"
+        ]
+      ],
+      "explanation": "continue sigue con la siguiente vuelta y break abandona el bucle. El else de un bucle solo tiene sentido si hay un break.",
+      "source": "PIA UD3, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q050",
+      "type": "truefalse",
+      "prompt": "El else de un for se ejecuta aunque el bucle termine por un break.",
+      "answer": false,
+      "explanation": "Solo se ejecuta si el bucle termina con normalidad. Si sale por break, el else se salta.",
+      "source": "PIA UD3, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q051",
+      "type": "choice",
+      "prompt": "¿Cuándo usan los apuntes el bucle for en lugar de while?",
+      "options": [
+        "Cuando se conoce el número de vueltas",
+        "Cuando no se sabe cuántas vueltas dará",
+        "Cuando el bloque debe quedar vacío",
+        "Cuando hay que comparar con None"
+      ],
+      "answer": 0,
+      "explanation": "El for se usa cuando el número de ejecuciones se conoce de antemano o para recorrer datos definidos. El while, cuando no se sabe.",
+      "source": "PIA UD3, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q052",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "escuderia = [\"Alpine\", \"Ferrari\", \"Mercedes\", \"Williams\"]\nfor x in escuderia:\n    if x == \"Mercedes\": continue\n    print(x, end=\" \")",
+      "options": [
+        "Alpine Ferrari Williams",
+        "Alpine Ferrari",
+        "Mercedes",
+        "Alpine Ferrari Mercedes Williams"
+      ],
+      "answer": 0,
+      "explanation": "continue se salta el resto de la vuelta de Mercedes, pero el bucle sigue y llega a Williams. Con break se habría parado ahí.",
+      "source": "PIA UD3, apartado 2.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q053",
+      "type": "choice",
+      "prompt": "Según la comparativa de los apuntes, ¿qué tiene Python que no existe en C ni en Java?",
+      "options": [
+        "else en los bucles",
+        "Bucles while",
+        "Operadores lógicos",
+        "if anidados"
+      ],
+      "answer": 0,
+      "explanation": "Python admite else en for y while. Lo demás también existe en C y Java, aunque con otra sintaxis.",
+      "source": "PIA UD3, apartado 2.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q054",
+      "type": "truefalse",
+      "prompt": "Si dentro de una función creas una variable con el mismo nombre que una global, cambias el valor de la global.",
+      "answer": false,
+      "explanation": "Dentro de la función se usa la variable local y la global no se toca. Para trabajar con la global habría que declararla con global.",
+      "source": "PIA UD3, apartado 2.5",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q055",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "def saludame(nombre=\"Jon\", apellido=\"Nieve\", tratamiento=\"Lord\"):\n    print(f\"Hola {tratamiento} {nombre} {apellido}\")\n\nsaludame(tratamiento=\"Sr\")",
+      "options": [
+        "Hola Sr Jon Nieve",
+        "Hola Lord Jon Nieve",
+        "Hola Sr",
+        "Hola Jon Nieve Sr"
+      ],
+      "answer": 0,
+      "explanation": "Solo se pasa tratamiento; nombre y apellido toman sus valores por defecto.",
+      "source": "PIA UD3, apartado 2.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q056",
+      "type": "match",
+      "prompt": "Relaciona cada elemento con su papel en una función.",
+      "pairs": [
+        [
+          "*tupla",
+          "Recibe argumentos por posición"
+        ],
+        [
+          "**datos",
+          "Recibe argumentos por nombre"
+        ],
+        [
+          "yield",
+          "Produce los valores uno a uno"
+        ],
+        [
+          "lambda",
+          "Define una función anónima de una expresión"
+        ],
+        [
+          "docstring",
+          "Documenta la función bajo el def"
+        ]
+      ],
+      "explanation": "Con * llega una tupla y con ** un diccionario. yield es lo que convierte una función en generadora.",
+      "source": "PIA UD3, apartado 2.5",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q057",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "def suma(*tupla):\n    total = 0\n    for i in tupla:\n        total = total + i\n    return total\n\nprint(suma(5, 7, 9))",
+      "options": [
+        "21",
+        "(5, 7, 9)",
+        "579",
+        "Un error: faltan parámetros"
+      ],
+      "answer": 0,
+      "explanation": "*tupla recoge los tres argumentos en una tupla y el bucle los suma.",
+      "source": "PIA UD3, apartado 2.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q058",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "def opera(a, b):\n    return (a + b, a - b, a * b, a / b)\n\ns, r, m, d = opera(5, 10)\nprint(r, d)",
+      "options": [
+        "-5 0.5",
+        "5 2.0",
+        "-5 2.0",
+        "15 0.5"
+      ],
+      "answer": 0,
+      "explanation": "La función devuelve una tupla con los cuatro resultados y se desempaqueta en s, r, m y d. r es 5 - 10 y d es 5 / 10.",
+      "source": "PIA UD3, apartado 2.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q059",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "def factorial(numero):\n    return numero * factorial(numero - 1) if numero > 0 else 1\n\nprint(factorial(4))",
+      "options": [
+        "24",
+        "10",
+        "4",
+        "120"
+      ],
+      "answer": 0,
+      "explanation": "La función se llama a sí misma hasta llegar a 0: 4 * 3 * 2 * 1 = 24. 120 sería factorial(5).",
+      "source": "PIA UD3, apartado 2.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q060",
+      "type": "choice",
+      "prompt": "¿Qué ventaja tiene una función generadora frente a devolver una lista completa?",
+      "options": [
+        "Da los valores bajo demanda, sin guardarlos todos",
+        "Reparte el bucle entre las GPU y TPU de Colab",
+        "Guarda los valores en un diccionario ordenado",
+        "Se define siempre en una única línea de código"
+      ],
+      "answer": 0,
+      "explanation": "Con yield los valores se producen según se piden, por eso sirve para secuencias grandes o infinitas. La de una sola línea es la lambda.",
+      "source": "PIA UD3, apartado 2.5",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q061",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "numeros = [1, 2, 3, 4]\nprint(list(map(lambda x: x * 2, numeros)))",
+      "options": [
+        "[2, 4, 6, 8]",
+        "[1, 4, 9, 16]",
+        "[1, 2, 3, 4, 1, 2, 3, 4]",
+        "[3, 4, 5, 6]"
+      ],
+      "answer": 0,
+      "explanation": "map() aplica la lambda a cada elemento: x * 2 multiplica por dos. [1, 4, 9, 16] saldría con x**2.",
+      "source": "PIA UD3, apartado 2.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q062",
+      "type": "choice",
+      "prompt": "¿Dónde se escribe el docstring de una función?",
+      "options": [
+        "Justo debajo de la línea del def",
+        "En un comentario # antes del def",
+        "En un fichero aparte llamado PEP 257",
+        "Dentro del return, entre comillas"
+      ],
+      "answer": 0,
+      "explanation": "Va justo bajo la declaración, entre triple comilla. PEP 257 es la guía que lo promueve, no un fichero.",
+      "source": "PIA UD3, apartado 2.5",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q063",
+      "type": "order",
+      "prompt": "Ordena lo que hace la función BuscaPrimos.",
+      "steps": [
+        "Intercambiar x e y si x es mayor",
+        "Empezar a recorrer el intervalo desde x",
+        "Comprobar si cada número es divisible por alguno menor",
+        "Imprimir el primo y sumarlo al contador",
+        "Parar al llegar a nPrimos"
+      ],
+      "explanation": "Primero se ordena el intervalo y luego se prueba cada número. Si no tiene divisores, se imprime y se cuenta, y el break corta cuando ya hay bastantes.",
+      "source": "PIA UD3, apartado 2.5",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q064",
+      "type": "choice",
+      "prompt": "En el caso práctico, ¿para qué quiere Ana librerías de procesamiento de imágenes?",
+      "options": [
+        "Para futuros proyectos de automatización",
+        "Para calcular los tiempos de entrega",
+        "Para guardar los pedidos en CSV",
+        "Para dibujar gráficos de tendencias"
+      ],
+      "answer": 0,
+      "explanation": "Las imágenes y la visión artificial son para la automatización futura. Los tiempos y pedidos van con cálculo numérico y datos estructurados, y las tendencias, con visualización.",
+      "source": "PIA UD3, apartado 3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q065",
+      "type": "choice",
+      "prompt": "¿Qué diferencia a linspace(start, stop, num) de arange(start, stop, step)?",
+      "options": [
+        "Fija el número de valores e incluye ambos extremos",
+        "Fija el paso entre valores y deja fuera el final",
+        "Solo crea arrays rellenos de ceros o de unos",
+        "Devuelve una lista de Python, no un array"
+      ],
+      "answer": 0,
+      "explanation": "En linspace dices cuántos valores quieres y los extremos entran. En arange das el paso, como en range().",
+      "source": "PIA UD3, apartado 3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q066",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "import numpy as np\nm = np.array([[10, 20, 30],\n              [40, 50, 60],\n              [70, 80, 90]])\nprint(m[1, 2])",
+      "options": [
+        "60",
+        "20",
+        "80",
+        "40"
+      ],
+      "answer": 0,
+      "explanation": "El primer índice es la fila y el segundo la columna, contando desde 0: fila 1, columna 2.",
+      "source": "PIA UD3, apartado 3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q067",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "import numpy as np\nm = np.array([[10, 20, 30],\n              [40, 50, 60],\n              [70, 80, 90]])\nprint(m[m > 50])",
+      "options": [
+        "[60 70 80 90]",
+        "[50 60 70 80 90]",
+        "[70 80 90]",
+        "[60 90]"
+      ],
+      "answer": 0,
+      "explanation": "La indexación booleana se queda con todos los valores que cumplen la condición. 50 no es mayor que 50.",
+      "source": "PIA UD3, apartado 3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q068",
+      "type": "match",
+      "prompt": "Relaciona cada atributo o método de un array con lo que da.",
+      "pairs": [
+        [
+          "shape",
+          "Tupla con las dimensiones"
+        ],
+        [
+          "size",
+          "Número total de elementos"
+        ],
+        [
+          "dtype",
+          "Tipo de datos de los elementos"
+        ],
+        [
+          "astype()",
+          "Copia convertida a otro tipo"
+        ]
+      ],
+      "explanation": "Un array de 2 filas y 3 columnas tiene shape (2, 3) y size 6. astype() devuelve un array nuevo, como el resto de métodos de modificación.",
+      "source": "PIA UD3, apartado 3.1",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q069",
+      "type": "truefalse",
+      "prompt": "a.reshape(3, 2) cambia la forma de a sin que tengas que guardar el resultado en otra variable.",
+      "answer": false,
+      "explanation": "Los métodos de modificación devuelven un array nuevo y no tocan el original. Por eso el cuaderno escribe f = a.reshape(3, 2).",
+      "source": "PIA UD3, apartado 3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q070",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "import numpy as np\na = np.array([[1, 2, 3], [4, 5, 6]])\nprint(np.append(a, [7, 8]))",
+      "options": [
+        "[1 2 3 4 5 6 7 8]",
+        "[[1 2 3] [4 5 6] [7 8]]",
+        "[[1 2 3 7] [4 5 6 8]]",
+        "Un error: faltan columnas"
+      ],
+      "answer": 0,
+      "explanation": "Sin axis, np.append() aplana el array y añade los valores al final, así que el resultado es 1D.",
+      "source": "PIA UD3, apartado 3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q071",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "import numpy as np\ndatos = np.array([[10, 20, 30],\n                  [15, 25, 35],\n                  [12, 22, 32]])\nprint(datos.sum(axis=0))",
+      "options": [
+        "[37 67 97]",
+        "[60 75 66]",
+        "201",
+        "[10 15 12]"
+      ],
+      "answer": 0,
+      "explanation": "axis=0 calcula por columnas: 10 + 15 + 12, 20 + 25 + 22 y 30 + 35 + 32. Por filas saldría [60 75 66] y sin axis, 201.",
+      "source": "PIA UD3, apartado 3.1",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q072",
+      "type": "choice",
+      "prompt": "Tu fichero de texto tiene huecos sin valor. ¿Qué función de NumPy está pensada para cargarlo?",
+      "options": [
+        "np.genfromtxt()",
+        "np.loadtxt()",
+        "np.savetxt()",
+        "np.asmatrix()"
+      ],
+      "answer": 0,
+      "explanation": "genfromtxt() carga datos de texto tratando los valores vacíos. loadtxt() carga datos numéricos y savetxt() guarda.",
+      "source": "PIA UD3, apartado 3.1",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q073",
+      "type": "truefalse",
+      "prompt": "Matplotlib solo sirve para crear gráficos estáticos.",
+      "answer": false,
+      "explanation": "Matplotlib crea visualizaciones estáticas, animadas e interactivas.",
+      "source": "PIA UD3, apartado 3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q074",
+      "type": "choice",
+      "prompt": "¿Qué estilo dibuja plt.plot(x, y, 'ro--')?",
+      "options": [
+        "Rojo, con círculos y línea discontinua",
+        "Rojo, con cuadrados y línea continua",
+        "Rosa, con círculos y línea de puntos",
+        "Negro, con rombos y línea discontinua"
+      ],
+      "answer": 0,
+      "explanation": "r es el color rojo, o el marcador de círculo y -- la línea discontinua.",
+      "source": "PIA UD3, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q075",
+      "type": "match",
+      "prompt": "Relaciona cada función con el gráfico que conviene.",
+      "pairs": [
+        [
+          "plt.bar()",
+          "Comparar categorías"
+        ],
+        [
+          "plt.scatter()",
+          "Relación entre dos variables numéricas"
+        ],
+        [
+          "plt.hist()",
+          "Distribución en intervalos"
+        ],
+        [
+          "plt.pie()",
+          "Proporción de cada parte en el total"
+        ]
+      ],
+      "explanation": "El histograma agrupa en bins para ver frecuencias y el pastel reparte un todo en sectores. La dispersión sirve para buscar patrones o correlaciones.",
+      "source": "PIA UD3, apartado 3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q076",
+      "type": "choice",
+      "prompt": "Quieres ver si la distancia de cada reparto tiene relación con su tiempo de entrega. ¿Qué gráfico eliges?",
+      "options": [
+        "Diagrama de dispersión",
+        "Gráfico de pastel",
+        "Histograma",
+        "Gráfico de barras"
+      ],
+      "answer": 0,
+      "explanation": "Son dos variables numéricas y buscas una relación entre ellas, justo para lo que sirve scatter(). El pastel muestra proporciones de un todo.",
+      "source": "PIA UD3, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q077",
+      "type": "choice",
+      "prompt": "En plt.hist(datos, bins=30), ¿qué indica bins?",
+      "options": [
+        "En cuántos intervalos se agrupan los datos",
+        "Cuántas muestras aleatorias se generan",
+        "El grosor del borde de las barras",
+        "El tamaño de la figura en pulgadas"
+      ],
+      "answer": 0,
+      "explanation": "El histograma agrupa los datos en intervalos (bins) para ver su frecuencia. Las 1000 muestras vienen de np.random.randn(1000).",
+      "source": "PIA UD3, apartado 3.2",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q078",
+      "type": "order",
+      "prompt": "Ordena las instrucciones tal como aparecen en el primer gráfico de líneas del cuaderno.",
+      "steps": [
+        "Definir las listas x e y",
+        "Dibujar con plt.plot(x, y)",
+        "Añadir título y nombres de los ejes",
+        "Mostrar con plt.show()"
+      ],
+      "explanation": "Primero los datos, después la línea y sus textos, y show() al final para enseñar la figura terminada.",
+      "source": "PIA UD3, apartado 3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q079",
+      "type": "choice",
+      "prompt": "¿Qué obtienes con este código?",
+      "code": "fig, axs = plt.subplots(1, 2, figsize=(10, 4))\naxs[0].plot(x, y)\naxs[1].bar(x, y)\nplt.tight_layout()\nplt.show()",
+      "options": [
+        "Una figura con línea a la izquierda y barras a la derecha",
+        "Dos ventanas separadas, una con la línea y otra con barras",
+        "Una figura con la línea arriba y las barras debajo",
+        "Un único gráfico con la línea y las barras superpuestas"
+      ],
+      "answer": 0,
+      "explanation": "subplots(1, 2) crea una fila con dos gráficos en la misma figura. axs[0] es el de la izquierda y axs[1] el de la derecha; con subplots(2, 1) quedarían uno encima del otro.",
+      "source": "PIA UD3, apartado 3.2",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q080",
+      "type": "choice",
+      "prompt": "¿Qué función guarda el gráfico como imagen?",
+      "options": [
+        "plt.savefig()",
+        "plt.show()",
+        "cv2.imwrite()",
+        "df.to_csv()"
+      ],
+      "answer": 0,
+      "explanation": "savefig() guarda la figura en PNG, PDF o SVG. cv2.imwrite() guarda imágenes con OpenCV, no gráficos de Matplotlib.",
+      "source": "PIA UD3, apartado 3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q081",
+      "type": "truefalse",
+      "prompt": "Seaborn está construido sobre Matplotlib.",
+      "answer": true,
+      "explanation": "Seaborn usa Matplotlib por debajo y aplica estilos y formatos automáticamente, con menos código.",
+      "source": "PIA UD3, apartado 3.2",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q082",
+      "type": "choice",
+      "prompt": "¿Qué es una Serie en Pandas?",
+      "options": [
+        "Una estructura unidimensional con etiquetas",
+        "Una tabla bidimensional de varios tipos",
+        "Un array de NumPy sin ningún índice",
+        "Un fichero CSV cargado en memoria"
+      ],
+      "answer": 0,
+      "explanation": "La Serie es unidimensional y de un solo tipo. La tabla bidimensional que admite varios tipos es el DataFrame.",
+      "source": "PIA UD3, apartado 3.3",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q083",
+      "type": "truefalse",
+      "prompt": "En un DataFrame, las filas representan las variables y las columnas las muestras.",
+      "answer": false,
+      "explanation": "Es al revés: las columnas son las variables y las filas las muestras. Las celdas son las observaciones.",
+      "source": "PIA UD3, apartado 3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q084",
+      "type": "order",
+      "prompt": "Ordena el ejemplo de ficheros del cuaderno de Pandas.",
+      "steps": [
+        "Crear el DataFrame desde un diccionario",
+        "Guardarlo con to_csv('salida.csv')",
+        "Cargarlo en otro DataFrame con read_csv()",
+        "Mostrar el DataFrame cargado"
+      ],
+      "explanation": "Primero se crea y se guarda el CSV; solo entonces existe el fichero que read_csv() puede leer.",
+      "source": "PIA UD3, apartado 3.3",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q085",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código?",
+      "code": "df = pd.DataFrame({\n    'Nombre': ['Ana', 'Luis', 'Carlos'],\n    'Edad': [23, 35, 29],\n    'Ciudad': ['Madrid', 'Sevilla', 'Valencia']\n}, index=['a', 'b', 'c'])\nprint(df.iloc[1, 2])",
+      "options": [
+        "Sevilla",
+        "35",
+        "Luis",
+        "Valencia"
+      ],
+      "answer": 0,
+      "explanation": "iloc cuenta posiciones desde 0: fila 1 (Luis) y columna 2 (Ciudad).",
+      "source": "PIA UD3, apartado 3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q086",
+      "type": "choice",
+      "prompt": "Tienes empleados de Ventas e IT y quieres el salario medio de cada departamento. ¿Qué escribes?",
+      "options": [
+        "df.groupby('Departamento')['Salario'].mean()",
+        "df.groupby('Salario')['Departamento'].mean()",
+        "df.sort_values('Departamento')['Salario'].mean()",
+        "df['Salario'].mean()"
+      ],
+      "answer": 0,
+      "explanation": "groupby() agrupa por la columna Departamento y luego se calcula la media de los salarios de cada grupo. Ordenar con sort_values() o usar df['Salario'].mean() da una sola media para todos.",
+      "source": "PIA UD3, apartado 3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q087",
+      "type": "choice",
+      "prompt": "¿Qué hace df.drop('Departamento', axis=1)?",
+      "options": [
+        "Devuelve el DataFrame sin esa columna",
+        "Borra la fila de índice Departamento",
+        "Ordena las filas por Departamento",
+        "Agrupa las filas por departamento"
+      ],
+      "answer": 0,
+      "explanation": "axis=1 indica columnas. Para filas no hace falta indicar el eje, porque axis=0 es el valor por defecto.",
+      "source": "PIA UD3, apartado 3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q088",
+      "type": "choice",
+      "prompt": "Tras borrar filas, el índice queda 0, 1, 3, 4, 10. ¿Qué lo deja como 0, 1, 2, 3, 4?",
+      "options": [
+        "df.reset_index(drop=True)",
+        "df.sort_values('index')",
+        "df.set_index('Mes')",
+        "df.drop(index=[10])"
+      ],
+      "answer": 0,
+      "explanation": "reset_index() reindexa las filas y drop=True evita guardar el índice viejo como columna.",
+      "source": "PIA UD3, apartado 3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q089",
+      "type": "match",
+      "prompt": "Relaciona cada método con cómo combina los DataFrames.",
+      "pairs": [
+        [
+          "merge()",
+          "Por columnas comunes como clave"
+        ],
+        [
+          "join()",
+          "Por el índice"
+        ],
+        [
+          "concat()",
+          "Apilando sin emparejar claves"
+        ]
+      ],
+      "explanation": "merge empareja por el contenido de columnas, join por el índice y concat solo pone uno detrás o al lado del otro.",
+      "source": "PIA UD3, apartado 3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q090",
+      "type": "choice",
+      "prompt": "¿Cuántas filas tiene r?",
+      "code": "df1 = pd.DataFrame({'ID': [1, 2, 3], 'Nombre': ['Ana', 'Luis', 'Carlos']})\ndf2 = pd.DataFrame({'ID': [1, 2, 4], 'Ventas': [100, 150, 200]})\nr = pd.merge(df1, df2, on='ID', how='inner')",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "answer": 0,
+      "explanation": "Con inner solo quedan los ID que están en los dos DataFrames: 1 y 2.",
+      "source": "PIA UD3, apartado 3.3",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q091",
+      "type": "truefalse",
+      "prompt": "Al unir con join(how='outer'), donde falta un dato Pandas pone NaN.",
+      "answer": true,
+      "explanation": "En el ejemplo, Ana no tiene ventas y el índice 4 no tiene nombre, así que esos huecos salen como NaN.",
+      "source": "PIA UD3, apartado 3.3",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q092",
+      "type": "order",
+      "prompt": "Ordena lo que hace el cuaderno para preparar la imagen del modelo de perros y gatos.",
+      "steps": [
+        "Cargar la imagen",
+        "Escalarla a 100x100",
+        "Pasarla a escala de grises",
+        "Guardar la imagen transformada"
+      ],
+      "explanation": "El modelo necesita unas dimensiones concretas y muestras en grises. Al final se guarda el resultado para usarlo después.",
+      "source": "PIA UD3, apartado 3.4",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q093",
+      "type": "choice",
+      "prompt": "¿Con qué nombre se importa OpenCV en el cuaderno?",
+      "options": [
+        "cv2",
+        "opencv",
+        "cv",
+        "ocv"
+      ],
+      "answer": 0,
+      "explanation": "Se instala como opencv-python, pero se importa con import cv2.",
+      "source": "PIA UD3, apartado 3.4",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q094",
+      "type": "choice",
+      "prompt": "¿Qué muestra este código si img es una imagen en color de 993x800?",
+      "code": "img_resized = cv2.resize(img, (100, 100))\nimg_gray = cv2.cvtColor(img_resized, cv2.COLOR_RGB2GRAY)\nprint(img_gray.shape)",
+      "options": [
+        "(100, 100)",
+        "(100, 100, 3)",
+        "(993, 800)",
+        "(100, 100, 1)"
+      ],
+      "answer": 0,
+      "explanation": "resize() la deja en 100x100 con sus 3 canales y, al pasarla a grises, se pierde esa tercera dimensión.",
+      "source": "PIA UD3, apartado 3.4",
+      "difficulty": 3
+    },
+    {
+      "id": "pia-ud03-q095",
+      "type": "choice",
+      "prompt": "¿Qué función guarda la imagen procesada en un fichero?",
+      "options": [
+        "cv2.imwrite()",
+        "cv2.imread()",
+        "cv2.imdecode()",
+        "plt.imshow()"
+      ],
+      "answer": 0,
+      "explanation": "imwrite() escribe el fichero. imread() lo lee, imdecode() decodifica bytes y plt.imshow() solo la muestra.",
+      "source": "PIA UD3, apartado 3.4",
+      "difficulty": 1
+    },
+    {
+      "id": "pia-ud03-q096",
+      "type": "choice",
+      "prompt": "¿Para qué sirve cmap='gray' en plt.imshow(img_gray, cmap='gray')?",
+      "options": [
+        "Para mostrar la imagen en grises",
+        "Para convertir la imagen a grises",
+        "Para guardar la imagen en grises",
+        "Para quitar los ejes de la figura"
+      ],
+      "answer": 0,
+      "explanation": "La conversión ya la hizo cv2.cvtColor(). cmap='gray' le dice a Matplotlib cómo pintar esa imagen de un solo canal.",
+      "source": "PIA UD3, apartado 3.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q097",
+      "type": "order",
+      "prompt": "Ordena lo que hace la función dibujar_marco.",
+      "steps": [
+        "Cargar la imagen con cv2.imread()",
+        "Dibujar el marco con cv2.rectangle()",
+        "Guardarla con cv2.imwrite() con el nombre nuevo",
+        "Devolver el nombre de la nueva imagen"
+      ],
+      "explanation": "No se puede dibujar sin haber cargado la imagen, ni guardar el marco antes de dibujarlo, y el return cierra la función. El nombre nuevo añade _marco antes de la extensión para no machacar la original.",
+      "source": "PIA UD3, apartado 3.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q098",
+      "type": "choice",
+      "prompt": "¿Qué hace cv2.cvtColor(img, cv2.COLOR_BGR2RGB) en el cuaderno?",
+      "options": [
+        "Convierte los colores de BGR a RGB",
+        "Escala la imagen a 100x100",
+        "Pasa la imagen a escala de grises",
+        "Decodifica los bytes descargados"
+      ],
+      "answer": 0,
+      "explanation": "Se aplica justo después de imdecode() y antes de mostrarla con Matplotlib. Para grises se usa COLOR_RGB2GRAY y para escalar, resize().",
+      "source": "PIA UD3, apartado 3.4",
+      "difficulty": 2
+    },
+    {
+      "id": "pia-ud03-q099",
+      "type": "truefalse",
+      "prompt": "El cuaderno marca la zona de interés con cv2.rectangle(), indicando las esquinas de inicio y fin.",
+      "answer": true,
+      "explanation": "La función recibe inicio y fin en valores absolutos, como (30, 10) y (80, 50), y dibuja el marco entre ellos.",
+      "source": "PIA UD3, apartado 3.4",
+      "difficulty": 1
+    }
+  ]
+}

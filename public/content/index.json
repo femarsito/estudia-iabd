@@ -78,6 +78,12 @@
           "number": 2,
           "title": "Lenguajes de programación de IA. Lenguaje R",
           "file": "pia/ud02.json"
+        },
+        {
+          "id": "pia-ud03",
+          "number": 3,
+          "title": "Desarrollo de aplicaciones inteligentes con Python",
+          "file": "pia/ud03.json"
         }
       ]
     },
